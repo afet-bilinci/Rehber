@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://afet-bilinci.github.io/Rehber/sitemap.xml

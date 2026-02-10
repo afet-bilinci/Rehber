@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
-    
+
     <!-- Google Dark Mode için gerekli meta etiketleri -->
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)">
@@ -25,7 +25,7 @@
         :root {
             /* Color-scheme eklemesi */
             color-scheme: light dark;
-            
+
             /* YENİ KALİTELİ RENK PALETİ - Teal/Turkuaz tonları */
             --primary: #0f766e;
             --primary-dark: #115e59;
@@ -50,7 +50,7 @@
 
             --white: #ffffff;
             --black: #000000;
-            
+
             /* Koyu tema için doğrudan renkler */
             --dark-bg: #0f172a;
             --dark-text: #f8fafc;
@@ -71,6 +71,7 @@
             /* Transitions */
             --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
             --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 200ms cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Koyu Tema için DOĞRUDAN CSS - Google için */
@@ -84,7 +85,7 @@
                 --accent-light: #fca5a5;
                 --warning: #f59e0b;
                 --success: #10b981;
-                
+
                 /* Daha yüksek kontrastlı renkler */
                 --gray-50: #0f172a;
                 --gray-100: #1e293b;
@@ -97,70 +98,83 @@
                 --gray-800: #f1f5f9;
                 --gray-900: #f8fafc;
             }
-            
+
             /* Tüm sayfa için doğrudan renk tanımlamaları */
             body {
-                background-color: #0f172a !important;
+                background-color: #0a0f1c !important;
                 color: #f1f5f9 !important;
             }
-            
+
             /* Başlıklar için DOĞRUDAN beyaz renk */
             h1, h2, h3, h4, h5, h6 {
                 color: #ffffff !important;
             }
-            
+
             /* Paragraflar için DOĞRUDAN açık gri */
-            p {
-                color: #e2e8f0 !important;
+            p, .card p, .result-message {
+                color: #d1d5db !important;
+                line-height: 1.7;
             }
-            
+
             /* Logo için DOĞRUDAN beyaz */
             .logo-title {
                 color: #ffffff !important;
             }
-            
+
             .logo-subtitle {
                 color: #94a3b8 !important;
             }
-            
+
             /* Kartlar için DOĞRUDAN renkler */
             .card {
-                background-color: #1e293b !important;
-                border-color: #334155 !important;
+                background-color: #1a2238 !important;
+                border-color: #2d3748 !important;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
             }
-            
+
+            .card:hover {
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4) !important;
+            }
+
             .card h3 {
                 color: #ffffff !important;
             }
-            
+
             .card p {
                 color: #cbd5e1 !important;
             }
-            
+
             /* Navigasyon için DOĞRUDAN renkler */
             .nav-link {
                 color: #94a3b8 !important;
             }
-            
+
             .nav-link:hover {
                 color: #5eead4 !important;
                 background: rgba(94, 234, 212, 0.1) !important;
             }
-            
+
             .nav-link.active {
                 color: #ffffff !important;
                 background: linear-gradient(135deg, #14b8a6, #0d9488) !important;
             }
-            
+
             /* Page Hero - değişmez, zaten açık renkli */
+            .page-hero {
+                background: linear-gradient(135deg, 
+                    rgba(15, 118, 110, 0.9) 0%, 
+                    rgba(20, 184, 166, 0.85) 50%,
+                    rgba(153, 246, 228, 0.8) 100%) !important;
+            }
+
             .page-hero h1 {
                 color: #ffffff !important;
             }
-            
+
             .page-hero p {
                 color: rgba(255, 255, 255, 0.95) !important;
             }
-            
+
             /* Section title */
             .section-title h2 {
                 color: transparent !important;
@@ -169,76 +183,76 @@
                 -webkit-text-fill-color: transparent !important;
                 background-clip: text !important;
             }
-            
+
             .section-title p {
                 color: #cbd5e1 !important;
             }
-            
+
             /* Header */
             header {
                 background: rgba(30, 41, 59, 0.95) !important;
                 border-bottom-color: #334155 !important;
             }
-            
+
             /* Test overlay */
             .test-overlay {
                 background: rgba(15, 23, 42, 0.95) !important;
             }
-            
+
             .test-header {
                 border-bottom-color: #334155 !important;
                 background: linear-gradient(135deg, #14b8a6, #0d9488) !important;
             }
-            
+
             /* Question */
             .question {
                 background: #1e293b !important;
                 color: #f1f5f9 !important;
                 border-color: #334155 !important;
             }
-            
+
             /* Choices */
             .choice {
                 background: #1e293b !important;
                 border-color: #475569 !important;
                 color: #cbd5e1 !important;
             }
-            
+
             .choice:hover:not(:disabled) {
                 background: #14b8a6 !important;
                 color: #ffffff !important;
             }
-            
+
             .choice.correct {
                 background: #065f46 !important;
                 border-color: #10b981 !important;
                 color: #d1fae5 !important;
             }
-            
+
             .choice.wrong {
                 background: #7f1d1d !important;
                 border-color: #ef4444 !important;
                 color: #fecaca !important;
             }
-            
+
             /* Progress bar */
             .progress-bar {
                 background: #334155 !important;
             }
-            
+
             /* Feedback */
             .feedback.correct {
                 background: #064e3b !important;
                 border-color: #10b981 !important;
                 color: #a7f3d0 !important;
             }
-            
+
             .feedback.wrong {
                 background: #7f1d1d !important;
                 border-color: #ef4444 !important;
                 color: #fecaca !important;
             }
-            
+
             /* Result screen */
             .result-score {
                 background: linear-gradient(135deg, #14b8a6, #f59e0b) !important;
@@ -246,142 +260,142 @@
                 -webkit-text-fill-color: transparent !important;
                 background-clip: text !important;
             }
-            
+
             .result-message {
                 color: #94a3b8 !important;
             }
-            
+
             .detailed-results {
                 background: #1e293b !important;
                 border-color: #334155 !important;
             }
-            
+
             .result-item {
                 border-bottom-color: #334155 !important;
             }
-            
+
             .result-question {
                 color: #f1f5f9 !important;
             }
-            
+
             .result-explanation {
                 background: #334155 !important;
                 color: #cbd5e1 !important;
             }
-            
+
             /* Butonlar */
             .card-btn.primary {
                 background: linear-gradient(135deg, #14b8a6, #0d9488) !important;
                 color: #ffffff !important;
             }
-            
+
             .card-btn.primary:hover {
                 background: linear-gradient(135deg, #0d9488, #115e59) !important;
             }
-            
+
             .card-btn.secondary {
                 background: #334155 !important;
                 color: #cbd5e1 !important;
             }
-            
+
             .card-btn.secondary:hover {
                 background: #475569 !important;
                 color: #f1f5f9 !important;
             }
-            
+
             /* Footer */
             footer {
                 background-color: #0f172a !important;
                 color: #94a3b8 !important;
             }
-            
+
             .footer-links a {
                 color: #94a3b8 !important;
             }
-            
+
             .footer-links a:hover {
                 color: #ffffff !important;
             }
-            
+
             .footer-column h4 {
                 color: #ffffff !important;
             }
-            
+
             .footer-bottom {
                 border-top-color: #334155 !important;
                 color: #64748b !important;
             }
-            
+
             /* Mobile menu */
             .mobile-menu {
                 background-color: #1e293b !important;
             }
-            
+
             .mobile-menu-link {
                 color: #cbd5e1 !important;
             }
-            
+
             .mobile-menu-link:hover,
             .mobile-menu-link.active {
                 background: #14b8a6 !important;
                 color: #ffffff !important;
             }
-            
+
             /* Scrollbar */
             ::-webkit-scrollbar-track {
                 background: #1e293b !important;
             }
-            
+
             ::-webkit-scrollbar-thumb {
                 background: #475569 !important;
             }
-            
+
             /* Small close button */
             .small-close-btn {
                 background: rgba(255, 255, 255, 0.1) !important;
                 color: #ffffff !important;
             }
-            
+
             .small-close-btn:hover {
                 background: rgba(255, 255, 255, 0.2) !important;
                 color: #f87171 !important;
             }
-            
+
             /* Auto continue button */
             .auto-continue-btn {
                 background: linear-gradient(135deg, #14b8a6, #0d9488) !important;
                 color: #ffffff !important;
             }
-            
+
             .auto-continue-btn:hover {
                 background: linear-gradient(135deg, #0d9488, #115e59) !important;
             }
-            
+
             /* Countdown text */
             .countdown-text {
                 color: #94a3b8 !important;
             }
-            
+
             /* Result answers */
             .result-answer.correct {
                 color: #10b981 !important;
             }
-            
+
             .result-answer.wrong {
                 color: #ef4444 !important;
             }
-            
+
             /* Detail section */
             .detail-section {
                 background-color: #1e293b !important;
                 color: #cbd5e1 !important;
                 border-color: #334155 !important;
             }
-            
+
             .detail-section h2 {
                 color: #14b8a6 !important;
             }
-            
+
             /* İlk Yardım Modal için koyu tema stilleri */
             .firstaid-modal-content {
                 background-color: #1e293b !important;
@@ -390,7 +404,7 @@
 
             .firstaid-modal-header {
                 border-bottom-color: #334155 !important;
-                background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+                background: linear-gradient(135deg, rgba(220, 38, 38, 0.95), rgba(185, 28, 28, 0.9)) !important;
             }
 
             .firstaid-tab {
@@ -487,12 +501,19 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 
+                       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
             background-color: var(--gray-50);
             color: var(--gray-800);
             line-height: 1.5;
             min-height: 100vh;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            transition: background-color var(--transition-smooth),
+                        border-color var(--transition-smooth),
+                        color var(--transition-smooth);
         }
 
         /* Tipografi */
@@ -538,6 +559,8 @@
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--gray-200);
             padding: 1rem 0;
+            transition: background-color var(--transition-smooth),
+                        border-color var(--transition-smooth);
         }
 
         .header-content {
@@ -607,6 +630,11 @@
             padding: 0.5rem 1rem;
             border-radius: var(--radius-md);
             transition: var(--transition-fast);
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .nav-link:hover {
@@ -645,6 +673,10 @@
             cursor: pointer;
             padding: 0.5rem;
             border-radius: var(--radius-md);
+            min-height: 44px;
+            min-width: 44px;
+            align-items: center;
+            justify-content: center;
         }
 
         @media (min-width: 768px) {
@@ -670,6 +702,8 @@
                 rgba(153, 246, 228, 0.85) 100%);
             position: relative;
             overflow: hidden;
+            content-visibility: auto;
+            contain-intrinsic-size: 500px;
         }
 
         .page-hero::before {
@@ -748,7 +782,7 @@
             .grid-cols-2 {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .grid-cols-3 {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -768,6 +802,9 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            transform: translateZ(0);
+            will-change: transform;
+            backface-visibility: hidden;
         }
 
         .card:hover {
@@ -786,6 +823,8 @@
             margin-bottom: 1.5rem;
             font-size: 1.75rem;
             color: var(--white);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
         .card[data-type="kasirga"] .card-icon {
@@ -833,6 +872,8 @@
             border: none;
             cursor: pointer;
             flex: 1;
+            min-height: 44px;
+            min-width: 44px;
         }
 
         .card-btn.primary {
@@ -863,6 +904,10 @@
             box-shadow: var(--shadow-lg);
             margin-top: 3rem;
             border: 1px solid var(--gray-200);
+            content-visibility: hidden;
+            transition: background-color var(--transition-smooth),
+                        border-color var(--transition-smooth),
+                        color var(--transition-smooth);
         }
 
         /* Fullscreen Test Overlay */
@@ -878,10 +923,13 @@
             flex-direction: column;
             padding: 1rem;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            content-visibility: hidden;
         }
 
         .test-overlay.active {
             display: flex;
+            content-visibility: auto;
         }
 
         .test-header {
@@ -921,6 +969,8 @@
             justify-content: center;
             width: 2rem;
             height: 2rem;
+            min-height: 44px;
+            min-width: 44px;
         }
 
         .small-close-btn:hover {
@@ -987,6 +1037,11 @@
             cursor: pointer;
             transition: var(--transition-fast);
             color: var(--gray-700);
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            transform: translateZ(0);
         }
 
         .choice:hover:not(:disabled) {
@@ -1075,6 +1130,8 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            min-height: 44px;
+            min-width: 44px;
         }
 
         .auto-continue-btn:hover {
@@ -1106,6 +1163,8 @@
             font-size: 4rem;
             margin-bottom: 1.5rem;
             animation: bounce 1s ease infinite;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
         @keyframes bounce {
@@ -1197,6 +1256,8 @@
             color: var(--gray-300);
             padding: 4rem 1rem 2rem;
             margin-top: 4rem;
+            transition: background-color var(--transition-smooth),
+                        color var(--transition-smooth);
         }
 
         .footer-content {
@@ -1240,6 +1301,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            min-height: 44px;
+            min-width: 44px;
         }
 
         .footer-links a:hover {
@@ -1316,6 +1379,10 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition-fast);
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
         }
 
         .mobile-menu-link:hover,
@@ -1388,6 +1455,7 @@
             flex-direction: column;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             border: none;
+            transform: translateZ(0);
         }
 
         .firstaid-modal-header {
@@ -1422,6 +1490,8 @@
             font-size: 1.5rem;
             cursor: pointer;
             transition: var(--transition-fast);
+            min-height: 44px;
+            min-width: 44px;
         }
 
         .close-modal-btn:hover {
@@ -1462,6 +1532,8 @@
             font-size: 1rem;
             position: relative;
             white-space: nowrap;
+            min-height: 44px;
+            min-width: 44px;
         }
 
         .firstaid-tab:hover {
@@ -1494,6 +1566,8 @@
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             transition: var(--transition-fast);
+            transform: translateZ(0);
+            will-change: transform;
         }
 
         .firstaid-step-card:hover {
@@ -1573,6 +1647,7 @@
             padding: 1.25rem;
             text-align: center;
             transition: var(--transition-fast);
+            transform: translateZ(0);
         }
 
         .emergency-number:hover {
@@ -1628,8 +1703,41 @@
         .icon-orange { color: var(--warning); }
         .icon-purple { color: #7c3aed; }
 
-        /* Responsive */
+        /* Focus Styles */
+        :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--gray-100);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gray-300);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gray-400);
+        }
+
+        /* ============ MOBİL OPTİMİZASYONLARI ============ */
         @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+            
+            .container {
+                padding-left: max(1rem, env(safe-area-inset-left));
+                padding-right: max(1rem, env(safe-area-inset-right));
+            }
+            
             h1 {
                 font-size: 2.5rem;
             }
@@ -1661,6 +1769,7 @@
 
             .test-overlay {
                 padding: 0.5rem;
+                -webkit-overflow-scrolling: touch;
             }
 
             .test-header {
@@ -1719,6 +1828,138 @@
             .emergency-numbers {
                 grid-template-columns: 1fr;
             }
+            
+            /* Mobilde daha hafif animasyonlar */
+            .animate-fade-in-up {
+                animation-duration: 0.4s;
+            }
+            
+            .card:hover {
+                transform: translateY(-4px) !important;
+            }
+            
+            .choice:hover:not(:disabled) {
+                transform: translateX(4px) !important;
+            }
+        }
+
+        /* Küçük telefonlar için ek optimizasyonlar */
+        @media (max-width: 375px) {
+            .page-hero h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .page-hero p {
+                font-size: 1rem;
+                padding: 0 0.5rem;
+            }
+            
+            .card-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .card-btn {
+                width: 100%;
+                padding: 0.875rem 1rem;
+            }
+            
+            .emergency-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+
+        /* ============ PC OPTİMİZASYONLARI ============ */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1400px;
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 3rem;
+            }
+            
+            .page-hero h1 {
+                font-size: 4.5rem;
+            }
+            
+            .card {
+                padding: 2.5rem;
+            }
+            
+            p {
+                font-size: 1.2rem;
+                line-height: 1.8;
+            }
+        }
+
+        /* 2K ve 4K ekranlar için */
+        @media (min-width: 1920px) {
+            html {
+                font-size: 18px;
+            }
+            
+            .container {
+                max-width: 1600px;
+            }
+        }
+
+        /* Tablet optimizasyonları */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            .grid-cols-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .page-hero {
+                padding: 4rem 1rem;
+            }
+            
+            .page-hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Büyük tabletler ve küçük laptop'lar */
+        @media (min-width: 1025px) and (max-width: 1366px) {
+            .container {
+                max-width: 1100px;
+            }
+            
+            .grid-cols-3 {
+                gap: 2rem;
+            }
+        }
+
+        /* PC için hover efektleri geliştirmeleri */
+        @media (hover: hover) and (pointer: fine) {
+            .card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            }
+            
+            .card:hover {
+                transform: translateY(-12px);
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            }
+            
+            .choice:hover:not(:disabled) {
+                transform: translateX(12px);
+                transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            }
         }
 
         @media (max-width: 480px) {
@@ -1751,30 +1992,6 @@
                 padding: 0.75rem 1rem;
                 font-size: 0.9rem;
             }
-        }
-
-        /* Focus Styles */
-        :focus-visible {
-            outline: 2px solid var(--primary);
-            outline-offset: 2px;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--gray-100);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gray-300);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gray-400);
         }
     </style>
 </head>
@@ -1827,7 +2044,7 @@
                     <div class="logo-title">Afet Hazırlık</div>
                 </div>
             </div>
-            <button id="closeMenuBtn" style="background:none;border:none;font-size:1.5rem;color:var(--gray-600);cursor:pointer;">×</button>
+            <button id="closeMenuBtn" style="background:none;border:none;font-size:1.5rem;color:var(--gray-600);cursor:pointer;min-height:44px;min-width:44px;">×</button>
         </div>
         <nav class="mobile-menu-links" aria-label="Mobil Navigasyon">
             <a href="index.html" class="mobile-menu-link">🏠 Ana Sayfa</a>
@@ -1851,7 +2068,7 @@
                 <h3><span>🆘</span> Acil Durumda İlk Yardım Rehberi</h3>
                 <button class="close-modal-btn" id="closeFirstAidModal">×</button>
             </div>
-            
+
             <div class="firstaid-modal-body">
                 <div class="firstaid-tabs">
                     <button class="firstaid-tab active" data-tab="basic">🧠 Temel Kurallar</button>
@@ -1865,7 +2082,7 @@
                 <!-- Temel Kurallar Tab'ı -->
                 <div class="firstaid-tab-content active" id="basic-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">İlk Yardımın Temel Kuralları</h3>
-                    
+
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">1️⃣</span> Sakin Olun ve Güvenliği Sağlayın</h4>
                         <p>Önce kendi güvenliğinizi kontrol edin, sonra çevreyi değerlendirin. Elektrik, gaz, yangın gibi riskleri kontrol edin. Yaralıyı güvenli bir yere alın.</p>
@@ -1899,7 +2116,7 @@
                         <h5><span>⚠️</span> ÖNEMLİ UYARI</h5>
                         <p>• Bilinçsiz yaralıları hareket ettirmeyin (boyun yaralanması riski)<br>
                         • Bilinçsiz yaralılara kesinlikle su veya yiyecek vermeyin<br>
-                        • Yaralının üzerindeki giysileri keserek çıkarın<br>
+                        • Yaralının üzerindeki gişileri keserek çıkarın<br>
                         • Yaralıyı sıcak tutun ama terletmeyin</p>
                     </div>
                 </div>
@@ -1907,7 +2124,7 @@
                 <!-- Kanamalar Tab'ı -->
                 <div class="firstaid-tab-content" id="bleeding-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Kanamalarda İlk Yardım</h3>
-                    
+
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">🩸</span> İç Kanama Belirtileri</h4>
                         <p>• Soluk, soğuk, nemli cilt<br>
@@ -1945,7 +2162,7 @@
                 <!-- Bayılma Tab'ı -->
                 <div class="firstaid-tab-content" id="unconscious-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Bilinç Kaybı ve Bayılmada İlk Yardım</h3>
-                    
+
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">😴</span> Bilinç Kontrolü Nasıl Yapılır?</h4>
                         <p>1. Omuzlarından hafifçe sarsarak "İyi misiniz?" diye sorun<br>
@@ -1992,7 +2209,7 @@
                 <!-- Yanıklar Tab'ı -->
                 <div class="firstaid-tab-content" id="burn-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Yanıklarda İlk Yardım</h3>
-                    
+
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">🔥</span> 1. Derece Yanık</h4>
                         <p><strong>Belirtiler:</strong> Kızarıklık, hafif şişlik, ağrı<br>
@@ -2036,7 +2253,7 @@
                 <!-- Kırıklar Tab'ı -->
                 <div class="firstaid-tab-content" id="fracture-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Kırık, Çıkık ve Burkulmalarda İlk Yardım</h3>
-                    
+
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">🦴</span> Kırık Belirtileri</h4>
                         <p>• Şiddetli ağrı<br>
@@ -2078,7 +2295,7 @@
                 <!-- Acil Numaralar Tab'ı -->
                 <div class="firstaid-tab-content" id="numbers-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Acil Durum Telefon Numaraları</h3>
-                    
+
                     <div class="emergency-numbers">
                         <div class="emergency-number">
                             <div class="number">112</div>
@@ -2168,7 +2385,7 @@
                     <span style="font-size: 0.9rem;">Tüm acil durumlar için tek numara</span>
                 </div>
             </div>
-            <button id="emergencyFirstAidButton" style="background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); color: white; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; gap: 0.75rem; font-weight: 600; transition: all 0.3s ease; white-space: nowrap;">
+            <button id="emergencyFirstAidButton" style="background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); color: white; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; gap: 0.75rem; font-weight: 600; transition: all 0.3s ease; white-space: nowrap; min-height: 44px; min-width: 44px;">
                 <span>🆘</span>
                 İlk Yardım Rehberi
             </button>
@@ -2270,7 +2487,7 @@
                         <p style="color: var(--gray-400); margin-bottom: 1.5rem;">
                             Doğal afetlere hazırlık için rehber ve bilgi kaynağı. Herkes için güvenlik.
                         </p>
-                        <button id="footerFirstAidButton" style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; transition: all 0.3s ease; margin-top: 1rem; width: 100%; justify-content: center;">
+                        <button id="footerFirstAidButton" style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; transition: all 0.3s ease; margin-top: 1rem; width: 100%; justify-content: center; min-height: 44px;">
                             <span>🆘</span>
                             İlk Yardım Rehberi
                         </button>
@@ -2322,7 +2539,7 @@
 
     <script>
         // ==================== TEMEL İŞLEMLER ====================
-        
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const closeMenuBtn = document.getElementById('closeMenuBtn');
@@ -2429,6 +2646,9 @@
         function openFirstAidModal() {
             firstAidModal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            document.body.style.height = '100%';
             // Varsayılan tab'ı aktif et
             switchFirstAidTab('basic');
         }
@@ -2437,6 +2657,9 @@
         function closeFirstAidModalFunc() {
             firstAidModal.classList.remove('active');
             document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.height = '';
         }
 
         // Tab değiştirme
@@ -2508,6 +2731,103 @@
                 closeFirstAidModalFunc();
             }
         });
+
+        // ==================== PERFORMANS OPTİMİZASYONLARI ====================
+
+        // Debounce optimizasyonu
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // Mobil/PC geçişinde gerekli işlemler
+                if (window.innerWidth <= 768) {
+                    // Mobil optimizasyonlar
+                    document.documentElement.style.setProperty('--transition-normal', '200ms');
+                } else {
+                    // PC optimizasyonlar
+                    document.documentElement.style.setProperty('--transition-normal', '300ms');
+                }
+            }, 250);
+        });
+
+        // Intersection Observer ile lazy loading
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '50px',
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.card, .detail-section').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Preconnect optimizasyonları
+        const preconnects = [
+            'https://unpkg.com'
+        ];
+
+        preconnects.forEach(url => {
+            const link = document.createElement('link');
+            link.rel = 'preconnect';
+            link.href = url;
+            document.head.appendChild(link);
+        });
+
+        // Memory ve CPU Optimizasyonu
+        let isScrolling;
+        window.addEventListener('scroll', () => {
+            clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                // Scroll durduğunda yapılacak işlemler
+            }, 66); // 60fps için 16.67ms, 66ms buffer
+        }, { passive: true });
+
+        // Mobil için swipe gesture optimizasyonu
+        if ('ontouchstart' in window) {
+            let startX, startY;
+            const testOverlay = document.getElementById('testOverlay');
+            
+            testOverlay.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+            }, { passive: true });
+            
+            testOverlay.addEventListener('touchmove', (e) => {
+                if (!startX || !startY) return;
+                
+                const diffX = e.touches[0].clientX - startX;
+                const diffY = e.touches[0].clientY - startY;
+                
+                // Sağdan sola swipe ile testi kapat
+                if (Math.abs(diffX) > Math.abs(diffY) && diffX < -50) {
+                    closeTest();
+                }
+            }, { passive: true });
+        }
+
+        // Mobilde daha hafif animasyonlar için
+        if ('matchMedia' in window && window.matchMedia('(max-width: 768px)').matches) {
+            const style = document.createElement('style');
+            style.textContent = `
+                @media (max-width: 768px) {
+                    .card:hover {
+                        transform: translateY(-4px) !important;
+                    }
+                    .choice:hover:not(:disabled) {
+                        transform: translateX(4px) !important;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
 
         // ==================== TEST SİSTEMİ ====================
 

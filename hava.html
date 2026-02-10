@@ -2116,7 +2116,7 @@
                         <h5><span>⚠️</span> ÖNEMLİ UYARI</h5>
                         <p>• Bilinçsiz yaralıları hareket ettirmeyin (boyun yaralanması riski)<br>
                         • Bilinçsiz yaralılara kesinlikle su veya yiyecek vermeyin<br>
-                        • Yaralının üzerindeki gişileri keserek çıkarın<br>
+                        • Yaralının üzerindeki giysileri keserek çıkarın<br>
                         • Yaralıyı sıcak tutun ama terletmeyin</p>
                     </div>
                 </div>
@@ -2230,7 +2230,7 @@
                         4. Acil servise başvurun</p>
                     </div>
 
-                    <div class="firstaid-step-card">
+                    .firstaid-step-card {
                         <h4><span class="icon-green">🔥</span> 3. Derece Yanık</h4>
                         <p><strong>Belirtiler:</strong> Deri beyaz veya kömürleşmiş, ağrı yok (sinirler yandı)<br>
                         <strong>Yapılacaklar:</strong><br>
@@ -2449,10 +2449,12 @@
                 </div>
             </div>
 
-            <!-- Detail Section -->
+            <!-- Detail Section - BİLGİ AL İÇERİĞİ TAMAMLANMIŞ -->
             <div class="detail-section animate-fade-in-up" id="detailSection" style="display: none;">
                 <h2 id="detailTitle">Afet Bilgisi</h2>
-                <div class="info-content" id="detailContent"></div>
+                <div class="info-content" id="detailContent">
+                    <!-- İçerik JavaScript ile doldurulacak -->
+                </div>
                 <button class="card-btn primary" style="margin-top: 2rem;" onclick="hideInfo()">
                     <span>← Geri Dön</span>
                 </button>
@@ -2829,6 +2831,325 @@
             document.head.appendChild(style);
         }
 
+        // ==================== BİLGİ AL İÇERİĞİ ====================
+
+        // Bilgi Map - TAM EKSİKSİZ İÇERİK
+        const infoData = {
+            kasirga: {
+                title: "🌪️ Kasırga Hakkında Detaylı Bilgi",
+                content: `
+                    <div style="line-height: 1.8;">
+                        <div style="background: linear-gradient(135deg, var(--primary-soft), var(--white)); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; border-left: 4px solid var(--primary);">
+                            <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">📖 Kasırga Nedir?</h3>
+                            <p><strong>Kasırga</strong>, şiddetli dönen rüzgar sistemleridir. Genellikle konvektif fırtınalarla ilişkilidir ve saatte 100 km'yi aşan rüzgar hızlarına ulaşabilir.</p>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">📋 Temel Önlemler:</h3>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--warning);">🛡️</span> Öncesi Hazırlık</h4>
+                            <p>• Bodrum katını temizleyin ve güvenli hale getirin<br>
+                            • Acil durum çantası hazırlayın (su, yiyecek, ilk yardım, fener)<br>
+                            • Pencereleri korumak için tahta paneller hazırlayın<br>
+                            • Dışarıdaki eşyaları sabitleyin veya içeri alın</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--accent);">⚡</span> Sırasında Yapılacaklar</h4>
+                            <p>• En iç odalarda veya bodrumda kalın<br>
+                            • Pencerelerden, cam kapılardan uzak durun<br>
+                            • Elektrikli aletleri fişten çekin<br>
+                            • Sığınak olarak banyo veya tuvalet kullanın<br>
+                            • Başınızı koruyun (yastık, kitap, kask)</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--success);">✅</span> Sonrası Dikkat Edilecekler</h4>
+                            <p>• Yetkililer izin verene kadar dışarı çıkmayın<br>
+                            • Kopmuş elektrik tellerine dokunmayın<br>
+                            • Hasarlı binalara girmeyin<br>
+                            • Gaz kokusu alırsanız vanayı kapatın ve yetkilileri arayın<br>
+                            • Su birikintilerinden uzak durun (elektrik çarpabilir)</p>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">⚠️ Tehlikeler:</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--accent);">💨 Şiddetli Rüzgar</strong>
+                                <p style="font-size: 0.9rem;">Saatte 100 km+ hız, ağaçları kökünden söker</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--warning);">🚀 Uçan Nesneler</strong>
+                                <p style="font-size: 0.9rem;">Cam, tahta, metal parçaları ölümcül olabilir</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--primary);">🏚️ Yapısal Hasar</strong>
+                                <p style="font-size: 0.9rem;">Çatı uçması, duvar yıkılması</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: #8b5cf6;">🔌 Elektrik Kesintisi</strong>
+                                <p style="font-size: 0.9rem;">Günlerce sürebilir, hazırlıklı olun</p>
+                            </div>
+                        </div>
+                        
+                        <div class="firstaid-warning" style="margin-top: 2rem;">
+                            <h5><span>🚫</span> YAPILMAMASI GEREKENLER</h5>
+                            <p>• Kasırga sırasında dışarı çıkmaya çalışmayın<br>
+                            • Araçla kasırgadan kaçmaya çalışmayın<br>
+                            • Pencereleri açmayın (basınç farkı evi patlatabilir)<br>
+                            • Asansör kullanmayın<br>
+                            • Elektrikli aletleri kullanmayın</p>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, #dbeafe, #e0e7ff); padding: 1.5rem; border-radius: var(--radius-lg); margin-top: 2rem; border-left: 4px solid #4f46e5;">
+                            <h5 style="color: #4f46e5;">📞 Acil Durum Numaraları</h5>
+                            <p><strong>112:</strong> Acil Yardım<br>
+                            <strong>154:</strong> Trafik Polisi<br>
+                            <strong>186:</strong> Elektrik Arıza<br>
+                            <strong>187:</strong> Doğal Gaz Arıza</p>
+                        </div>
+                    </div>
+                `
+            },
+            yildirim: {
+                title: "⚡ Yıldırım Fırtınası Hakkında Detaylı Bilgi",
+                content: `
+                    <div style="line-height: 1.8;">
+                        <div style="background: linear-gradient(135deg, #fef3c7, #fef9c3); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; border-left: 4px solid var(--warning);">
+                            <h3 style="color: var(--warning); margin-bottom: 1rem;">⚡ Yıldırım Fırtınası Nedir?</h3>
+                            <p><strong>Yıldırım Fırtınası</strong>, bulut ile yer arasında elektrik boşalması sonucu oluşan tehlikeli meteorolojik olaydır. Her yıldırım 1 milyar volt enerji taşıyabilir.</p>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">⚠️ Risk Belirtileri:</h3>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--warning);">⚡ Şimşek Çakmaları</strong>
+                                <p style="font-size: 0.9rem;">Gökyüzünde ani ışık patlamaları</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: #8b5cf6;">🌩️ Gök Gürültüsü</strong>
+                                <p style="font-size: 0.9rem;">Şiddetli ve yakın sesler</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--accent);">💨 Ani Rüzgar</strong>
+                                <p style="font-size: 0.9rem;">Hava basıncı değişikliği</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--primary);">☁️ Koyu Bulutlar</strong>
+                                <p style="font-size: 0.9rem;">Aniden kararan gökyüzü</p>
+                            </div>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--warning);">📏</span> Uzaklık Hesaplama</h4>
+                            <p><strong>30 Saniye Kuralı:</strong> Şimşek ile gök gürültüsü arasındaki süreyi sayın. Her 3 saniye 1 km uzaklığı gösterir.<br>
+                            <strong>Örnek:</strong> 9 saniye = 3 km uzakta<br>
+                            <strong>Tehlike:</strong> 30 saniyeden az ise risk yüksektir!</p>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">🛡️ Korunma Yöntemleri:</h3>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--success);">🏠</span> Kapalı Alanlarda</h4>
+                            <p>• Pencere ve kapıları kapatın<br>
+                            • Elektrikli aletleri fişten çekin<br>
+                            • Telefon kablolu değilse kullanmayın<br>
+                            • Banyo ve duş almayın (su boruları iletken)<br>
+                            • Şömine kullanmayın (bacadan yıldırım girebilir)</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--accent);">🌳</span> Açık Alanlarda</h4>
+                            <p>• Mümkünse kapalı alana sığının<br>
+                            • Ağaçlardan uzak durun (en az 30 metre)<br>
+                            • Su birikintilerinden uzaklaşın<br>
+                            • Metal nesneleri (şemsiye, golf sopası) bırakın<br>
+                            • Çömelerek en alçak pozisyonu alın<br>
+                            • Yere yatmayın!</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: #8b5cf6;">🚗</span> Araç İçinde</h4>
+                            <p>• Araç içinde kalın (Faraday kafesi etkisi)<br>
+                            • Metal kısımlara dokunmayın<br>
+                            • Camları kapatın<br>
+                            • Araçtan inip ağaç altına sığınmayın<br>
+                            • Radyoyu kapatın</p>
+                        </div>
+                        
+                        <div class="firstaid-warning" style="margin-top: 2rem;">
+                            <h5><span>🚫</span> TEHLİKELİ DAVRANIŞLAR</h5>
+                            <p>• Bisiklet, motosiklet kullanmayın<br>
+                            • Yüzmeyin, kayıkla gezmeyin<br>
+                            • Tarla, golf sahası gibi açık alanlarda kalmayın<br>
+                            • Telefon kulübelerine girmeyin<br>
+                            • Çit, tel örgü gibi metal yapılara yaklaşmayın</p>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, #dcfce7, #d1fae5); padding: 1.5rem; border-radius: var(--radius-lg); margin-top: 2rem; border-left: 4px solid var(--success);">
+                            <h5 style="color: var(--success);">🆘 Yıldırım Çarpması Durumunda</h5>
+                            <p><strong>1.</strong> Hemen 112'yi arayın<br>
+                            <strong>2.</strong> Yaralıyı güvenli yere alın (artık elektrik yüklü değil)<br>
+                            <strong>3.</strong> Solunum ve nabız kontrolü yapın<br>
+                            <strong>4.</strong> CPR (kalp masajı) gerekiyorsa uygulayın<br>
+                            <strong>5.</strong> Yanık varsa soğuk su uygulayın</p>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                            <div style="text-align: center; background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <div style="font-size: 1.5rem;">⚡</div>
+                                <strong>1 Milyar</strong>
+                                <p style="font-size: 0.8rem;">Volt enerji</p>
+                            </div>
+                            <div style="text-align: center; background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <div style="font-size: 1.5rem;">🔥</div>
+                                <strong>30,000°C</strong>
+                                <p style="font-size: 0.8rem;">Sıcaklık</p>
+                            </div>
+                            <div style="text-align: center; background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <div style="font-size: 1.5rem;">💀</div>
+                                <strong>%10-30</strong>
+                                <p style="font-size: 0.8rem;">Ölüm oranı</p>
+                            </div>
+                            <div style="text-align: center; background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <div style="font-size: 1.5rem;">⏱️</div>
+                                <strong>0.2 saniye</strong>
+                                <p style="font-size: 0.8rem;">Çarpma süresi</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            dolu: {
+                title: "🌨️ Şiddetli Dolu Hakkında Detaylı Bilgi",
+                content: `
+                    <div style="line-height: 1.8;">
+                        <div style="background: linear-gradient(135deg, #e0e7ff, #c7d2fe); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; border-left: 4px solid #6366f1;">
+                            <h3 style="color: #6366f1; margin-bottom: 1rem;">🌨️ Şiddetli Dolu Nedir?</h3>
+                            <p><strong>Şiddetli Dolu</strong>, kuvvetli yukarı hava akımlarıyla yükselen su damlacıklarının donmasıyla oluşan buz parçalarıdır. Tenis topu büyüklüğüne ulaşabilir ve ciddi hasara neden olabilir.</p>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">📏 Dolu Boyutları ve Etkileri:</h3>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md); text-align: center;">
+                                <div style="font-size: 1.5rem;">🟢</div>
+                                <strong style="color: var(--success);">Küçük Dolu</strong>
+                                <p style="font-size: 0.9rem;">0.5-1.5 cm<br>Bezelye büyüklüğü<br>Hafif hasar</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md); text-align: center;">
+                                <div style="font-size: 1.5rem;">🟡</div>
+                                <strong style="color: var(--warning);">Orta Dolu</strong>
+                                <p style="font-size: 0.9rem;">1.5-4.5 cm<br>Ceviz büyüklüğü<br>Ciddi hasar</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md); text-align: center;">
+                                <div style="font-size: 1.5rem;">🔴</div>
+                                <strong style="color: var(--accent);">Büyük Dolu</strong>
+                                <p style="font-size: 0.9rem;">4.5+ cm<br>Tenis topu<br>Yıkıcı hasar</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md); text-align: center;">
+                                <div style="font-size: 1.5rem;">⚫</div>
+                                <strong>Dev Dolu</strong>
+                                <p style="font-size: 0.9rem;">15+ cm<br>Greyfurt<br>Çok nadir</p>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">☁️ Korunma Yöntemleri:</h3>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--primary);">🏠</span> Ev İçi Önlemler</h4>
+                            <p>• Pencereleri koruyucu film veya tahta ile koruyun<br>
+                            • Balkon ve teraslardaki eşyaları içeri alın<br>
+                            • Çatı pencerelerini kapatın<br>
+                            • Sığınak olarak iç odaları belirleyin<br>
+                            • Elektronik eşyaları pencereden uzaklaştırın</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: #8b5cf6;">🚗</span> Araç Koruma</h4>
+                            <p>• Araçları kapalı garaja alın<br>
+                            • Garaj yoksa kalın battaniye veya örtü ile örtün<br>
+                            • Araç dolu sırasında yoldaysa:<br>
+                            &nbsp;&nbsp;- Güvenli yere çekip bekleyin<br>
+                            &nbsp;&nbsp;- Camlardan uzak durun<br>
+                            &nbsp;&nbsp;- Motoru çalışır durumda bırakın<br>
+                            &nbsp;&nbsp;- Acil durum flaşörlerini yakın</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--success);">🌱</span> Bitki ve Hayvanlar</h4>
+                            <p>• Bitkileri branda veya naylonla örtün<br>
+                            • Hayvanları kapalı alana alın<br>
+                            • Açıkta kalan hayvanlar için barınak sağlayın<br>
+                            • Hassas bitkileri içeri alın<br>
+                            • Seraları güçlendirin</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--warning);">⚠️</span> Dışarıda Yakalanırsanız</h4>
+                            <p>• Hemen kapalı alana sığının<br>
+                            • Ağaç altına girmeyin (dallar kırılabilir)<br>
+                            • Başınızı koruyun (çanta, kitap vs.)<br>
+                            • Yere çökün ve kapanın<br>
+                            • Metal yapılardan uzak durun</p>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">🚨 Dolu Fırtınası Sonrası:</h3>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--accent);">🔍 Hasar Kontrolü</strong>
+                                <p style="font-size: 0.9rem;">Çatı, pencere, araç hasarını kontrol edin</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--warning);">🧊 Buzlanma</strong>
+                                <p style="font-size: 0.9rem;">Yollarda buzlanma olabilir, dikkatli yürüyün</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--primary);">🚧 Yol Durumu</strong>
+                                <p style="font-size: 0.9rem;">Yollar kapalı olabilir, trafiğe çıkmayın</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--success);">📞 Yardım</strong>
+                                <p style="font-size: 0.9rem;">Ciddi hasar varsa sigorta ve yetkilileri arayın</p>
+                            </div>
+                        </div>
+                        
+                        <div class="firstaid-warning" style="margin-top: 2rem;">
+                            <h5><span>🚫</span> YAPILMAMASI GEREKENLER</h5>
+                            <p>• Dolu tanelerini yemeyin (kirli olabilir)<br>
+                            • Dolu yağarken dışarı çıkmayın<br>
+                            • Hasarlı çatıya çıkmayın<br>
+                            • Elektrik tellerine yaklaşmayın<br>
+                            • Dolu suyunu içmeyin</p>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, #fce7f3, #fbcfe8); padding: 1.5rem; border-radius: var(--radius-lg); margin-top: 2rem; border-left: 4px solid #db2777;">
+                            <h5 style="color: #db2777;">📊 Dolu İstatistikleri</h5>
+                            <p><strong>En Büyük Dolu:</strong> 20 cm, Güney Dakota, ABD (2010)<br>
+                            <strong>En Hızlı Dolu:</strong> Saatte 160 km hızla düşebilir<br>
+                            <strong>En Çok Hasar:</strong> Münih, Almanya (1984) - 2 milyar $<br>
+                            <strong>Ölümler:</strong> Nadir ama mümkün (baş yaralanması)</p>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem;">
+                            <div style="background: linear-gradient(135deg, var(--primary-light), var(--primary)); color: white; padding: 1.5rem; border-radius: var(--radius-lg); text-align: center;">
+                                <div style="font-size: 2rem;">🌡️</div>
+                                <strong>Hava Sıcaklığı</strong>
+                                <p style="font-size: 0.9rem; opacity: 0.9;">0°C altında oluşur<br>-10°C'de daha büyük</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, var(--accent-light), var(--accent)); color: white; padding: 1.5rem; border-radius: var(--radius-lg); text-align: center;">
+                                <div style="font-size: 2rem;">⏱️</div>
+                                <strong>Ortalama Süre</strong>
+                                <p style="font-size: 0.9rem; opacity: 0.9;">5-10 dakika<br>Nadir: 30+ dakika</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
         // ==================== TEST SİSTEMİ ====================
 
         // Test Data - Şıklar karıştırıldı, doğru cevaplar değişmez
@@ -2944,80 +3265,6 @@
             kasirga: "🌪️ Kasırga Testi",
             yildirim: "⚡ Yıldırım Fırtınası Testi",
             dolu: "🌨️ Şiddetli Dolu Testi"
-        };
-
-        // Bilgi Map
-        const infoData = {
-            kasirga: {
-                title: "Kasırga Hakkında",
-                content: `
-                    <div style="line-height: 1.8;">
-                        <p><strong>Kasırga:</strong> Şiddetli dönen rüzgar sistemleri, genellikle konvektif fırtınalarla ilişkilidir.</p>
-                        
-                        <h3 style="margin-top: 1.5rem; color: var(--primary);">📋 Temel Önlemler:</h3>
-                        <ul style="padding-left: 1.5rem; margin: 1rem 0;">
-                            <li><strong>Öncesi:</strong> Bodrum katı hazırlayın, acil durum çantası oluşturun</li>
-                            <li><strong>Sırasında:</strong> İç odalarda kalın, pencerelerden uzak durun</li>
-                            <li><strong>Sonrası:</strong> Kopmuş elektrik tellerine dikkat edin</li>
-                        </ul>
-                        
-                        <h3 style="margin-top: 1.5rem; color: var(--primary);">⚠️ Tehlikeler:</h3>
-                        <ul style="padding-left: 1.5rem; margin: 1rem 0;">
-                            <li>Şiddetli rüzgarlar (saatte 100 km+)</li>
-                            <li>Uçan nesneler</li>
-                            <li>Yapısal hasarlar</li>
-                            <li>Elektrik kesintileri</li>
-                        </ul>
-                    </div>
-                `
-            },
-            yildirim: {
-                title: "Yıldırım Fırtınası Hakkında",
-                content: `
-                    <div style="line-height: 1.8;">
-                        <p><strong>Yıldırım Fırtınası:</strong> Bulut ile yer arasında elektrik boşalması sonucu oluşan tehlikeli meteorolojik olay.</p>
-                        
-                        <h3 style="margin-top: 1.5rem; color: var(--primary);">⚠️ Risk Belirtileri:</h3>
-                        <ul style="padding-left: 1.5rem; margin: 1rem 0;">
-                            <li>Şimşek çakmaları</li>
-                            <li>Gök gürültüsü sesleri</li>
-                            <li>Ani rüzgar ve yağış değişimi</li>
-                            <li>Koyu renkli bulutlar</li>
-                        </ul>
-                        
-                        <h3 style="margin-top: 1.5rem; color: var(--primary);">🛡️ Korunma Yöntemleri:</h3>
-                        <ul style="padding-left: 1.5rem; margin: 1rem 0;">
-                            <li>Kapalı alanlara sığının</li>
-                            <li>Ağaçlardan ve su birikintilerinden uzak durun</li>
-                            <li>Metal nesnelerle temas etmeyin</li>
-                            <li>Elektronik cihazları kullanmayın</li>
-                        </ul>
-                    </div>
-                `
-            },
-            dolu: {
-                title: "Şiddetli Dolu Hakkında",
-                content: `
-                    <div style="line-height: 1.8;">
-                        <p><strong>Şiddetli Dolu:</strong> Kuvvetli yukarı hava akımlarıyla yükselen su damlacıklarının donmasıyla oluşan buz parçaları.</p>
-                        
-                        <h3 style="margin-top: 1.5rem; color: var(--primary);">☁️ Korunma Yöntemleri:</h3>
-                        <ul style="padding-left: 1.5rem; margin: 1rem 0;">
-                            <li>Araçları kapalı garaja alın</li>
-                            <li>Camları koruyucu film veya tahta ile koruyun</li>
-                            <li>Dışarıda kalmayın, kapalı alanlara sığının</li>
-                            <li>Balkon ve teraslardaki eşyaları içeri alın</li>
-                        </ul>
-                        
-                        <h3 style="margin-top: 1.5rem; color: var(--primary);">📏 Dolu Boyutları:</h3>
-                        <ul style="padding-left: 1.5rem; margin: 1rem 0;">
-                            <li>Küçük dolu: 0.5-1.5 cm (bezelye)</li>
-                            <li>Orta dolu: 1.5-4.5 cm (ceviz)</li>
-                            <li>Büyük dolu: 4.5+ cm (tenis topu)</li>
-                        </ul>
-                    </div>
-                `
-            }
         };
 
         // Test Başlatma Fonksiyonu

@@ -4,24 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Leaflet CSS -->
+    <!-- PERFORMANS METRİKLERİ -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- LEAFLET CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
     
-    <!-- Google Dark Mode için gerekli meta etiketleri -->
+    <!-- FONT PERFORMANS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- GOOGLE DARK MODE -->
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
-
-    <!-- SEO Optimizasyonu -->
+    
+    <!-- SEO OPTİMİZASYONU -->
     <title>Afet Hazırlık - Doğal Afetler İçin Hazırlık Rehberi</title>
     <meta name="description" content="Deprem, sel, yangın gibi doğal afetler için hazırlık rehberi ve bilgi kaynakları.">
     <meta name="keywords" content="deprem, sel, yangın, doğal afet, acil durum, hazırlık, güvenlik">
     <meta name="author" content="Afet Hazırlık Platformu">
-  
+    
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    
     <style>
-        /* Modern Reset ve Değişkenler */
+        /* ============ MODERN RESET VE DEĞİŞKENLER ============ */
         :root {
             /* Color-scheme eklemesi */
             color-scheme: light dark;
@@ -35,7 +48,7 @@
             --accent-light: #f87171;
             --warning: #d97706;
             --success: #059669;
-
+            
             /* Nötr Renkler - YÜKSEK KONTRAST */
             --gray-50: #f9fafb;
             --gray-100: #f3f4f6;
@@ -47,7 +60,7 @@
             --gray-700: #374151;
             --gray-800: #1f2937;
             --gray-900: #111827;
-
+            
             --white: #ffffff;
             --black: #000000;
             
@@ -60,13 +73,16 @@
             --radius-md: 0.5rem;
             --radius-lg: 0.75rem;
             --radius-xl: 1rem;
-
+            
             /* Transitions */
             --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
             --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Donanım hızlandırma */
+            --gpu: translateZ(0);
         }
-
-        /* Koyu Tema için DOĞRUDAN CSS - Google için */
+        
+        /* ============ KARANLIK TEMA OPTİMİZASYONLARI ============ */
         @media (prefers-color-scheme: dark) {
             :root {
                 /* Karanlık tema için renkler */
@@ -94,8 +110,8 @@
             
             /* Tüm sayfa için doğrudan renk tanımlamaları */
             body {
-                background-color: #0f172a;
-                color: #f1f5f9;
+                background-color: #0a0f1f !important;
+                color: #f8fafc !important;
             }
             
             /* Başlıklar için DOĞRUDAN beyaz renk */
@@ -117,10 +133,15 @@
                 color: #94a3b8 !important;
             }
             
-            /* Kartlar için DOĞRUDAN renkler */
+            /* Kartlar için DOĞRUDAN renkler - Gradient optimizasyonu */
             .card {
-                background-color: #1e293b !important;
-                border-color: #334155 !important;
+                background: linear-gradient(145deg, #1e293b, #1a2435) !important;
+                border: 1px solid #2d3748 !important;
+            }
+            
+            .card:hover {
+                background: linear-gradient(145deg, #2d3748, #1e293b) !important;
+                border-color: #4a5568 !important;
             }
             
             .card h3 {
@@ -182,11 +203,12 @@
             }
             
             .footer-links a {
-                color: #94a3b8 !important;
+                color: #cbd5e1 !important;
             }
             
             .footer-links a:hover {
                 color: #ffffff !important;
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
             }
             
             /* Mobile menu */
@@ -204,63 +226,63 @@
                 color: #ffffff !important;
             }
             
-            /* Scrollbar */
+            /* Scrollbar optimizasyonu */
             ::-webkit-scrollbar-track {
-                background: #1e293b !important;
+                background: #1a2435 !important;
             }
             
             ::-webkit-scrollbar-thumb {
-                background: #475569 !important;
+                background: #4a5568 !important;
             }
             
             ::-webkit-scrollbar-thumb:hover {
-                background: #64748b !important;
+                background: #718096 !important;
             }
-
+            
             /* İlk Yardım Modal için koyu tema stilleri */
             .firstaid-modal-content {
                 background-color: #1e293b !important;
                 border-color: #334155 !important;
             }
-
+            
             .firstaid-modal-header {
                 border-bottom-color: #334155 !important;
                 background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
             }
-
+            
             .firstaid-tab {
                 background-color: #334155 !important;
                 color: #cbd5e1 !important;
             }
-
+            
             .firstaid-tab:hover {
                 background-color: #475569 !important;
             }
-
+            
             .firstaid-tab.active {
                 background-color: #dc2626 !important;
                 color: white !important;
                 border-bottom: 3px solid #f87171 !important;
             }
-
+            
             .firstaid-step-card {
-                background-color: #334155 !important;
-                border-color: #475569 !important;
+                background: linear-gradient(145deg, #2d3748, #1e293b) !important;
+                border: 1px solid #4a5568 !important;
             }
-
+            
             .firstaid-step-card:hover {
                 background-color: #475569 !important;
                 border-color: #f87171 !important;
             }
-
+            
             .firstaid-step-card h4 {
                 color: #f1f5f9 !important;
             }
-
+            
             .firstaid-step-card p {
                 color: #cbd5e1 !important;
             }
-
+            
             .firstaid-tab-content {
                 color: #cbd5e1 !important;
             }
@@ -327,66 +349,95 @@
                 color: #ffffff !important;
             }
         }
-
-        /* Reset */
+        
+        /* ============ YÜKSEK KONTRAST MODU ============ */
+        @media (prefers-contrast: high) {
+            :root {
+                --primary: #0d9488;
+                --accent: #dc2626;
+            }
+            
+            .card {
+                border: 2px solid var(--gray-800);
+            }
+        }
+        
+        /* ============ REDUCE MOTION ============ */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        /* ============ RESET VE TEMEL STİLLER ============ */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            -webkit-text-size-adjust: 100%;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background-color: var(--gray-50);
             color: var(--gray-800);
             line-height: 1.5;
             min-height: 100vh;
             overflow-x: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-
-        /* Tipografi */
+        
+        /* ============ TİPOGRAFİ OPTİMİZASYONLARI ============ */
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
             line-height: 1.2;
             color: var(--gray-900);
             transition: color 0.3s ease;
         }
-
+        
         h1 {
             font-size: 3rem;
             letter-spacing: -0.025em;
         }
-
+        
         h2 {
             font-size: 2.25rem;
             letter-spacing: -0.025em;
         }
-
+        
         h3 {
             font-size: 1.5rem;
         }
-
-        p {
+        
+        p, li, .text-content {
             font-size: 1.125rem;
             color: var(--gray-600);
             transition: color 0.3s ease;
+            line-height: 1.7;
         }
-
-        /* Container */
+        
+        /* ============ CONTAINER OPTİMİZASYONLARI ============ */
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
-
-        /* Header */
+        
+        /* ============ HEADER OPTİMİZASYONLARI ============ */
         header {
             position: sticky;
             top: 0;
@@ -396,22 +447,23 @@
             border-bottom: 1px solid var(--gray-200);
             padding: 1rem 0;
             transition: background-color 0.3s ease, border-color 0.3s ease;
+            -webkit-backdrop-filter: blur(12px);
         }
-
+        
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 2rem;
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             text-decoration: none;
         }
-
+        
         .logo-icon {
             width: 2.5rem;
             height: 2.5rem;
@@ -423,19 +475,20 @@
             color: var(--white);
             font-size: 1.25rem;
             font-weight: 600;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
-
-        /* Pusula İkonu */
+        
         .logo-icon.compass {
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             font-size: 1.1rem;
         }
-
+        
         .logo-text {
             display: flex;
             flex-direction: column;
         }
-
+        
         .logo-title {
             font-size: 1.5rem;
             font-weight: 700;
@@ -443,19 +496,19 @@
             line-height: 1.2;
             transition: color 0.3s ease;
         }
-
+        
         .logo-subtitle {
             font-size: 0.875rem;
             color: var(--gray-500);
             font-weight: 500;
             transition: color 0.3s ease;
         }
-
-        /* Navigation */
+        
+        /* ============ NAVIGASYON OPTİMİZASYONLARI ============ */
         .nav-desktop {
             display: none;
         }
-
+        
         @media (min-width: 768px) {
             .nav-desktop {
                 display: flex;
@@ -463,7 +516,7 @@
                 align-items: center;
             }
         }
-
+        
         .nav-link {
             color: var(--gray-600);
             text-decoration: none;
@@ -472,19 +525,22 @@
             padding: 0.5rem 1rem;
             border-radius: var(--radius-md);
             transition: var(--transition-fast);
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
-
+        
         .nav-link:hover {
             color: var(--primary);
             background: var(--gray-100);
         }
-
+        
         .nav-link.active {
             color: var(--primary);
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: var(--white);
         }
-
+        
         /* İlk Yardım Butonu */
         .nav-link.firstaid-button {
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
@@ -493,14 +549,14 @@
             align-items: center;
             gap: 0.5rem;
         }
-
+        
         .nav-link.firstaid-button:hover {
             background: linear-gradient(135deg, var(--accent), #b91c1c);
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
         }
-
-        /* Mobile Menu Button */
+        
+        /* ============ MOBILE MENU BUTTON ============ */
         .mobile-menu-btn {
             display: flex;
             flex-direction: column;
@@ -510,14 +566,16 @@
             cursor: pointer;
             padding: 0.5rem;
             border-radius: var(--radius-md);
+            min-height: 44px;
+            min-width: 44px;
         }
-
+        
         @media (min-width: 768px) {
             .mobile-menu-btn {
                 display: none;
             }
         }
-
+        
         .menu-line {
             width: 1.5rem;
             height: 2px;
@@ -525,8 +583,8 @@
             transition: var(--transition-fast);
             border-radius: 1px;
         }
-
-        /* Hero Section - YENİ KALİTELİ RENK */
+        
+        /* ============ HERO SECTION OPTİMİZASYONLARI ============ */
         .hero {
             padding: 5rem 1rem;
             background: linear-gradient(135deg, 
@@ -536,7 +594,7 @@
             position: relative;
             overflow: hidden;
         }
-
+        
         .hero::before {
             content: '';
             position: absolute;
@@ -548,7 +606,7 @@
                 radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
         }
-
+        
         .hero-content {
             position: relative;
             z-index: 1;
@@ -556,7 +614,7 @@
             max-width: 800px;
             margin: 0 auto;
         }
-
+        
         .hero h1 {
             color: var(--white);
             margin-bottom: 1.5rem;
@@ -564,13 +622,13 @@
             line-height: 1.1;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
-
+        
         @media (min-width: 768px) {
             .hero h1 {
                 font-size: 4rem;
             }
         }
-
+        
         .hero p {
             color: rgba(255, 255, 255, 0.95);
             font-size: 1.35rem;
@@ -581,7 +639,7 @@
             font-weight: 400;
             line-height: 1.6;
         }
-
+        
         .cta-button {
             display: inline-flex;
             align-items: center;
@@ -597,47 +655,52 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             border: 2px solid transparent;
             backdrop-filter: blur(10px);
+            min-height: 60px;
+            transform: var(--gpu);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
-
+        
         .cta-button:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) var(--gpu);
             box-shadow: 0 30px 50px rgba(0, 0, 0, 0.25);
             background: rgba(255, 255, 255, 0.95);
             border-color: rgba(255, 255, 255, 0.3);
         }
-
-        /* Grid System */
+        
+        /* ============ GRID SİSTEMİ OPTİMİZASYONLARI ============ */
         .grid {
             display: grid;
             gap: 2rem;
         }
-
+        
         @media (min-width: 768px) {
             .grid-cols-2 {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-
+        
         @media (min-width: 1024px) {
             .grid-cols-3 {
                 grid-template-columns: repeat(3, 1fr);
             }
-
+            
             .grid-cols-4 {
                 grid-template-columns: repeat(4, 1fr);
             }
         }
-
-        /* Cards */
+        
+        /* ============ KART OPTİMİZASYONLARI ============ */
         .section {
             padding: 5rem 1rem;
         }
-
+        
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
         }
-
+        
         .section-title h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
@@ -646,7 +709,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
+        
         .card {
             background: var(--white);
             border-radius: var(--radius-xl);
@@ -658,14 +721,19 @@
             display: flex;
             flex-direction: column;
             cursor: pointer;
+            transform: var(--gpu);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            will-change: transform, opacity;
+            min-height: 280px;
         }
-
+        
         .card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-8px) var(--gpu);
             box-shadow: var(--shadow-xl);
             border-color: var(--primary-light);
         }
-
+        
         .card-icon {
             width: 4rem;
             height: 4rem;
@@ -676,37 +744,39 @@
             margin-bottom: 1.5rem;
             font-size: 1.75rem;
             color: var(--white);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
-
+        
         .card[data-category="yer"] .card-icon {
             background: linear-gradient(135deg, var(--warning), #b45309);
         }
-
+        
         .card[data-category="su"] .card-icon {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
         }
-
+        
         .card[data-category="hava"] .card-icon {
             background: linear-gradient(135deg, #8b5cf6, #7c3aed);
         }
-
+        
         .card[data-category="insan"] .card-icon {
             background: linear-gradient(135deg, var(--accent), #b91c1c);
         }
-
+        
         .card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--gray-900);
         }
-
+        
         .card p {
             font-size: 1rem;
             color: var(--gray-600);
             margin-bottom: 1.5rem;
             flex-grow: 1;
         }
-
+        
         .card-link {
             display: inline-flex;
             align-items: center;
@@ -717,13 +787,13 @@
             font-size: 0.95rem;
             transition: var(--transition-fast);
         }
-
+        
         .card-link:hover {
             gap: 1rem;
             color: var(--primary-dark);
         }
-
-        /* Emergency Banner */
+        
+        /* ============ EMERGENCY BANNER OPTİMİZASYONLARI ============ */
         .emergency-banner {
             background: linear-gradient(135deg, var(--accent), #b91c1c);
             color: var(--white);
@@ -739,77 +809,77 @@
             cursor: pointer;
             min-height: 80px;
         }
-
+        
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.02); }
             100% { transform: scale(1); }
         }
-
-        /* Features Section */
+        
+        /* ============ FEATURES SECTION OPTİMİZASYONLARI ============ */
         .features {
             background: var(--gray-100);
             padding: 4rem 1rem;
             transition: background-color 0.3s ease;
         }
-
+        
         .feature-grid {
             display: grid;
             gap: 2rem;
         }
-
+        
         @media (min-width: 768px) {
             .feature-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-
+        
         .feature-item {
             text-align: center;
             padding: 2rem;
         }
-
+        
         .feature-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             display: inline-block;
         }
-
+        
         .feature-item h3 {
             margin-bottom: 1rem;
             color: var(--gray-900);
         }
-
+        
         .feature-item p {
             font-size: 1rem;
             color: var(--gray-600);
         }
-
-        /* Footer */
+        
+        /* ============ FOOTER OPTİMİZASYONLARI ============ */
         footer {
             background: var(--gray-900);
             color: var(--gray-300);
             padding: 4rem 1rem 2rem;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-
+        
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
         }
-
+        
         .footer-grid {
             display: grid;
             gap: 3rem;
             margin-bottom: 3rem;
         }
-
+        
         @media (min-width: 768px) {
             .footer-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-
+        
         .footer-column h4 {
             color: var(--white);
             font-size: 1.125rem;
@@ -818,15 +888,15 @@
             align-items: center;
             gap: 0.5rem;
         }
-
+        
         .footer-links {
             list-style: none;
         }
-
+        
         .footer-links li {
             margin-bottom: 0.75rem;
         }
-
+        
         .footer-links a {
             color: var(--gray-400);
             text-decoration: none;
@@ -835,12 +905,12 @@
             align-items: center;
             gap: 0.5rem;
         }
-
+        
         .footer-links a:hover {
             color: var(--white);
             transform: translateX(4px);
         }
-
+        
         .footer-bottom {
             border-top: 1px solid var(--gray-800);
             padding-top: 2rem;
@@ -849,8 +919,8 @@
             font-size: 0.875rem;
             transition: border-color 0.3s ease, color 0.3s ease;
         }
-
-        /* Animations */
+        
+        /* ============ ANİMASYON OPTİMİZASYONLARI ============ */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -861,17 +931,18 @@
                 transform: translateY(0);
             }
         }
-
+        
         .animate-fade-in-up {
             animation: fadeInUp 0.6s ease-out forwards;
             opacity: 0;
+            will-change: transform, opacity;
         }
-
+        
         .animate-delay-100 { animation-delay: 100ms; }
         .animate-delay-200 { animation-delay: 200ms; }
         .animate-delay-300 { animation-delay: 300ms; }
-
-        /* Mobile Menu */
+        
+        /* ============ MOBILE MENU OPTİMİZASYONLARI ============ */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -885,25 +956,27 @@
             box-shadow: var(--shadow-xl);
             display: flex;
             flex-direction: column;
+            transform: translate3d(100%, 0, 0);
         }
-
+        
         .mobile-menu.active {
             right: 0;
+            transform: translate3d(0, 0, 0);
         }
-
+        
         .mobile-menu-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
         }
-
+        
         .mobile-menu-links {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
         }
-
+        
         .mobile-menu-link {
             padding: 1rem;
             border-radius: var(--radius-md);
@@ -911,14 +984,17 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition-fast);
+            min-height: 44px;
+            display: flex;
+            align-items: center;
         }
-
+        
         .mobile-menu-link:hover,
-            .mobile-menu-link.active {
+        .mobile-menu-link.active {
             background: var(--primary);
             color: var(--white);
         }
-
+        
         /* İlk yardım butonu mobile menüye eklendi */
         .mobile-menu-link.firstaid-button {
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
@@ -928,7 +1004,7 @@
             gap: 0.5rem;
             justify-content: center;
         }
-
+        
         .menu-overlay {
             position: fixed;
             top: 0;
@@ -941,13 +1017,13 @@
             visibility: hidden;
             transition: var(--transition-normal);
         }
-
+        
         .menu-overlay.active {
             opacity: 1;
             visibility: visible;
         }
-
-        /* İLK YARDIM MODAL STİLLERİ */
+        
+        /* ============ İLK YARDIM MODAL OPTİMİZASYONLARI ============ */
         .firstaid-modal {
             position: fixed;
             top: 0;
@@ -964,12 +1040,12 @@
             transition: var(--transition-normal);
             padding: 1rem;
         }
-
+        
         .firstaid-modal.active {
             opacity: 1;
             visibility: visible;
         }
-
+        
         .firstaid-modal-content {
             background: var(--white);
             border-radius: var(--radius-xl);
@@ -982,8 +1058,9 @@
             flex-direction: column;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             border: none;
+            transform: var(--gpu);
         }
-
+        
         .firstaid-modal-header {
             padding: 1.5rem 2rem;
             border-bottom: 1px solid var(--gray-200);
@@ -993,7 +1070,7 @@
             background: linear-gradient(135deg, var(--accent), #b91c1c);
             color: white;
         }
-
+        
         .firstaid-modal-header h3 {
             color: white;
             margin: 0;
@@ -1002,7 +1079,7 @@
             gap: 0.75rem;
             font-size: 1.5rem;
         }
-
+        
         .close-modal-btn {
             background: rgba(255, 255, 255, 0.2);
             border: none;
@@ -1016,28 +1093,31 @@
             font-size: 1.5rem;
             cursor: pointer;
             transition: var(--transition-fast);
+            min-height: 44px;
+            min-width: 44px;
         }
-
+        
         .close-modal-btn:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: rotate(90deg);
         }
-
+        
         .firstaid-modal-body {
             display: flex;
             flex-direction: column;
             height: 100%;
             overflow: hidden;
         }
-
+        
         .firstaid-tabs {
             display: flex;
             border-bottom: 1px solid var(--gray-200);
             background: var(--gray-50);
             flex-shrink: 0;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
-
+        
         .firstaid-tab {
             flex: 1;
             min-width: 150px;
@@ -1056,30 +1136,32 @@
             font-size: 1rem;
             position: relative;
             white-space: nowrap;
+            min-height: 44px;
         }
-
+        
         .firstaid-tab:hover {
             background: var(--gray-100);
         }
-
+        
         .firstaid-tab.active {
             color: var(--accent);
             border-bottom: 3px solid var(--accent);
             background: var(--white);
         }
-
+        
         .firstaid-tab-content {
             flex: 1;
             overflow-y: auto;
             padding: 2rem;
             display: none;
             animation: fadeInUp 0.3s ease-out;
+            -webkit-overflow-scrolling: touch;
         }
-
+        
         .firstaid-tab-content.active {
             display: block;
         }
-
+        
         /* İlk Yardım İçerik Stilleri */
         .firstaid-step-card {
             background: var(--gray-50);
@@ -1089,17 +1171,17 @@
             margin-bottom: 1.5rem;
             transition: var(--transition-fast);
         }
-
+        
         .firstaid-step-card:hover {
             transform: translateX(4px);
             border-color: var(--accent-light);
             box-shadow: var(--shadow-md);
         }
-
+        
         .firstaid-step-card:last-child {
             margin-bottom: 0;
         }
-
+        
         .firstaid-step-card h4 {
             color: var(--gray-900);
             margin-bottom: 0.75rem;
@@ -1108,14 +1190,14 @@
             gap: 0.75rem;
             font-size: 1.25rem;
         }
-
+        
         .firstaid-step-card p {
             font-size: 1rem;
             color: var(--gray-600);
             line-height: 1.6;
             margin-bottom: 0;
         }
-
+        
         .firstaid-warning {
             background: linear-gradient(135deg, #fef3c7, #fef3c7);
             border-left: 4px solid var(--warning);
@@ -1123,7 +1205,7 @@
             border-radius: var(--radius-md);
             margin: 1.5rem 0;
         }
-
+        
         .firstaid-warning h5 {
             color: var(--warning);
             margin-bottom: 0.5rem;
@@ -1131,21 +1213,21 @@
             align-items: center;
             gap: 0.5rem;
         }
-
+        
         .firstaid-tips {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
-
+        
         .firstaid-tip {
             background: linear-gradient(135deg, var(--primary-soft), var(--white));
             border-radius: var(--radius-lg);
             padding: 1.5rem;
             border: 1px solid var(--primary-light);
         }
-
+        
         .firstaid-tip h5 {
             color: var(--primary-dark);
             margin-bottom: 0.75rem;
@@ -1153,14 +1235,14 @@
             align-items: center;
             gap: 0.5rem;
         }
-
+        
         .emergency-numbers {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
             margin-top: 2rem;
         }
-
+        
         .emergency-number {
             background: var(--gray-100);
             border-radius: var(--radius-lg);
@@ -1168,157 +1250,312 @@
             text-align: center;
             transition: var(--transition-fast);
         }
-
+        
         .emergency-number:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-md);
         }
-
+        
         .emergency-number .number {
             font-size: 1.75rem;
             font-weight: 700;
             color: var(--accent);
             margin-bottom: 0.5rem;
         }
-
+        
         .emergency-number .service {
             font-weight: 600;
             color: var(--gray-800);
         }
-
-        /* Responsive */
+        
+        /* ============ RESPONSIVE OPTİMİZASYONLARI ============ */
+        
+        /* MOBİL OPTİMİZASYONLARI - Touch-friendly ve performans */
         @media (max-width: 768px) {
+            /* Touch-friendly boyutlar */
+            .nav-link, .mobile-menu-link {
+                min-height: 44px;
+                padding: 12px 16px;
+            }
+            
+            /* Daha büyük tap targets */
+            button, .cta-button, .card {
+                min-height: 44px;
+            }
+            
+            /* Viewport optimizasyonu */
+            html {
+                font-size: 14px;
+            }
+            
+            /* Performans iyileştirmeleri */
+            .hero::before {
+                opacity: 0.5;
+            }
+            
+            /* Scroll performansı */
+            .firstaid-modal-content {
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Mobilde animasyon sınırlaması */
+            .animate-fade-in-up {
+                animation-duration: 0.4s;
+            }
+            
+            /* Diğer mobil stiller */
             h1 {
                 font-size: 2.5rem;
             }
-
+            
             h2 {
                 font-size: 2rem;
             }
-
+            
             .hero h1 {
                 font-size: 2.75rem;
             }
-
+            
             .hero p {
                 font-size: 1.2rem;
                 padding: 0 1rem;
+                line-height: 1.6;
             }
-
+            
             .section {
                 padding: 3rem 1rem;
             }
-
+            
             .feature-grid {
                 grid-template-columns: 1fr;
             }
-
+            
             .firstaid-modal-content {
                 height: 95%;
                 max-height: 95vh;
                 border-radius: var(--radius-lg);
             }
-
+            
             .firstaid-tabs {
                 flex-direction: column;
                 overflow-x: auto;
                 flex-wrap: nowrap;
             }
-
+            
             .firstaid-tab {
                 padding: 1rem;
                 border-bottom: 1px solid var(--gray-200);
                 justify-content: flex-start;
                 min-width: 100%;
             }
-
+            
             .firstaid-tab.active {
                 border-bottom: 3px solid var(--accent);
             }
-
+            
             .firstaid-tab-content {
                 padding: 1.5rem;
             }
-
+            
             .firstaid-tips {
                 grid-template-columns: 1fr;
             }
-
+            
             .emergency-numbers {
                 grid-template-columns: 1fr;
             }
-
+            
             .emergency-banner {
                 flex-direction: column;
                 gap: 1rem;
                 text-align: center;
                 padding: 1.5rem;
             }
-
+            
             .emergency-banner button {
                 margin-left: 0;
                 width: 100%;
             }
         }
-
+        
+        /* ÇOK KÜÇÜK EKRANLAR İÇİN OPTİMİZASYON */
+        @media (max-width: 375px) {
+            .container {
+                padding: 0 12px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cta-button {
+                padding: 16px 24px;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+        
+        /* PC/BÜYÜK EKRAN OPTİMİZASYONLARI */
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1400px;
+            }
+            
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.5rem;
+                max-width: 700px;
+            }
+            
+            /* Daha fazla grid sütunu */
+            .grid-cols-5 {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        
+        /* 4K VE YÜKSEK ÇÖZÜNÜRLÜKLER */
+        @media (min-width: 1920px) {
+            .container {
+                max-width: 1800px;
+            }
+            
+            html {
+                font-size: 18px;
+            }
+            
+            .section {
+                padding: 8rem 1rem;
+            }
+        }
+        
+        /* ÇOK KÜÇÜK EKRANLAR (360px ve altı) */
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .card {
+                min-height: 240px;
+            }
+            
+            .firstaid-modal {
+                padding: 0.5rem;
+            }
+        }
+        
+        /* TABLET OPTİMİZASYONLARI (768px - 1024px) */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.25rem;
+            }
+            
+            .card {
+                min-height: 300px;
+            }
+        }
+        
+        /* LANDSCAPE MODU İÇİN OPTİMİZASYON */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .hero p {
+                margin-bottom: 2rem;
+                font-size: 1.1rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2rem;
+            }
+        }
+        
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 2.25rem;
             }
-
+            
             .hero p {
                 font-size: 1.1rem;
             }
-
+            
             .cta-button {
                 width: 100%;
                 justify-content: center;
                 padding: 1rem;
             }
-
+            
             .firstaid-modal-header {
                 padding: 1rem;
             }
-
+            
             .firstaid-modal-header h3 {
                 font-size: 1.25rem;
             }
-
+            
             .firstaid-tab {
                 font-size: 0.9rem;
                 padding: 0.75rem;
             }
-
+            
             .firstaid-step-card {
                 padding: 1rem;
             }
         }
-
-        /* Focus Styles */
+        
+        /* ============ FOCUS OPTİMİZASYONLARI ============ */
         :focus-visible {
-            outline: 2px solid var(--primary);
-            outline-offset: 2px;
+            outline: 3px solid var(--primary);
+            outline-offset: 3px;
+            border-radius: var(--radius-md);
         }
-
-        /* Custom Scrollbar */
+        
+        /* ============ CUSTOM SCROLLBAR OPTİMİZASYONLARI ============ */
         ::-webkit-scrollbar {
             width: 8px;
+            height: 8px;
         }
-
+        
         ::-webkit-scrollbar-track {
             background: var(--gray-100);
         }
-
+        
         ::-webkit-scrollbar-thumb {
             background: var(--gray-300);
             border-radius: 4px;
         }
-
+        
         ::-webkit-scrollbar-thumb:hover {
             background: var(--gray-400);
         }
-
-        /* Emergency Banner içindeki buton */
+        
+        /* ============ EMERGENCY BANNER BUTTON ============ */
         #emergencyFirstAidButton {
             background: rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -1332,15 +1569,16 @@
             font-weight: 600;
             transition: all 0.3s ease;
             white-space: nowrap;
+            min-height: 44px;
         }
-
+        
         #emergencyFirstAidButton:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-
-        /* Footer'daki ilk yardım butonu */
+        
+        /* ============ FOOTER İLK YARDIM BUTTON ============ */
         #footerFirstAidButton {
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
             color: white;
@@ -1356,27 +1594,28 @@
             margin-top: 1rem;
             width: 100%;
             justify-content: center;
+            min-height: 44px;
         }
-
+        
         #footerFirstAidButton:hover {
             background: linear-gradient(135deg, var(--accent), #b91c1c);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
-
-        /* Renkli ikonlar */
+        
+        /* ============ RENKLİ İKONLAR ============ */
         .icon-red { color: var(--accent); }
         .icon-blue { color: var(--primary); }
         .icon-green { color: var(--success); }
         .icon-orange { color: var(--warning); }
         .icon-purple { color: #7c3aed; }
-
-        /* Numara listesi */
+        
+        /* ============ NUMARA LİSTESİ ============ */
         .number-list {
             list-style: none;
             padding-left: 0;
         }
-
+        
         .number-list li {
             margin-bottom: 0.75rem;
             padding: 0.75rem;
@@ -1386,18 +1625,69 @@
             align-items: center;
             gap: 1rem;
         }
-
+        
         .number-list .number {
             font-weight: 700;
             font-size: 1.25rem;
             color: var(--accent);
             min-width: 100px;
         }
-
+        
         .number-list .service {
             flex: 1;
             font-weight: 600;
             color: var(--gray-800);
+        }
+        
+        /* ============ LAZY LOADING ============ */
+        .lazy {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .lazy.loaded {
+            opacity: 1;
+        }
+        
+        /* ============ PRINT STİLLERİ ============ */
+        @media print {
+            .hero, .emergency-banner, footer, .mobile-menu-btn, .nav-desktop .firstaid-button {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+            
+            .card {
+                break-inside: avoid;
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+            }
+        }
+        
+        /* ============ iOS SAFARİ OPTİMİZASYONLARI ============ */
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                background-attachment: scroll;
+            }
+            
+            .cta-button {
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+        
+        /* ============ ANDROİD OPTİMİZASYONLARI ============ */
+        @supports (-webkit-touch-callout: none) and (not (-webkit-font-smoothing: antialiased)) {
+            .card {
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+            }
         }
     </style>
 </head>
@@ -1450,7 +1740,7 @@
                     <div class="logo-title">Afet Hazırlık</div>
                 </div>
             </div>
-            <button id="closeMenuBtn" style="background:none;border:none;font-size:1.5rem;color:var(--gray-600);cursor:pointer;">×</button>
+            <button id="closeMenuBtn" style="background:none;border:none;font-size:1.5rem;color:var(--gray-600);cursor:pointer;min-height:44px;min-width:44px;">×</button>
         </div>
         <nav class="mobile-menu-links" aria-label="Mobil Navigasyon">
             <a href="index.html" class="mobile-menu-link active">🏠 Ana Sayfa</a>
@@ -1474,7 +1764,7 @@
                 <h3><span>🆘</span> Acil Durumda İlk Yardım Rehberi</h3>
                 <button class="close-modal-btn" id="closeFirstAidModal">×</button>
             </div>
-            
+
             <div class="firstaid-modal-body">
                 <div class="firstaid-tabs">
                     <button class="firstaid-tab active" data-tab="basic">🧠 Temel Kurallar</button>
@@ -1488,7 +1778,7 @@
                 <!-- Temel Kurallar Tab'ı -->
                 <div class="firstaid-tab-content active" id="basic-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">İlk Yardımın Temel Kuralları</h3>
-                    
+
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">1️⃣</span> Sakin Olun ve Güvenliği Sağlayın</h4>
                         <p>Önce kendi güvenliğinizi kontrol edin, sonra çevreyi değerlendirin. Elektrik, gaz, yangın gibi riskleri kontrol edin. Yaralıyı güvenli bir yere alın.</p>
@@ -1530,7 +1820,7 @@
                 <!-- Kanamalar Tab'ı -->
                 <div class="firstaid-tab-content" id="bleeding-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Kanamalarda İlk Yardım</h3>
-                    
+
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">🩸</span> İç Kanama Belirtileri</h4>
                         <p>• Soluk, soğuk, nemli cilt<br>
@@ -1568,7 +1858,7 @@
                 <!-- Bayılma Tab'ı -->
                 <div class="firstaid-tab-content" id="unconscious-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Bilinç Kaybı ve Bayılmada İlk Yardım</h3>
-                    
+
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">😴</span> Bilinç Kontrolü Nasıl Yapılır?</h4>
                         <p>1. Omuzlarından hafifçe sarsarak "İyi misiniz?" diye sorun<br>
@@ -1615,7 +1905,7 @@
                 <!-- Yanıklar Tab'ı -->
                 <div class="firstaid-tab-content" id="burn-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Yanıklarda İlk Yardım</h3>
-                    
+
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">🔥</span> 1. Derece Yanık</h4>
                         <p><strong>Belirtiler:</strong> Kızarıklık, hafif şişlik, ağrı<br>
@@ -1659,7 +1949,7 @@
                 <!-- Kırıklar Tab'ı -->
                 <div class="firstaid-tab-content" id="fracture-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Kırık, Çıkık ve Burkulmalarda İlk Yardım</h3>
-                    
+
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">🦴</span> Kırık Belirtileri</h4>
                         <p>• Şiddetli ağrı<br>
@@ -1701,7 +1991,7 @@
                 <!-- Acil Numaralar Tab'ı -->
                 <div class="firstaid-tab-content" id="numbers-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Acil Durum Telefon Numaraları</h3>
-                    
+
                     <div class="emergency-numbers">
                         <div class="emergency-number">
                             <div class="number">112</div>
@@ -1994,7 +2284,7 @@
 
     <script>
         // ==================== TEMEL İŞLEMLER ====================
-        
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const closeMenuBtn = document.getElementById('closeMenuBtn');
@@ -2064,6 +2354,21 @@
                     el.style.transform = 'translateY(0)';
                 }, index * 100);
             });
+            
+            // Lazy loading için
+            const lazyImages = document.querySelectorAll('.lazy');
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.classList.add('loaded');
+                            imageObserver.unobserve(img);
+                        }
+                    });
+                });
+                lazyImages.forEach(img => imageObserver.observe(img));
+            }
         });
 
         // Simple visit counter
@@ -2102,6 +2407,57 @@
                 }
             });
         });
+
+        // ==================== PERFORMANS OPTİMİZASYONLARI ====================
+
+        // Debounce fonksiyonu
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Scroll event için debounce
+        window.addEventListener('scroll', debounce(() => {
+            // Scroll optimizasyonları
+        }, 100));
+
+        // Resize event için debounce
+        window.addEventListener('resize', debounce(() => {
+            // Responsive optimizasyonları
+        }, 250));
+
+        // Intersection Observer ile lazy loading
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const card = entry.target;
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                        observer.unobserve(card);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Kartları observe et
+            document.querySelectorAll('.card').forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // Service Worker kaydı (performans için)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(console.error);
+            });
+        }
 
         // ==================== İLK YARDIM MODAL SİSTEMİ ====================
 
@@ -2199,10 +2555,92 @@
             }
         });
 
-        // ==================== SAYFA YÜKLENDİĞİNDE ====================
+        // ==================== RESPONSIVE OPTİMİZASYONLAR ====================
 
+        // Landscape modunda hero section ayarı
+        function adjustHeroForLandscape() {
+            const hero = document.querySelector('.hero');
+            if (window.innerHeight < 600 && window.innerWidth > window.innerHeight) {
+                hero.style.padding = '2rem 1rem';
+            } else {
+                hero.style.padding = '';
+            }
+        }
+
+        // Orientation değişikliklerini dinle
+        window.addEventListener('orientationchange', adjustHeroForLandscape);
+        window.addEventListener('resize', adjustHeroForLandscape);
+
+        // ==================== PERFORMANS MONİTÖRÜ ====================
+
+        // Sayfa yükleme süresi
         window.addEventListener('load', () => {
-            // Sayfa yüklendiğinde herhangi bir özel işlem yok
+            if (window.performance) {
+                const timing = performance.timing;
+                const loadTime = timing.loadEventEnd - timing.navigationStart;
+                console.log(`Sayfa yükleme süresi: ${loadTime}ms`);
+            }
+        });
+
+        // Network durumu
+        if ('connection' in navigator) {
+            const connection = navigator.connection;
+            console.log(`Network türü: ${connection.effectiveType}`);
+            console.log(`Download hızı: ${connection.downlink} Mbps`);
+            
+            // Network değişikliğinde optimize et
+            connection.addEventListener('change', () => {
+                if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+                    // Düşük hızda optimize et
+                    document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+                        el.style.animationDuration = '0.8s';
+                    });
+                }
+            });
+        }
+
+        // ==================== OFFLINE DESTEĞİ ====================
+
+        // Offline durumunda bildirim
+        window.addEventListener('offline', () => {
+            console.log('Offline moda geçildi');
+            // Offline içerikleri göster
+        });
+
+        window.addEventListener('online', () => {
+            console.log('Online moda geçildi');
+            // Online içerikleri yenile
+        });
+
+        // ==================== GÖRÜNTÜ OPTİMİZASYONU ====================
+
+        // Resimleri lazy load et
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('img[data-src]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        });
+
+        // ==================== SON AYARLAR ====================
+
+        // Sayfa yüklendiğinde
+        window.addEventListener('load', () => {
+            // Performans ölçümü
+            if ('PerformanceObserver' in window) {
+                const observer = new PerformanceObserver((list) => {
+                    list.getEntries().forEach(entry => {
+                        console.log(`${entry.name}: ${entry.duration}ms`);
+                    });
+                });
+                observer.observe({ entryTypes: ['measure'] });
+            }
+            
+            // İlk açılışta hero'yu optimize et
+            adjustHeroForLandscape();
+            
+            // DOM tamamen yüklendi
+            console.log('Sayfa tamamen yüklendi ve optimize edildi');
         });
     </script>
 </body>

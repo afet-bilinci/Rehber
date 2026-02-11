@@ -2,31 +2,32 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <!-- viewport: HAVA İLE BİREBİR AYNI - safe-area ve max-scale eklendi -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
-    
+
     <!-- Google Dark Mode için gerekli meta etiketleri -->
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
 
     <!-- SEO Optimizasyonu -->
-    <title>Su Afetleri - Afet Hazırlık Rehberi</title>
-    <meta name="description" content="Sel, tsunami, şiddetli fırtına gibi su afetleri için hazırlık rehberi ve interaktif testler.">
+    <title>Su Afetleri - Sel, Tsunami, Fırtına | Afet Hazırlık Rehberi</title>
+    <meta name="description" content="Sel, tsunami, şiddetli fırtına gibi su afetleri için hazırlık rehberi, testler ve ilk yardım bilgileri.">
     <meta name="keywords" content="sel, tsunami, fırtına, su afetleri, su baskını, afet hazırlık, test, ilk yardım">
     <meta name="author" content="Afet Hazırlık Platformu">
 
     <style>
-        /* Modern Reset ve Değişkenler - hava.html ile aynı */
+        /* === HAVA İLE BİREBİR AYNI - MODERN RESET VE DEĞİŞKENLER === */
         :root {
             /* Color-scheme eklemesi */
             color-scheme: light dark;
-            
-            /* YENİ KALİTELİ RENK PALETİ - Teal/Turkuaz tonları (hava.html ile aynı) */
+
+            /* YENİ KALİTELİ RENK PALETİ - Teal/Turkuaz tonları */
             --primary: #0f766e;
             --primary-dark: #115e59;
             --primary-light: #14b8a6;
@@ -50,7 +51,7 @@
 
             --white: #ffffff;
             --black: #000000;
-            
+
             /* Koyu tema için doğrudan renkler */
             --dark-bg: #0f172a;
             --dark-text: #f8fafc;
@@ -71,9 +72,10 @@
             /* Transitions */
             --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
             --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 200ms cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Koyu Tema için DOĞRUDAN CSS - Google için (hava.html ile aynı) */
+        /* === KOYU TEMA - HAVA İLE BİREBİR AYNI, TÜM EKSİK SELECTORLAR EKLENDİ === */
         @media (prefers-color-scheme: dark) {
             :root {
                 --primary: #14b8a6;
@@ -84,7 +86,7 @@
                 --accent-light: #fca5a5;
                 --warning: #f59e0b;
                 --success: #10b981;
-                
+
                 /* Daha yüksek kontrastlı renkler */
                 --gray-50: #0f172a;
                 --gray-100: #1e293b;
@@ -97,70 +99,83 @@
                 --gray-800: #f1f5f9;
                 --gray-900: #f8fafc;
             }
-            
+
             /* Tüm sayfa için doğrudan renk tanımlamaları */
             body {
-                background-color: #0f172a !important;
+                background-color: #0a0f1c !important;
                 color: #f1f5f9 !important;
             }
-            
+
             /* Başlıklar için DOĞRUDAN beyaz renk */
             h1, h2, h3, h4, h5, h6 {
                 color: #ffffff !important;
             }
-            
-            /* Paragraflar için DOĞRUDAN açık gri */
-            p {
-                color: #e2e8f0 !important;
+
+            /* Paragraflar için DOĞRUDAN açık gri - TÜM p'ler için */
+            p, .card p, .result-message, .detail-section p, .firstaid-step-card p, .emergency-number p {
+                color: #d1d5db !important;
+                line-height: 1.7;
             }
-            
+
             /* Logo için DOĞRUDAN beyaz */
             .logo-title {
                 color: #ffffff !important;
             }
-            
+
             .logo-subtitle {
                 color: #94a3b8 !important;
             }
-            
+
             /* Kartlar için DOĞRUDAN renkler */
             .card {
-                background-color: #1e293b !important;
-                border-color: #334155 !important;
+                background-color: #1a2238 !important;
+                border-color: #2d3748 !important;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
             }
-            
+
+            .card:hover {
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4) !important;
+            }
+
             .card h3 {
                 color: #ffffff !important;
             }
-            
+
             .card p {
                 color: #cbd5e1 !important;
             }
-            
+
             /* Navigasyon için DOĞRUDAN renkler */
             .nav-link {
                 color: #94a3b8 !important;
             }
-            
+
             .nav-link:hover {
                 color: #5eead4 !important;
                 background: rgba(94, 234, 212, 0.1) !important;
             }
-            
+
             .nav-link.active {
                 color: #ffffff !important;
                 background: linear-gradient(135deg, #14b8a6, #0d9488) !important;
             }
-            
+
             /* Page Hero - değişmez, zaten açık renkli */
+            .page-hero {
+                background: linear-gradient(135deg, 
+                    rgba(15, 118, 110, 0.9) 0%, 
+                    rgba(20, 184, 166, 0.85) 50%,
+                    rgba(153, 246, 228, 0.8) 100%) !important;
+            }
+
             .page-hero h1 {
                 color: #ffffff !important;
             }
-            
+
             .page-hero p {
                 color: rgba(255, 255, 255, 0.95) !important;
             }
-            
+
             /* Section title */
             .section-title h2 {
                 color: transparent !important;
@@ -169,76 +184,76 @@
                 -webkit-text-fill-color: transparent !important;
                 background-clip: text !important;
             }
-            
+
             .section-title p {
                 color: #cbd5e1 !important;
             }
-            
+
             /* Header */
             header {
                 background: rgba(30, 41, 59, 0.95) !important;
                 border-bottom-color: #334155 !important;
             }
-            
+
             /* Test overlay */
             .test-overlay {
                 background: rgba(15, 23, 42, 0.95) !important;
             }
-            
+
             .test-header {
                 border-bottom-color: #334155 !important;
                 background: linear-gradient(135deg, #14b8a6, #0d9488) !important;
             }
-            
+
             /* Question */
             .question {
                 background: #1e293b !important;
                 color: #f1f5f9 !important;
                 border-color: #334155 !important;
             }
-            
+
             /* Choices */
             .choice {
                 background: #1e293b !important;
                 border-color: #475569 !important;
                 color: #cbd5e1 !important;
             }
-            
+
             .choice:hover:not(:disabled) {
                 background: #14b8a6 !important;
                 color: #ffffff !important;
             }
-            
+
             .choice.correct {
                 background: #065f46 !important;
                 border-color: #10b981 !important;
                 color: #d1fae5 !important;
             }
-            
+
             .choice.wrong {
                 background: #7f1d1d !important;
                 border-color: #ef4444 !important;
                 color: #fecaca !important;
             }
-            
+
             /* Progress bar */
             .progress-bar {
                 background: #334155 !important;
             }
-            
+
             /* Feedback */
             .feedback.correct {
                 background: #064e3b !important;
                 border-color: #10b981 !important;
                 color: #a7f3d0 !important;
             }
-            
+
             .feedback.wrong {
                 background: #7f1d1d !important;
                 border-color: #ef4444 !important;
                 color: #fecaca !important;
             }
-            
+
             /* Result screen */
             .result-score {
                 background: linear-gradient(135deg, #14b8a6, #f59e0b) !important;
@@ -246,143 +261,173 @@
                 -webkit-text-fill-color: transparent !important;
                 background-clip: text !important;
             }
-            
+
             .result-message {
                 color: #94a3b8 !important;
             }
-            
+
             .detailed-results {
                 background: #1e293b !important;
                 border-color: #334155 !important;
             }
-            
+
             .result-item {
                 border-bottom-color: #334155 !important;
             }
-            
+
             .result-question {
                 color: #f1f5f9 !important;
             }
-            
+
             .result-explanation {
                 background: #334155 !important;
                 color: #cbd5e1 !important;
             }
-            
+
             /* Butonlar */
             .card-btn.primary {
                 background: linear-gradient(135deg, #14b8a6, #0d9488) !important;
                 color: #ffffff !important;
             }
-            
+
             .card-btn.primary:hover {
                 background: linear-gradient(135deg, #0d9488, #115e59) !important;
             }
-            
+
             .card-btn.secondary {
                 background: #334155 !important;
                 color: #cbd5e1 !important;
             }
-            
+
             .card-btn.secondary:hover {
                 background: #475569 !important;
                 color: #f1f5f9 !important;
             }
-            
+
             /* Footer */
             footer {
                 background-color: #0f172a !important;
                 color: #94a3b8 !important;
             }
-            
+
             .footer-links a {
                 color: #94a3b8 !important;
             }
-            
+
             .footer-links a:hover {
                 color: #ffffff !important;
             }
-            
+
             .footer-column h4 {
                 color: #ffffff !important;
             }
-            
+
             .footer-bottom {
                 border-top-color: #334155 !important;
                 color: #64748b !important;
             }
-            
+
             /* Mobile menu */
             .mobile-menu {
                 background-color: #1e293b !important;
             }
-            
+
             .mobile-menu-link {
                 color: #cbd5e1 !important;
             }
-            
+
             .mobile-menu-link:hover,
             .mobile-menu-link.active {
                 background: #14b8a6 !important;
                 color: #ffffff !important;
             }
-            
+
             /* Scrollbar */
             ::-webkit-scrollbar-track {
                 background: #1e293b !important;
             }
-            
+
             ::-webkit-scrollbar-thumb {
                 background: #475569 !important;
             }
-            
+
             /* Small close button */
             .small-close-btn {
                 background: rgba(255, 255, 255, 0.1) !important;
                 color: #ffffff !important;
             }
-            
+
             .small-close-btn:hover {
                 background: rgba(255, 255, 255, 0.2) !important;
                 color: #f87171 !important;
             }
-            
+
             /* Auto continue button */
             .auto-continue-btn {
                 background: linear-gradient(135deg, #14b8a6, #0d9488) !important;
                 color: #ffffff !important;
             }
-            
+
             .auto-continue-btn:hover {
                 background: linear-gradient(135deg, #0d9488, #115e59) !important;
             }
-            
+
             /* Countdown text */
             .countdown-text {
                 color: #94a3b8 !important;
             }
-            
+
             /* Result answers */
             .result-answer.correct {
                 color: #10b981 !important;
             }
-            
+
             .result-answer.wrong {
                 color: #ef4444 !important;
             }
-            
-            /* Detail section */
+
+            /* ============ KARANLIK MOD - BİLGİ AL SEKSİYONU (DETAIL) ============ */
             .detail-section {
                 background-color: #1e293b !important;
-                color: #cbd5e1 !important;
                 border-color: #334155 !important;
             }
-            
+
             .detail-section h2 {
                 color: #14b8a6 !important;
             }
-            
-            /* İlk Yardım Modal için koyu tema stilleri */
+
+            .detail-section h3 {
+                color: #ffffff !important;
+            }
+
+            .detail-section h4 {
+                color: #f1f5f9 !important;
+            }
+
+            .detail-section p {
+                color: #cbd5e1 !important;
+            }
+
+            .detail-section div[style*="background: var(--gray-100)"] {
+                background-color: #334155 !important;
+            }
+
+            .detail-section div[style*="background: linear-gradient(135deg, #dbeafe, #e0e7ff)"] {
+                background: #1e3a5f !important;
+                border-left-color: #3b82f6 !important;
+            }
+
+            .detail-section div[style*="background: linear-gradient(135deg, #dcfce7, #d1fae5)"] {
+                background: #064e3b !important;
+                border-left-color: #10b981 !important;
+            }
+
+            .detail-section div[style*="background: linear-gradient(135deg, #fce7f3, #fbcfe8)"] {
+                background: #831843 !important;
+                border-left-color: #ec4899 !important;
+            }
+
+            /* ============ İLK YARDIM MODAL - KARANLIK MOD ============ */
             .firstaid-modal-content {
                 background-color: #1e293b !important;
                 border-color: #334155 !important;
@@ -390,7 +435,11 @@
 
             .firstaid-modal-header {
                 border-bottom-color: #334155 !important;
-                background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+                background: linear-gradient(135deg, rgba(220, 38, 38, 0.95), rgba(185, 28, 28, 0.9)) !important;
+            }
+
+            .firstaid-modal-header h3 {
+                color: #ffffff !important;
             }
 
             .firstaid-tab {
@@ -436,6 +485,10 @@
                 color: #fef3c7 !important;
             }
 
+            .firstaid-warning h5 {
+                color: #fbbf24 !important;
+            }
+
             .firstaid-tip {
                 background: #164e63 !important;
                 border-color: #0d9488 !important;
@@ -472,9 +525,15 @@
             .number-list .service {
                 color: #f1f5f9 !important;
             }
+
+            /* Emergency Banner yazıları */
+            .emergency-banner strong,
+            .emergency-banner span {
+                color: white !important;
+            }
         }
 
-        /* Reset */
+        /* === RESET VE TEMEL STILLER - HAVA İLE BİREBİR === */
         * {
             margin: 0;
             padding: 0;
@@ -487,12 +546,19 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 
+                       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
             background-color: var(--gray-50);
             color: var(--gray-800);
             line-height: 1.5;
             min-height: 100vh;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            transition: background-color var(--transition-smooth),
+                        border-color var(--transition-smooth),
+                        color var(--transition-smooth);
         }
 
         /* Tipografi */
@@ -529,7 +595,7 @@
             padding: 0 1rem;
         }
 
-        /* Header - hava.html ile aynı */
+        /* Header */
         header {
             position: sticky;
             top: 0;
@@ -538,6 +604,8 @@
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--gray-200);
             padding: 1rem 0;
+            transition: background-color var(--transition-smooth),
+                        border-color var(--transition-smooth);
         }
 
         .header-content {
@@ -554,7 +622,7 @@
             text-decoration: none;
         }
 
-        /* Pusula İkonu - hava.html ile aynı */
+        /* Pusula İkonu */
         .logo-icon.compass {
             width: 2.5rem;
             height: 2.5rem;
@@ -586,7 +654,7 @@
             font-weight: 500;
         }
 
-        /* Navigation - hava.html ile aynı */
+        /* Navigation */
         .nav-desktop {
             display: none;
         }
@@ -607,6 +675,11 @@
             padding: 0.5rem 1rem;
             border-radius: var(--radius-md);
             transition: var(--transition-fast);
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .nav-link:hover {
@@ -620,7 +693,7 @@
             color: var(--white);
         }
 
-        /* İlk Yardım Butonu - hava.html ile aynı */
+        /* İlk Yardım Butonu */
         .nav-link.firstaid-button {
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
             color: white;
@@ -635,7 +708,7 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* Mobile Menu Button - hava.html ile aynı */
+        /* Mobile Menu Button */
         .mobile-menu-btn {
             display: flex;
             flex-direction: column;
@@ -645,6 +718,10 @@
             cursor: pointer;
             padding: 0.5rem;
             border-radius: var(--radius-md);
+            min-height: 44px;
+            min-width: 44px;
+            align-items: center;
+            justify-content: center;
         }
 
         @media (min-width: 768px) {
@@ -661,7 +738,7 @@
             border-radius: 1px;
         }
 
-        /* Page Hero - hava.html ile aynı kalite */
+        /* Page Hero - SU AFETLERİ TEMASI */
         .page-hero {
             padding: 5rem 1rem;
             background: linear-gradient(135deg, 
@@ -670,6 +747,8 @@
                 rgba(153, 246, 228, 0.85) 100%);
             position: relative;
             overflow: hidden;
+            content-visibility: auto;
+            contain-intrinsic-size: 500px;
         }
 
         .page-hero::before {
@@ -745,6 +824,10 @@
         }
 
         @media (min-width: 768px) {
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .grid-cols-3 {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -764,6 +847,9 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            transform: translateZ(0);
+            will-change: transform;
+            backface-visibility: hidden;
         }
 
         .card:hover {
@@ -782,6 +868,8 @@
             margin-bottom: 1.5rem;
             font-size: 1.75rem;
             color: var(--white);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
         .card[data-type="sel"] .card-icon {
@@ -829,6 +917,8 @@
             border: none;
             cursor: pointer;
             flex: 1;
+            min-height: 44px;
+            min-width: 44px;
         }
 
         .card-btn.primary {
@@ -851,7 +941,7 @@
             transform: translateY(-2px);
         }
 
-        /* Detail Section */
+        /* ============ DETAY SEKSİYONU (BİLGİ AL) - HAVA KALİTESİNDE ============ */
         .detail-section {
             background: var(--white);
             border-radius: var(--radius-xl);
@@ -859,6 +949,34 @@
             box-shadow: var(--shadow-lg);
             margin-top: 3rem;
             border: 1px solid var(--gray-200);
+            content-visibility: auto;
+            contain-intrinsic-size: 800px;
+            transition: background-color var(--transition-smooth),
+                        border-color var(--transition-smooth),
+                        color var(--transition-smooth);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        @media (max-width: 768px) {
+            .detail-section {
+                padding: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            
+            .detail-section h2 {
+                font-size: 1.75rem;
+                margin-bottom: 1rem;
+            }
+            
+            .detail-section h3 {
+                font-size: 1.35rem;
+                margin-top: 1rem;
+            }
+            
+            .detail-section div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
         }
 
         /* Fullscreen Test Overlay */
@@ -874,10 +992,13 @@
             flex-direction: column;
             padding: 1rem;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            content-visibility: hidden;
         }
 
         .test-overlay.active {
             display: flex;
+            content-visibility: auto;
         }
 
         .test-header {
@@ -917,6 +1038,8 @@
             justify-content: center;
             width: 2rem;
             height: 2rem;
+            min-height: 44px;
+            min-width: 44px;
         }
 
         .small-close-btn:hover {
@@ -983,6 +1106,11 @@
             cursor: pointer;
             transition: var(--transition-fast);
             color: var(--gray-700);
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            transform: translateZ(0);
         }
 
         .choice:hover:not(:disabled) {
@@ -1071,6 +1199,8 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            min-height: 44px;
+            min-width: 44px;
         }
 
         .auto-continue-btn:hover {
@@ -1102,6 +1232,8 @@
             font-size: 4rem;
             margin-bottom: 1.5rem;
             animation: bounce 1s ease infinite;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
         @keyframes bounce {
@@ -1187,12 +1319,14 @@
             border-radius: var(--radius-md);
         }
 
-        /* Footer - hava.html ile aynı */
+        /* Footer */
         footer {
             background: var(--gray-900);
             color: var(--gray-300);
             padding: 4rem 1rem 2rem;
             margin-top: 4rem;
+            transition: background-color var(--transition-smooth),
+                        color var(--transition-smooth);
         }
 
         .footer-content {
@@ -1236,6 +1370,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            min-height: 44px;
+            min-width: 44px;
         }
 
         .footer-links a:hover {
@@ -1272,7 +1408,7 @@
         .animate-delay-200 { animation-delay: 200ms; }
         .animate-delay-300 { animation-delay: 300ms; }
 
-        /* Mobile Menu - hava.html ile aynı */
+        /* Mobile Menu */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -1312,6 +1448,10 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition-fast);
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
         }
 
         .mobile-menu-link:hover,
@@ -1349,7 +1489,7 @@
             visibility: visible;
         }
 
-        /* İLK YARDIM MODAL STİLLERİ - hava.html ile aynı */
+        /* ============ İLK YARDIM MODAL STİLLERİ - MOBİL OPTİMİZE ============ */
         .firstaid-modal {
             position: fixed;
             top: 0;
@@ -1364,7 +1504,7 @@
             opacity: 0;
             visibility: hidden;
             transition: var(--transition-normal);
-            padding: 1rem;
+            padding: 0.5rem;
         }
 
         .firstaid-modal.active {
@@ -1376,24 +1516,26 @@
             background: var(--white);
             border-radius: var(--radius-xl);
             width: 100%;
-            height: 90%;
-            max-height: 90vh;
+            height: 98vh;
+            max-height: 98vh;
             max-width: 1000px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             border: none;
+            transform: translateZ(0);
         }
 
         .firstaid-modal-header {
-            padding: 1.5rem 2rem;
+            padding: 1rem 1.5rem;
             border-bottom: 1px solid var(--gray-200);
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: linear-gradient(135deg, var(--accent), #b91c1c);
             color: white;
+            flex-shrink: 0;
         }
 
         .firstaid-modal-header h3 {
@@ -1402,7 +1544,7 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
         }
 
         .close-modal-btn {
@@ -1418,6 +1560,8 @@
             font-size: 1.5rem;
             cursor: pointer;
             transition: var(--transition-fast);
+            min-height: 44px;
+            min-width: 44px;
         }
 
         .close-modal-btn:hover {
@@ -1430,6 +1574,7 @@
             flex-direction: column;
             height: 100%;
             overflow: hidden;
+            flex: 1;
         }
 
         .firstaid-tabs {
@@ -1438,12 +1583,14 @@
             background: var(--gray-50);
             flex-shrink: 0;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            flex-wrap: nowrap;
         }
 
         .firstaid-tab {
-            flex: 1;
-            min-width: 150px;
-            padding: 1.25rem 1.5rem;
+            flex: 0 0 auto;
+            min-width: 120px;
+            padding: 1rem 1.25rem;
             border: none;
             background: none;
             font-family: inherit;
@@ -1454,10 +1601,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.75rem;
-            font-size: 1rem;
+            gap: 0.5rem;
+            font-size: 0.95rem;
             position: relative;
             white-space: nowrap;
+            min-height: 44px;
         }
 
         .firstaid-tab:hover {
@@ -1473,13 +1621,34 @@
         .firstaid-tab-content {
             flex: 1;
             overflow-y: auto;
-            padding: 2rem;
+            -webkit-overflow-scrolling: touch;
+            padding: 1.5rem;
             display: none;
             animation: fadeInUp 0.3s ease-out;
         }
 
         .firstaid-tab-content.active {
             display: block;
+        }
+
+        @media (max-width: 768px) {
+            .firstaid-modal-header {
+                padding: 0.75rem 1rem;
+            }
+            
+            .firstaid-modal-header h3 {
+                font-size: 1.1rem;
+            }
+            
+            .firstaid-tab {
+                padding: 0.75rem 1rem;
+                min-width: 100px;
+                font-size: 0.85rem;
+            }
+            
+            .firstaid-tab-content {
+                padding: 1rem;
+            }
         }
 
         /* İlk Yardım İçerik Stilleri */
@@ -1490,6 +1659,8 @@
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             transition: var(--transition-fast);
+            transform: translateZ(0);
+            will-change: transform;
         }
 
         .firstaid-step-card:hover {
@@ -1569,6 +1740,7 @@
             padding: 1.25rem;
             text-align: center;
             transition: var(--transition-fast);
+            transform: translateZ(0);
         }
 
         .emergency-number:hover {
@@ -1624,8 +1796,64 @@
         .icon-orange { color: var(--warning); }
         .icon-purple { color: #7c3aed; }
 
-        /* Responsive */
+        /* Focus Styles */
+        :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--gray-100);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gray-300);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gray-400);
+        }
+
+        /* Emergency Banner - HAVA İLE AYNI */
+        .emergency-banner {
+            background: linear-gradient(135deg, var(--accent), #b91c1c);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            border-radius: var(--radius-xl);
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            animation: pulse 2s infinite;
+            cursor: pointer;
+            min-height: 80px;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
+
+        /* ============ MOBİL OPTİMİZASYONLARI (TÜM EKRAN BOYLARI) ============ */
         @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+
+            .container {
+                padding-left: max(1rem, env(safe-area-inset-left));
+                padding-right: max(1rem, env(safe-area-inset-right));
+            }
+
             h1 {
                 font-size: 2.5rem;
             }
@@ -1657,6 +1885,7 @@
 
             .test-overlay {
                 padding: 0.5rem;
+                -webkit-overflow-scrolling: touch;
             }
 
             .test-header {
@@ -1681,39 +1910,145 @@
                 font-size: 2.5rem;
             }
 
-            .firstaid-modal-content {
-                height: 95%;
-                max-height: 95vh;
-                border-radius: var(--radius-lg);
-            }
-
-            .firstaid-tabs {
-                flex-direction: column;
-                overflow-x: auto;
-                flex-wrap: nowrap;
-            }
-
-            .firstaid-tab {
-                padding: 1rem;
-                border-bottom: 1px solid var(--gray-200);
-                justify-content: flex-start;
-                min-width: 100%;
-            }
-
-            .firstaid-tab.active {
-                border-bottom: 3px solid var(--accent);
-            }
-
-            .firstaid-tab-content {
-                padding: 1.5rem;
-            }
-
             .firstaid-tips {
                 grid-template-columns: 1fr;
             }
 
             .emergency-numbers {
                 grid-template-columns: 1fr;
+            }
+
+            /* Mobilde daha hafif animasyonlar */
+            .animate-fade-in-up {
+                animation-duration: 0.4s;
+            }
+
+            .card:hover {
+                transform: translateY(-4px) !important;
+            }
+
+            .choice:hover:not(:disabled) {
+                transform: translateX(4px) !important;
+            }
+        }
+
+        /* Küçük telefonlar */
+        @media (max-width: 375px) {
+            .page-hero h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .page-hero p {
+                font-size: 1rem;
+                padding: 0 0.5rem;
+            }
+
+            .card-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .card-btn {
+                width: 100%;
+                padding: 0.875rem 1rem;
+            }
+
+            .emergency-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+
+        /* PC OPTİMİZASYONLARI (Büyük Ekran) */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1400px;
+            }
+
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 3rem;
+            }
+
+            .page-hero h1 {
+                font-size: 4.5rem;
+            }
+
+            .card {
+                padding: 2.5rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+                line-height: 1.8;
+            }
+        }
+
+        /* 2K ve 4K ekranlar */
+        @media (min-width: 1920px) {
+            html {
+                font-size: 18px;
+            }
+
+            .container {
+                max-width: 1600px;
+            }
+        }
+
+        /* Tablet optimizasyonları (Dikey) */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            .grid-cols-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .page-hero {
+                padding: 4rem 1rem;
+            }
+
+            .page-hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        /* Tablet optimizasyonları (Yatay) */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Büyük tabletler ve küçük laptop'lar */
+        @media (min-width: 1025px) and (max-width: 1366px) {
+            .container {
+                max-width: 1100px;
+            }
+
+            .grid-cols-3 {
+                gap: 2rem;
+            }
+        }
+
+        /* PC için hover efektleri geliştirmeleri */
+        @media (hover: hover) and (pointer: fine) {
+            .card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            }
+
+            .card:hover {
+                transform: translateY(-12px);
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            }
+
+            .choice:hover:not(:disabled) {
+                transform: translateX(12px);
+                transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             }
         }
 
@@ -1727,16 +2062,17 @@
             }
 
             .firstaid-modal-header {
-                padding: 1rem;
+                padding: 0.75rem;
             }
 
             .firstaid-modal-header h3 {
-                font-size: 1.25rem;
+                font-size: 1.1rem;
             }
 
             .firstaid-tab {
-                font-size: 0.9rem;
-                padding: 0.75rem;
+                font-size: 0.8rem;
+                padding: 0.6rem 0.8rem;
+                min-width: 90px;
             }
 
             .firstaid-step-card {
@@ -1747,40 +2083,19 @@
                 padding: 0.75rem 1rem;
                 font-size: 0.9rem;
             }
-        }
-
-        /* Focus Styles */
-        :focus-visible {
-            outline: 2px solid var(--primary);
-            outline-offset: 2px;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--gray-100);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gray-300);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gray-400);
+            
+            .detail-section {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header - hava.html ile aynı -->
+    <!-- Header - HAVA İLE BİREBİR AYNI -->
     <header>
         <div class="container">
             <div class="header-content">
                 <a href="index.html" class="logo">
-                    <!-- Pusula ile değiştirildi - hava.html ile aynı -->
                     <div class="logo-icon compass">🧭</div>
                     <div class="logo-text">
                         <div class="logo-title">Afet Hazırlık</div>
@@ -1788,15 +2103,15 @@
                     </div>
                 </a>
 
-                <!-- Desktop Navigation - hava.html ile aynı -->
+                <!-- Desktop Navigation -->
                 <nav class="nav-desktop" aria-label="Ana Navigasyon">
                     <a href="index.html" class="nav-link">🏠 Ana Sayfa</a>
                     <a href="yer.html" class="nav-link">🏔️ Yer Afetleri</a>
                     <a href="su.html" class="nav-link active">🌊 Su Afetleri</a>
                     <a href="hava.html" class="nav-link">🌪️ Hava Afetleri</a>
-                    <a href="İnsan.html" class="nav-link">🔥 İnsan Kaynaklı</a>
+                    <a href="insan.html" class="nav-link">🔥 İnsan Kaynaklı</a>
                     <a href="hakkinda.html" class="nav-link">ℹ️ Hakkında</a>
-                    <!-- İlk Yardım Butonu - hava.html ile aynı -->
+                    <!-- İlk Yardım Butonu -->
                     <a href="#" class="nav-link firstaid-button" id="firstAidButton">
                         <span>🆘</span>
                         İlk Yardım Rehberi
@@ -1813,7 +2128,7 @@
         </div>
     </header>
 
-    <!-- Mobile Menu - hava.html ile aynı -->
+    <!-- Mobile Menu -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-header">
@@ -1823,16 +2138,16 @@
                     <div class="logo-title">Afet Hazırlık</div>
                 </div>
             </div>
-            <button id="closeMenuBtn" style="background:none;border:none;font-size:1.5rem;color:var(--gray-600);cursor:pointer;">×</button>
+            <button id="closeMenuBtn" style="background:none;border:none;font-size:1.5rem;color:var(--gray-600);cursor:pointer;min-height:44px;min-width:44px;">×</button>
         </div>
         <nav class="mobile-menu-links" aria-label="Mobil Navigasyon">
             <a href="index.html" class="mobile-menu-link">🏠 Ana Sayfa</a>
             <a href="yer.html" class="mobile-menu-link">🏔️ Yer Afetleri</a>
             <a href="su.html" class="mobile-menu-link active">🌊 Su Afetleri</a>
             <a href="hava.html" class="mobile-menu-link">🌪️ Hava Afetleri</a>
-            <a href="İnsan.html" class="mobile-menu-link">🔥 İnsan Kaynaklı</a>
+            <a href="insan.html" class="mobile-menu-link">🔥 İnsan Kaynaklı</a>
             <a href="hakkinda.html" class="mobile-menu-link">ℹ️ Hakkında</a>
-            <!-- Mobil Menüye İlk Yardım Butonu Eklendi -->
+            <!-- Mobil Menüye İlk Yardım Butonu -->
             <a href="#" class="mobile-menu-link firstaid-button" id="mobileFirstAidButton">
                 <span>🆘</span>
                 İlk Yardım Rehberi
@@ -1840,14 +2155,14 @@
         </nav>
     </div>
 
-    <!-- İLK YARDIM MODAL'I - hava.html ile aynı -->
+    <!-- İLK YARDIM MODAL'I - HAVA İLE BİREBİR AYNI İÇERİK -->
     <div class="firstaid-modal" id="firstAidModal">
         <div class="firstaid-modal-content">
             <div class="firstaid-modal-header">
                 <h3><span>🆘</span> Acil Durumda İlk Yardım Rehberi</h3>
                 <button class="close-modal-btn" id="closeFirstAidModal">×</button>
             </div>
-            
+
             <div class="firstaid-modal-body">
                 <div class="firstaid-tabs">
                     <button class="firstaid-tab active" data-tab="basic">🧠 Temel Kurallar</button>
@@ -1861,12 +2176,10 @@
                 <!-- Temel Kurallar Tab'ı -->
                 <div class="firstaid-tab-content active" id="basic-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">İlk Yardımın Temel Kuralları</h3>
-                    
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">1️⃣</span> Sakin Olun ve Güvenliği Sağlayın</h4>
                         <p>Önce kendi güvenliğinizi kontrol edin, sonra çevreyi değerlendirin. Elektrik, gaz, yangın gibi riskleri kontrol edin. Yaralıyı güvenli bir yere alın.</p>
                     </div>
-
                     <div class="firstaid-step-card">
                         <h4><span class="icon-blue">2️⃣</span> 112'yi Arayın veya Aratın</h4>
                         <p>Hemen 112 Acil'i arayın veya başkasına aratın. Sakin bir şekilde:<br>
@@ -1875,7 +2188,6 @@
                         • Yaralı sayısını ve durumunu<br>
                         • İsim ve telefon numaranızı bildirin.</p>
                     </div>
-
                     <div class="firstaid-step-card">
                         <h4><span class="icon-green">3️⃣</span> Yaralıyı Değerlendirin</h4>
                         <p>• Bilinç kontrolü yapın<br>
@@ -1883,19 +2195,17 @@
                         • Nabzını kontrol edin<br>
                         • Ciddi kanama olup olmadığını kontrol edin</p>
                     </div>
-
                     <div class="firstaid-step-card">
                         <h4><span class="icon-orange">4️⃣</span> Temel Yaşam Desteği (ABC Kuralı)</h4>
                         <p><strong>A (Airway):</strong> Havayolunu açık tutun<br>
                         <strong>B (Breathing):</strong> Solunumu sağlayın<br>
                         <strong>C (Circulation):</strong> Dolaşımı destekleyin</p>
                     </div>
-
                     <div class="firstaid-warning">
                         <h5><span>⚠️</span> ÖNEMLİ UYARI</h5>
                         <p>• Bilinçsiz yaralıları hareket ettirmeyin (boyun yaralanması riski)<br>
                         • Bilinçsiz yaralılara kesinlikle su veya yiyecek vermeyin<br>
-                        • Yaralının üzerindeki gişileri keserek çıkarın<br>
+                        • Yaralının üzerindeki giysileri keserek çıkarın<br>
                         • Yaralıyı sıcak tutun ama terletmeyin</p>
                     </div>
                 </div>
@@ -1903,72 +2213,41 @@
                 <!-- Kanamalar Tab'ı -->
                 <div class="firstaid-tab-content" id="bleeding-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Kanamalarda İlk Yardım</h3>
-                    
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">🩸</span> İç Kanama Belirtileri</h4>
-                        <p>• Soluk, soğuk, nemli cilt<br>
-                        • Hızlı ve zayıf nabız<br>
-                        • Hızlı ve yüzeysel solunum<br>
-                        • Baş dönmesi, baygınlık hissi<br>
-                        • Şok belirtileri</p>
+                        <p>• Soluk, soğuk, nemli cilt<br>• Hızlı ve zayıf nabız<br>• Hızlı ve yüzeysel solunum<br>• Baş dönmesi, baygınlık hissi<br>• Şok belirtileri</p>
                     </div>
-
                     <div class="firstaid-step-card">
                         <h4><span class="icon-blue">🎯</span> Kanamayı Durdurma Yöntemleri</h4>
                         <p><strong>1. Basınç Uygulama:</strong> Temiz bir bezle kanayan yere direkt basınç uygulayın<br>
                         <strong>2. Yüksekte Tutma:</strong> Kanayan bölgeyi kalp seviyesinin üzerine kaldırın<br>
                         <strong>3. Basınç Noktaları:</strong> Atardamar kanamalarında basınç noktalarına basın</p>
                     </div>
-
                     <div class="firstaid-step-card">
                         <h4><span class="icon-green">⚠️</span> Turnike Uygulama (Sadece Hayati Risk Varsa!)</h4>
-                        <p>• Sadece atardamar kanamalarında ve diğer yöntemler işe yaramazsa<br>
-                        • 5-7 cm genişliğinde bir bez kullanın<br>
-                        • Kanayan yer ile vücut arasına uygulayın<br>
-                        • Uygulama saatini not edin<br>
-                        • 15-20 dakikada bir 5-10 saniye gevşetin</p>
+                        <p>• Sadece atardamar kanamalarında ve diğer yöntemler işe yaramazsa<br>• 5-7 cm genişliğinde bir bez kullanın<br>• Kanayan yer ile vücut arasına uygulayın<br>• Uygulama saatini not edin<br>• 15-20 dakikada bir 5-10 saniye gevşetin</p>
                     </div>
-
                     <div class="firstaid-warning">
                         <h5><span>❌</span> YAPILMAMASI GEREKENLER</h5>
-                        <p>• Kanayan yere tentürdiyot, alkol vs. dökmeyin<br>
-                        • Yaraya pamuk basmayın<br>
-                        • Batmış cisimleri çıkarmaya çalışmayın<br>
-                        • Turnikeyi gereksiz yere sıkmayın</p>
+                        <p>• Kanayan yere tentürdiyot, alkol vs. dökmeyin<br>• Yaraya pamuk basmayın<br>• Batmış cisimleri çıkarmaya çalışmayın<br>• Turnikeyi gereksiz yere sıkmayın</p>
                     </div>
                 </div>
 
                 <!-- Bayılma Tab'ı -->
                 <div class="firstaid-tab-content" id="unconscious-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Bilinç Kaybı ve Bayılmada İlk Yardım</h3>
-                    
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">😴</span> Bilinç Kontrolü Nasıl Yapılır?</h4>
-                        <p>1. Omuzlarından hafifçe sarsarak "İyi misiniz?" diye sorun<br>
-                        2. Yanıt yoksa acil servisi arayın<br>
-                        3. Solunumunu kontrol edin (göğüs hareketi, nefes sesi)<br>
-                        4. Nabzını kontrol edin (boyun veya bilekten)</p>
+                        <p>1. Omuzlarından hafifçe sarsarak "İyi misiniz?" diye sorun<br>2. Yanıt yoksa acil servisi arayın<br>3. Solunumunu kontrol edin (göğüs hareketi, nefes sesi)<br>4. Nabzını kontrol edin (boyun veya bilekten)</p>
                     </div>
-
                     <div class="firstaid-step-card">
                         <h4><span class="icon-blue">🔄</span> Koma Pozisyonu (Yan Yatış)</h4>
-                        <p>1. Yaralıyı sırt üstü yatırın<br>
-                        2. Yakın taraftaki kolu baş hizasında uzatın<br>
-                        3. Diğer elini yanağının altına koyun<br>
-                        4. Uzaktaki bacağını dizden bükün<br>
-                        5. Omuz ve kalçadan çevirerek yan yatırın<br>
-                        6. Başını geriye yatırıp çeneyi yukarı kaldırın</p>
+                        <p>1. Yaralıyı sırt üstü yatırın<br>2. Yakın taraftaki kolu baş hizasında uzatın<br>3. Diğer elini yanağının altına koyun<br>4. Uzaktaki bacağını dizden bükün<br>5. Omuz ve kalçadan çevirerek yan yatırın<br>6. Başını geriye yatırıp çeneyi yukarı kaldırın</p>
                     </div>
-
                     <div class="firstaid-step-card">
                         <h4><span class="icon-green">💓</span> Kalp Masajı (Temel Yaşam Desteği)</h4>
-                        <p><strong>Yetişkinler için:</strong><br>
-                        • 30 kalp masajı - 2 suni solunum<br>
-                        • Dakikada 100-120 bası<br>
-                        • Göğüs 5-6 cm çökmeli<br>
-                        • Dirsekler dik, omuzlar bası noktasının üstünde</p>
+                        <p><strong>Yetişkinler için:</strong><br>• 30 kalp masajı - 2 suni solunum<br>• Dakikada 100-120 bası<br>• Göğüs 5-6 cm çökmeli<br>• Dirsekler dik, omuzlar bası noktasının üstünde</p>
                     </div>
-
                     <div class="firstaid-tips">
                         <div class="firstaid-tip">
                             <h5><span>🌬️</span> Suni Solunum</h5>
@@ -1988,93 +2267,51 @@
                 <!-- Yanıklar Tab'ı -->
                 <div class="firstaid-tab-content" id="burn-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Yanıklarda İlk Yardım</h3>
-                    
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">🔥</span> 1. Derece Yanık</h4>
                         <p><strong>Belirtiler:</strong> Kızarıklık, hafif şişlik, ağrı<br>
-                        <strong>Yapılacaklar:</strong><br>
-                        1. Yanık bölgeyi 15-20 dakika soğuk su altında tutun<br>
-                        2. Temiz bir bezle kurulayın<br>
-                        3. Yanık kremi sürün<br>
-                        4. Steril gazlı bezle kapatın</p>
+                        <strong>Yapılacaklar:</strong><br>1. Yanık bölgeyi 15-20 dakika soğuk su altında tutun<br>2. Temiz bir bezle kurulayın<br>3. Yanık kremi sürün<br>4. Steril gazlı bezle kapatın</p>
                     </div>
-
                     <div class="firstaid-step-card">
                         <h4><span class="icon-blue">🔥</span> 2. Derece Yanık</h4>
                         <p><strong>Belirtiler:</strong> İçi su dolu kabarcıklar, şiddetli ağrı<br>
-                        <strong>Yapılacaklar:</strong><br>
-                        1. Soğuk su uygulayın (buz değil!)<br>
-                        2. Kabarcıkları patlatmayın<br>
-                        3. Temiz bezle örtün<br>
-                        4. Acil servise başvurun</p>
+                        <strong>Yapılacaklar:</strong><br>1. Soğuk su uygulayın (buz değil!)<br>2. Kabarcıkları patlatmayın<br>3. Temiz bezle örtün<br>4. Acil servise başvurun</p>
                     </div>
-
                     <div class="firstaid-step-card">
                         <h4><span class="icon-green">🔥</span> 3. Derece Yanık</h4>
                         <p><strong>Belirtiler:</strong> Deri beyaz veya kömürleşmiş, ağrı yok (sinirler yandı)<br>
-                        <strong>Yapılacaklar:</strong><br>
-                        1. Hemen 112'yi arayın<br>
-                        2. Yanık bölgeyi temiz bezle örtün<br>
-                        3. Yaralıyı sıcak tutun<br>
-                        4. Kesinlikle su uygulamayın</p>
+                        <strong>Yapılacaklar:</strong><br>1. Hemen 112'yi arayın<br>2. Yanık bölgeyi temiz bezle örtün<br>3. Yaralıyı sıcak tutun<br>4. Kesinlikle su uygulamayın</p>
                     </div>
-
                     <div class="firstaid-warning">
                         <h5><span>❌</span> YANIKLARDA ASLA YAPMAYIN!</h5>
-                        <p>• Diş macunu, yoğurt, salça sürmeyin<br>
-                        • Buz uygulamayın<br>
-                        • Kabarcıkları patlatmayın<br>
-                        • Yapışkan pansuman yapmayın<br>
-                        • Yanık üzerine direkt ilaç sürmeyin</p>
+                        <p>• Diş macunu, yoğurt, salça sürmeyin<br>• Buz uygulamayın<br>• Kabarcıkları patlatmayın<br>• Yapışkan pansuman yapmayın<br>• Yanık üzerine direkt ilaç sürmeyin</p>
                     </div>
                 </div>
 
                 <!-- Kırıklar Tab'ı -->
                 <div class="firstaid-tab-content" id="fracture-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Kırık, Çıkık ve Burkulmalarda İlk Yardım</h3>
-                    
                     <div class="firstaid-step-card">
                         <h4><span class="icon-red">🦴</span> Kırık Belirtileri</h4>
-                        <p>• Şiddetli ağrı<br>
-                        • Şişlik ve morarma<br>
-                        • Şekil bozukluğu<br>
-                        • Hareket edememe<br>
-                        • Kırık sesi duyulması<br>
-                        • Kemik uçlarının görülmesi (açık kırık)</p>
+                        <p>• Şiddetli ağrı<br>• Şişlik ve morarma<br>• Şekil bozukluğu<br>• Hareket edememe<br>• Kırık sesi duyulması<br>• Kemik uçlarının görülmesi (açık kırık)</p>
                     </div>
-
                     <div class="firstaid-step-card">
                         <h4><span class="icon-blue">🩹</span> Kapalı Kırıkta İlk Yardım</h4>
-                        <p>1. Yaralı bölgeyi hareket ettirmeyin<br>
-                        2. Kırık bölgenin üstündeki ve altındaki eklemleri sabitleyin<br>
-                        3. Soğuk uygulayın (buz torbası)<br>
-                        4. Yaralı bölgeyi kalp seviyesinden yukarıda tutun<br>
-                        5. Acil servise başvurun</p>
+                        <p>1. Yaralı bölgeyi hareket ettirmeyin<br>2. Kırık bölgenin üstündeki ve altındaki eklemleri sabitleyin<br>3. Soğuk uygulayın (buz torbası)<br>4. Yaralı bölgeyi kalp seviyesinden yukarıda tutun<br>5. Acil servise başvurun</p>
                     </div>
-
                     <div class="firstaid-step-card">
                         <h4><span class="icon-green">⚠️</span> Açık Kırıkta İlk Yardım</h4>
-                        <p>1. Kanamayı kontrol altına alın<br>
-                        2. Dışarı çıkan kemik uçlarını içeri itmeyin<br>
-                        3. Temiz bir bezle örtün<br>
-                        4. Atel uygulayın (tahta, karton, gazete)<br>
-                        5. Hemen 112'yi arayın</p>
+                        <p>1. Kanamayı kontrol altına alın<br>2. Dışarı çıkan kemik uçlarını içeri itmeyin<br>3. Temiz bir bezle örtün<br>4. Atel uygulayın (tahta, karton, gazete)<br>5. Hemen 112'yi arayın</p>
                     </div>
-
                     <div class="firstaid-step-card">
                         <h4><span class="icon-orange">🦵</span> Atel Uygulama</h4>
-                        <p>• Kırık bölgenin üstündeki ve altındaki eklemleri içine alacak şekilde<br>
-                        • Yumuşak malzeme ile destekleyin<br>
-                        • Sargıyı çok sıkı yapmayın<br>
-                        • Parmakları açıkta bırakın (dolaşım kontrolü için)<br>
-                        • 20 dakikada bir dolaşımı kontrol edin</p>
+                        <p>• Kırık bölgenin üstündeki ve altındaki eklemleri içine alacak şekilde<br>• Yumuşak malzeme ile destekleyin<br>• Sargıyı çok sıkı yapmayın<br>• Parmakları açıkta bırakın (dolaşım kontrolü için)<br>• 20 dakikada bir dolaşımı kontrol edin</p>
                     </div>
                 </div>
 
                 <!-- Acil Numaralar Tab'ı -->
                 <div class="firstaid-tab-content" id="numbers-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Acil Durum Telefon Numaraları</h3>
-                    
                     <div class="emergency-numbers">
                         <div class="emergency-number">
                             <div class="number">112</div>
@@ -2097,45 +2334,20 @@
                             <p style="font-size: 0.9rem; margin-top: 0.5rem;">Kırsal bölgeler</p>
                         </div>
                     </div>
-
                     <div style="margin-top: 2.5rem;">
                         <h4 style="color: var(--primary); margin-bottom: 1rem;">📞 Diğer Önemli Numaralar</h4>
                         <ul class="number-list">
-                            <li>
-                                <span class="number">184</span>
-                                <span class="service">SABİM - Sağlık Bakanlığı Bilgi</span>
-                            </li>
-                            <li>
-                                <span class="number">185</span>
-                                <span class="service">SU ŞİKAYET</span>
-                            </li>
-                            <li>
-                                <span class="number">186</span>
-                                <span class="service">ELEKTRİK ARIZA</span>
-                            </li>
-                            <li>
-                                <span class="number">187</span>
-                                <span class="service">DOĞAL GAZ ARIZA</span>
-                            </li>
-                            <li>
-                                <span class="number">153</span>
-                                <span class="service">BELEDİYE ZABITA</span>
-                            </li>
-                            <li>
-                                <span class="number">154</span>
-                                <span class="service">TRAFİK POLİSİ</span>
-                            </li>
+                            <li><span class="number">184</span><span class="service">SABİM - Sağlık Bakanlığı Bilgi</span></li>
+                            <li><span class="number">185</span><span class="service">SU ŞİKAYET</span></li>
+                            <li><span class="number">186</span><span class="service">ELEKTRİK ARIZA</span></li>
+                            <li><span class="number">187</span><span class="service">DOĞAL GAZ ARIZA</span></li>
+                            <li><span class="number">153</span><span class="service">BELEDİYE ZABITA</span></li>
+                            <li><span class="number">154</span><span class="service">TRAFİK POLİSİ</span></li>
                         </ul>
                     </div>
-
                     <div class="firstaid-warning" style="margin-top: 2rem;">
                         <h5><span>📱</span> ACİL ARAMA YAPARKEN</h5>
-                        <p>1. <strong>Sakin olun</strong> ve net konuşun<br>
-                        2. <strong>Tam adresinizi</strong> söyleyin<br>
-                        3. <strong>Olayın ne olduğunu</strong> açıklayın<br>
-                        4. <strong>Yaralı sayısı ve durumunu</strong> bildirin<br>
-                        5. <strong>İsminizi ve telefonunuzu</strong> söyleyin<br>
-                        6. <strong>Telefonu ilk siz kapatmayın</strong></p>
+                        <p>1. <strong>Sakin olun</strong> ve net konuşun<br>2. <strong>Tam adresinizi</strong> söyleyin<br>3. <strong>Olayın ne olduğunu</strong> açıklayın<br>4. <strong>Yaralı sayısı ve durumunu</strong> bildirin<br>5. <strong>İsminizi ve telefonunuzu</strong> söyleyin<br>6. <strong>Telefonu ilk siz kapatmayın</strong></p>
                     </div>
                 </div>
             </div>
@@ -2154,9 +2366,9 @@
         </div>
     </section>
 
-    <!-- Emergency Banner - hava.html ile aynı stil -->
+    <!-- Emergency Banner -->
     <div class="container">
-        <div class="emergency-banner" style="background: linear-gradient(135deg, var(--accent), #b91c1c); color: var(--white); padding: 1.5rem 2rem; border-radius: var(--radius-xl); margin: 2rem 0; display: flex; align-items: center; justify-content: space-between; text-align: center; box-shadow: var(--shadow-lg); animation: pulse 2s infinite; cursor: pointer; min-height: 80px;">
+        <div class="emergency-banner">
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <span style="font-size: 1.5rem;">🚨</span>
                 <div>
@@ -2164,7 +2376,7 @@
                     <span style="font-size: 0.9rem;">Tüm acil durumlar için tek numara</span>
                 </div>
             </div>
-            <button id="emergencyFirstAidButton" style="background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); color: white; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; gap: 0.75rem; font-weight: 600; transition: all 0.3s ease; white-space: nowrap;">
+            <button id="emergencyFirstAidButton" style="background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); color: white; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; gap: 0.75rem; font-weight: 600; transition: all 0.3s ease; white-space: nowrap; min-height: 44px; min-width: 44px;">
                 <span>🆘</span>
                 İlk Yardım Rehberi
             </button>
@@ -2228,10 +2440,12 @@
                 </div>
             </div>
 
-            <!-- Detail Section -->
+            <!-- Detail Section (BİLGİ AL) - HAVA KALİTESİNDE DETAYLANDIRILDI -->
             <div class="detail-section animate-fade-in-up" id="detailSection" style="display: none;">
                 <h2 id="detailTitle">Afet Bilgisi</h2>
-                <div class="info-content" id="detailContent"></div>
+                <div class="info-content" id="detailContent">
+                    <!-- İçerik JavaScript ile doldurulacak -->
+                </div>
                 <button class="card-btn primary" style="margin-top: 2rem;" onclick="hideInfo()">
                     <span>← Geri Dön</span>
                 </button>
@@ -2247,13 +2461,12 @@
                 ✕
             </button>
         </div>
-
         <div class="test-content" id="testContent">
             <!-- Test içeriği JavaScript ile doldurulacak -->
         </div>
     </div>
 
-    <!-- Footer - hava.html ile aynı -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -2266,7 +2479,7 @@
                         <p style="color: var(--gray-400); margin-bottom: 1.5rem;">
                             Doğal afetlere hazırlık için rehber ve bilgi kaynağı. Herkes için güvenlik.
                         </p>
-                        <button id="footerFirstAidButton" style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; transition: all 0.3s ease; margin-top: 1rem; width: 100%; justify-content: center;">
+                        <button id="footerFirstAidButton" style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; transition: all 0.3s ease; margin-top: 1rem; width: 100%; justify-content: center; min-height: 44px;">
                             <span>🆘</span>
                             İlk Yardım Rehberi
                         </button>
@@ -2282,7 +2495,7 @@
                             <li><a href="yer.html"><span>🏔️</span> Yer Afetleri</a></li>
                             <li><a href="su.html"><span>🌊</span> Su Afetleri</a></li>
                             <li><a href="hava.html"><span>🌪️</span> Hava Afetleri</a></li>
-                            <li><a href="İnsan.html"><span>🔥</span> İnsan Kaynaklı</a></li>
+                            <li><a href="insan.html"><span>🔥</span> İnsan Kaynaklı</a></li>
                             <li><a href="hakkinda.html"><span>ℹ️</span> Hakkında</a></li>
                         </ul>
                     </div>
@@ -2317,8 +2530,8 @@
             crossorigin=""></script>
 
     <script>
-        // ==================== TEMEL İŞLEMLER ====================
-        
+        // ==================== HAVA İLE BİREBİR AYNI - TÜM OPTİMİZASYONLAR ====================
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const closeMenuBtn = document.getElementById('closeMenuBtn');
@@ -2350,8 +2563,6 @@
                     showInfo(type);
                 }
             });
-
-            // Make cards focusable
             card.setAttribute('tabindex', '0');
             card.setAttribute('role', 'button');
         });
@@ -2378,9 +2589,8 @@
             localStorage.setItem('afetHazirlikVisits', visits);
         }
 
-        // Keyboard shortcuts
+        // Keyboard shortcuts (Ctrl+F)
         document.addEventListener('keydown', (e) => {
-            // Ctrl + F for first aid
             if (e.ctrlKey && e.key === 'f') {
                 e.preventDefault();
                 openFirstAidModal();
@@ -2393,7 +2603,6 @@
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -2410,8 +2619,6 @@
         });
 
         // ==================== İLK YARDIM MODAL SİSTEMİ ====================
-
-        // Modal elementleri
         const firstAidModal = document.getElementById('firstAidModal');
         const firstAidButton = document.getElementById('firstAidButton');
         const mobileFirstAidButton = document.getElementById('mobileFirstAidButton');
@@ -2421,190 +2628,269 @@
         const firstAidTabs = document.querySelectorAll('.firstaid-tab');
         const firstAidTabContents = document.querySelectorAll('.firstaid-tab-content');
 
-        // Modal'ı aç
         function openFirstAidModal() {
             firstAidModal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            // Varsayılan tab'ı aktif et
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            document.body.style.height = '100%';
             switchFirstAidTab('basic');
         }
 
-        // Modal'ı kapat
         function closeFirstAidModalFunc() {
             firstAidModal.classList.remove('active');
             document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.height = '';
         }
 
-        // Tab değiştirme
         function switchFirstAidTab(tabName) {
-            // Tüm tab'ları deaktif et
             firstAidTabs.forEach(tab => {
                 tab.classList.remove('active');
-                if (tab.dataset.tab === tabName) {
-                    tab.classList.add('active');
-                }
+                if (tab.dataset.tab === tabName) tab.classList.add('active');
             });
-
-            // Tüm içerikleri gizle
             firstAidTabContents.forEach(content => {
                 content.classList.remove('active');
-                if (content.id === `${tabName}-tab`) {
-                    content.classList.add('active');
-                }
+                if (content.id === `${tabName}-tab`) content.classList.add('active');
             });
-
-            // İçeriği en üste kaydır
             const activeContent = document.getElementById(`${tabName}-tab`);
-            if (activeContent) {
-                activeContent.scrollTop = 0;
-            }
+            if (activeContent) activeContent.scrollTop = 0;
         }
 
-        // ==================== İLK YARDIM EVENT LISTENERS ====================
-
-        // İlk yardım modal butonları
-        firstAidButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            openFirstAidModal();
-        });
-
-        mobileFirstAidButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            openFirstAidModal();
-            toggleMobileMenu();
-        });
-
-        emergencyFirstAidButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            openFirstAidModal();
-            switchFirstAidTab('basic');
-        });
-
+        firstAidButton.addEventListener('click', (e) => { e.preventDefault(); openFirstAidModal(); });
+        mobileFirstAidButton.addEventListener('click', (e) => { e.preventDefault(); openFirstAidModal(); toggleMobileMenu(); });
+        emergencyFirstAidButton.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); openFirstAidModal(); switchFirstAidTab('basic'); });
         footerFirstAidButton.addEventListener('click', openFirstAidModal);
         closeFirstAidModal.addEventListener('click', closeFirstAidModalFunc);
-
-        // Modal dışına tıklayarak kapatma
-        firstAidModal.addEventListener('click', (e) => {
-            if (e.target === firstAidModal) {
-                closeFirstAidModalFunc();
-            }
-        });
-
-        // Tab'lar için event listener
-        firstAidTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                switchFirstAidTab(tab.dataset.tab);
-            });
-        });
-
-        // Escape tuşu ile modal'ı kapatma
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && firstAidModal.classList.contains('active')) {
-                closeFirstAidModalFunc();
-            }
-        });
+        firstAidModal.addEventListener('click', (e) => { if (e.target === firstAidModal) closeFirstAidModalFunc(); });
+        firstAidTabs.forEach(tab => { tab.addEventListener('click', () => { switchFirstAidTab(tab.dataset.tab); }); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && firstAidModal.classList.contains('active')) closeFirstAidModalFunc(); });
 
         // ==================== TEST SİSTEMİ ====================
-
-        // Test Data - ŞIKLARI KARIŞTIRILMIŞ OLARAK DÜZENLENDİ (her soru için şıklar karışık)
         const testData = {
             sel: [
-                {
-                    question: "Sel suları içinde yürümeye çalışmak neden tehlikelidir?",
-                    choices: ["Sadece ayaklarınız ıslanır", "15 cm derinlikteki su bile sizi sürükleyebilir", "Su temiz olduğu için güvenlidir"],
-                    correctAnswer: 1,
-                    explanation: "15 cm derinlikteki hızlı akan su bile insanı devirebilir."
-                },
-                {
-                    question: "Sel uyarısı aldığınızda ne yapmalısınız?",
-                    choices: ["Sel sularını izlemek için dışarı çıkın", "Hemen arabanızla kaçmaya çalışın", "Yüksek yerlere çıkın ve araç kullanmayın"],
-                    correctAnswer: 2,
-                    explanation: "Sel suları araçları sürükleyebilir, yüksek yerlere çıkmak en güvenlisidir."
-                },
-                {
-                    question: "Sel suları elektrik direklerine ulaştığında ne yapmalısınız?",
-                    choices: ["Elektrik direklerini kontrol etmek için yaklaşın", "Elektrik çarpma riski olduğundan sudan uzak durun", "Suya girmek güvenlidir çünkü elektrik iletmez"],
-                    correctAnswer: 1,
-                    explanation: "Sel suları elektriği iletebilir ve ölümcül elektrik çarpmasına neden olabilir."
-                },
-                {
-                    question: "Selden sonra evinize döndüğünüzde ne yapmalısınız?",
-                    choices: ["Eşyalarınızı kurtarmak için hemen içeri girin", "Hemen temizliğe başlayın", "Elektrik ve gaz sistemlerini kontrol ettirmeden girmeyin"],
-                    correctAnswer: 2,
-                    explanation: "Gaz kaçağı ve elektrik çarpması riski vardır, yetkililerin kontrolü gerekir."
-                },
-                {
-                    question: "Sel sırasında araçtaysanız ne yapmalısınız?",
-                    choices: ["Hızla sel sularından geçmeye çalışın", "Aracın içinde bekleyin", "Aracı terk edip yüksek yere çıkın"],
-                    correctAnswer: 2,
-                    explanation: "Araçlar sel sularında yüzmeye başlayabilir ve sürüklenebilir."
-                }
+                { question: "Sel suları içinde yürümeye çalışmak neden tehlikelidir?", choices: ["Sadece ayaklarınız ıslanır", "15 cm derinlikteki su bile sizi sürükleyebilir", "Su temiz olduğu için güvenlidir"], correctAnswer: 1, explanation: "15 cm derinlikteki hızlı akan su bile insanı devirebilir." },
+                { question: "Sel uyarısı aldığınızda ne yapmalısınız?", choices: ["Sel sularını izlemek için dışarı çıkın", "Hemen arabanızla kaçmaya çalışın", "Yüksek yerlere çıkın ve araç kullanmayın"], correctAnswer: 2, explanation: "Sel suları araçları sürükleyebilir, yüksek yerlere çıkmak en güvenlisidir." },
+                { question: "Sel suları elektrik direklerine ulaştığında ne yapmalısınız?", choices: ["Elektrik direklerini kontrol etmek için yaklaşın", "Elektrik çarpma riski olduğundan sudan uzak durun", "Suya girmek güvenlidir çünkü elektrik iletmez"], correctAnswer: 1, explanation: "Sel suları elektriği iletebilir ve ölümcül elektrik çarpmasına neden olabilir." },
+                { question: "Selden sonra evinize döndüğünüzde ne yapmalısınız?", choices: ["Eşyalarınızı kurtarmak için hemen içeri girin", "Hemen temizliğe başlayın", "Elektrik ve gaz sistemlerini kontrol ettirmeden girmeyin"], correctAnswer: 2, explanation: "Gaz kaçağı ve elektrik çarpması riski vardır, yetkililerin kontrolü gerekir." },
+                { question: "Sel sırasında araçtaysanız ne yapmalısınız?", choices: ["Hızla sel sularından geçmeye çalışın", "Aracın içinde bekleyin", "Aracı terk edip yüksek yere çıkın"], correctAnswer: 2, explanation: "Araçlar sel sularında yüzmeye başlayabilir ve sürüklenebilir." }
             ],
             tsunami: [
-                {
-                    question: "Tsunami uyarısı verildiğinde ne yapmalısınız?",
-                    choices: ["Sahile inip dalgaları izleyin", "Evde kalıp bekleyin", "Hemen yüksek yerlere veya üst katlara çıkın"],
-                    correctAnswer: 2,
-                    explanation: "Tsunami dalgaları çok hızlı gelir ve sahili hızla kaplar."
-                },
-                {
-                    question: "Deniz aniden çekildiğinde bu ne anlama gelir?",
-                    choices: ["Normal bir gelgit olayıdır", "Tsunami öncü belirtisidir, hemen yüksek yere kaçın", "Balıkları toplamak için iyi bir fırsattır"],
-                    correctAnswer: 1,
-                    explanation: "Denizin aniden çekilmesi tsunami öncü belirtisidir, hemen yüksek yere çıkılmalıdır."
-                },
-                {
-                    question: "Tsunami dalgaları kaç kez gelebilir?",
-                    choices: ["Sadece bir dalga gelir", "En fazla iki dalga gelir", "Birden fazla dalga gelebilir, ilk dalgadan sonra güvende değilsiniz"],
-                    correctAnswer: 2,
-                    explanation: "Tsunamilerde birden fazla dalga gelebilir, genellikle en büyük dalga ilk dalga değildir."
-                },
-                {
-                    question: "Tsunamiden sonra ne zaman sahile dönmek güvenlidir?",
-                    choices: ["Dalgalar durur durmaz", "Yetkililer izin verene kadar bekleyin", "1 saat sonra"],
-                    correctAnswer: 1,
-                    explanation: "Yetkililer bölgenin güvenli olduğunu açıklayana kadar sahile dönmeyin."
-                },
-                {
-                    question: "Tsunami sırasında en güvenli yer neresidir?",
-                    choices: ["Arabanın içi", "Sahile yakın binaların alt katları", "Mümkün olduğunca yüksek ve iç kesimler"],
-                    correctAnswer: 2,
-                    explanation: "Tsunami dalgaları sahili ve alçak bölgeleri kaplar, yüksek ve iç kesimler daha güvenlidir."
-                }
+                { question: "Tsunami uyarısı verildiğinde ne yapmalısınız?", choices: ["Sahile inip dalgaları izleyin", "Evde kalıp bekleyin", "Hemen yüksek yerlere veya üst katlara çıkın"], correctAnswer: 2, explanation: "Tsunami dalgaları çok hızlı gelir ve sahili hızla kaplar." },
+                { question: "Deniz aniden çekildiğinde bu ne anlama gelir?", choices: ["Normal bir gelgit olayıdır", "Tsunami öncü belirtisidir, hemen yüksek yere kaçın", "Balıkları toplamak için iyi bir fırsattır"], correctAnswer: 1, explanation: "Denizin aniden çekilmesi tsunami öncü belirtisidir, hemen yüksek yere çıkılmalıdır." },
+                { question: "Tsunami dalgaları kaç kez gelebilir?", choices: ["Sadece bir dalga gelir", "En fazla iki dalga gelir", "Birden fazla dalga gelebilir, ilk dalgadan sonra güvende değilsiniz"], correctAnswer: 2, explanation: "Tsunamilerde birden fazla dalga gelebilir, genellikle en büyük dalga ilk dalga değildir." },
+                { question: "Tsunamiden sonra ne zaman sahile dönmek güvenlidir?", choices: ["Dalgalar durur durmaz", "Yetkililer izin verene kadar bekleyin", "1 saat sonra"], correctAnswer: 1, explanation: "Yetkililer bölgenin güvenli olduğunu açıklayana kadar sahile dönmeyin." },
+                { question: "Tsunami sırasında en güvenli yer neresidir?", choices: ["Arabanın içi", "Sahile yakın binaların alt katları", "Mümkün olduğunca yüksek ve iç kesimler"], correctAnswer: 2, explanation: "Tsunami dalgaları sahili ve alçak bölgeleri kaplar, yüksek ve iç kesimler daha güvenlidir." }
             ],
             firtina: [
-                {
-                    question: "Şiddetli fırtına sırasında en güvenli yer neresidir?",
-                    choices: ["Kapalı ve sağlam bir binanın iç kısımları", "Açık alanlar", "Arabanın yanında"],
-                    correctAnswer: 0,
-                    explanation: "Kapalı ve sağlam binaların iç kısımları fırtınadan en iyi korunan yerlerdir."
-                },
-                {
-                    question: "Fırtına sırasında pencerelerden neden uzak durmalısınız?",
-                    choices: ["Pencerelerden dışarıyı görmek tehlikelidir", "Kırılan camlar yaralanmalara neden olabilir", "Pencereler sıcak tutar"],
-                    correctAnswer: 1,
-                    explanation: "Fırtına sırasında kırılan pencereler uçan cam parçaları ciddi yaralanmalara yol açabilir."
-                },
-                {
-                    question: "Fırtına sırasında elektrikli aletleri kullanmak neden tehlikelidir?",
-                    choices: ["Aletler bozulabilir", "Yıldırım çarpması elektrik sistemine zarar verebilir", "Elektrik kesintisi olur"],
-                    correctAnswer: 1,
-                    explanation: "Yıldırım çarpması elektrik sistemine zarar vererek yangın veya elektrik çarpmasına neden olabilir."
-                },
-                {
-                    question: "Fırtına uyarısı aldığınızda dışarıdaysanız ne yapmalısınız?",
-                    choices: ["Ağaç altında bekleyin", "Hızlıca eve koşun", "En yakın sağlam binaya sığının"],
-                    correctAnswer: 2,
-                    explanation: "Açık alanlar ve ağaç altları yıldırım çarpması riski taşır, en yakın binaya sığınmak güvenlidir."
-                },
-                {
-                    question: "Fırtına sonrası dışarı çıktığınızda nelere dikkat etmelisiniz?",
-                    choices: ["Sadece yollara bakın", "Devrilmiş ağaçlara, kopan elektrik tellerine dikkat edin", "Hemen normal hayata dönün"],
-                    correctAnswer: 1,
-                    explanation: "Fırtına sonrası devrilen ağaçlar ve kopan elektrik telleri büyük risk oluşturur."
-                }
+                { question: "Şiddetli fırtına sırasında en güvenli yer neresidir?", choices: ["Kapalı ve sağlam bir binanın iç kısımları", "Açık alanlar", "Arabanın yanında"], correctAnswer: 0, explanation: "Kapalı ve sağlam binaların iç kısımları fırtınadan en iyi korunan yerlerdir." },
+                { question: "Fırtına sırasında pencerelerden neden uzak durmalısınız?", choices: ["Pencerelerden dışarıyı görmek tehlikelidir", "Kırılan camlar yaralanmalara neden olabilir", "Pencereler sıcak tutar"], correctAnswer: 1, explanation: "Fırtına sırasında kırılan pencereler uçan cam parçaları ciddi yaralanmalara yol açabilir." },
+                { question: "Fırtına sırasında elektrikli aletleri kullanmak neden tehlikelidir?", choices: ["Aletler bozulabilir", "Yıldırım çarpması elektrik sistemine zarar verebilir", "Elektrik kesintisi olur"], correctAnswer: 1, explanation: "Yıldırım çarpması elektrik sistemine zarar vererek yangın veya elektrik çarpmasına neden olabilir." },
+                { question: "Fırtına uyarısı aldığınızda dışarıdaysanız ne yapmalısınız?", choices: ["Ağaç altında bekleyin", "Hızlıca eve koşun", "En yakın sağlam binaya sığının"], correctAnswer: 2, explanation: "Açık alanlar ve ağaç altları yıldırım çarpması riski taşır, en yakın binaya sığınmak güvenlidir." },
+                { question: "Fırtına sonrası dışarı çıktığınızda nelere dikkat etmelisiniz?", choices: ["Sadece yollara bakın", "Devrilmiş ağaçlara, kopan elektrik tellerine dikkat edin", "Hemen normal hayata dönün"], correctAnswer: 1, explanation: "Fırtına sonrası devrilen ağaçlar ve kopan elektrik telleri büyük risk oluşturur." }
             ]
+        };
+
+        // === BİLGİ AL (DETAIL) İÇERİĞİ - HAVA KALİTESİNDE ZENGİNLEŞTİRİLMİŞ ===
+        const infoData = {
+            sel: {
+                title: "🌊 Sel Hakkında Detaylı Bilgi",
+                content: `
+                    <div style="line-height: 1.8;">
+                        <div style="background: linear-gradient(135deg, var(--primary-soft), var(--white)); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; border-left: 4px solid var(--primary);">
+                            <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">📖 Sel Nedir?</h3>
+                            <p><strong>Sel</strong>, aşırı yağışlar, kar erimesi veya baraj taşkınları sonucu su seviyesinin hızla yükselmesiyle oluşan doğal afettir. 15 cm derinlikteki hızlı akan su bile bir insanı devirebilir.</p>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">📋 Temel Önlemler:</h3>
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--warning);">🛡️</span> Öncesi Hazırlık</h4>
+                            <p>• Yüksek yerlere çıkma planı yapın, tahliye rotalarını belirleyin<br>
+                            • Acil durum çantası hazırlayın (su, yiyecek, ilk yardım, fener, pilli radyo)<br>
+                            • Önemli belgeleri su geçirmez torbalara koyun<br>
+                            • Bodrum katlarındaki değerli eşyaları üst katlara taşıyın</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--accent);">⚡</span> Sırasında Yapılacaklar</h4>
+                            <p>• Asla sel sularına girmeyin, araç kullanmayın<br>
+                            • Hemen yüksek ve güvenli yerlere çıkın<br>
+                            • Elektrik kaynaklarından uzak durun<br>
+                            • Radyo ve resmi kaynaklardan anonsları takip edin<br>
+                            • Çatıya çıkmak zorunda kalırsanız, yanınıza battaniye ve düdük alın</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--success);">✅</span> Sonrası Dikkat Edilecekler</h4>
+                            <p>• Yetkililer izin vermeden evinize dönmeyin<br>
+                            • Elektrik ve gaz sistemlerini kontrol ettirin<br>
+                            • Suyun kirlenmiş olabileceğini unutmayın, içme suyunu kaynatın<br>
+                            • Yıkılan duvar ve hasarlı yapılardan uzak durun<br>
+                            • Sel sularıyla temas eden gıdaları tüketmeyin</p>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">⚠️ Tehlikeler:</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--accent);">💧 Hızlı Su</strong>
+                                <p style="font-size: 0.9rem;">15 cm su sürükler, 60 cm su aracı yüzdürür</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--warning);">⚡ Elektrik Çarpması</strong>
+                                <p style="font-size: 0.9rem;">Su ileten ortamda ölümcül risk</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--primary);">🦠 Enfeksiyon</strong>
+                                <p style="font-size: 0.9rem;">Kanalizasyon karışımı, mikrop riski</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: #8b5cf6;">🏚️ Yapısal Hasar</strong>
+                                <p style="font-size: 0.9rem;">Bina temellerinde zayıflama, göçük riski</p>
+                            </div>
+                        </div>
+                        
+                        <div class="firstaid-warning" style="margin-top: 2rem;">
+                            <h5><span>🚫</span> ASLA YAPMAYIN!</h5>
+                            <p>• Sel basan yolda araç kullanmayın<br>
+                            • Sel sularında yürümeye/yüzmeye çalışmayın<br>
+                            • Elektrik panolarına ve kablolarına dokunmayın<br>
+                            • Habersiz tahliye yapmayın</p>
+                        </div>
+                    </div>
+                `
+            },
+            tsunami: {
+                title: "🌅 Tsunami Hakkında Detaylı Bilgi",
+                content: `
+                    <div style="line-height: 1.8;">
+                        <div style="background: linear-gradient(135deg, #fef3c7, #fef9c3); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; border-left: 4px solid var(--warning);">
+                            <h3 style="color: var(--warning); margin-bottom: 1rem;">📖 Tsunami Nedir?</h3>
+                            <p><strong>Tsunami</strong>, deniz tabanındaki depremler, volkanik patlamalar veya heyelanlar sonucu oluşan dev dalgalardır. Açık denizde 1 metre olan dalga, sahilde 30 metreye ulaşabilir.</p>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">⚠️ Doğal Uyarı İşaretleri:</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--accent);">🌊 Deniz Çekilmesi</strong>
+                                <p style="font-size: 0.9rem;">En güçlü uyarı işareti, hemen kaçın</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--warning);">📢 Gürültü</strong>
+                                <p style="font-size: 0.9rem;">Yüksek sesle gelen dalga uğultusu</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--primary);">🏔️ Deprem</strong>
+                                <p style="font-size: 0.9rem;">Sahilde şiddetli sarsıntı hissedilmesi</p>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">🏃‍♂️ Kaçış ve Korunma:</h3>
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--accent);">⏱️</span> İlk 5 Dakika</h4>
+                            <p>• Hemen yüksek yerlere çıkın (en az 15 metre veya 30-40 kat merdiven)<br>
+                            • Asansör kullanmayın, merdivenleri kullanın<br>
+                            • Araçla kaçmaya çalışmayın (trafik olur)<br>
+                            • Eşya toplamayın, sadece canınızı kurtarın</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--success);">🏢</span> Sığınak ve Yerler</h4>
+                            <p>• Betonarme binaların üst katları (3. kat ve üzeri)<br>
+                            • Tsunami kaçış kuleleri (varsa)<br>
+                            • Sahilden en az 2 km içerideki yüksek alanlar<br>
+                            • Tepe ve yamaçlar</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--primary);">⏳</span> Tsunami Sonrası</h4>
+                            <p>• İlk dalgadan sonra güvende değilsiniz, dalgalar saatlerce sürebilir<br>
+                            • Resmi 'tehlike geçti' anonsunu bekleyin<br>
+                            • Sahile dönmek için yetkililerin iznini bekleyin<br>
+                            • Hasarlı yapılara girmeyin</p>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, #dcfce7, #d1fae5); padding: 1.5rem; border-radius: var(--radius-lg); margin-top: 2rem; border-left: 4px solid var(--success);">
+                            <h5 style="color: var(--success);">📊 Tsunami İstatistikleri</h5>
+                            <p><strong>En Yüksek Dalga:</strong> 524 metre, Alaska (1958) - Dünya rekoru<br>
+                            <strong>En Ölümcül:</strong> 230,000 ölü, Hint Okyanusu (2004)<br>
+                            <strong>Hız:</strong> 800 km/s (uçak hızında)<br>
+                            <strong>Dalga Periyodu:</strong> 10 dakika - 2 saat arası</p>
+                        </div>
+                    </div>
+                `
+            },
+            firtina: {
+                title: "🌀 Şiddetli Fırtına Hakkında Detaylı Bilgi",
+                content: `
+                    <div style="line-height: 1.8;">
+                        <div style="background: linear-gradient(135deg, #e0e7ff, #c7d2fe); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; border-left: 4px solid #6366f1;">
+                            <h3 style="color: #6366f1; margin-bottom: 1rem;">📖 Şiddetli Fırtına Nedir?</h3>
+                            <p><strong>Şiddetli Fırtına</strong>, saatte 100 km'yi aşan rüzgarlar, yoğun yağış ve yıldırımlarla karakterize edilen meteorolojik afettir. Sahillerde fırtına dalgalarına da neden olur.</p>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">☁️ Korunma Yöntemleri:</h3>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--warning);">🏠</span> Ev İçi Güvenlik</h4>
+                            <p>• Kapı ve pencereleri kapatın, panjurları indirin<br>
+                            • İç odalarda veya bodrumda kalın<br>
+                            • Elektrikli aletleri fişten çekin<br>
+                            • Şömine ve soba kullanmayın<br>
+                            • Küvet ve bidonlara su doldurun (kesintiye karşı)</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--accent);">🌳</span> Dışarıda Yakalanırsanız</h4>
+                            <p>• Ağaç, elektrik direği, reklam panosundan uzak durun<br>
+                            • Açık arazide iseniz çömelin, yere yatmayın<br>
+                            • Mağara, köprü altı gibi yerlere sığınmayın<br>
+                            • Metal eşyalardan (şemsiye, baston) kurtulun</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card" style="margin: 1rem 0;">
+                            <h4><span style="color: var(--success);">🚗</span> Araç İçinde</h4>
+                            <p>• Aracı güvenli bir yere çekin, ağaç altına park etmeyin<br>
+                            • Araç içinde kalın, camları kapatın<br>
+                            • Metal aksamaya dokunmayın<br>
+                            • Viyadük ve tünellerde durmayın</p>
+                        </div>
+                        
+                        <h3 style="margin-top: 1.5rem; color: var(--primary);">⚡ Yıldırım Güvenliği:</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: var(--warning);">📏 30-30 Kuralı</strong>
+                                <p style="font-size: 0.9rem;">Şimşek-gök gürültüsü arası <30 saniye ise hemen sığının, son yıldırımdan 30 dk sonra çıkın</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong style="color: #8b5cf6;">🚫 Yapmayın</strong>
+                                <p style="font-size: 0.9rem;">Duş almak, bulaşık yıkamak, kablolu telefon kullanmak</p>
+                            </div>
+                        </div>
+                        
+                        <div class="firstaid-warning" style="margin-top: 2rem;">
+                            <h5><span>⚠️</span> FIRTINA SONRASI RİSKLER</h5>
+                            <p>• Kopmuş elektrik telleri (en az 10 metre uzak durun)<br>
+                            • Devrilmiş ağaçlar ve çökmüş çatılar<br>
+                            • Su baskınları ve kanalizasyon taşkınları<br>
+                            • Hasarlı gaz hatları (doğalgaz kokusu alırsanız hemen yetkililere bildirin)</p>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem;">
+                            <div style="background: linear-gradient(135deg, var(--primary-light), var(--primary)); color: white; padding: 1.5rem; border-radius: var(--radius-lg); text-align: center;">
+                                <div style="font-size: 2rem;">🌪️</div>
+                                <strong>Rüzgar Hızı</strong>
+                                <p style="font-size: 0.9rem; opacity: 0.9;">100 km/s üzeri fırtına<br>120+ km/s tehlikeli</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, var(--accent-light), var(--accent)); color: white; padding: 1.5rem; border-radius: var(--radius-lg); text-align: center;">
+                                <div style="font-size: 2rem;">⏱️</div>
+                                <strong>Yağış Miktarı</strong>
+                                <p style="font-size: 0.9rem; opacity: 0.9;">Saatte 50 mm üzeri<br>Ani sele neden olur</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
         };
 
         // Test State
@@ -2615,355 +2901,164 @@
         let isAnswerSelected = false;
         let autoContinueTimer = null;
 
-        // Başlık Map
         const testTitles = {
             sel: "🌊 Sel Testi",
             tsunami: "🌅 Tsunami Testi",
             firtina: "🌀 Şiddetli Fırtına Testi"
         };
 
-        // Bilgi Map
-        const infoData = {
-            sel: {
-                title: "Sel Hakkında",
-                content: `
-                    <div style="line-height: 1.8;">
-                        <p><strong>Sel:</strong> Ani ve şiddetli yağışlar sonucu su seviyesinin hızla yükselmesiyle oluşur.</p>
-                        
-                        <h3 style="margin-top: 1.5rem; color: var(--primary);">📋 Temel Önlemler:</h3>
-                        <ul style="padding-left: 1.5rem; margin: 1rem 0;">
-                            <li><strong>Öncesi:</strong> Yüksek yerlere çıkma planı yapın, acil durum çantası hazırlayın</li>
-                            <li><strong>Sırasında:</strong> Sel sularına girmeyin, araç kullanmayın</li>
-                            <li><strong>Sonrası:</strong> Elektrik ve gaz sistemlerini kontrol ettirmeden evinize girmeyin</li>
-                        </ul>
-                        
-                        <h3 style="margin-top: 1.5rem; color: var(--primary);">⚠️ Tehlikeler:</h3>
-                        <ul style="padding-left: 1.5rem; margin: 1rem 0;">
-                            <li>Hızlı akan su (15 cm bile tehlikeli)</li>
-                            <li>Sürüklenen nesneler</li>
-                            <li>Elektrik çarpması riski</li>
-                            <li>Yapısal hasarlar</li>
-                        </ul>
-                    </div>
-                `
-            },
-            tsunami: {
-                title: "Tsunami Hakkında",
-                content: `
-                    <div style="line-height: 1.8;">
-                        <p><strong>Tsunami:</strong> Deniz tabanındaki depremler, volkanik patlamalar veya heyelanlar sonucu oluşan dev dalgalardır.</p>
-                        
-                        <h3 style="margin-top: 1.5rem; color: var(--primary);">⚠️ Tehlike Belirtileri:</h3>
-                        <ul style="padding-left: 1.5rem; margin: 1rem 0;">
-                            <li>Denizin aniden çekilmesi</li>
-                            <li>Gürültülü ve hızlı dalga gelişi</li>
-                            <li>Hayvanların garip davranışları</li>
-                            <li>Şiddetli deprem hissi (sahildeyken)</li>
-                        </ul>
-                        
-                        <h3 style="margin-top: 1.5rem; color: var(--primary);">🏃‍♂️ Kaçış Planı:</h3>
-                        <ul style="padding-left: 1.5rem; margin: 1rem 0;">
-                            <li>Hemen yüksek yerlere çıkın (en az 15 metre yükseklik)</li>
-                            <li>Asansör kullanmayın, merdivenleri kullanın</li>
-                            <li>Araçla kaçmaya çalışmayın</li>
-                            <li>Dalgalar bitene kadar yüksekte kalın</li>
-                        </ul>
-                    </div>
-                `
-            },
-            firtina: {
-                title: "Şiddetli Fırtına Hakkında",
-                content: `
-                    <div style="line-height: 1.8;">
-                        <p><strong>Şiddetli Fırtına:</strong> Şiddetli rüzgar, yağmur ve bazen fırtına dalgalarıyla karakterize olan meteorolojik afetlerdir.</p>
-                        
-                        <h3 style="margin-top: 1.5rem; color: var(--primary);">☁️ Korunma Yöntemleri:</h3>
-                        <ul style="padding-left: 1.5rem; margin: 1rem 0;">
-                            <li>Kapalı ve sağlam binaların iç kısımlarında kalın</li>
-                            <li>Pencerelerden uzak durun</li>
-                            <li>Elektrikli aletleri kullanmayın</li>
-                            <li>Dışarıdaysanız en yakın binaya sığının</li>
-                        </ul>
-                        
-                        <h3 style="margin-top: 1.5rem; color: var(--primary);">⚡ Riskler:</h3>
-                        <ul style="padding-left: 1.5rem; margin: 1rem 0;">
-                            <li>Yıldırım çarpması</li>
-                            <li>Uçan nesneler</li>
-                            <li>Elektrik kesintileri</li>
-                            <li>Su baskınları</li>
-                        </ul>
-                    </div>
-                `
-            }
-        };
-
-        // Test Başlatma Fonksiyonu
         function startTest(type) {
             currentTest = type;
             currentQuestion = 0;
             score = 0;
             allAnswers = [];
             isAnswerSelected = false;
-
             document.getElementById('testTitle').textContent = testTitles[type];
             document.getElementById('testOverlay').classList.add('active');
             document.body.style.overflow = 'hidden';
-
             renderQuestion();
         }
 
-        // Test Kapatma Fonksiyonu
         function closeTest() {
-            if (autoContinueTimer) {
-                clearTimeout(autoContinueTimer);
-            }
+            if (autoContinueTimer) clearTimeout(autoContinueTimer);
             document.getElementById('testOverlay').classList.remove('active');
             document.body.style.overflow = '';
             resetTest();
         }
 
-        // Test Sıfırlama
         function resetTest() {
-            currentTest = null;
-            currentQuestion = 0;
-            score = 0;
-            allAnswers = [];
-            isAnswerSelected = false;
-            if (autoContinueTimer) {
-                clearTimeout(autoContinueTimer);
-                autoContinueTimer = null;
-            }
+            currentTest = null; currentQuestion = 0; score = 0; allAnswers = []; isAnswerSelected = false;
+            if (autoContinueTimer) { clearTimeout(autoContinueTimer); autoContinueTimer = null; }
         }
 
-        // Soru Render
         function renderQuestion() {
-            if (!currentTest || currentQuestion >= testData[currentTest].length) {
-                showResults();
-                return;
-            }
-
+            if (!currentTest || currentQuestion >= testData[currentTest].length) { showResults(); return; }
             const testContent = document.getElementById('testContent');
-            const questionData = testData[currentTest][currentQuestion];
+            const q = testData[currentTest][currentQuestion];
             const progress = ((currentQuestion + 1) / testData[currentTest].length) * 100;
-
             testContent.innerHTML = `
                 <div class="progress-container">
-                    <div class="progress-label">
-                        <span>Soru ${currentQuestion + 1} / ${testData[currentTest].length}</span>
-                        <span>Skor: ${score}</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${progress}%"></div>
-                    </div>
+                    <div class="progress-label"><span>Soru ${currentQuestion+1} / ${testData[currentTest].length}</span><span>Skor: ${score}</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: ${progress}%"></div></div>
                 </div>
-                
-                <div class="question">${questionData.question}</div>
-                
+                <div class="question">${q.question}</div>
                 <div class="choices" id="choicesContainer">
-                    ${questionData.choices.map((choice, index) => `
-                        <button class="choice" onclick="selectAnswer(${index})" id="choice-${index}">
-                            ${choice}
-                        </button>
-                    `).join('')}
+                    ${q.choices.map((c,i) => `<button class="choice" onclick="selectAnswer(${i})" id="choice-${i}">${c}</button>`).join('')}
                 </div>
-                
                 <div id="feedbackContainer"></div>
             `;
         }
 
-        // Cevap Seçimi
         function selectAnswer(choiceIndex) {
             if (isAnswerSelected) return;
-
             isAnswerSelected = true;
-            const questionData = testData[currentTest][currentQuestion];
-            const isCorrect = choiceIndex === questionData.correctAnswer;
-
-            // Tüm seçenekleri devre dışı bırak
-            const choices = document.querySelectorAll('.choice');
-            choices.forEach(choice => choice.disabled = true);
-
-            // Doğru ve yanlış cevapları renklendir
+            const q = testData[currentTest][currentQuestion];
+            const isCorrect = choiceIndex === q.correctAnswer;
+            document.querySelectorAll('.choice').forEach(c => c.disabled = true);
             document.getElementById(`choice-${choiceIndex}`).classList.add(isCorrect ? 'correct' : 'wrong');
-            if (!isCorrect) {
-                document.getElementById(`choice-${questionData.correctAnswer}`).classList.add('correct');
-            }
-
-            // Cevabı kaydet
-            allAnswers.push({
-                question: questionData.question,
-                userAnswer: questionData.choices[choiceIndex],
-                correctAnswer: questionData.choices[questionData.correctAnswer],
-                isCorrect: isCorrect,
-                explanation: questionData.explanation
-            });
-
-            // Skoru güncelle
-            if (isCorrect) {
-                score++;
-            }
-
-            // Feedback göster
-            const feedbackContainer = document.getElementById('feedbackContainer');
-            feedbackContainer.innerHTML = `
-                <div class="feedback ${isCorrect ? 'correct' : 'wrong'}">
-                    <strong>${isCorrect ? '✅ Doğru!' : '❌ Yanlış!'}</strong><br>
-                    ${questionData.explanation}
-                </div>
-                
-                <button class="auto-continue-btn" id="autoContinueBtn" onclick="nextQuestion()">
-                    <span>${currentQuestion < testData[currentTest].length - 1 ? '⏭️ Sonraki Soru' : '🏁 Sonuçları Göster'}</span>
-                </button>
-                
-                <div class="countdown-text" id="countdownText">
-                    Otomatik geçiş: <span id="countdownNumber">3</span> saniye
-                </div>
+            if (!isCorrect) document.getElementById(`choice-${q.correctAnswer}`).classList.add('correct');
+            allAnswers.push({ question: q.question, userAnswer: q.choices[choiceIndex], correctAnswer: q.choices[q.correctAnswer], isCorrect, explanation: q.explanation });
+            if (isCorrect) score++;
+            document.getElementById('feedbackContainer').innerHTML = `
+                <div class="feedback ${isCorrect?'correct':'wrong'}"><strong>${isCorrect?'✅ Doğru!':'❌ Yanlış!'}</strong><br>${q.explanation}</div>
+                <button class="auto-continue-btn" id="autoContinueBtn" onclick="nextQuestion()"><span>${currentQuestion < testData[currentTest].length-1 ? '⏭️ Sonraki Soru' : '🏁 Sonuçları Göster'}</span></button>
+                <div class="countdown-text" id="countdownText">Otomatik geçiş: <span id="countdownNumber">3</span> saniye</div>
             `;
-
-            // Otomatik geçiş sayacı başlat
             startAutoContinue();
         }
 
-        // Otomatik geçiş sayacı
         function startAutoContinue() {
-            let countdown = 3;
-            const countdownElement = document.getElementById('countdownNumber');
-            const buttonElement = document.getElementById('autoContinueBtn');
-
+            let count = 3;
+            const cd = document.getElementById('countdownNumber');
             autoContinueTimer = setInterval(() => {
-                countdown--;
-                countdownElement.textContent = countdown;
-
-                if (countdown <= 0) {
-                    clearInterval(autoContinueTimer);
-                    nextQuestion();
-                }
+                count--;
+                if(cd) cd.textContent = count;
+                if (count <= 0) { clearInterval(autoContinueTimer); nextQuestion(); }
             }, 1000);
         }
 
-        // Sonraki Soru
-        function nextQuestion() {
-            if (autoContinueTimer) {
-                clearTimeout(autoContinueTimer);
-            }
+        function nextQuestion() { if (autoContinueTimer) clearTimeout(autoContinueTimer); currentQuestion++; isAnswerSelected = false; renderQuestion(); }
 
-            currentQuestion++;
-            isAnswerSelected = false;
-            renderQuestion();
-        }
-
-        // Sonuçları Göster
         function showResults() {
-            const testContent = document.getElementById('testContent');
-            const totalQuestions = testData[currentTest].length;
-            const percentage = Math.round((score / totalQuestions) * 100);
-
-            // Detaylı sonuçları hazırla
-            let detailedResultsHTML = '';
-            allAnswers.forEach((answer, index) => {
-                detailedResultsHTML += `
-                    <div class="result-item ${answer.isCorrect ? 'correct' : 'wrong'}">
-                        <div class="result-question">Soru ${index + 1}: ${answer.question}</div>
-                        
-                        <div class="result-answer ${answer.isCorrect ? 'correct' : 'wrong'}">
-                            ${answer.isCorrect ? '✅' : '❌'} 
-                            <strong>Senin cevabın:</strong> ${answer.userAnswer}
-                        </div>
-                        
-                        ${!answer.isCorrect ? `
-                            <div class="result-answer correct">
-                                ✅ <strong>Doğru cevap:</strong> ${answer.correctAnswer}
-                            </div>
-                        ` : ''}
-                        
-                        <div class="result-explanation">
-                            💡 ${answer.explanation}
-                        </div>
-                    </div>
-                `;
+            const tc = document.getElementById('testContent');
+            const tq = testData[currentTest].length;
+            const perc = Math.round((score/tq)*100);
+            let dr = '';
+            allAnswers.forEach((a,i) => {
+                dr += `<div class="result-item ${a.isCorrect?'correct':'wrong'}"><div class="result-question">Soru ${i+1}: ${a.question}</div>
+                        <div class="result-answer ${a.isCorrect?'correct':'wrong'}">${a.isCorrect?'✅':'❌'} <strong>Senin cevabın:</strong> ${a.userAnswer}</div>
+                        ${!a.isCorrect?`<div class="result-answer correct">✅ <strong>Doğru cevap:</strong> ${a.correctAnswer}</div>`:''}
+                        <div class="result-explanation">💡 ${a.explanation}</div></div>`;
             });
-
-            let resultIcon, resultMessage;
-            if (percentage >= 80) {
-                resultIcon = '🎉';
-                resultMessage = 'Mükemmel! 🏆 Tam bir su afetleri uzmanısın!';
-            } else if (percentage >= 60) {
-                resultIcon = '👍';
-                resultMessage = 'İyi iş! 👍 Su afetleri hakkında iyi bilgi sahibisin.';
-            } else {
-                resultIcon = '💡';
-                resultMessage = 'Daha çok çalışmalısın! 💪 Su afetleri bilincini geliştirmeye devam et.';
-            }
-
-            let resultHTML = `
-                <div class="result-screen">
-                    <div class="result-icon">${resultIcon}</div>
-                    <div class="result-score">${score}/${totalQuestions}</div>
-                    <div class="result-message">
-                        ${resultMessage}
-                        <br>Başarı oranın: <strong>%${percentage}</strong>
-                    </div>
-                    
-                    <div class="detailed-results">
-                        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">📊 Detaylı Sonuçlar:</h3>
-                        ${detailedResultsHTML}
-                    </div>
-                    
-                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-                        <button class="card-btn primary" onclick="startTest('${currentTest}')" style="flex: 1;">
-                            <span>🔄 Testi Tekrarla</span>
-                        </button>
-                        <button class="card-btn secondary" onclick="closeTest()" style="flex: 1;">
-                            <span>🏠 Ana Sayfaya Dön</span>
-                        </button>
-                    </div>
-                </div>
-            `;
-
-            testContent.innerHTML = resultHTML;
+            let icon = perc>=80?'🎉':perc>=60?'👍':'💡';
+            let msg = perc>=80?'Mükemmel! 🏆 Tam bir su afetleri uzmanısın!':perc>=60?'İyi iş! 👍 Su afetleri hakkında iyi bilgi sahibisin.':'Daha çok çalışmalısın! 💪 Su afetleri bilincini geliştirmeye devam et.';
+            tc.innerHTML = `<div class="result-screen"><div class="result-icon">${icon}</div><div class="result-score">${score}/${tq}</div>
+                <div class="result-message">${msg}<br>Başarı oranın: <strong>%${perc}</strong></div>
+                <div class="detailed-results"><h3 style="margin-bottom:1.5rem;color:var(--primary);">📊 Detaylı Sonuçlar:</h3>${dr}</div>
+                <div style="display:flex;gap:1rem;margin-top:2rem;"><button class="card-btn primary" onclick="startTest('${currentTest}')" style="flex:1;"><span>🔄 Testi Tekrarla</span></button>
+                <button class="card-btn secondary" onclick="closeTest()" style="flex:1;"><span>🏠 Ana Sayfaya Dön</span></button></div></div>`;
         }
 
-        // Bilgi Gösterme Fonksiyonu
         function showInfo(type) {
             const info = infoData[type];
             document.getElementById('detailTitle').textContent = info.title;
             document.getElementById('detailContent').innerHTML = info.content;
             document.getElementById('detailSection').style.display = 'block';
-
-            // Kartları gizle
-            document.querySelectorAll('.card').forEach(card => {
-                card.style.display = 'none';
-            });
-
-            // Başlığı gizle
+            document.querySelectorAll('.card').forEach(c => c.style.display = 'none');
             document.querySelector('.section-title').style.display = 'none';
-
-            // Sayfayı detail bölümüne kaydır
             document.getElementById('detailSection').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Bilgi Gizleme Fonksiyonu
         function hideInfo() {
             document.getElementById('detailSection').style.display = 'none';
-
-            // Kartları göster
-            document.querySelectorAll('.card').forEach(card => {
-                card.style.display = 'flex';
-            });
-
-            // Başlığı göster
+            document.querySelectorAll('.card').forEach(c => c.style.display = 'flex');
             document.querySelector('.section-title').style.display = 'block';
-
-            // Sayfayı başa kaydır
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Escape tuşu ile testi kapat
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && document.getElementById('testOverlay').classList.contains('active')) {
-                closeTest();
-            }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && document.getElementById('testOverlay').classList.contains('active')) closeTest(); });
+
+        // ==================== PERFORMANS OPTİMİZASYONLARI (HAVA İLE BİREBİR) ====================
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.innerWidth <= 768) document.documentElement.style.setProperty('--transition-normal', '200ms');
+                else document.documentElement.style.setProperty('--transition-normal', '300ms');
+            }, 250);
         });
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+            }, { rootMargin: '50px', threshold: 0.1 });
+            document.querySelectorAll('.card, .detail-section').forEach(el => observer.observe(el));
+        }
+
+        const preconnects = ['https://unpkg.com'];
+        preconnects.forEach(url => { const link = document.createElement('link'); link.rel = 'preconnect'; link.href = url; document.head.appendChild(link); });
+
+        let isScrolling;
+        window.addEventListener('scroll', () => { clearTimeout(isScrolling); isScrolling = setTimeout(() => {}, 66); }, { passive: true });
+
+        if ('ontouchstart' in window) {
+            let startX, startY;
+            const testOverlay = document.getElementById('testOverlay');
+            testOverlay.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; startY = e.touches[0].clientY; }, { passive: true });
+            testOverlay.addEventListener('touchmove', (e) => {
+                if (!startX || !startY) return;
+                const diffX = e.touches[0].clientX - startX;
+                const diffY = e.touches[0].clientY - startY;
+                if (Math.abs(diffX) > Math.abs(diffY) && diffX < -50) closeTest();
+            }, { passive: true });
+        }
+
+        if ('matchMedia' in window && window.matchMedia('(max-width: 768px)').matches) {
+            const style = document.createElement('style');
+            style.textContent = `@media (max-width: 768px) { .card:hover { transform: translateY(-4px) !important; } .choice:hover:not(:disabled) { transform: translateX(4px) !important; } }`;
+            document.head.appendChild(style);
+        }
+        // ==================== OPTİMİZASYON SONU ====================
     </script>
 </body>
 </html>

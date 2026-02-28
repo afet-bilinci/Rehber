@@ -9,31 +9,33 @@
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
 
-    <!-- SEO ve Social Media Meta Tags (GELİŞTİRİLDİ) -->
+    <!-- SEO ve Social Media Meta Tags -->
     <title>Hava Afetleri - Kasırga, Yıldırım, Dolu | Afet Hazırlık Rehberi</title>
     <meta name="description" content="Kasırga, yıldırım fırtınası, şiddetli dolu gibi hava afetleri için hazırlık rehberi, zorlu testler ve ilk yardım bilgileri.">
     <meta name="keywords" content="kasırga, yıldırım, dolu, hava afetleri, fırtına, afet hazırlık, test, ilk yardım, acil durum">
     <meta name="author" content="Afet Hazırlık Platformu">
     
-    <!-- Open Graph / Social Media (YENİ EKLENDİ) -->
+    <!-- Open Graph / Social Media -->
     <meta property="og:title" content="Hava Afetleri - Kasırga, Yıldırım, Dolu">
     <meta property="og:description" content="Hava afetlerine karşı hazırlık rehberi, zorlu testler ve ilk yardım bilgileri.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Afet Hazırlık Rehberi">
+    <meta property="og:image" content="https://afethazirlik.gov.tr/images/hava-afetleri-og.jpg">
     
-    <!-- Twitter Card (YENİ EKLENDİ) -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Hava Afetleri - Hazırlık Rehberi">
     <meta name="twitter:description" content="Kasırga, yıldırım ve dolu afetlerine karşı hazırlıklı olun.">
+    <meta name="twitter:image" content="https://afethazirlik.gov.tr/images/hava-afetleri-twitter.jpg">
     
-    <!-- Canonical URL (YENİ EKLENDİ) -->
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://afethazirlik.gov.tr/hava.html">
     
     <!-- Theme Color -->
     <meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0a0f1c" media="(prefers-color-scheme: dark)">
     
-    <!-- JSON-LD Yapılandırılmış Veri (YENİ EKLENDİ) -->
+    <!-- JSON-LD Yapılandırılmış Veri -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -43,6 +45,23 @@
         "publisher": {
             "@type": "Organization",
             "name": "Afet Hazırlık Platformu"
+        },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Ana Sayfa",
+                    "item": "https://afethazirlik.gov.tr/index.html"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Hava Afetleri",
+                    "item": "https://afethazirlik.gov.tr/hava.html"
+                }
+            ]
         }
     }
     </script>
@@ -52,7 +71,7 @@
         :root {
             color-scheme: light dark;
 
-            /* ANA RENKLER - GELİŞTİRİLDİ */
+            /* ANA RENKLER */
             --primary: #0f766e;
             --primary-dark: #115e59;
             --primary-light: #14b8a6;
@@ -485,7 +504,7 @@
                         color var(--transition-smooth);
         }
 
-        /* Skip Link (YENİ EKLENDİ - Erişilebilirlik) */
+        /* Skip Link (Erişilebilirlik) */
         .skip-link {
             position: absolute;
             left: -9999px;
@@ -495,11 +514,12 @@
             padding: 1rem;
             text-decoration: none;
             z-index: 9999;
+            border-radius: 0 0 var(--radius-md) 0;
         }
 
         .skip-link:focus {
-            left: 1rem;
-            top: 1rem;
+            left: 0;
+            top: 0;
         }
 
         /* Tipografi */
@@ -1368,7 +1388,7 @@
     </style>
 </head>
 <body>
-    <!-- Skip Link (YENİ EKLENDİ - Erişilebilirlik) -->
+    <!-- Skip Link (Erişilebilirlik) -->
     <a href="#main-content" class="skip-link">Ana içeriğe geç</a>
 
     <!-- Header -->
@@ -1455,11 +1475,11 @@
                 <div class="firstaid-tab-content active" id="basic-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">İlk Yardımın Temel Kuralları</h3>
                     <div class="firstaid-step-card">
-                        <h4><span class="icon-red">1️⃣</span> Sakin Olun ve Güvenliği Sağlayın</h4>
+                        <h4><span>1️⃣</span> Sakin Olun ve Güvenliği Sağlayın</h4>
                         <p>Önce kendi güvenliğinizi kontrol edin, sonra çevreyi değerlendirin. Elektrik, gaz, yangın gibi riskleri kontrol edin. Yaralıyı güvenli bir yere alın.</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span class="icon-blue">2️⃣</span> 112'yi Arayın veya Aratın</h4>
+                        <h4><span>2️⃣</span> 112'yi Arayın veya Aratın</h4>
                         <p>Hemen 112 Acil'i arayın veya başkasına aratın. Sakin bir şekilde:<br>
                         • Olayın ne olduğunu<br>
                         • Adresi tam olarak<br>
@@ -1467,7 +1487,7 @@
                         • İsim ve telefon numaranızı bildirin.</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span class="icon-green">3️⃣</span> Yaralıyı Değerlendirin</h4>
+                        <h4><span>3️⃣</span> Yaralıyı Değerlendirin</h4>
                         <p>• Bilinç kontrolü yapın<br>
                         • Solunumunu kontrol edin<br>
                         • Nabzını kontrol edin<br>
@@ -1485,18 +1505,16 @@
                 <div class="firstaid-tab-content" id="bleeding-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Kanamalarda İlk Yardım</h3>
                     <div class="firstaid-step-card">
-                        <h4><span class="icon-red">🩸</span> İç Kanama Belirtileri</h4>
+                        <h4><span>🩸</span> İç Kanama Belirtileri</h4>
                         <p>• Soluk, soğuk, nemli cilt<br>
                         • Hızlı ve zayıf nabız<br>
                         • Hızlı ve yüzeysel solunum<br>
-                        • Baş dönmesi, baygınlık hissi<br>
-                        • Şok belirtileri</p>
+                        • Baş dönmesi, baygınlık hissi</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span class="icon-blue">🎯</span> Kanamayı Durdurma Yöntemleri</h4>
+                        <h4><span>🎯</span> Kanamayı Durdurma Yöntemleri</h4>
                         <p><strong>1. Basınç Uygulama:</strong> Temiz bir bezle kanayan yere direkt basınç uygulayın<br>
-                        <strong>2. Yüksekte Tutma:</strong> Kanayan bölgeyi kalp seviyesinin üzerine kaldırın<br>
-                        <strong>3. Basınç Noktaları:</strong> Atardamar kanamalarında basınç noktalarına basın</p>
+                        <strong>2. Yüksekte Tutma:</strong> Kanayan bölgeyi kalp seviyesinin üzerine kaldırın</p>
                     </div>
                 </div>
 
@@ -1504,13 +1522,13 @@
                 <div class="firstaid-tab-content" id="unconscious-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Bilinç Kaybı ve Bayılmada İlk Yardım</h3>
                     <div class="firstaid-step-card">
-                        <h4><span class="icon-red">😴</span> Bilinç Kontrolü Nasıl Yapılır?</h4>
+                        <h4><span>😴</span> Bilinç Kontrolü Nasıl Yapılır?</h4>
                         <p>1. Omuzlarından hafifçe sarsarak "İyi misiniz?" diye sorun<br>
                         2. Yanıt yoksa acil servisi arayın<br>
                         3. Solunumunu kontrol edin</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span class="icon-blue">🔄</span> Koma Pozisyonu (Yan Yatış)</h4>
+                        <h4><span>🔄</span> Koma Pozisyonu (Yan Yatış)</h4>
                         <p>1. Yaralıyı sırt üstü yatırın<br>
                         2. Yakın taraftaki kolu baş hizasında uzatın<br>
                         3. Diğer elini yanağının altına koyun<br>
@@ -1523,7 +1541,7 @@
                 <div class="firstaid-tab-content" id="burn-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Yanıklarda İlk Yardım</h3>
                     <div class="firstaid-step-card">
-                        <h4><span class="icon-red">🔥</span> 1. Derece Yanık</h4>
+                        <h4><span>🔥</span> 1. Derece Yanık</h4>
                         <p><strong>Yapılacaklar:</strong><br>
                         1. Yanık bölgeyi 15-20 dakika soğuk su altında tutun<br>
                         2. Temiz bir bezle kurulayın<br>
@@ -1541,7 +1559,7 @@
                 <div class="firstaid-tab-content" id="fracture-tab">
                     <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Kırık, Çıkık ve Burkulmalarda İlk Yardım</h3>
                     <div class="firstaid-step-card">
-                        <h4><span class="icon-red">🦴</span> Kırık Belirtileri</h4>
+                        <h4><span>🦴</span> Kırık Belirtileri</h4>
                         <p>• Şiddetli ağrı<br>
                         • Şişlik ve morarma<br>
                         • Şekil bozukluğu<br>
@@ -1557,6 +1575,8 @@
                         <div class="emergency-number"><div class="number">110</div><div class="service">İTFAİYE</div></div>
                         <div class="emergency-number"><div class="number">155</div><div class="service">POLİS İMDAT</div></div>
                         <div class="emergency-number"><div class="number">156</div><div class="service">JANDARMA</div></div>
+                        <div class="emergency-number"><div class="number">177</div><div class="service">ORMAN YANGIN</div></div>
+                        <div class="emergency-number"><div class="number">186</div><div class="service">ELEKTRİK ARIZA</div></div>
                     </div>
                 </div>
             </div>
@@ -1698,6 +1718,7 @@
                             <li><a href="https://www.afad.gov.tr" target="_blank" rel="noopener"><span>🏛️</span> AFAD</a></li>
                             <li><a href="https://www.mgm.gov.tr" target="_blank" rel="noopener"><span>🌤️</span> Meteoroloji</a></li>
                             <li><a href="https://www.112.gov.tr" target="_blank" rel="noopener"><span>🚨</span> 112 Acil</a></li>
+                            <li><a href="https://www.kizilay.org.tr" target="_blank" rel="noopener"><span>❤️</span> Kızılay</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1781,15 +1802,81 @@
         const infoData = {
             kasirga: {
                 title: "🌪️ Kasırga Hakkında Detaylı Bilgi",
-                content: `<div style="line-height:1.8"><h3>Kasırga Nedir?</h3><p>Şiddetli dönen rüzgar sistemleri...</p>[Detaylı içerik buraya]</div>`
+                content: `
+                    <div style="line-height:1.8">
+                        <div style="background: linear-gradient(135deg, var(--primary-soft), var(--white)); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; border-left: 4px solid var(--primary);">
+                            <h3 style="color: var(--primary-dark);">📖 Kasırga Nedir?</h3>
+                            <p><strong>Kasırga</strong>, şiddetli dönen rüzgar sistemleridir. Saatte 100 km'yi aşan rüzgar hızlarına ulaşabilir.</p>
+                        </div>
+                        
+                        <h3>📋 Temel Önlemler:</h3>
+                        <div class="firstaid-step-card">
+                            <h4>🛡️ Öncesi Hazırlık</h4>
+                            <p>• Bodrum katını temizleyin<br>• Acil durum çantası hazırlayın<br>• Pencereleri koruyun</p>
+                        </div>
+                        
+                        <div class="firstaid-step-card">
+                            <h4>⚡ Sırasında Yapılacaklar</h4>
+                            <p>• En iç odalarda kalın<br>• Pencerelerden uzak durun<br>• Elektrikli aletleri fişten çekin</p>
+                        </div>
+                        
+                        <div class="firstaid-warning">
+                            <h5>⚠️ YAPILMAMASI GEREKENLER</h5>
+                            <p>• Dışarı çıkmayın<br>• Araçla kaçmaya çalışmayın<br>• Pencereleri açmayın</p>
+                        </div>
+                    </div>
+                `
             },
             yildirim: {
                 title: "⚡ Yıldırım Fırtınası Hakkında Detaylı Bilgi",
-                content: `<div style="line-height:1.8"><h3>Yıldırım Fırtınası Nedir?</h3><p>Elektrik boşalması...</p>[Detaylı içerik buraya]</div>`
+                content: `
+                    <div style="line-height:1.8">
+                        <div style="background: linear-gradient(135deg, #fef3c7, #fef9c3); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; border-left: 4px solid var(--warning);">
+                            <h3 style="color: var(--warning);">⚡ Yıldırım Fırtınası Nedir?</h3>
+                            <p>Bulut ile yer arasında elektrik boşalması sonucu oluşur. Her yıldırım 1 milyar volt enerji taşır.</p>
+                        </div>
+                        
+                        <h3>📏 Uzaklık Hesaplama:</h3>
+                        <div class="firstaid-step-card">
+                            <h4>30 Saniye Kuralı</h4>
+                            <p>Şimşek ile gök gürültüsü arasındaki süreyi sayın. Her 3 saniye = 1 km. 30 saniyeden azsa risk yüksek!</p>
+                        </div>
+                        
+                        <h3>🛡️ Korunma:</h3>
+                        <div class="firstaid-step-card">
+                            <h4>🏠 Kapalı Alanlarda</h4>
+                            <p>• Pencere ve kapıları kapatın<br>• Elektrikli aletleri fişten çekin<br>• Banyo yapmayın</p>
+                        </div>
+                    </div>
+                `
             },
             dolu: {
                 title: "🌨️ Şiddetli Dolu Hakkında Detaylı Bilgi",
-                content: `<div style="line-height:1.8"><h3>Şiddetli Dolu Nedir?</h3><p>Buz parçaları...</p>[Detaylı içerik buraya]</div>`
+                content: `
+                    <div style="line-height:1.8">
+                        <div style="background: linear-gradient(135deg, #e0e7ff, #c7d2fe); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 2rem; border-left: 4px solid #6366f1;">
+                            <h3 style="color: #6366f1;">🌨️ Şiddetli Dolu Nedir?</h3>
+                            <p>Kuvvetli yukarı hava akımlarıyla yükselen su damlacıklarının donmasıyla oluşur. Tenis topu büyüklüğüne ulaşabilir.</p>
+                        </div>
+                        
+                        <h3>📏 Dolu Boyutları:</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong>Küçük Dolu</strong>
+                                <p>0.5-1.5 cm - Bezelye</p>
+                            </div>
+                            <div style="background: var(--gray-100); padding: 1rem; border-radius: var(--radius-md);">
+                                <strong>Büyük Dolu</strong>
+                                <p>4.5+ cm - Tenis topu</p>
+                            </div>
+                        </div>
+                        
+                        <h3>🚗 Araç Koruma:</h3>
+                        <div class="firstaid-step-card">
+                            <p>• Aracı kapalı garaja alın<br>• Yoldaysanız güvenli yere çekin<br>• Camlardan uzak durun</p>
+                        </div>
+                    </div>
+                `
             }
         };
 
@@ -1810,39 +1897,17 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ==================== ZORLU TEST SİSTEMİ (GELİŞTİRİLDİ) ====================
+        // ==================== ZORLU TEST SİSTEMİ ====================
 
         const testData = {
             kasirga: [
                 {
-                    question: "Bir kasırga sırasında evinizde en güvenli yer aşağıdakilerden hangisidir?",
-                    choices: [
-                        "Üst kat köşe oda (rüzgarı hissetmek için)",
-                        "Bodrum kat veya iç oda (penceresiz, sağlam)",
-                        "Garaj (araçla kaçış için hazır)",
-                        "Çatı katı (yüksekte güvende olmak için)"
-                    ],
-                    correctAnswer: 1,
-                    explanation: "Bodrum katları ve iç odalar, uçan cisimlerden ve yıkımdan en iyi korunan yerlerdir. Üst katlar ve çatı katları rüzgarın en şiddetli olduğu bölgelerdir."
-                },
-                {
-                    question: "Kasırga sırasında pencereleri açmanın etkisi nedir?",
-                    choices: [
-                        "Basıncı dengeleyerek patlamayı önler (DOĞRU BİLİNEN YANLIŞ)",
-                        "Rüzgarın içeri girmesini sağlayarak evin uçmasını engeller",
-                        "Tehlikelidir ve evin iç basıncını artırarak çatının uçmasına neden olabilir",
-                        "Duman tahliyesi için gereklidir"
-                    ],
-                    correctAnswer: 2,
-                    explanation: "Eski bir efsanenin aksine, pencereleri açmak evin iç basıncını artırır ve çatının uçmasına neden olabilir. Pencereler kapalı tutulmalı ve uzak durulmalıdır."
-                },
-                {
                     question: "EF5 kasırgası ile EF1 kasırgası arasındaki temel fark nedir?",
                     choices: [
-                        "EF5 daha çok yağmur getirir, EF1 ise daha çok rüzgar",
-                        "EF5'in rüzgar hızı 300 km/s'yi aşar ve tamamen yıkıcıdır, EF1 ise hafif hasar verir",
+                        "EF5 daha çok yağmur getirir",
+                        "EF5'in rüzgar hızı 300 km/s'yi aşar ve tamamen yıkıcıdır",
                         "EF5 sadece okyanus üzerinde oluşur",
-                        "Hiçbir fark yoktur, aynı şiddettedirler"
+                        "Hiçbir fark yoktur"
                     ],
                     correctAnswer: 1,
                     explanation: "EF5 kasırgaları 300 km/s'yi aşan rüzgarlarla tamamen yıkıcıyken, EF1 kasırgaları 150 km/s civarında rüzgarla hafif hasar verir."
@@ -1851,137 +1916,149 @@
                     question: "Bir kasırga uyarısı (warning) ile kasırga izlemesi (watch) arasındaki fark nedir?",
                     choices: [
                         "İkisi de aynı anlama gelir",
-                        "İzleme: Kasırga olasılığı var; Uyarı: Kasırga görüldü veya radarda tespit edildi, hemen sığınak bulun",
+                        "İzleme: Kasırga olasılığı var; Uyarı: Kasırga görüldü, hemen sığınak bulun",
                         "İzleme: Kasırga geçti; Uyarı: Kasırga geliyor",
-                        "İzleme: Sadece kıyı bölgeleri için; Uyarı: İç bölgeler için"
+                        "İzleme: Kıyı bölgeleri için; Uyarı: İç bölgeler için"
                     ],
                     correctAnswer: 1,
-                    explanation: "Kasırga izlemesi (watch) şartların uygun olduğu anlamına gelir. Kasırga uyarısı (warning) ise kasırganın görüldüğü veya radar tarafından tespit edildiği anlamına gelir."
+                    explanation: "Kasırga izlemesi (watch) şartların uygun olduğu anlamına gelir. Kasırga uyarısı (warning) kasırganın görüldüğü anlamına gelir."
                 },
                 {
                     question: "Kasırga sırasında apartmanın orta katlarında oturuyorsanız nereye sığınmalısınız?",
                     choices: [
                         "Balkona çıkıp etrafı gözlemeli",
                         "Asansör boşluğuna yakın bir oda",
-                        "Merdiven boşluğu veya iç koridor (penceresiz, sağlam)",
+                        "Merdiven boşluğu veya iç koridor",
                         "En üst kata çıkıp beklemeli"
                     ],
                     correctAnswer: 2,
-                    explanation: "Apartmanlarda merdiven boşluğu veya iç koridorlar en güvenli yerlerdir. Asansör boşluğundan uzak durulmalı, asla balkona çıkılmamalıdır."
+                    explanation: "Apartmanlarda merdiven boşluğu veya iç koridorlar en güvenli yerlerdir. Asansör boşluğundan ve balkondan uzak durulmalıdır."
+                },
+                {
+                    question: "Kasırga sırasında pencereleri açmanın etkisi nedir?",
+                    choices: [
+                        "Basıncı dengeleyerek patlamayı önler",
+                        "Rüzgarın içeri girmesini sağlar",
+                        "Tehlikelidir, iç basıncı artırarak çatının uçmasına neden olabilir",
+                        "Duman tahliyesi için gereklidir"
+                    ],
+                    correctAnswer: 2,
+                    explanation: "Pencereleri açmak evin iç basıncını artırır ve çatının uçmasına neden olabilir. Pencereler kapalı tutulmalıdır."
+                },
+                {
+                    question: "Kasırga sonrası dışarı çıkarken ilk neye dikkat edilmelidir?",
+                    choices: [
+                        "Hava durumuna",
+                        "Kopmuş elektrik tellerine ve hasarlı yapılara",
+                        "Arkadaşları aramaya",
+                        "Alışverişe"
+                    ],
+                    correctAnswer: 1,
+                    explanation: "Kasırga sonrası kopan elektrik telleri ve hasarlı yapılar en büyük risklerdir. Yetkililer izin verene kadar dışarı çıkmayın."
                 }
             ],
             yildirim: [
                 {
-                    question: "Yıldırım düştükten sonra şimşek ile gök gürültüsü arasında 6 saniye varsa, yıldırım ne kadar uzaklıktadır?",
-                    choices: [
-                        "6 km",
-                        "2 km (her 3 saniye = 1 km)",
-                        "18 km",
-                        "60 km"
-                    ],
+                    question: "Şimşek ile gök gürültüsü arasında 6 saniye varsa, yıldırım ne kadar uzaklıktadır?",
+                    choices: ["6 km", "2 km", "18 km", "60 km"],
                     correctAnswer: 1,
-                    explanation: "Ses her 3 saniyede yaklaşık 1 km yol alır. 6 saniye = 2 km uzaklık anlamına gelir. Bu mesafe güvenli değildir, hemen sığınak arayın."
+                    explanation: "Ses her 3 saniyede yaklaşık 1 km yol alır. 6 saniye = 2 km."
                 },
                 {
-                    question: "Yıldırım çarpması riskini azaltmak için 30/30 kuralı nedir?",
+                    question: "30/30 kuralı nedir?",
                     choices: [
                         "30 dakika dışarıda kal, 30 saniye bekle",
-                        "Şimşek-gök gürültüsü arası 30 saniyeden azsa sığınak bul, son yıldırımdan 30 dakika sonrasına kadar dışarı çıkma",
-                        "30 metre yükseklikten kaçın, 30 metre alçakta dur",
-                        "30 km hızla koş, 30 saniye nefes tut"
+                        "Şimşek-gök gürültüsü arası 30 saniyeden azsa sığınak bul, son yıldırımdan 30 dakika sonra çık",
+                        "30 metre yükseklikten kaçın",
+                        "30 km hızla koş"
                     ],
                     correctAnswer: 1,
-                    explanation: "30/30 kuralı: Şimşek-gök gürültüsü arası 30 saniyeden azsa derhal sığınak bulun. Son yıldırımdan 30 dakika sonrasına kadar dışarı çıkmayın."
+                    explanation: "30/30 kuralı: Şimşek-gök gürültüsü arası 30 saniyeden azsa sığınak bulun. Son yıldırımdan 30 dakika sonra dışarı çıkın."
                 },
                 {
-                    question: "Yıldırım fırtınası sırasında araç içindeyseniz aşağıdakilerden hangisi DOĞRUDUR?",
+                    question: "Yıldırım fırtınasında araç içindeyseniz hangisi DOĞRUDUR?",
                     choices: [
-                        "Araç lastikleri yalıtkan olduğu için kesin güvendesiniz",
-                        "Metal araç gövdesi Faraday kafesi etkisi yapar, içeride güvendesiniz ama metal kısımlara dokunmayın",
-                        "Araçtan inip ağaç altına sığınmak daha güvenlidir",
-                        "Radyoyu açıp meteorolojiyi dinleyin"
+                        "Araç lastikleri yalıtkan, kesin güvendesiniz",
+                        "Metal araç gövdesi Faraday kafesi etkisi yapar, metal kısımlara dokunmayın",
+                        "Araçtan inip ağaç altına sığının",
+                        "Radyoyu açıp meteoroloji dinleyin"
                     ],
                     correctAnswer: 1,
-                    explanation: "Metal araç gövdesi Faraday kafesi etkisi yaparak elektriği dışarıda tutar. Ancak metal kısımlara dokunmamalı, camları kapatmalı ve radyo gibi elektronikleri kullanmamalısınız."
+                    explanation: "Metal araç gövdesi Faraday kafesi etkisi yaparak elektriği dışarıda tutar. Ancak metal kısımlara dokunmayın."
                 },
                 {
-                    question: "Yıldırım çarpan bir kişiye ilk yardım uygularken bilinmesi gereken en önemli şey nedir?",
+                    question: "Yıldırım çarpan kişiye ilk yardımda bilinmesi gereken en önemli şey?",
                     choices: [
                         "Kişi elektrik yüklüdür, dokunmayın",
-                        "Hemen CPR'a başlayın (kalp masajı ve suni solunum)",
-                        "Kişiyi hemen ayağa kaldırın",
+                        "Hemen CPR'a başlayın",
+                        "Kişiyi ayağa kaldırın",
                         "Üzerine su dökün"
                     ],
                     correctAnswer: 1,
-                    explanation: "Yıldırım çarpan kişi elektrik yüklü DEĞİLDİR. Hemen solunum ve nabız kontrolü yapın, gerekirse CPR'a başlayın. Yıldırım kalbi durdurabilir."
+                    explanation: "Yıldırım çarpan kişi elektrik yüklü DEĞİLDİR. Hemen solunum ve nabız kontrolü yapın, gerekirse CPR."
                 },
                 {
-                    question: "Açık alanda yıldırım fırtınasına yakalandınız. En doğru pozisyon hangisidir?",
+                    question: "Açık alanda yıldırıma yakalandınız. En doğru pozisyon?",
                     choices: [
-                        "Ayakta durup çevreyi izlemek",
+                        "Ayakta durup beklemek",
                         "Yere dümdüz uzanmak",
-                        "Eller dizlerde, baş önde, çömelmiş pozisyon (top gibi)",
+                        "Çömelip top gibi olmak",
                         "Koşarak uzaklaşmak"
                     ],
                     correctAnswer: 2,
-                    explanation: "Çömelip top gibi olmak (eller dizlerde, baş önde) vücudun yere temasını en aza indirir ve yıldırım çarpma riskini azaltır. Asla yere dümdüz yatmayın."
+                    explanation: "Çömelip top gibi olmak vücudun yere temasını azaltır. Asla yere dümdüz yatmayın."
                 }
             ],
             dolu: [
                 {
-                    question: "Tenis topu büyüklüğündeki (10 cm) bir dolu tanesinin yere düşme hızı ne kadardır?",
-                    choices: [
-                        "Saatte 20-30 km (hafif yağmur gibi)",
-                        "Saatte 100-120 km (otoban hızında)",
-                        "Saatte 5-10 km (yürüyüş hızında)",
-                        "Saatte 300-400 km (uçak hızında)"
-                    ],
+                    question: "Tenis topu büyüklüğündeki dolu tanesinin düşme hızı ne kadardır?",
+                    choices: ["20-30 km/s", "100-120 km/s", "5-10 km/s", "300-400 km/s"],
                     correctAnswer: 1,
-                    explanation: "Tenis topu büyüklüğündeki bir dolu tanesi saatte 100-120 km hızla düşer. Bu hızda bir cisim ciddi yaralanmalara ve hasara neden olabilir."
+                    explanation: "Tenis topu büyüklüğündeki dolu saatte 100-120 km hızla düşer. Bu hız ölümcül olabilir."
                 },
                 {
-                    question: "Dolu fırtınası sırasında araç kullanıyorsanız en doğru davranış nedir?",
+                    question: "Dolu fırtınasında araç kullanıyorsanız ne yapmalısınız?",
                     choices: [
-                        "Hızlanarak doludan kaçmaya çalışın",
-                        "Güvenli bir yere çekin, ön camdan uzak durun, kollarınızla başınızı koruyun",
-                        "Araçtan inip yakındaki ağacın altına sığının",
-                        "Camları açarak dolu tanelerini içeri almayın"
+                        "Hızlanıp kaçın",
+                        "Güvenli yere çekin, ön camdan uzak durun",
+                        "Araçtan inip ağaç altına sığının",
+                        "Camları açın"
                     ],
                     correctAnswer: 1,
-                    explanation: "Doludan kaçmak imkansızdır. Güvenli bir yere çekin, ön camdan (en zayıf nokta) uzak durun, başınızı koruyun. Ağaç altı tehlikelidir (yıldırım ve dal kırılması)."
+                    explanation: "Güvenli bir yere çekin, ön camdan (en zayıf nokta) uzak durun, başınızı koruyun."
                 },
                 {
-                    question: "Dolu fırtınası öncesi sera veya cam balkonlar için en etkili koruma yöntemi nedir?",
-                    choices: [
-                        "Üzerine branda germek (rüzgarı artırır)",
-                        "Polikarbonat veya korumalı cam kullanmak, gerekirse tahta panellerle korumak",
-                        "Sadece su püskürtmek",
-                        "Hiçbir şey yapılamaz"
-                    ],
-                    correctAnswer: 1,
-                    explanation: "Seralar ve cam balkonlar doludan çok zarar görür. Polikarbonat malzemeler veya tahta paneller etkili koruma sağlar. Branda rüzgarı artırarak zararı büyütür."
-                },
-                {
-                    question: "Dolu tanelerinin oluşumu için gerekli en önemli meteorolojik koşul nedir?",
+                    question: "Dolu oluşumu için en önemli meteorolojik koşul nedir?",
                     choices: [
                         "Sadece soğuk hava",
-                        "Kuvvetli yukarı hava akımları (updraft)",
+                        "Kuvvetli yukarı hava akımları",
                         "Sadece yağmur",
                         "Yüksek basınç"
                     ],
                     correctAnswer: 1,
-                    explanation: "Dolu, kuvvetli yukarı hava akımlarının su damlacıklarını sürekli yukarı taşıyarak donma seviyesinin üstüne çıkarmasıyla oluşur. Ne kadar güçlü yukarı akım varsa dolu o kadar büyür."
+                    explanation: "Dolu, kuvvetli yukarı hava akımlarının su damlacıklarını donma seviyesinin üstüne taşımasıyla oluşur."
                 },
                 {
-                    question: "Dolu sonrası oluşabilecek en büyük ikincil tehlike nedir?",
+                    question: "Dolu sonrası en büyük ikincil tehlike nedir?",
                     choices: [
                         "Gökkuşağı",
                         "Ani sıcaklık artışı",
-                        "Elektrik kesintisi ve hasarlı çatılardan su sızması",
+                        "Elektrik kesintisi ve su sızması",
                         "Deprem"
                     ],
                     correctAnswer: 2,
-                    explanation: "Dolu fırtınaları genellikle şiddetli yağmurla birlikte gelir. Hasarlı çatılardan sular içeri sızar, elektrik kesintileri olur ve elektronik cihazlar zarar görebilir."
+                    explanation: "Hasarlı çatılardan sular içeri sızar, elektrik kesintileri olur."
+                },
+                {
+                    question: "Seraları doludan korumak için en etkili yöntem?",
+                    choices: [
+                        "Branda germek",
+                        "Polikarbonat veya tahta panel kullanmak",
+                        "Su püskürtmek",
+                        "Hiçbir şey yapılamaz"
+                    ],
+                    correctAnswer: 1,
+                    explanation: "Polikarbonat malzemeler veya tahta paneller etkili koruma sağlar. Branda rüzgarı artırır."
                 }
             ]
         };
@@ -2157,8 +2234,8 @@
             });
 
             let resultIcon, resultMessage;
-            if (percentage >= 80) resultIcon = '🏆', resultMessage = 'Uzman seviyesi! Afetlere hazırlıklısın.';
-            else if (percentage >= 60) resultIcon = '👍', resultMessage = 'İyi, ama daha öğrenecek şeyler var.';
+            if (percentage >= 80) resultIcon = '🏆', resultMessage = 'Uzman seviyesi!';
+            else if (percentage >= 60) resultIcon = '👍', resultMessage = 'İyi, ama daha öğrenilecek şeyler var.';
             else resultIcon = '💪', resultMessage = 'Tekrar dene! Afet bilgisi hayat kurtarır.';
 
             testContent.innerHTML = `
@@ -2175,7 +2252,7 @@
             `;
         }
 
-        // Escape tuşu ile testi kapat
+        // Escape tuşu ile kapatma
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && document.getElementById('testOverlay').classList.contains('active')) closeTest();
             if (e.key === 'Escape' && firstAidModal.classList.contains('active')) closeFirstAidModalFunc();
@@ -2191,13 +2268,10 @@
         });
 
         // Emergency banner click
-        document.getElementById('emergencyBanner').addEventListener('click', () => {
-            alert('🚨 ACİL DURUM NUMARASI: 112\n\n• Tüm acil durumlar için tek numara\n• Ücretsiz, 7/24 hizmet\n• Sakin olun, adresinizi net söyleyin.');
-        });
-
-        // Tema takibi
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-            document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        document.getElementById('emergencyBanner').addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON') {
+                alert('🚨 ACİL DURUM NUMARASI: 112\n\n• Tüm acil durumlar için tek numara\n• Ücretsiz, 7/24 hizmet\n• Sakin olun, adresinizi net söyleyin.');
+            }
         });
     </script>
 </body>

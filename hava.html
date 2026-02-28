@@ -1,3399 +1,1008 @@
-# 🚀 Geliştirilmiş ve Tamamlanmış `hava.html` Kodu
-
-Aşağıda tüm isteklerinizi karşılayan, dark mode sorunları giderilmiş, güvenlik/SEO/erişilebilirlik eklenmiş, test soruları zorlaştırılmış ve şıklar karıştırılmış **eksiksiz kod** bulunmaktadır:
-
-```html
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-
-    <!-- 🚀 SEO & Sosyal Medya Optimizasyonu -->
-    <title>Hava Afetleri - Kasırga, Fırtına, Dolu | Afet Hazırlık Rehberi</title>
-    <meta name="description" content="Kasırga, yıldırım fırtınası, şiddetli dolu gibi hava afetleri için hazırlık rehberi, zorlu testler ve ilk yardım bilgileri. Hayat kurtaran bilgiler burada!">
-    <meta name="keywords" content="kasırga, yıldırım, dolu, hava afetleri, fırtına, afet hazırlık, test, ilk yardım, acil durum">
-    <meta name="author" content="Afet Hazırlık Platformu">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://afethazirlik.com/hava.html">
-    <meta property="og:title" content="Hava Afetleri - Afet Hazırlık Rehberi">
-    <meta property="og:description" content="Kasırga, yıldırım, dolu gibi hava afetlerine karşı hazırlıklı olun. Testlerle bilginizi ölçün, hayat kurtaran ilk yardım bilgilerini öğrenin.">
-    <meta property="og:image" content="https://afethazirlik.com/assets/og-hava-afetleri.jpg">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://afethazirlik.com/hava.html">
-    <meta property="twitter:title" content="Hava Afetleri - Afet Hazırlık Rehberi">
-    <meta property="twitter:description" content="Hava afetlerine karşı hazırlıklı olun. Zorlu testler ve ilk yardım bilgileri ile güvende kalın.">
-    <meta property="twitter:image" content="https://afethazirlik.com/assets/og-hava-afetleri.jpg">
-
-    <!-- 🎨 Dark Mode Meta -->
-    <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
-
-    <!-- 🔖 Favicon -->
-    <link rel="icon" type="image/svg+xml" href="image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌪️</text></svg>">
-    <link rel="apple-touch-icon" href="image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌪️</text></svg>">
-
-    <!-- 🔗 Preconnect Optimizasyonu -->
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-          crossorigin="anonymous"/>
-
-    <!-- 🔒 DOMPurify - XSS Koruması -->
-    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js"
-            integrity="sha256-l7u+2dZJvF8V9V3V5K5q5q5q5q5q5q5q5q5q5q5q5q5="
-            crossorigin="anonymous"></script>
-
-    <style>
-        /* ============ MODERN RESET & CSS VARIABLES ============ */
-        :root {
-            color-scheme: light dark;
-
-            /* 🎨 Premium Renk Paleti - Teal/Turkuaz */
-            --primary: #0f766e;
-            --primary-dark: #115e59;
-            --primary-light: #14b8a6;
-            --primary-soft: #99f6e4;
-            --primary-glow: rgba(20, 184, 166, 0.15);
-            
-            --accent: #dc2626;
-            --accent-light: #f87171;
-            --accent-glow: rgba(220, 38, 38, 0.1);
-            
-            --warning: #d97706;
-            --warning-light: #fbbf24;
-            --success: #059669;
-            --success-light: #34d399;
-            --info: #3b82f6;
-            --info-light: #93c5fd;
-
-            /* 🎨 Nötr Renkler - Yüksek Kontrast */
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-
-            --white: #ffffff;
-            --black: #000000;
-
-            /* 🌙 Koyu Tema - Doğrudan Değişkenler */
-            --dark-bg: #0a0f1c;
-            --dark-bg-alt: #1e293b;
-            --dark-bg-elevated: #334155;
-            --dark-text: #f8fafc;
-            --dark-text-muted: #cbd5e1;
-            --dark-text-secondary: #94a3b8;
-            --dark-border: #334155;
-            --dark-border-hover: #475569;
-            --dark-primary: #14b8a6;
-            --dark-primary-dark: #0d9488;
-            --dark-accent: #ef4444;
-            --dark-warning: #f59e0b;
-            --dark-success: #10b981;
-
-            /* ✨ Efektler */
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-            --shadow-glow: 0 0 20px rgba(20, 184, 166, 0.3);
-            
-            --radius-sm: 0.375rem;
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
-            --radius-xl: 1rem;
-            --radius-2xl: 1.5rem;
-
-            /* ⚡ Transitions */
-            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-smooth: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        /* 🌙 Koyu Tema - CSS Variables Override (Google Friendly) */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary: var(--dark-primary);
-                --primary-dark: var(--dark-primary-dark);
-                --primary-light: #5eead4;
-                --primary-soft: #22d3ee;
-                --primary-glow: rgba(20, 184, 166, 0.25);
-                
-                --accent: var(--dark-accent);
-                --accent-light: #fca5a5;
-                --accent-glow: rgba(239, 68, 68, 0.15);
-                
-                --warning: var(--dark-warning);
-                --warning-light: #fcd34d;
-                --success: var(--dark-success);
-                --success-light: #6ee7b7;
-                --info: #60a5fa;
-                --info-light: #bfdbfe;
-
-                --gray-50: var(--dark-bg);
-                --gray-100: var(--dark-bg-alt);
-                --gray-200: var(--dark-bg-elevated);
-                --gray-300: #475569;
-                --gray-400: #64748b;
-                --gray-500: #94a3b8;
-                --gray-600: #cbd5e1;
-                --gray-700: #e2e8f0;
-                --gray-800: #f1f5f9;
-                --gray-900: #f8fafc;
-
-                --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-                --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
-                --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
-                --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            }
-
-            body {
-                background-color: var(--dark-bg);
-                color: var(--dark-text);
-            }
-
-            h1, h2, h3, h4, h5, h6 {
-                color: var(--white);
-            }
-
-            p, .card p, .result-message, .question {
-                color: var(--dark-text-muted);
-            }
-
-            .logo-title { color: var(--white); }
-            .logo-subtitle { color: var(--dark-text-secondary); }
-
-            .card {
-                background-color: var(--dark-bg-alt);
-                border-color: var(--dark-border);
-                box-shadow: var(--shadow-lg);
-            }
-
-            .card:hover {
-                border-color: var(--primary);
-                box-shadow: var(--shadow-xl), var(--primary-glow);
-            }
-
-            .card h3 { color: var(--white); }
-            .card p { color: var(--dark-text-muted); }
-
-            .nav-link {
-                color: var(--dark-text-secondary);
-            }
-            .nav-link:hover {
-                color: var(--primary);
-                background: rgba(20, 184, 166, 0.1);
-            }
-            .nav-link.active {
-                color: var(--white);
-                background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            }
-
-            .page-hero {
-                background: linear-gradient(135deg, 
-                    rgba(15, 118, 110, 0.95) 0%, 
-                    rgba(20, 184, 166, 0.9) 50%,
-                    rgba(153, 246, 228, 0.85) 100%);
-            }
-            .page-hero h1, .page-hero p { color: var(--white); }
-
-            .section-title h2 {
-                background: linear-gradient(135deg, var(--primary), var(--warning));
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-            .section-title p { color: var(--dark-text-secondary); }
-
-            header {
-                background: rgba(30, 41, 59, 0.95);
-                border-bottom-color: var(--dark-border);
-            }
-
-            /* 🧪 Test Overlay - Dark Mode */
-            .test-overlay {
-                background: rgba(10, 15, 28, 0.98);
-            }
-            .test-header {
-                background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-                border-bottom-color: var(--dark-border);
-            }
-            .small-close-btn {
-                background: rgba(255, 255, 255, 0.15);
-                color: var(--white);
-            }
-            .small-close-btn:hover {
-                background: rgba(255, 255, 255, 0.25);
-                color: var(--accent-light);
-            }
-
-            .question {
-                background: var(--dark-bg-alt);
-                border-color: var(--dark-border);
-                color: var(--white);
-            }
-
-            .choice {
-                background: var(--dark-bg-alt);
-                border-color: var(--dark-border);
-                color: var(--dark-text-muted);
-            }
-            .choice:hover:not(:disabled) {
-                background: var(--primary);
-                border-color: var(--primary);
-                color: var(--white);
-            }
-            .choice.correct {
-                background: #065f46;
-                border-color: var(--success);
-                color: #d1fae5;
-            }
-            .choice.wrong {
-                background: #7f1d1d;
-                border-color: var(--accent);
-                color: #fecaca;
-            }
-
-            .progress-bar { background: var(--dark-border); }
-            .progress-fill {
-                background: linear-gradient(90deg, var(--primary), var(--warning));
-            }
-
-            .feedback.correct {
-                background: rgba(6, 95, 70, 0.3);
-                border-color: var(--success);
-                color: #a7f3d0;
-            }
-            .feedback.wrong {
-                background: rgba(127, 29, 29, 0.3);
-                border-color: var(--accent);
-                color: #fecaca;
-            }
-
-            .result-score {
-                background: linear-gradient(135deg, var(--primary), var(--warning));
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-            .result-message { color: var(--dark-text-secondary); }
-
-            .detailed-results {
-                background: var(--dark-bg-alt);
-                border-color: var(--dark-border);
-            }
-            .result-item { border-bottom-color: var(--dark-border); }
-            .result-item.correct {
-                background: rgba(16, 185, 129, 0.1);
-                border-left-color: var(--success);
-            }
-            .result-item.wrong {
-                background: rgba(239, 68, 68, 0.1);
-                border-left-color: var(--accent);
-            }
-            .result-question { color: var(--white); }
-            .result-explanation {
-                background: var(--dark-bg-elevated);
-                color: var(--dark-text-muted);
-            }
-
-            /* 🎯 Butonlar - Dark Mode */
-            .card-btn.primary {
-                background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-                color: var(--white);
-            }
-            .card-btn.primary:hover {
-                background: linear-gradient(135deg, var(--primary-dark), #0d9488);
-                box-shadow: var(--shadow-md), var(--primary-glow);
-            }
-            .card-btn.secondary {
-                background: var(--dark-bg-elevated);
-                color: var(--dark-text-muted);
-                border: 1px solid var(--dark-border);
-            }
-            .card-btn.secondary:hover {
-                background: var(--dark-border-hover);
-                color: var(--white);
-            }
-
-            /* 🦶 Footer - Dark Mode */
-            footer {
-                background-color: var(--dark-bg);
-                color: var(--dark-text-secondary);
-            }
-            .footer-column h4 { color: var(--white); }
-            .footer-links a { color: var(--dark-text-secondary); }
-            .footer-links a:hover { color: var(--white); }
-            .footer-bottom { border-top-color: var(--dark-border); }
-
-            /* 📱 Mobil Menü - Dark Mode */
-            .mobile-menu {
-                background-color: var(--dark-bg-alt);
-            }
-            .mobile-menu-link {
-                color: var(--dark-text-muted);
-            }
-            .mobile-menu-link:hover,
-            .mobile-menu-link.active {
-                background: var(--primary);
-                color: var(--white);
-            }
-
-            /* 🔄 Scrollbar - Dark Mode */
-            ::-webkit-scrollbar-track { background: var(--dark-bg-alt); }
-            ::-webkit-scrollbar-thumb { 
-                background: var(--dark-border-hover);
-                border-radius: 4px;
-            }
-            ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
-
-            /* 🔘 Küçük Butonlar */
-            .auto-continue-btn {
-                background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-                color: var(--white);
-            }
-            .auto-continue-btn:hover {
-                background: linear-gradient(135deg, var(--primary-dark), #0d9488);
-            }
-            .countdown-text { color: var(--dark-text-secondary); }
-            .result-answer.correct { color: var(--success); }
-            .result-answer.wrong { color: var(--accent); }
-
-            /* 📚 DETAY BÖLÜMÜ - DARK MODE FIX (ÖNEMLİ!) */
-            .detail-section {
-                background-color: var(--dark-bg-alt);
-                border-color: var(--dark-border);
-            }
-            .detail-section h2 {
-                background: linear-gradient(135deg, var(--primary), var(--warning));
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-            .detail-section h3 { color: var(--primary); }
-            .detail-section h4 { color: var(--white); }
-            .detail-section h5 { color: var(--warning-light); }
-            .detail-section p { color: var(--dark-text-muted); }
-            .detail-section strong { color: var(--white); }
-
-            .detail-section .firstaid-step-card {
-                background-color: var(--dark-bg-elevated);
-                border-color: var(--dark-border);
-            }
-            .detail-section .firstaid-step-card:hover {
-                border-color: var(--primary);
-                background-color: var(--dark-border-hover);
-            }
-            .detail-section .firstaid-step-card h4 { color: var(--white); }
-            .detail-section .firstaid-step-card p { color: var(--dark-text-muted); }
-
-            .detail-section .firstaid-warning {
-                background: rgba(69, 26, 3, 0.4);
-                border-color: var(--warning);
-                color: #fef3c7;
-            }
-            .detail-section .firstaid-warning h5 { color: var(--warning-light); }
-
-            .detail-section .firstaid-tip {
-                background: rgba(22, 78, 99, 0.4);
-                border-color: var(--primary);
-                color: #cffafe;
-            }
-            .detail-section .firstaid-tip h5 { color: var(--primary-light); }
-
-            .detail-section .emergency-number {
-                background: var(--dark-bg-elevated);
-                color: var(--dark-text-muted);
-            }
-            .detail-section .emergency-number:hover {
-                background: var(--dark-border-hover);
-                border-color: var(--primary);
-            }
-            .detail-section .emergency-number .number { color: var(--accent); }
-            .detail-section .emergency-number .service { color: var(--white); }
-
-            .detail-section .number-list li {
-                background: var(--dark-bg-elevated);
-                color: var(--dark-text-muted);
-            }
-            .detail-section .number-list .number { color: var(--accent); }
-            .detail-section .number-list .service { color: var(--white); }
-
-            /* 🎨 Inline Style Düzeltmeleri - Dark Mode */
-            .detail-section div[style*="background: linear-gradient(135deg, #dbeafe"] {
-                background: linear-gradient(135deg, #1e3a5f, #1e40af) !important;
-                border-left-color: var(--info) !important;
-            }
-            .detail-section div[style*="background: linear-gradient(135deg, #dcfce7"] {
-                background: linear-gradient(135deg, #064e3b, #065f46) !important;
-                border-left-color: var(--success) !important;
-            }
-            .detail-section div[style*="background: linear-gradient(135deg, #fce7f3"] {
-                background: linear-gradient(135deg, #831843, #9d174d) !important;
-                border-left-color: #ec4899 !important;
-            }
-            .detail-section div[style*="background: linear-gradient(135deg, #fef3c7"] {
-                background: linear-gradient(135deg, #78350f, #92400e) !important;
-                border-left-color: var(--warning) !important;
-            }
-            .detail-section div[style*="background: linear-gradient(135deg, #e0e7ff"] {
-                background: linear-gradient(135deg, #312e81, #4338ca) !important;
-                border-left-color: #818cf8 !important;
-            }
-
-            /* 🆘 İlk Yardım Modal - Dark Mode */
-            .firstaid-modal-content {
-                background-color: var(--dark-bg-alt);
-                border-color: var(--dark-border);
-            }
-            .firstaid-modal-header {
-                border-bottom-color: var(--dark-border);
-                background: linear-gradient(135deg, var(--accent), #b91c1c);
-            }
-            .firstaid-modal-header h3 { color: var(--white); }
-            .close-modal-btn {
-                background: rgba(255, 255, 255, 0.15);
-                color: var(--white);
-            }
-            .close-modal-btn:hover {
-                background: rgba(255, 255, 255, 0.25);
-            }
-
-            .firstaid-tabs {
-                background: var(--dark-bg);
-                border-bottom-color: var(--dark-border);
-            }
-            .firstaid-tab {
-                background-color: var(--dark-bg-elevated);
-                color: var(--dark-text-muted);
-            }
-            .firstaid-tab:hover {
-                background-color: var(--dark-border-hover);
-            }
-            .firstaid-tab.active {
-                background-color: var(--dark-bg-alt);
-                color: var(--accent);
-                border-bottom-color: var(--accent);
-            }
-            .firstaid-tab-content {
-                color: var(--dark-text-muted);
-            }
-
-            .firstaid-step-card {
-                background-color: var(--dark-bg-elevated);
-                border-color: var(--dark-border);
-            }
-            .firstaid-step-card:hover {
-                background-color: var(--dark-border-hover);
-                border-color: var(--accent-light);
-            }
-            .firstaid-step-card h4 { color: var(--white); }
-            .firstaid-step-card p { color: var(--dark-text-muted); }
-
-            .firstaid-warning {
-                background: rgba(69, 26, 3, 0.4);
-                border-color: var(--warning);
-                color: #fef3c7;
-            }
-            .firstaid-warning h5 { color: var(--warning-light); }
-
-            .firstaid-tip {
-                background: rgba(22, 78, 99, 0.4);
-                border-color: var(--primary);
-                color: #cffafe;
-            }
-            .firstaid-tip h5 { color: var(--primary-light); }
-
-            .emergency-numbers .emergency-number {
-                background: var(--dark-bg-elevated);
-            }
-            .emergency-numbers .emergency-number:hover {
-                background: var(--dark-border-hover);
-            }
-            .emergency-numbers .number { color: var(--accent); }
-            .emergency-numbers .service { color: var(--white); }
-
-            .number-list li {
-                background: var(--dark-bg-elevated);
-                color: var(--dark-text-muted);
-            }
-            .number-list .number { color: var(--accent); }
-            .number-list .service { color: var(--white); }
-        }
-
-        /* ============ BASE RESET ============ */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-            -webkit-text-size-adjust: 100%;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 
-                         Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-            background-color: var(--gray-50);
-            color: var(--gray-800);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-            transition: background-color var(--transition-smooth),
-                        color var(--transition-smooth);
-        }
-
-        /* ============ TYPOGRAPHY ============ */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            line-height: 1.25;
-            color: var(--gray-900);
-            margin-bottom: 0.5em;
-        }
-
-        h1 { font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -0.025em; }
-        h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); letter-spacing: -0.025em; }
-        h3 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
-        h4 { font-size: clamp(1.1rem, 2.5vw, 1.25rem); }
-
-        p {
-            font-size: 1.125rem;
-            color: var(--gray-600);
-            margin-bottom: 1rem;
-        }
-
-        strong { font-weight: 600; color: var(--gray-800); }
-
-        /* ============ LAYOUT ============ */
-        .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 clamp(1rem, 3vw, 2rem);
-        }
-
-        /* ============ HEADER ============ */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--gray-200);
-            padding: 0.75rem 0;
-            transition: background-color var(--transition-smooth),
-                        border-color var(--transition-smooth);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-        }
-
-        .logo-icon.compass {
-            width: 2.5rem;
-            height: 2.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.25rem;
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .logo-text { display: flex; flex-direction: column; }
-        .logo-title {
-            font-size: 1.375rem;
-            font-weight: 700;
-            color: var(--gray-900);
-            line-height: 1.1;
-        }
-        .logo-subtitle {
-            font-size: 0.875rem;
-            color: var(--gray-500);
-            font-weight: 500;
-        }
-
-        /* Navigation */
-        .nav-desktop {
-            display: none;
-            gap: 0.25rem;
-            align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-            .nav-desktop { display: flex; }
-        }
-
-        .nav-link {
-            color: var(--gray-600);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9375rem;
-            padding: 0.5rem 0.875rem;
-            border-radius: var(--radius-md);
-            transition: all var(--transition-fast);
-            min-height: 44px;
-            min-width: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            white-space: nowrap;
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-            background: var(--gray-100);
-        }
-
-        .nav-link.active {
-            color: var(--white);
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        }
-
-        .nav-link.firstaid-button {
-            background: linear-gradient(135deg, var(--accent), #b91c1c);
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .nav-link.firstaid-button:hover {
-            background: linear-gradient(135deg, #b91c1c, #991b1b);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: var(--radius-md);
-            min-height: 44px;
-            min-width: 44px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media (min-width: 1024px) { .mobile-menu-btn { display: none; } }
-
-        .menu-line {
-            width: 1.5rem;
-            height: 2px;
-            background: var(--gray-600);
-            transition: var(--transition-fast);
-            border-radius: 1px;
-        }
-
-        /* ============ PAGE HERO ============ */
-        .page-hero {
-            padding: clamp(3rem, 8vw, 5rem) 1rem;
-            background: linear-gradient(135deg, 
-                rgba(15, 118, 110, 0.95) 0%, 
-                rgba(20, 184, 166, 0.9) 50%,
-                rgba(153, 246, 228, 0.85) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .page-hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .page-hero h1 {
-            color: var(--white);
-            margin-bottom: 1.25rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .page-hero p {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-            margin-bottom: 2rem;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 400;
-            line-height: 1.65;
-        }
-
-        /* ============ MAIN CONTENT ============ */
-        main {
-            padding: clamp(2rem, 5vw, 4rem) 1rem;
-            background-color: var(--gray-50);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        .section-title h2 {
-            margin-bottom: 0.75rem;
-            background: linear-gradient(135deg, var(--primary), var(--warning));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-title p {
-            color: var(--gray-600);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* ============ GRID SYSTEM ============ */
-        .grid {
-            display: grid;
-            gap: clamp(1rem, 3vw, 2rem);
-        }
-
-        @media (min-width: 768px) {
-            .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
-            .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        /* ============ CARDS ============ */
-        .card {
-            background: var(--white);
-            border-radius: var(--radius-2xl);
-            padding: clamp(1.25rem, 3vw, 2rem);
-            box-shadow: var(--shadow-lg);
-            transition: all var(--transition-normal);
-            border: 1px solid var(--gray-200);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-xl), 0 0 30px rgba(20, 184, 166, 0.15);
-            border-color: var(--primary-light);
-        }
-
-        .card:focus-visible {
-            outline: 3px solid var(--primary);
-            outline-offset: 2px;
-        }
-
-        .card-icon {
-            width: 4rem;
-            height: 4rem;
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.25rem;
-            font-size: 1.75rem;
-            color: var(--white);
-            flex-shrink: 0;
-        }
-
-        .card[data-type="kasirga"] .card-icon { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
-        .card[data-type="yildirim"] .card-icon { background: linear-gradient(135deg, var(--warning), #b45309); }
-        .card[data-type="dolu"] .card-icon { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
-
-        .card h3 {
-            font-size: 1.375rem;
-            margin-bottom: 0.75rem;
-            color: var(--gray-900);
-        }
-
-        .card p {
-            font-size: 1rem;
-            color: var(--gray-600);
-            margin-bottom: 1.25rem;
-            flex-grow: 1;
-            line-height: 1.6;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 0.75rem;
-            margin-top: auto;
-        }
-
-        /* ============ BUTTONS ============ */
-        .card-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.25rem;
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9375rem;
-            transition: all var(--transition-fast);
-            border: none;
-            cursor: pointer;
-            flex: 1;
-            min-height: 44px;
-            min-width: 44px;
-        }
-
-        .card-btn.primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--white);
-        }
-        .card-btn.primary:hover {
-            background: linear-gradient(135deg, var(--primary-dark), #0d9488);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .card-btn.secondary {
-            background: var(--gray-200);
-            color: var(--gray-700);
-        }
-        .card-btn.secondary:hover {
-            background: var(--gray-300);
-            transform: translateY(-2px);
-        }
-
-        /* ============ DETAIL SECTION ============ */
-        .detail-section {
-            background: var(--white);
-            border-radius: var(--radius-2xl);
-            padding: clamp(1.5rem, 4vw, 3rem);
-            box-shadow: var(--shadow-lg);
-            margin-top: 2rem;
-            border: 1px solid var(--gray-200);
-            transition: background-color var(--transition-smooth),
-                        border-color var(--transition-smooth),
-                        color var(--transition-smooth);
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .detail-section h2 {
-            margin-bottom: 1.5rem;
-            font-size: clamp(1.5rem, 4vw, 2rem);
-        }
-
-        .detail-section h3 {
-            margin: 1.5rem 0 1rem;
-            color: var(--primary);
-        }
-
-        .detail-section h4 {
-            margin: 1rem 0 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .detail-section p { margin-bottom: 0.75rem; }
-
-        .detail-section .firstaid-step-card {
-            background: var(--gray-50);
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-lg);
-            padding: 1.25rem;
-            margin: 1rem 0;
-            transition: var(--transition-fast);
-        }
-        .detail-section .firstaid-step-card:hover {
-            transform: translateX(4px);
-            border-color: var(--primary-light);
-            box-shadow: var(--shadow-md);
-        }
-
-        .detail-section .firstaid-warning {
-            background: linear-gradient(135deg, #fef3c7, #fef9c3);
-            border-left: 4px solid var(--warning);
-            padding: 1rem 1.25rem;
-            border-radius: var(--radius-md);
-            margin: 1.25rem 0;
-        }
-        .detail-section .firstaid-warning h5 {
-            color: var(--warning);
-            margin-bottom: 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .detail-section .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        .detail-section .info-card {
-            background: var(--gray-100);
-            padding: 1rem;
-            border-radius: var(--radius-md);
-            text-align: center;
-        }
-        .detail-section .info-card strong {
-            display: block;
-            margin-bottom: 0.25rem;
-            color: var(--primary);
-        }
-        .detail-section .info-card p {
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* ============ EMERGENCY BANNER ============ */
-        .emergency-banner {
-            background: linear-gradient(135deg, var(--accent), #b91c1c);
-            color: var(--white);
-            padding: clamp(1rem, 3vw, 1.5rem) clamp(1.25rem, 4vw, 2rem);
-            border-radius: var(--radius-2xl);
-            margin: clamp(1rem, 3vw, 2rem) 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            cursor: pointer;
-            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-        }
-        .emergency-banner:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-xl);
-        }
-        .emergency-banner .banner-content {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex: 1;
-        }
-        .emergency-banner .banner-icon { font-size: 1.5rem; }
-        .emergency-banner .banner-text strong {
-            display: block;
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-        }
-        .emergency-banner .banner-text span {
-            font-size: 0.9rem;
-            opacity: 0.95;
-        }
-        .emergency-banner .banner-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 0.625rem 1.25rem;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 600;
-            transition: all var(--transition-fast);
-            white-space: nowrap;
-            min-height: 44px;
-        }
-        .emergency-banner .banner-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        /* ============ TEST OVERLAY ============ */
-        .test-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.97);
-            z-index: 1000;
-            display: none;
-            flex-direction: column;
-            padding: clamp(0.5rem, 2vw, 1rem);
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        .test-overlay.active { display: flex; }
-
-        .test-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding: clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 3vw, 2rem);
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border-radius: var(--radius-lg);
-            flex-shrink: 0;
-        }
-
-        .test-header h2 {
-            margin: 0;
-            color: white;
-            font-size: clamp(1.25rem, 3vw, 1.5rem);
-        }
-
-        .small-close-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.25rem 0.5rem;
-            border-radius: var(--radius-md);
-            transition: var(--transition-fast);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2rem;
-            height: 2rem;
-            min-height: 44px;
-            min-width: 44px;
-        }
-        .small-close-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            color: var(--accent-light);
-            transform: rotate(90deg);
-        }
-
-        .test-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            max-width: 800px;
-            margin: 0 auto;
-            width: 100%;
-            padding-bottom: 2rem;
-        }
-
-        /* Progress Bar */
-        .progress-container { margin-bottom: 1.5rem; }
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            color: var(--gray-600);
-            font-weight: 500;
-            font-size: 0.9375rem;
-        }
-        .progress-bar {
-            width: 100%;
-            height: 0.5rem;
-            background: var(--gray-200);
-            border-radius: 1rem;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--warning));
-            border-radius: 1rem;
-            transition: width 0.3s ease;
-        }
-
-        /* Question */
-        .question {
-            font-size: clamp(1.1rem, 2.5vw, 1.375rem);
-            font-weight: 600;
-            color: var(--gray-900);
-            margin-bottom: 1.5rem;
-            line-height: 1.45;
-            padding: clamp(1rem, 3vw, 1.5rem);
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
-            border: 2px solid var(--gray-200);
-        }
-
-        /* Choices */
-        .choices {
-            display: grid;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .choice {
-            padding: clamp(0.875rem, 2vw, 1.25rem) clamp(1rem, 3vw, 1.5rem);
-            background: var(--white);
-            border: 2px solid var(--gray-300);
-            border-radius: var(--radius-lg);
-            font-size: clamp(0.9375rem, 2vw, 1.125rem);
-            text-align: left;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            color: var(--gray-700);
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .choice::before {
-            content: '';
-            width: 1.25rem;
-            height: 1.25rem;
-            border: 2px solid var(--gray-400);
-            border-radius: 50%;
-            flex-shrink: 0;
-            transition: var(--transition-fast);
-        }
-
-        .choice:hover:not(:disabled) {
-            border-color: var(--primary);
-            background: var(--primary-light);
-            color: var(--white);
-        }
-        .choice:hover:not(:disabled)::before {
-            border-color: var(--white);
-            background: var(--white);
-        }
-
-        .choice.correct {
-            background: #10b981;
-            border-color: #059669;
-            color: white;
-            animation: pulseCorrect 0.4s ease;
-        }
-        .choice.correct::before {
-            border-color: white;
-            background: white;
-            background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23059669' stroke-width='3'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
-            background-size: 70%;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .choice.wrong {
-            background: #ef4444;
-            border-color: #dc2626;
-            color: white;
-            animation: pulseWrong 0.4s ease;
-        }
-        .choice.wrong::before {
-            border-color: white;
-            background: white;
-            background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dc2626' stroke-width='3'%3E%3Cpath d='M6 6l12 12M6 18L18 6'/%3E%3C/svg%3E");
-            background-size: 70%;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        @keyframes pulseCorrect {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-        @keyframes pulseWrong {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(0.98); box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.3); }
-        }
-
-        .choice:disabled { cursor: not-allowed; opacity: 0.85; }
-
-        /* Feedback */
-        .feedback {
-            padding: clamp(1rem, 2.5vw, 1.5rem);
-            border-radius: var(--radius-lg);
-            margin-bottom: 1.5rem;
-            animation: slideIn 0.3s ease;
-            border-left: 4px solid;
-        }
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(-8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .feedback.correct {
-            background: rgba(16, 185, 129, 0.1);
-            border-color: var(--success);
-            color: #065f46;
-        }
-        .feedback.wrong {
-            background: rgba(239, 68, 68, 0.1);
-            border-color: var(--accent);
-            color: #7f1d1d;
-        }
-
-        /* Auto Continue Button */
-        .auto-continue-btn {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border: none;
-            padding: 1rem 1.5rem;
-            border-radius: var(--radius-lg);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition-fast);
-            width: 100%;
-            margin-top: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            min-height: 44px;
-        }
-        .auto-continue-btn:hover {
-            background: linear-gradient(135deg, var(--primary-dark), #0d9488);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        .auto-continue-btn:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .countdown-text {
-            font-size: 0.875rem;
-            color: var(--gray-500);
-            text-align: center;
-            margin-top: 0.5rem;
-        }
-
-        /* Result Screen */
-        .result-screen {
-            text-align: center;
-            padding: 1.5rem;
-        }
-        .result-icon {
-            font-size: clamp(3rem, 8vw, 4rem);
-            margin-bottom: 1rem;
-            animation: bounce 1s ease infinite;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
-        .result-score {
-            font-size: clamp(2rem, 6vw, 3rem);
-            font-weight: 700;
-            margin: 1rem 0;
-            background: linear-gradient(135deg, var(--primary), var(--warning));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .result-message {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            color: var(--gray-600);
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
-
-        .detailed-results {
-            text-align: left;
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--gray-200);
-        }
-        .result-item {
-            padding: 1.25rem;
-            border-bottom: 2px solid var(--gray-200);
-            margin-bottom: 1.25rem;
-            border-radius: var(--radius-md);
-        }
-        .result-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-        .result-item.correct {
-            background: rgba(16, 185, 129, 0.08);
-            border-left: 4px solid var(--success);
-        }
-        .result-item.wrong {
-            background: rgba(239, 68, 68, 0.08);
-            border-left: 4px solid var(--accent);
-        }
-        .result-question {
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--gray-900);
-            font-size: 1rem;
-        }
-        .result-answer {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin: 0.375rem 0;
-            font-size: 0.9375rem;
-        }
-        .result-answer.correct { color: var(--success); }
-        .result-answer.wrong { color: var(--accent); }
-        .result-explanation {
-            color: var(--gray-600);
-            font-size: 0.9375rem;
-            margin-top: 0.75rem;
-            padding: 0.875rem;
-            background: var(--gray-100);
-            border-radius: var(--radius-md);
-            border-left: 3px solid var(--info);
-        }
-
-        /* ============ FOOTER ============ */
-        footer {
-            background: var(--gray-900);
-            color: var(--gray-300);
-            padding: clamp(2rem, 5vw, 4rem) 1rem 1.5rem;
-            margin-top: clamp(2rem, 5vw, 4rem);
-        }
-
-        .footer-content { max-width: 1280px; margin: 0 auto; }
-        .footer-grid {
-            display: grid;
-            gap: clamp(1.5rem, 4vw, 3rem);
-            margin-bottom: 2rem;
-        }
-        @media (min-width: 768px) {
-            .footer-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        .footer-column h4 {
-            color: var(--white);
-            font-size: 1.125rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 0.5rem; }
-        .footer-links a {
-            color: var(--gray-400);
-            text-decoration: none;
-            transition: var(--transition-fast);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            min-height: 44px;
-            padding: 0.25rem 0;
-        }
-        .footer-links a:hover {
-            color: var(--white);
-            transform: translateX(4px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--gray-800);
-            padding-top: 1.5rem;
-            text-align: center;
-            color: var(--gray-500);
-            font-size: 0.875rem;
-        }
-        .footer-bottom small { display: block; margin-top: 0.5rem; opacity: 0.8; }
-
-        /* ============ MOBILE MENU ============ */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: min(320px, 85vw);
-            height: 100vh;
-            background: var(--white);
-            z-index: 200;
-            transition: right var(--transition-normal);
-            padding: 1.5rem;
-            box-shadow: var(--shadow-xl);
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-        }
-        .mobile-menu.active { right: 0; }
-
-        .mobile-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--gray-200);
-        }
-
-        .mobile-menu-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.375rem;
-        }
-
-        .mobile-menu-link {
-            padding: 0.875rem 1rem;
-            border-radius: var(--radius-md);
-            color: var(--gray-700);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition-fast);
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        .mobile-menu-link:hover,
-        .mobile-menu-link.active {
-            background: var(--primary);
-            color: var(--white);
-        }
-        .mobile-menu-link.firstaid-button {
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            color: white;
-            justify-content: center;
-            margin-top: 0.5rem;
-            font-weight: 600;
-        }
-
-        .menu-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 199;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition-normal);
-        }
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* ============ FIRST AID MODAL ============ */
-        .firstaid-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.95);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition-normal);
-            padding: clamp(0.5rem, 2vw, 1rem);
-        }
-        .firstaid-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .firstaid-modal-content {
-            background: var(--white);
-            border-radius: var(--radius-2xl);
-            width: 100%;
-            height: 95vh;
-            max-height: 95vh;
-            max-width: 1000px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            border: none;
-        }
-
-        .firstaid-modal-header {
-            padding: clamp(0.75rem, 2vw, 1.25rem) clamp(1rem, 3vw, 1.5rem);
-            border-bottom: 1px solid var(--gray-200);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(135deg, var(--accent), #b91c1c);
-            color: white;
-            flex-shrink: 0;
-        }
-        .firstaid-modal-header h3 {
-            color: white;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: clamp(1.1rem, 3vw, 1.35rem);
-        }
-
-        .close-modal-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            width: 2.25rem;
-            height: 2.25rem;
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition-fast);
-            min-height: 44px;
-            min-width: 44px;
-        }
-        .close-modal-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
-        }
-
-        .firstaid-modal-body {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            overflow: hidden;
-            flex: 1;
-        }
-
-        .firstaid-tabs {
-            display: flex;
-            border-bottom: 1px solid var(--gray-200);
-            background: var(--gray-50);
-            flex-shrink: 0;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-        .firstaid-tabs::-webkit-scrollbar { display: none; }
-
-        .firstaid-tab {
-            flex: 0 0 auto;
-            min-width: clamp(100px, 15vw, 140px);
-            padding: clamp(0.75rem, 2vw, 1rem) clamp(0.875rem, 2vw, 1.25rem);
-            border: none;
-            background: none;
-            font-family: inherit;
-            font-weight: 600;
-            color: var(--gray-600);
-            cursor: pointer;
-            transition: var(--transition-fast);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.375rem;
-            font-size: clamp(0.85rem, 2vw, 0.95rem);
-            position: relative;
-            white-space: nowrap;
-            min-height: 44px;
-        }
-        .firstaid-tab:hover { background: var(--gray-100); }
-        .firstaid-tab.active {
-            color: var(--accent);
-            border-bottom: 3px solid var(--accent);
-            background: var(--white);
-        }
-
-        .firstaid-tab-content {
-            flex: 1;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            padding: clamp(1rem, 3vw, 1.5rem);
-            display: none;
-            animation: fadeInUp 0.3s ease-out;
-        }
-        .firstaid-tab-content.active { display: block; }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* First Aid Content Styles */
-        .firstaid-step-card {
-            background: var(--gray-50);
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-lg);
-            padding: clamp(1rem, 2.5vw, 1.5rem);
-            margin-bottom: 1rem;
-            transition: var(--transition-fast);
-        }
-        .firstaid-step-card:hover {
-            transform: translateX(4px);
-            border-color: var(--primary-light);
-            box-shadow: var(--shadow-md);
-        }
-        .firstaid-step-card h4 {
-            color: var(--gray-900);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.125rem;
-        }
-        .firstaid-step-card p {
-            font-size: 1rem;
-            color: var(--gray-600);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .firstaid-warning {
-            background: linear-gradient(135deg, #fef3c7, #fef9c3);
-            border-left: 4px solid var(--warning);
-            padding: 1rem 1.25rem;
-            border-radius: var(--radius-md);
-            margin: 1.25rem 0;
-        }
-        .firstaid-warning h5 {
-            color: var(--warning);
-            margin-bottom: 0.375rem;
-            display: flex;
-            align-items: center;
-            gap: 0.375rem;
-        }
-
-        .firstaid-tips {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        .firstaid-tip {
-            background: linear-gradient(135deg, var(--primary-soft), var(--white));
-            border-radius: var(--radius-lg);
-            padding: 1.25rem;
-            border: 1px solid var(--primary-light);
-        }
-        .firstaid-tip h5 {
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.375rem;
-        }
-
-        .emergency-numbers {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 0.875rem;
-            margin-top: 1.5rem;
-        }
-        .emergency-number {
-            background: var(--gray-100);
-            border-radius: var(--radius-lg);
-            padding: 1rem;
-            text-align: center;
-            transition: var(--transition-fast);
-        }
-        .emergency-number:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-        .emergency-number .number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 0.25rem;
-        }
-        .emergency-number .service {
-            font-weight: 600;
-            color: var(--gray-800);
-        }
-        .emergency-number p {
-            font-size: 0.85rem;
-            margin: 0.375rem 0 0;
-            color: var(--gray-600);
-        }
-
-        .number-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .number-list li {
-            margin-bottom: 0.5rem;
-            padding: 0.625rem 0.875rem;
-            background: var(--gray-50);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.9375rem;
-        }
-        .number-list .number {
-            font-weight: 700;
-            font-size: 1.125rem;
-            color: var(--accent);
-            min-width: 3.5rem;
-        }
-        .number-list .service { flex: 1; font-weight: 600; color: var(--gray-800); }
-
-        /* Icon Colors */
-        .icon-red { color: var(--accent); }
-        .icon-blue { color: var(--primary); }
-        .icon-green { color: var(--success); }
-        .icon-orange { color: var(--warning); }
-        .icon-purple { color: #7c3aed; }
-
-        /* ============ ACCESSIBILITY ============ */
-        :focus-visible {
-            outline: 3px solid var(--primary);
-            outline-offset: 2px;
-        }
-
-        /* Skip Link */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--primary);
-            color: white;
-            padding: 0.5rem 1rem;
-            z-index: 1000;
-            transition: top 0.3s;
-        }
-        .skip-link:focus { top: 0; }
-
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            html { scroll-behavior: auto; }
-        }
-
-        /* ============ RESPONSIVE OPTIMIZATIONS ============ */
-        @media (max-width: 768px) {
-            .card-actions { flex-direction: column; }
-            .emergency-banner { flex-direction: column; text-align: center; }
-            .emergency-banner .banner-content { justify-content: center; }
-            .grid { grid-template-columns: 1fr; }
-            .firstaid-tips { grid-template-columns: 1fr; }
-            .emergency-numbers { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 480px) {
-            .emergency-numbers { grid-template-columns: 1fr; }
-            .test-header { flex-wrap: wrap; gap: 0.5rem; }
-            .choices { gap: 0.5rem; }
-            .choice { padding: 0.875rem 1rem; font-size: 0.9375rem; }
-        }
-
-        @media (min-width: 1400px) {
-            .container { max-width: 1400px; }
-            .page-hero h1 { font-size: 4rem; }
-            .card { padding: 2.25rem; }
-        }
-
-        @media (min-width: 1920px) {
-            html { font-size: 18px; }
-            .container { max-width: 1600px; }
-        }
-
-        /* Hover Effects - Only on devices that support hover */
-        @media (hover: hover) and (pointer: fine) {
-            .card { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-            .card:hover { transform: translateY(-8px); }
-            .choice:hover:not(:disabled) { transform: translateX(6px); }
-        }
-
-        /* Print Styles */
-        @media print {
-            header, footer, .emergency-banner, .card-actions, .test-overlay, .firstaid-modal { display: none !important; }
-            body { background: white; color: black; }
-            .detail-section { box-shadow: none; border: 1px solid #ccc; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ACE COMBAT — TÜRK HAVA KUVVETLERİ</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#000;overflow:hidden;touch-action:none}
+body{display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace}
+#wrap{
+  position:relative;width:100%;max-width:480px;height:100%;max-height:680px;
+  aspect-ratio:480/680;flex-shrink:0;
+}
+canvas{position:absolute;top:0;left:0;width:100%;height:100%;image-rendering:pixelated;pointer-events:none}
+#mainCanvas{pointer-events:auto;z-index:10}
+#uiCanvas{pointer-events:none;z-index:20}
+#fxCanvas{pointer-events:none;z-index:15;mix-blend-mode:screen}
+#bgCanvas{z-index:1}
+
+/* ANA MENÜ */
+#overlay{
+  position:absolute;inset:0;z-index:50;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  background:radial-gradient(ellipse at 50% 40%, rgba(0,20,60,0.97) 0%, rgba(0,0,0,0.99) 100%);
+  overflow-y:auto;padding:20px;
+}
+#overlay::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,200,0.015) 2px,rgba(0,255,200,0.015) 4px);
+  pointer-events:none;
+}
+.title-wrap{position:relative;text-align:center;margin-bottom:8px}
+.title-bg-glow{
+  position:absolute;inset:-30px;
+  background:radial-gradient(ellipse,rgba(0,180,255,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.title-sub{
+  font-family:'Share Tech Mono',monospace;
+  font-size:10px;letter-spacing:6px;color:rgba(0,255,200,0.5);
+  margin-bottom:12px;text-transform:uppercase;
+}
+h1{
+  font-family:'Orbitron',sans-serif;font-weight:900;
+  font-size:58px;line-height:.95;
+  color:transparent;
+  background:linear-gradient(180deg,#FFFFFF 0%,#00CCFF 40%,#0066FF 100%);
+  -webkit-background-clip:text;background-clip:text;
+  filter:drop-shadow(0 0 30px rgba(0,150,255,0.8)) drop-shadow(0 0 60px rgba(0,100,255,0.4));
+  letter-spacing:2px;
+}
+h1 .red{
+  background:linear-gradient(180deg,#FF8800 0%,#FF2200 100%);
+  -webkit-background-clip:text;background-clip:text;
+  filter:drop-shadow(0 0 20px rgba(255,80,0,0.8));
+}
+.divider{
+  width:200px;height:1px;margin:18px auto;
+  background:linear-gradient(90deg,transparent,rgba(0,200,255,0.6),transparent);
+}
+
+/* BÖLÜM SEÇİM EKRANI */
+#chapterSelect{
+  display:flex;flex-direction:column;align-items:center;width:100%;
+  margin:20px 0;max-height:300px;overflow-y:auto;
+}
+.chapter-title{
+  font-family:'Orbitron',sans-serif;font-size:14px;
+  color:#00FFCC;margin:10px 0 5px;letter-spacing:2px;
+}
+.chapter-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+  width:100%;margin-bottom:15px;
+}
+.mission-btn{
+  background:rgba(0,30,60,0.8);border:1px solid #00CCFF;
+  color:#00FFCC;padding:12px 5px;border-radius:4px;
+  font-family:'Orbitron',sans-serif;font-size:12px;
+  text-align:center;cursor:pointer;transition:all 0.2s;
+  box-shadow:0 0 10px rgba(0,200,255,0.2);
+}
+.mission-btn.completed{
+  border-color:#FFCC00;color:#FFCC00;
+  box-shadow:0 0 15px rgba(255,200,0,0.3);
+}
+.mission-btn.locked{
+  border-color:#444;color:#666;background:rgba(20,20,20,0.8);
+  pointer-events:none;filter:grayscale(0.8);
+}
+.mission-btn:active{
+  background:#00CCFF;color:#000;transform:scale(0.95);
+}
+.mission-desc{
+  font-size:8px;color:rgba(0,200,255,0.5);margin-top:2px;
+}
+
+.stat-row{
+  display:flex;gap:32px;margin-bottom:24px;
+}
+.stat-box{text-align:center}
+.stat-label{font-size:9px;color:rgba(0,255,200,0.4);letter-spacing:2px}
+.stat-val{font-family:'Orbitron',sans-serif;font-size:18px;color:#00FFCC;letter-spacing:1px}
+#startBtn{
+  font-family:'Orbitron',sans-serif;font-weight:700;
+  font-size:18px;letter-spacing:6px;
+  color:#000;background:linear-gradient(135deg,#00CCFF,#0066FF);
+  border:none;border-radius:2px;
+  padding:16px 56px;cursor:pointer;
+  position:relative;overflow:hidden;
+  box-shadow:0 0 40px rgba(0,150,255,0.5),0 0 80px rgba(0,100,255,0.2);
+  transition:all .2s;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
+  margin-top:10px;
+}
+#startBtn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.3),transparent);
+  transform:translateX(-100%);transition:.3s;
+}
+#startBtn:hover::before{transform:translateX(0)}
+#startBtn:active{box-shadow:0 0 60px rgba(0,200,255,0.7);transform:scale(1.04)}
+.controls-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:8px 28px;margin-top:22px;
+}
+.ctrl{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.35);font-size:10px}
+.key{
+  background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.25);
+  border-radius:2px;padding:3px 8px;
+  font-family:'Orbitron',sans-serif;font-size:9px;color:rgba(0,200,255,.6);
+  white-space:nowrap;
+}
+#finalBlock{display:none;margin-bottom:20px;text-align:center}
+.final-score-label{font-size:10px;color:rgba(0,255,200,.4);letter-spacing:3px;margin-bottom:4px}
+.final-score-val{font-family:'Orbitron',sans-serif;font-size:48px;color:#00FFCC;
+  filter:drop-shadow(0 0 20px rgba(0,255,200,0.6));letter-spacing:2px}
+#pauseMenu{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:rgba(0,10,30,0.95);border:2px solid #00CCFF;padding:30px 60px;
+  border-radius:4px;display:none;flex-direction:column;gap:20px;z-index:100;
+  box-shadow:0 0 50px rgba(0,200,255,0.3);text-align:center;
+}
+#pauseMenu h2{color:#00FFCC;font-family:'Orbitron',sans-serif;margin-bottom:10px}
+#pauseMenu button{
+  background:transparent;border:2px solid #00CCFF;color:#00FFCC;
+  padding:10px 30px;font-family:'Orbitron',sans-serif;cursor:pointer;
+  transition:all 0.3s;font-size:16px;
+}
+#pauseMenu button:active{background:#00CCFF;color:#000;box-shadow:0 0 20px #00CCFF}
+#bombBtn{
+  position:absolute;bottom:20px;right:20px;width:80px;height:80px;
+  border-radius:50%;background:rgba(255,80,0,0.3);
+  border:3px solid #FF6600;z-index:30;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Orbitron',sans-serif;font-weight:bold;
+  color:#FF6600;text-shadow:0 0 10px #FF6600;
+  backdrop-filter:blur(5px);pointer-events:auto;
+  box-shadow:0 0 30px rgba(255,100,0,0.5);
+}
+#bombBtn:active{transform:scale(0.9);background:rgba(255,100,0,0.6);}
+</style>
 </head>
 <body>
-    <!-- ♿ Skip Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Ana içeriğe atla</a>
+<div id="wrap">
+  <canvas id="bgCanvas"></canvas>
+  <canvas id="mainCanvas"></canvas>
+  <canvas id="fxCanvas"></canvas>
+  <canvas id="uiCanvas"></canvas>
 
-    <!-- Header -->
-    <header role="banner">
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo" aria-label="Afet Hazırlık Ana Sayfa">
-                    <div class="logo-icon compass" aria-hidden="true">🧭</div>
-                    <div class="logo-text">
-                        <div class="logo-title">Afet Hazırlık</div>
-                        <div class="logo-subtitle">Güvende Kal</div>
-                    </div>
-                </a>
+  <!-- BOMBA BUTONU (MOBİL) -->
+  <div id="bombBtn" style="display:none">💣</div>
 
-                <!-- Desktop Navigation -->
-                <nav class="nav-desktop" aria-label="Ana Navigasyon">
-                    <a href="index.html" class="nav-link">🏠 Ana Sayfa</a>
-                    <a href="yer.html" class="nav-link">🏔️ Yer Afetleri</a>
-                    <a href="su.html" class="nav-link">🌊 Su Afetleri</a>
-                    <a href="hava.html" class="nav-link active" aria-current="page">🌪️ Hava Afetleri</a>
-                    <a href="insan.html" class="nav-link">🔥 İnsan Kaynaklı</a>
-                    <a href="hakkinda.html" class="nav-link">ℹ️ Hakkında</a>
-                    <a href="#" class="nav-link firstaid-button" id="firstAidButton" aria-label="İlk Yardım Rehberini Aç">
-                        <span aria-hidden="true">🆘</span>
-                        İlk Yardım
-                    </a>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü Aç" aria-expanded="false" aria-controls="mobileMenu">
-                    <span class="menu-line" aria-hidden="true"></span>
-                    <span class="menu-line" aria-hidden="true"></span>
-                    <span class="menu-line" aria-hidden="true"></span>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
-    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobil Navigasyon">
-        <div class="mobile-menu-header">
-            <div class="logo">
-                <div class="logo-icon compass" aria-hidden="true">🧭</div>
-                <div class="logo-text">
-                    <div class="logo-title">Afet Hazırlık</div>
-                </div>
-            </div>
-            <button id="closeMenuBtn" aria-label="Menüyü Kapat" style="background:none;border:none;font-size:1.5rem;color:var(--gray-600);cursor:pointer;min-height:44px;min-width:44px;">×</button>
-        </div>
-        <div class="mobile-menu-links">
-            <a href="index.html" class="mobile-menu-link">🏠 Ana Sayfa</a>
-            <a href="yer.html" class="mobile-menu-link">🏔️ Yer Afetleri</a>
-            <a href="su.html" class="mobile-menu-link">🌊 Su Afetleri</a>
-            <a href="hava.html" class="mobile-menu-link active">🌪️ Hava Afetleri</a>
-            <a href="insan.html" class="mobile-menu-link">🔥 İnsan Kaynaklı</a>
-            <a href="hakkinda.html" class="mobile-menu-link">ℹ️ Hakkında</a>
-            <a href="#" class="mobile-menu-link firstaid-button" id="mobileFirstAidButton">
-                <span aria-hidden="true">🆘</span>
-                İlk Yardım Rehberi
-            </a>
-        </div>
-    </nav>
-
-    <!-- İLK YARDIM MODAL -->
-    <div class="firstaid-modal" id="firstAidModal" role="dialog" aria-modal="true" aria-labelledby="firstAidModalTitle">
-        <div class="firstaid-modal-content">
-            <div class="firstaid-modal-header">
-                <h3 id="firstAidModalTitle"><span aria-hidden="true">🆘</span> Acil Durumda İlk Yardım Rehberi</h3>
-                <button class="close-modal-btn" id="closeFirstAidModal" aria-label="İlk Yardım Rehberini Kapat">×</button>
-            </div>
-
-            <div class="firstaid-modal-body">
-                <div class="firstaid-tabs" role="tablist" aria-label="İlk Yardım Kategorileri">
-                    <button class="firstaid-tab active" role="tab" aria-selected="true" aria-controls="basic-tab" data-tab="basic">🧠 Temel Kurallar</button>
-                    <button class="firstaid-tab" role="tab" aria-selected="false" aria-controls="bleeding-tab" data-tab="bleeding">🩸 Kanamalar</button>
-                    <button class="firstaid-tab" role="tab" aria-selected="false" aria-controls="unconscious-tab" data-tab="unconscious">😴 Bayılma</button>
-                    <button class="firstaid-tab" role="tab" aria-selected="false" aria-controls="burn-tab" data-tab="burn">🔥 Yanıklar</button>
-                    <button class="firstaid-tab" role="tab" aria-selected="false" aria-controls="fracture-tab" data-tab="fracture">🦴 Kırıklar</button>
-                    <button class="firstaid-tab" role="tab" aria-selected="false" aria-controls="numbers-tab" data-tab="numbers">📞 Acil Numaralar</button>
-                </div>
-
-                <!-- Temel Kurallar -->
-                <div class="firstaid-tab-content active" id="basic-tab" role="tabpanel" aria-labelledby="basic-tab">
-                    <h3 style="margin-bottom: 1.25rem; color: var(--accent);">İlk Yardımın 4 Altın Kuralı</h3>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-red" aria-hidden="true">1️⃣</span> Önce Güvenlik!</h4>
-                        <p>Kendi güvenliğinizi önce sağlayın. Elektrik, gaz, yangın, çökme risklerini kontrol edin. Yaralıyı ancak güvenliyse hareket ettirin.</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-blue" aria-hidden="true">2️⃣</span> 112'yi Hemen Ara!</h4>
-                        <p><strong>Sakin ve net konuşun:</strong><br>
-                        • Olayın türü ve yeri (tam adres)<br>
-                        • Yaralı sayısı ve genel durumları<br>
-                        • İsim ve geri dönüş numaranız<br>
-                        • <strong>Telefonu ilk siz kapatmayın!</strong></p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-green" aria-hidden="true">3️⃣</span> ABC Kontrolü Yap</h4>
-                        <p><strong>A - Airway (Havayolu):</strong> Baş-çene pozisyonu ile havayolunu aç<br>
-                        <strong>B - Breathing (Solunum):</strong> "Bak-Dinle-Hisset" ile 10 saniye kontrol<br>
-                        <strong>C - Circulation (Dolaşım):</strong> Nabız kontrolü, gerekirse kalp masajı</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-orange" aria-hidden="true">4️⃣</span> Yaralıyı Koru</h4>
-                        <p>• Bilinçsiz yaralıları YAN YATIR (koma pozisyonu)<br>
-                        • Kanamayı temiz bezle BASINÇLA durdur<br>
-                        • Yaralıyı sıcak tut ama terletme<br>
-                        • ASLA su/yiyecek verme (boğulma riski)</p>
-                    </div>
-
-                    <div class="firstaid-warning" role="alert">
-                        <h5><span aria-hidden="true">⚠️</span> KRİTİK UYARI</h5>
-                        <p>• Boyun/omurga yaralanması şüphesinde HAREKET ETTİRME<br>
-                        • Göze cisim batmışsa ÇIKARMAYA ÇALIŞMA<br>
-                        • Yanık üzerine diş macunu/yoğurt SÜRME<br>
-                        • Elektrik çarpmasında yaralıya DOKUNMADAN önce elektriği kes</p>
-                    </div>
-                </div>
-
-                <!-- Kanamalar -->
-                <div class="firstaid-tab-content" id="bleeding-tab" role="tabpanel" aria-labelledby="bleeding-tab">
-                    <h3 style="margin-bottom: 1.25rem; color: var(--accent);">Kanamalarda Hayat Kurtaran Müdahale</h3>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-red" aria-hidden="true">🩸</span> İç Kanama Belirtileri</h4>
-                        <p>• Soluk, soğuk, terli cilt<br>
-                        • Hızlı/zayıf nabız, hızlı/yüzeysel solunum<br>
-                        • Baş dönmesi, baygınlık, şok<br>
-                        • Karında hassasiyet/şişlik</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-blue" aria-hidden="true">🎯</span> Dış Kanama Kontrolü (Sırasıyla!)</h4>
-                        <p><strong>1. Direkt Basınç:</strong> Temiz bez/gazlı bezle yaraya 5-10 dk sürekli basınç<br>
-                        <strong>2. Yüksekte Tutma:</strong> Kanayan bölgeyi kalp seviyesinden yukarı kaldır<br>
-                        <strong>3. Basınç Noktası:</strong> Atardamar kanamasında yaraya yakın basınç noktasına bas<br>
-                        <strong>4. Turnike (SON ÇARE):</strong> Sadece hayati tehlike varsa, geniş bezle, saatini not et</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-green" aria-hidden="true">⚠️</span> Turnike Kullanım Kuralları</h4>
-                        <p>• Sadece kol/bacakta, atardamar kanamasında<br>
-                        • Yaradan 5-10 cm yukarıya, geniş bezle (min. 5cm)<br>
-                        • Uygulama saatini YAZ ve görünür yere yapıştır<br>
-                        • 15-20 dk'da bir 10-15 sn GEVŞET (doku ölümünü önlemek için)<br>
-                        • <strong>Asla ip/tel kullanma!</strong></p>
-                    </div>
-
-                    <div class="firstaid-warning" role="alert">
-                        <h5><span aria-hidden="true">❌</span> KANAMALARDA ASLA!</h5>
-                        <p>• Tentürdiyot/alkol/pamuk YARAYA DÖKME/BASMA<br>
-                        • Batmış cisimleri ÇIKARMAYA çalışma<br>
-                        • Turnikeyi gereksiz sıkma veya uzun süre gevşetmeden bırakma<br>
-                        • Kanayan yarayı yıkamaya çalışma (kontrollü ortamda)</p>
-                    </div>
-                </div>
-
-                <!-- Bayılma -->
-                <div class="firstaid-tab-content" id="unconscious-tab" role="tabpanel" aria-labelledby="unconscious-tab">
-                    <h3 style="margin-bottom: 1.25rem; color: var(--accent);">Bilinç Kaybı ve Kalp Masajı</h3>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-red" aria-hidden="true">😴</span> Bilinç Kontrol Protokolü</h4>
-                        <p>1. <strong>Güvenlik:</strong> Çevreyi kontrol et, tehlike yoksa yaklaş<br>
-                        2. <strong>Uyarma:</strong> Omuzlardan hafif salla, yüksek sesle "İyi misiniz?" de<br>
-                        3. <strong>Yanıt yoksa:</strong> 112'yi ara veya arat, AED varsa getir<br>
-                        4. <strong>Solunum:</strong> Baş-çene pozisyonu, 10 sn "Bak-Dinle-Hisset"<br>
-                        5. <strong>Nabız:</strong> Şah damarından 10 sn kontrol</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-blue" aria-hidden="true">🔄</span> Koma Pozisyonu (Yan Yatış)</h4>
-                        <p>1. Yaralıyı sırtüstü yatır, yakın kolunu baş hizasında uzat<br>
-                        2. Uzak kolunu yanağının altına koy (avuç içi yukarı)<br>
-                        3. Uzak bacağını dizden bük, ayağı yere basar pozisyonda<br>
-                        4. Omuz ve kalçadan tutarak YAVAŞÇA yan yatır<br>
-                        5. Başını geriye yatır, çeneyi yukarı kaldır (havayolu açık)</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-green" aria-hidden="true">💓</span> Yetişkin CPR (30:2 Kuralı)</h4>
-                        <p><strong>Pozisyon:</strong> Diz çök, göğüs ortasına (sternum alt yarısı)<br>
-                        <strong>Bası:</strong> Dirsekler dik, omuzlar ellerin üstünde<br>
-                        <strong>Derinlik:</strong> 5-6 cm çökme, tam geri bırak<br>
-                        <strong>Hız:</strong> Dakikada 100-120 bası (Stayin' Alive ritmi)<br>
-                        <strong>Döngü:</strong> 30 bası → 2 suni solunum → tekrarla<br>
-                        <strong>Suni Solunum:</strong> Burunu kapat, ağızdan 1 sn üfle, göğüs kalksın</p>
-                    </div>
-
-                    <div class="firstaid-tips">
-                        <div class="firstaid-tip">
-                            <h5><span aria-hidden="true">👶</span> Bebek CPR</h5>
-                            <p>2 parmakla göğüs ortasına bas. 30:2. Göğüs 4 cm çöksün. Ağız-burun birlikte üfle.</p>
-                        </div>
-                        <div class="firstaid-tip">
-                            <h5><span aria-hidden="true">🧒</span> Çocuk CPR</h5>
-                            <p>1 veya 2 elle göğüs ortasına bas. 30:2. Göğüs 5 cm çöksün. Ağızdan ağıza üfle.</p>
-                        </div>
-                        <div class="firstaid-tip">
-                            <h5><span aria-hidden="true">🤰</span> Hamile/Kilo Fazla</h5>
-                            <p>Elleri göğüs kemiğinin daha üst kısmına yerleştir. Bası derinliği aynı kalsın.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Yanıklar -->
-                <div class="firstaid-tab-content" id="burn-tab" role="tabpanel" aria-labelledby="burn-tab">
-                    <h3 style="margin-bottom: 1.25rem; color: var(--accent);">Yanık Dereceleri ve İlk Yardım</h3>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-red" aria-hidden="true">🔥</span> 1. Derece (Yüzeysel)</h4>
-                        <p><strong>Belirti:</strong> Kızarıklık, hafif şiş, ağrılı, kabarcık YOK<br>
-                        <strong>Müdahale:</strong><br>
-                        1. 15-20 dk SOĞUK (buz değil!) su altında tut<br>
-                        2. Temiz, kuru bezle hafifçe kurul<br>
-                        3. Yanık kremi/sprey uygula<br>
-                        4. Steril gazlı bezle gevşek ört</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-blue" aria-hidden="true">🔥</span> 2. Derece (Kısmi Kalınlık)</h4>
-                        <p><strong>Belirti:</strong> İçi sıvı dolu kabarcıklar, şiddetli ağrı, nemli görünüm<br>
-                        <strong>Müdahale:</strong><br>
-                        1. Soğuk su uygulamasına devam et<br>
-                        2. <strong>Kabarcıkları ASLA patlatma!</strong><br>
-                        3. Yapışmayan steril örtü ile kapat<br>
-                        4. Yüz/el/ayak/genital bölge ise ACİL SERVİS</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-green" aria-hidden="true">🔥</span> 3. Derece (Tam Kalınlık)</h4>
-                        <p><strong>Belirti:</strong> Beyaz/kömürleşmiş deri, ağrı YOK (sinirler yandı)<br>
-                        <strong>Müdahale:</strong><br>
-                        1. HEMEN 112'yi ara<br>
-                        2. Yanık bölgeyi temiz, kuru bezle ört<br>
-                        3. Yaralıyı şoka karşı sıcak tut<br>
-                        4. <strong>Su/ilaç/krem UYGULAMA</strong><br>
-                        5. Takıları/yapışmayan giysileri çıkar</p>
-                    </div>
-
-                    <div class="firstaid-warning" role="alert">
-                        <h5><span aria-hidden="true">❌</span> YANIKLARDA KRİTİK HATALAR</h5>
-                        <p>• Diş macunu/yoğurt/salça/yağ SÜRME (enfeksiyon riski)<br>
-                        • Buz DOĞRUDAN uygulama (doku hasarı)<br>
-                        • Kabarcıkları patlatma (enfeksiyon kapısı)<br>
-                        • Yapışkan pansuman/bant kullanma<br>
-                        • Kimyasal yanıkta suyla yıkamadan önce etiketi okuma</p>
-                    </div>
-                </div>
-
-                <!-- Kırıklar -->
-                <div class="firstaid-tab-content" id="fracture-tab" role="tabpanel" aria-labelledby="fracture-tab">
-                    <h3 style="margin-bottom: 1.25rem; color: var(--accent);">Kırık/Çıkık/Burulma Yönetimi</h3>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-red" aria-hidden="true">🦴</span> Kırık Belirtileri</h4>
-                        <p>• Şiddetli, hareketle artan ağrı<br>
-                        • Şişlik, morarma, şekil bozukluğu<br>
-                        • Hareket kısıtlılığı, fonksiyon kaybı<br>
-                        • Krepitasyon (kırık sesi/hissi)<br>
-                        • Açık kırıkta kemik uçları görülebilir</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-blue" aria-hidden="true">🩹</span> Kapalı Kırık İlk Yardımı</h4>
-                        <p>1. Yaralı bölgeyi HAREKET ETTİRME<br>
-                        2. Kırık üstü ve altı eklemleri SABİTLE (atel)<br>
-                        3. Soğuk uygulama (buz torbası, 15-20 dk)<br>
-                        4. Bölgeyi kalp seviyesinden YUKARI tut<br>
-                        5. Şok önlemi: Sıcak tut, bacakları 30 cm kaldır<br>
-                        6. ACİL SERVİS'e ulaştır</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-green" aria-hidden="true">⚠️</span> Açık Kırık Protokolü</h4>
-                        <p>1. Kanama kontrolü: Temiz bezle BASINÇ (kemik uçlarına basma)<br>
-                        2. Dışarı çıkan kemikleri ASLA içeri itme<br>
-                        3. Temiz, nemli gazlı bezle ört (kurumasın)<br>
-                        4. Atel uygularken yumuşak destek kullan<br>
-                        5. Tetanos aşısı durumu sor, not et<br>
-                        6. HEMEN 112</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-orange" aria-hidden="true">📏</span> Atel Uygulama Prensipleri</h4>
-                        <p>• Kırık üstü ve altı EKLEMİ içine alacak uzunlukta<br>
-                        • Sert malzeme (tahta/karton) + yumuşak destek<br>
-                        • Sargı çok sıkı olmasın (parmaklar açıkta kalsın)<br>
-                        • Dolaşım kontrolü: Parmaklar pembe, sıcak, his var mı?<br>
-                        • 20 dk'da bir kontrol et, morarma/uyuşma varsa gevşet</p>
-                    </div>
-                </div>
-
-                <!-- Acil Numaralar -->
-                <div class="firstaid-tab-content" id="numbers-tab" role="tabpanel" aria-labelledby="numbers-tab">
-                    <h3 style="margin-bottom: 1.25rem; color: var(--accent);">Hayat Kurtaran Acil Numaralar</h3>
-
-                    <div class="emergency-numbers">
-                        <div class="emergency-number">
-                            <div class="number">112</div>
-                            <div class="service">ACİL ÇAĞRI MERKEZİ</div>
-                            <p>Tüm tıbbi aciller, ambulans, itfaiye, polis yönlendirmesi</p>
-                        </div>
-                        <div class="emergency-number">
-                            <div class="number">110</div>
-                            <div class="service">İTFAİYE</div>
-                            <p>Yangın, kurtarma, tehlikeli madde, asansörde kalma</p>
-                        </div>
-                        <div class="emergency-number">
-                            <div class="number">155</div>
-                            <div class="service">POLİS İMDAT</div>
-                            <p>Asayiş, trafik kazası, suç ihbarı, kayıp şahıs</p>
-                        </div>
-                        <div class="emergency-number">
-                            <div class="number">156</div>
-                            <div class="service">JANDARMA</div>
-                            <p>Kırsal alan güvenliği, köy/şehir dışı aciller</p>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 2rem;">
-                        <h4 style="color: var(--primary); margin-bottom: 0.75rem;">📋 Diğer Kritik Numaralar</h4>
-                        <ul class="number-list">
-                            <li><span class="number">184</span><span class="service">SABİM - Sağlık Bakanlığı Danışma</span></li>
-                            <li><span class="number">185</span><span class="service">ALO 185 - Su Arıza/Şikayet</span></li>
-                            <li><span class="number">186</span><span class="service">ALO 186 - Elektrik Arıza</span></li>
-                            <li><span class="number">187</span><span class="service">ALO 187 - Doğalgaz Arıza</span></li>
-                            <li><span class="number">153</span><span class="service">Belediye Zabıta</span></li>
-                            <li><span class="number">154</span><span class="service">Trafik Denetleme</span></li>
-                            <li><span class="number">144</span><span class="service">Sosyal Yardım Hattı</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="firstaid-warning" role="alert" style="margin-top: 1.5rem;">
-                        <h5><span aria-hidden="true">📱</span> ACİL ARAMA PROTOKOLÜ</h5>
-                        <p>1. <strong>SAKİN OL:</strong> Derin nefes al, net konuş<br>
-                        2. <strong>KONUM:</strong> "Şehir, ilçe, mahalle, cadde, bina no, kat" tam ver<br>
-                        3. <strong>OLAY:</strong> "Ne oldu? Kaç yaralı? Bilinç var mı?" açıkla<br>
-                        4. <strong>İLETİŞİM:</strong> İsim ve geri dönüş numaranı söyle<br>
-                        5. <strong>BİRLİKTE KAPAT:</strong> Operatör "tamam" demeden telefonu kapatma<br>
-                        6. <strong>YÖNLENDİR:</strong> Bir kişi kapıda beklesin, ekipleri karşılasın</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <!-- ANA MENÜ -->
+  <div id="overlay">
+    <div class="title-wrap">
+      <div class="title-bg-glow"></div>
+      <div class="title-sub">T.C. HAVA KUVVETLERİ · SİMÜLATÖR</div>
+      <h1>ACE<br><span class="red">STORM</span></h1>
     </div>
-
-    <!-- Page Hero -->
-    <section class="page-hero" role="region" aria-label="Hava Afetleri Başlık Bölümü">
-        <div class="container">
-            <div class="page-hero-content">
-                <h1 class="animate-fade-in-up">🌪️ Hava Afetleri</h1>
-                <p class="animate-fade-in-up animate-delay-100">
-                    Kasırga, yıldırım fırtınası ve şiddetli dolu gibi hava kaynaklı afetler için ileri düzey hazırlık rehberi ve zorlu testler
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Emergency Banner -->
-    <div class="container">
-        <div class="emergency-banner" role="alert" aria-live="assertive" id="emergencyBanner">
-            <div class="banner-content">
-                <span class="banner-icon" aria-hidden="true">🚨</span>
-                <div class="banner-text">
-                    <strong>ACİL DURUM: 112</strong>
-                    <span>Tüm acil durumlar için tek numara • 7/24 • Ücretsiz</span>
-                </div>
-            </div>
-            <button class="banner-btn" id="emergencyFirstAidButton" aria-label="Acil İlk Yardım Rehberini Aç">
-                <span aria-hidden="true">🆘</span>
-                İlk Yardım
-            </button>
-        </div>
+    <div class="divider"></div>
+    
+    <!-- BÖLÜM SEÇİM -->
+    <div id="chapterSelect">
+      <div class="chapter-title">BÖLÜM 1: EGE KORİDORU</div>
+      <div class="chapter-grid" id="chapter1Grid">
+        <div class="mission-btn" data-chapter="1" data-mission="1">GÖREV 1<br><span class="mission-desc">Keşif Uçuşu</span></div>
+        <div class="mission-btn" data-chapter="1" data-mission="2">GÖREV 2<br><span class="mission-desc">Devriye</span></div>
+        <div class="mission-btn" data-chapter="1" data-mission="3">GÖREV 3<br><span class="mission-desc">Hava Savunma</span></div>
+        <div class="mission-btn" data-chapter="1" data-mission="4">GÖREV 4<br><span class="mission-desc">İmha</span></div>
+        <div class="mission-btn" data-chapter="1" data-mission="5">GÖREV 5<br><span class="mission-desc">Filo Lideri</span></div>
+        <div class="mission-btn" data-chapter="1" data-mission="6">GÖREV 6<br><span class="mission-desc">BOSS SAVAŞI</span></div>
+      </div>
+      
+      <div class="chapter-title">BÖLÜM 2: AKDENİZ FIRTINASI</div>
+      <div class="chapter-grid" id="chapter2Grid">
+        <div class="mission-btn locked" data-chapter="2" data-mission="1">GÖREV 7<br><span class="mission-desc">🔒 Kilitli</span></div>
+        <div class="mission-btn locked" data-chapter="2" data-mission="2">GÖREV 8<br><span class="mission-desc">🔒 Kilitli</span></div>
+        <div class="mission-btn locked" data-chapter="2" data-mission="3">GÖREV 9<br><span class="mission-desc">🔒 Kilitli</span></div>
+      </div>
     </div>
-
-    <!-- Main Content -->
-    <main id="main-content">
-        <div class="container">
-            <div class="section-title animate-fade-in-up">
-                <h2>Hava Afeti Türleri</h2>
-                <p class="animate-fade-in-up animate-delay-100">
-                    Bir afet türü seçerek detaylı bilgi alın veya zorlu test ile bilginizi sınayın
-                </p>
-            </div>
-
-            <div class="grid grid-cols-3">
-                <!-- Kasırga Kartı -->
-                <article class="card animate-fade-in-up" data-type="kasirga" id="kasirga-card" role="button" tabindex="0" aria-label="Kasırga: Bilgi ve Test">
-                    <div class="card-icon" aria-hidden="true">🌪️</div>
-                    <h3>Kasırga</h3>
-                    <p>Şiddetli dönen rüzgar sistemleri, saatte 300 km+ hız, yapısal hasar riski. Bodrum güvenliği, pencere koruması, acil eylem planı.</p>
-                    <div class="card-actions">
-                        <button class="card-btn primary" onclick="startTest('kasirga')" aria-label="Kasırga Testini Başlat">
-                            <span aria-hidden="true">▶️</span> Testi Başlat
-                        </button>
-                        <button class="card-btn secondary" onclick="showInfo('kasirga')" aria-label="Kasırga Hakkında Detaylı Bilgi">
-                            <span aria-hidden="true">📚</span> Bilgi Al
-                        </button>
-                    </div>
-                </article>
-
-                <!-- Yıldırım Kartı -->
-                <article class="card animate-fade-in-up animate-delay-100" data-type="yildirim" id="yildirim-card" role="button" tabindex="0" aria-label="Yıldırım Fırtınası: Bilgi ve Test">
-                    <div class="card-icon" aria-hidden="true">⚡</div>
-                    <h3>Yıldırım Fırtınası</h3>
-                    <p>1 milyar volt elektrik boşalması, 30.000°C sıcaklık. Kapalı alan güvenliği, uzaklık hesaplama, açık alan korunma taktikleri.</p>
-                    <div class="card-actions">
-                        <button class="card-btn primary" onclick="startTest('yildirim')" aria-label="Yıldırım Testini Başlat">
-                            <span aria-hidden="true">▶️</span> Testi Başlat
-                        </button>
-                        <button class="card-btn secondary" onclick="showInfo('yildirim')" aria-label="Yıldırım Hakkında Detaylı Bilgi">
-                            <span aria-hidden="true">📚</span> Bilgi Al
-                        </button>
-                    </div>
-                </article>
-
-                <!-- Dolu Kartı -->
-                <article class="card animate-fade-in-up animate-delay-200" data-type="dolu" id="dolu-card" role="button" tabindex="0" aria-label="Şiddetli Dolu: Bilgi ve Test">
-                    <div class="card-icon" aria-hidden="true">🌨️</div>
-                    <h3>Şiddetli Dolu</h3>
-                    <p>Tenis topu büyüklüğünde buz parçaları, araç/cam hasarı. Araç koruma, bitki/hayvan önlemleri, dolu sonrası hasar değerlendirmesi.</p>
-                    <div class="card-actions">
-                        <button class="card-btn primary" onclick="startTest('dolu')" aria-label="Dolu Testini Başlat">
-                            <span aria-hidden="true">▶️</span> Testi Başlat
-                        </button>
-                        <button class="card-btn secondary" onclick="showInfo('dolu')" aria-label="Dolu Hakkında Detaylı Bilgi">
-                            <span aria-hidden="true">📚</span> Bilgi Al
-                        </button>
-                    </div>
-                </article>
-            </div>
-
-            <!-- Detail Section -->
-            <section class="detail-section animate-fade-in-up" id="detailSection" style="display: none;" aria-live="polite">
-                <h2 id="detailTitle">Afet Bilgisi</h2>
-                <div class="info-content" id="detailContent">
-                    <!-- İçerik JavaScript ile güvenli şekilde doldurulacak -->
-                </div>
-                <button class="card-btn primary" style="margin-top: 2rem;" onclick="hideInfo()" aria-label="Ana Sayfaya Dön">
-                    <span aria-hidden="true">←</span> Geri Dön
-                </button>
-            </section>
-        </div>
-    </main>
-
-    <!-- Fullscreen Test Overlay -->
-    <div class="test-overlay" id="testOverlay" role="dialog" aria-modal="true" aria-labelledby="testTitle">
-        <div class="test-header">
-            <h2 id="testTitle">Test</h2>
-            <button class="small-close-btn" onclick="closeTest()" aria-label="Testi Kapat ve Çık">✕</button>
-        </div>
-        <div class="test-content" id="testContent">
-            <!-- Test içeriği JavaScript ile doldurulacak -->
-        </div>
+    
+    <div id="finalBlock">
+      <div class="final-score-label">SON GÖREV SKORU</div>
+      <div class="final-score-val" id="finalVal">0</div>
     </div>
+    <div class="stat-row">
+      <div class="stat-box"><div class="stat-label">EN YÜKSEK</div><div class="stat-val" id="hiDisp">0</div></div>
+      <div class="stat-box"><div class="stat-label">BÖLÜM</div><div class="stat-val" id="chapterDisp">1</div></div>
+    </div>
+    <button id="startBtn">GÖREVİ BAŞLAT</button>
+    <div class="controls-grid">
+      <div class="ctrl"><span class="key">SÜRÜKLE</span>Jet Hareketi</div>
+      <div class="ctrl"><span class="key">BOMBA</span>💣 Butonu</div>
+      <div class="ctrl"><span class="key">P</span>Duraklat</div>
+      <div class="ctrl"><span class="key">OTOMATİK</span>Ateş</div>
+    </div>
+  </div>
+  
+  <!-- DURAKLATMA MENÜSÜ -->
+  <div id="pauseMenu">
+    <h2>DURAKLATILDI</h2>
+    <button id="resumeBtn">DEVAM</button>
+    <button id="quitBtn">MENÜ</button>
+  </div>
+</div>
 
-    <!-- Footer -->
-    <footer role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-grid">
-                    <div class="footer-column">
-                        <h4><span aria-hidden="true">🚨</span> Afet Hazırlık</h4>
-                        <p style="color: var(--gray-400); margin-bottom: 1.25rem;">
-                            Doğal afetlere hazırlık için güvenilir rehber. Bilim temelli, pratik bilgilerle hayat kurtarın.
-                        </p>
-                        <button id="footerFirstAidButton" style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; border: none; padding: 0.75rem 1.25rem; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; transition: all 0.3s ease; width: 100%; justify-content: center; min-height: 44px;" aria-label="İlk Yardım Rehberini Aç">
-                            <span aria-hidden="true">🆘</span>
-                            İlk Yardım Rehberi
-                        </button>
-                    </div>
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  MOBİL OPTİMİZASYON & BÖLÜM SİSTEMİ
+// ═══════════════════════════════════════════════════════════════
 
-                    <div class="footer-column">
-                        <h4><span aria-hidden="true">🔗</span> Hızlı Erişim</h4>
-                        <ul class="footer-links">
-                            <li><a href="index.html"><span aria-hidden="true">🏠</span> Ana Sayfa</a></li>
-                            <li><a href="yer.html"><span aria-hidden="true">🏔️</span> Yer Afetleri</a></li>
-                            <li><a href="su.html"><span aria-hidden="true">🌊</span> Su Afetleri</a></li>
-                            <li><a href="hava.html"><span aria-hidden="true">🌪️</span> Hava Afetleri</a></li>
-                            <li><a href="insan.html"><span aria-hidden="true">🔥</span> İnsan Kaynaklı</a></li>
-                            <li><a href="hakkinda.html"><span aria-hidden="true">ℹ️</span> Hakkında</a></li>
-                        </ul>
-                    </div>
+// Canvas'ları boyutlandır
+function resizeCanvases() {
+  const wrap = document.getElementById('wrap');
+  const width = wrap.clientWidth;
+  const height = wrap.clientHeight;
+  
+  ['bgCanvas', 'mainCanvas', 'fxCanvas', 'uiCanvas'].forEach(id => {
+    const canvas = document.getElementById(id);
+    canvas.width = width;
+    canvas.height = height;
+  });
+}
+window.addEventListener('resize', resizeCanvases);
+resizeCanvases();
 
-                    <div class="footer-column">
-                        <h4><span aria-hidden="true">📞</span> Resmi Kaynaklar</h4>
-                        <ul class="footer-links">
-                            <li><a href="https://www.afad.gov.tr" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🏛️</span> AFAD</a></li>
-                            <li><a href="https://www.mgm.gov.tr" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🌤️</span> Meteoroloji</a></li>
-                            <li><a href="https://www.112.gov.tr" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🚨</span> 112 Acil</a></li>
-                            <li><a href="https://www.kizilay.org.tr" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">❤️</span> Kızılay</a></li>
-                        </ul>
-                    </div>
-                </div>
+// BÖLÜM SİSTEMİ
+let currentChapter = 1;
+let currentMission = 1;
+let completedMissions = JSON.parse(localStorage.getItem('aceCompletedMissions')) || ['1-1'];
 
-                <div class="footer-bottom">
-                    <p>© 2026 Afet Hazırlık Rehberi<br>
-                    <small>Bilgilendirme amaçlıdır. Acil durumlarda derhal 112'yi arayınız.</small></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+function saveProgress() {
+  localStorage.setItem('aceCompletedMissions', JSON.stringify(completedMissions));
+}
 
-    <!-- Leaflet JS (CDN Fallback ile) -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin="anonymous"
-            onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js';">
-    </script>
+function unlockMissions() {
+  // Bölüm 2'yi aç (1. bölümün 6 görevi tamamlanınca)
+  const chapter1Complete = ['1-1','1-2','1-3','1-4','1-5','1-6'].every(m => completedMissions.includes(m));
+  
+  document.querySelectorAll('#chapter2Grid .mission-btn').forEach((btn, index) => {
+    if(chapter1Complete) {
+      btn.classList.remove('locked');
+      btn.classList.add('completed');
+      btn.dataset.mission = (index + 1).toString();
+      btn.innerHTML = `GÖREV ${index+7}<br><span class="mission-desc">${index===2?'BOSS SAVAŞI':index===1?'Filo İmha':'Hava Üstünlük'}</span>`;
+    } else {
+      btn.classList.add('locked');
+    }
+  });
+}
 
-    <script>
-        // ==================== GÜVENLİ BAŞLANGIÇ & UTILS ====================
-        
-        // XSS Koruması: DOMPurify fallback
-        const sanitize = (html) => {
-            if (typeof DOMPurify !== 'undefined') {
-                return DOMPurify.sanitize(html, { ALLOWED_TAGS: ['p','strong','em','br','ul','ol','li','h3','h4','h5','div','span','a'], ALLOWED_ATTR: ['href','target','rel','style'] });
-            }
-            // Fallback: Basic sanitization (production'da DOMPurify şart!)
-            return html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
-                      .replace(/javascript:/gi, '')
-                      .replace(/on\w+=/gi, '');
-        };
+// Mission butonlarına tıklama
+document.querySelectorAll('.mission-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    if(btn.classList.contains('locked')) return;
+    
+    // Seçili stili kaldır
+    document.querySelectorAll('.mission-btn').forEach(b => b.style.background = '');
+    
+    // Bu butonu seç
+    btn.style.background = 'rgba(0,200,255,0.3)';
+    
+    currentChapter = parseInt(btn.dataset.chapter);
+    currentMission = parseInt(btn.dataset.mission);
+    
+    document.getElementById('chapterDisp').textContent = currentChapter;
+  });
+});
 
-        // Fisher-Yates Shuffle - Test şıklarını karıştırmak için
-        const shuffleArray = (array) => {
-            const shuffled = [...array];
-            for (let i = shuffled.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-            }
-            return shuffled;
-        };
+// İlk görevi seç
+window.onload = () => {
+  unlockMissions();
+  document.querySelector('[data-chapter="1"][data-mission="1"]').style.background = 'rgba(0,200,255,0.3)';
+};
 
-        // Debounce Utility
-        const debounce = (func, wait) => {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        };
+// ═══════════════════════════════════════════════════════════════
+//  SES SİSTEMİ
+// ═══════════════════════════════════════════════════════════════
+function playBeep(type = 'shoot', volume = 0.1) {
+    if (!window.AudioContext && !window.webkitAudioContext) return;
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
 
-        // ==================== MOBİL MENÜ SİSTEMİ ====================
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const closeMenuBtn = document.getElementById('closeMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
-
-        const toggleMobileMenu = () => {
-            const isActive = mobileMenu.classList.toggle('active');
-            menuOverlay.classList.toggle('active', isActive);
-            mobileMenuBtn.setAttribute('aria-expanded', isActive);
-            menuOverlay.setAttribute('aria-hidden', !isActive);
-            document.body.style.overflow = isActive ? 'hidden' : '';
-            
-            // Odak yönetimi
-            if (isActive) {
-                mobileMenu.querySelector('.mobile-menu-link')?.focus();
-            }
-        };
-
-        mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
-        closeMenuBtn?.addEventListener('click', toggleMobileMenu);
-        menuOverlay?.addEventListener('click', toggleMobileMenu);
-        
-        // Escape tuşu ile menü kapatma
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                toggleMobileMenu();
-                mobileMenuBtn.focus();
-            }
-        });
-
-        // ==================== KART ETKİLEŞİMLERİ ====================
-        document.querySelectorAll('.card').forEach(card => {
-            // Klavye ile erişilebilirlik
-            card.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    if (!e.target.closest('button')) {
-                        const type = card.getAttribute('data-type');
-                        showInfo(type);
-                    }
-                }
-            });
-            
-            // Tıklama: Buton değilse bilgi göster
-            card.addEventListener('click', (e) => {
-                if (!e.target.closest('button')) {
-                    const type = card.getAttribute('data-type');
-                    showInfo(type);
-                }
-            });
-        });
-
-        // ==================== İLK YARDIM MODAL SİSTEMİ ====================
-        const firstAidModal = document.getElementById('firstAidModal');
-        const firstAidButtons = [
-            document.getElementById('firstAidButton'),
-            document.getElementById('mobileFirstAidButton'), 
-            document.getElementById('emergencyFirstAidButton'),
-            document.getElementById('footerFirstAidButton')
-        ].filter(btn => btn);
-        const closeFirstAidModalBtn = document.getElementById('closeFirstAidModal');
-        const firstAidTabs = document.querySelectorAll('.firstaid-tab');
-        const firstAidTabContents = document.querySelectorAll('.firstaid-tab-content');
-
-        const openFirstAidModal = () => {
-            firstAidModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            document.body.style.position = 'fixed';
-            document.body.style.inset = '0';
-            // Odak tuzağı için ilk butona odaklan
-            closeFirstAidModalBtn?.focus();
-            // Varsayılan tab'ı aktif et
-            switchFirstAidTab('basic');
-        };
-
-        const closeFirstAidModal = () => {
-            firstAidModal.classList.remove('active');
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.inset = '';
-        };
-
-        const switchFirstAidTab = (tabName) => {
-            // Tab butonlarını güncelle
-            firstAidTabs.forEach(tab => {
-                const isActive = tab.dataset.tab === tabName;
-                tab.classList.toggle('active', isActive);
-                tab.setAttribute('aria-selected', isActive);
-            });
-            
-            // İçerikleri güncelle
-            firstAidTabContents.forEach(content => {
-                const isActive = content.id === `${tabName}-tab`;
-                content.classList.toggle('active', isActive);
-                content.setAttribute('aria-hidden', !isActive);
-            });
-            
-            // İçeriği en üste kaydır
-            const activeContent = document.getElementById(`${tabName}-tab`);
-            if (activeContent) activeContent.scrollTop = 0;
-        };
-
-        // Event Listener'ları güvenli şekilde ekle
-        firstAidButtons.forEach(btn => {
-            btn?.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                openFirstAidModal();
-                // Mobil menü açıksa kapat
-                if (mobileMenu?.classList.contains('active')) toggleMobileMenu();
-            });
-        });
-
-        closeFirstAidModalBtn?.addEventListener('click', closeFirstAidModal);
-        
-        // Modal dışına tıklayarak kapatma
-        firstAidModal?.addEventListener('click', (e) => {
-            if (e.target === firstAidModal) closeFirstAidModal();
-        });
-        
-        // Tab tıklamaları
-        firstAidTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                switchFirstAidTab(tab.dataset.tab);
-            });
-            // Klavye navigasyonu
-            tab.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    const tabs = Array.from(firstAidTabs);
-                    const currentIndex = tabs.indexOf(tab);
-                    const nextIndex = e.key === 'ArrowRight' 
-                        ? (currentIndex + 1) % tabs.length 
-                        : (currentIndex - 1 + tabs.length) % tabs.length;
-                    tabs[nextIndex].focus();
-                    switchFirstAidTab(tabs[nextIndex].dataset.tab);
-                }
-            });
-        });
-        
-        // Escape ile modal kapatma
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && firstAidModal?.classList.contains('active')) {
-                closeFirstAidModal();
-            }
-        });
-
-        // ==================== BİLGİ İÇERİKLERİ (Güvenli HTML) ====================
-        const infoData = {
-            kasirga: {
-                title: "🌪️ Kasırga: İleri Düzey Hazırlık Rehberi",
-                content: `
-                    <div style="line-height: 1.7;">
-                        <div style="background: linear-gradient(135deg, var(--primary-soft), var(--white)); padding: clamp(1rem, 2.5vw, 2rem); border-radius: var(--radius-lg); margin-bottom: 1.5rem; border-left: 4px solid var(--primary);">
-                            <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;">📖 Kasırga Nedir?</h3>
-                            <p><strong>Kasırga</strong>, süper hücreli konvektif fırtınalarla oluşan, saatte 300 km'yi aşan rüzgar hızlarına ulaşabilen, dönen hava kolonlarıdır. EF-5 şiddetinde bir kasırga, betonarme binaları bile yerle bir edebilir.</p>
-                        </div>
-                        
-                        <h3 style="margin-top: 1.25rem; color: var(--primary);">🛡️ Çok Katmanlı Korunma Stratejisi</h3>
-                        
-                        <div class="firstaid-step-card">
-                            <h4><span style="color: var(--warning);">📋</span> Öncesi: Proaktif Hazırlık</h4>
-                            <p>• <strong>Yapısal:</strong> Pencereler için kasırga panelleri (plywood ≥ 15mm), çatı bağları güçlendirme<br>
-                            • <strong>Acil Çanta:</strong> 72 saatlik su (4L/kişi/gün), yüksek kalorili gıda, ilk yardım, el feneri (dynamo), radyo, yedek pil, önemli belgeler su geçirmez poşette<br>
-                            • <strong>Plan:</strong> Bodrum/iç oda toplanma noktası, aile iletişim protokolü, komşu destek ağı<br>
-                            • <strong>Uygulama:</strong> Dış eşyaları sabitle, bahçe ağaçlarını budayın, drenaj kontrolü</p>
-                        </div>
-                        
-                        <div class="firstaid-step-card">
-                            <h4><span style="color: var(--accent);">⚡</span> Sırasında: Kritik Eylemler</h4>
-                            <p>• <strong>Konum:</strong> En iç odada, bodrumda, penceresiz banyo/tuvalette kal<br>
-                            • <strong>Korunma:</strong> Başınızı yastık/kask ile koruyun, ağır mobilya altına girin<br>
-                            • <strong>Tehlikeler:</strong> Pencerelerden/cam kapılardan UZAK durun, asansör KULLANMAYIN<br>
-                            • <strong>Elektrik:</strong> Ana şalteri indirin, cihazları fişten çekin<br>
-                            • <strong>İletişim:</strong> SMS tercih edin (ağ yoğunluğunda daha güvenilir)</p>
-                        </div>
-                        
-                        <div class="firstaid-step-card">
-                            <h4><span style="color: var(--success);">✅</span> Sonrası: Güvenli İyileşme</h4>
-                            <p>• <strong>Çıkış:</strong> Yetkili onayı olmadan dışarı çıkmayın<br>
-                            • <strong>Tehlike Tarama:</strong> Kopuk elektrik telleri (en az 10m uzak), gaz kaçağı (koku varsa vanayı kapat, açık ateş yakma), yapısal hasar (uzman kontrolü)<br>
-                            • <strong>İlk Yardım:</strong> Kanama, kırık, şok belirtilerini kontrol et, 112'yi bilgilendir<br>
-                            • <strong>Belgeleme:</strong> Hasar fotoğrafları çek, sigorta için kaydet</p>
-                        </div>
-                        
-                        <h3 style="margin-top: 1.25rem; color: var(--primary);">⚠️ Kasırga Tehlike Matrisi</h3>
-                        <div class="info-grid">
-                            <div class="info-card">
-                                <strong>💨 Rüzgar</strong>
-                                <p>300+ km/s: Ağaçlar kökten sökülür, araçlar savrulur</p>
-                            </div>
-                            <div class="info-card">
-                                <strong>🚀 Projektil</strong>
-                                <p>Cam/tahta/metal parçaları ölümcül hızda uçar</p>
-                            </div>
-                            <div class="info-card">
-                                <strong>🏚️ Yapısal</strong>
-                                <p>Çatı uçması, duvar yıkılması, temel hasarı</p>
-                            </div>
-                            <div class="info-card">
-                                <strong>🔌 Altyapı</strong>
-                                <p>Elektrik/su/iletişim kesintileri günlerce sürebilir</p>
-                            </div>
-                        </div>
-                        
-                        <div class="firstaid-warning" role="alert">
-                            <h5><span>🚫</span> KRİTİK HATALAR</h5>
-                            <p>• Kasırga sırasında dışarı çıkıp "izlemeye" çalışma<br>
-                            • Araçla kaçmaya çalışma (rüzgar aracı savurur)<br>
-                            • Pencereleri açıp basınç eşitlemeye çalışma (EFSANE!)<br>
-                            • Asansör kullanma (elektrik kesintisi + sıkışma riski)</p>
-                        </div>
-                    </div>
-                `
-            },
-            yildirim: {
-                title: "⚡ Yıldırım Fırtınası: Bilimsel Korunma Rehberi",
-                content: `
-                    <div style="line-height: 1.7;">
-                        <div style="background: linear-gradient(135deg, #fef3c7, #fef9c3); padding: clamp(1rem, 2.5vw, 2rem); border-radius: var(--radius-lg); margin-bottom: 1.5rem; border-left: 4px solid var(--warning);">
-                            <h3 style="color: var(--warning); margin-bottom: 0.75rem;">⚡ Yıldırım Fiziği</h3>
-                            <p><strong>Yıldırım</strong>, bulut-yer veya bulut-bulut arasındaki elektriksel boşalmadır. Bir yıldırım darbesi: <strong>1 milyar volt</strong>, <strong>30.000°C</strong> (Güneş yüzeyinden 5x sıcak), <strong>30.000 amper</strong> akım taşıyabilir. Çarpma süresi: ~0.2 saniye.</p>
-                        </div>
-                        
-                        <h3 style="margin-top: 1.25rem; color: var(--primary);">🎯 Risk Değerlendirme: 30-30 Kuralı</h3>
-                        
-                        <div class="firstaid-step-card">
-                            <h4><span style="color: var(--warning);">📏</span> Uzaklık Hesaplama Protokolü</h4>
-                            <p><strong>Adım 1:</strong> Şimşek gördüğün an saymaya başla<br>
-                            <strong>Adım 2:</strong> Gök gürültüsünü duyduğun an dur<br>
-                            <strong>Hesap:</strong> Saniye ÷ 3 = Yaklaşık uzaklık (km)<br>
-                            <strong>30-30 Kuralı:</strong> Gürültü 30 sn'den az ise RİSK YÜKSEK → Hemen korun. Son gürültüden 30 dk sonra dışarı çık.</p>
-                        </div>
-                        
-                        <h3 style="margin-top: 1.25rem; color: var(--primary);">🛡️ Ortama Göre Korunma Stratejileri</h3>
-                        
-                        <div class="firstaid-step-card">
-                            <h4><span style="color: var(--success);">🏠</span> Kapalı Bina İçinde</h4>
-                            <p>• Pencere/cam kapıları KAPAT, uzak dur<br>
-                            • Elektrikli cihazları fişten ÇEK (surge koruyucu yeterli değil)<br>
-                            • KABLULU telefon kullanma, cep telefonu GÜVENLİ<br>
-                            • Banyo/duş ALMA (su boruları iletken)<br>
-                            • Şömine/baca kullanma (yıldırım kanalı olabilir)</p>
-                        </div>
-                        
-                        <div class="firstaid-step-card">
-                            <h4><span style="color: var(--accent);">🌳</span> Açık Alan Protokolü (SON ÇARE)</h4>
-                            <p>• Hemen kapalı alana/araça SIĞIN<br>
-                            • Ağaçlardan EN AZ 30 metre uzak dur (yan çarpma riski)<br>
-                            • Su birikintileri, metal çit, tel örgüden UZAKLAŞ<br>
-                            • Bisiklet/motosikletten İN, metal eşyaları BIRAK<br>
-                            • <strong>Doğru Pozisyon:</strong> Ayaklar bitişik, çömel, başı dizlere göm, eller kulakta (toprak temasını minimize et)<br>
-                            • <strong>ASLA yere yatma!</strong> (adım voltajı riski)</p>
-                        </div>
-                        
-                        <div class="firstaid-step-card">
-                            <h4><span style="color: #8b5cf6;">🚗</span> Araç İçi Güvenlik</h4>
-                            <p>• Araç içinde KAL (Faraday kafesi etkisi)<br>
-                            • Camları KAPAT, metal kısımlara DOKUNMA<br>
-                            • Motoru çalışır durumda BIRAK (elektronik sistemler için)<br>
-                            • Radyo/telefonu KULLANMA (gereksiz risk)<br>
-                            • Dolu varsa: Camlardan uzak, ön cama sırtını dön</p>
-                        </div>
-                        
-                        <div class="firstaid-warning" role="alert">
-                            <h5><span>❌</span> YILDIRIMDA ÖLÜMCÜL HATALAR</h5>
-                            <p>• Açık alanda grup halinde DURMA (zincirleme çarpma)<br>
-                            • Şemsiye, golf sopası, balık oltası TAŞIMA<br>
-                            • Yüzme, tekne, su sporları YAPMA<br>
-                            • Telefon kulübesi, durak gibi küçük metal yapılara SIĞINMA</p>
-                        </div>
-                        
-                        <h3 style="margin-top: 1.25rem; color: var(--primary);">🆘 Yıldırım Çarpması: İlk Yardım Protokolü</h3>
-                        <div style="background: linear-gradient(135deg, #dcfce7, #d1fae5); padding: 1.25rem; border-radius: var(--radius-lg); border-left: 4px solid var(--success);">
-                            <p><strong>1.</strong> Güvenlik: Artık elektrik YOK, hemen yaklaş<br>
-                            <strong>2.</strong> 112: Hemen ara, "yıldırım çarpması" belirt<br>
-                            <strong>3.</strong> ABC: Bilinç-solunum-nabız kontrolü<br>
-                            <strong>4.</strong> CPR: Solunum yoksa 30:2 kalp masajı başla<br>
-                            <strong>5.</strong> Yanık: Soğuk su (buz değil), steril örtü<br>
-                            <strong>6.</strong> Omurga: Düşme varsa boyun sabitle, hareket ettirme</p>
-                        </div>
-                    </div>
-                `
-            },
-            dolu: {
-                title: "🌨️ Şiddetli Dolu: Hasar Önleme ve Müdahale Rehberi",
-                content: `
-                    <div style="line-height: 1.7;">
-                        <div style="background: linear-gradient(135deg, #e0e7ff, #c7d2fe); padding: clamp(1rem, 2.5vw, 2rem); border-radius: var(--radius-lg); margin-bottom: 1.5rem; border-left: 4px solid #6366f1;">
-                            <h3 style="color: #6366f1; margin-bottom: 0.75rem;">🌨️ Dolu Oluşum Mekanizması</h3>
-                            <p><strong>Şiddetli Dolu</strong>, kuvvetli yukarı hava akımları (updraft) ile yükselen su damlacıklarının -40°C'ye varan soğuk katmanlarda donması, tekrar yükselip katmanlar halinde büyümesiyle oluşur. Tenis topu (6.5cm) büyüklüğüne ulaşabilir; düşüş hızı 160 km/s'yi bulur.</p>
-                        </div>
-                        
-                        <h3 style="margin-top: 1.25rem; color: var(--primary);">📊 Dolu Boyutları ve Hasar Potansiyeli</h3>
-                        
-                        <div class="info-grid">
-                            <div class="info-card">
-                                <strong>🟢 Küçük</strong>
-                                <p>0.5-1.5 cm (bezelye)<br>Bitki yaprağı hasarı<br>Araçta hafif çizik</p>
-                            </div>
-                            <div class="info-card">
-                                <strong>🟡 Orta</strong>
-                                <p>1.5-4.5 cm (ceviz)<br>Cam çatlağı riski<br>Ciddi bitki hasarı</p>
-                            </div>
-                            <div class="info-card">
-                                <strong>🔴 Büyük</strong>
-                                <p>4.5-6.5 cm (tenis topu)<br>Araç camı kırılması<br>Çatı/cephe hasarı</p>
-                            </div>
-                            <div class="info-card">
-                                <strong>⚫ Dev</strong>
-                                <p>6.5+ cm (greyfurt)<br>Yapısal hasar<br>Hayvan/insan yaralanması</p>
-                            </div>
-                        </div>
-                        
-                        <h3 style="margin-top: 1.25rem; color: var(--primary);">🛡️ Çok Katmanlı Dolu Koruması</h3>
-                        
-                        <div class="firstaid-step-card">
-                            <h4><span style="color: var(--primary);">🏠</span> Yapı ve Ev Önlemleri</h4>
-                            <p>• <strong>Cam Koruma:</strong> Güvenlik filmi (≥ 4 mil), kasırga panelleri, kepenk<br>
-                            • <strong>Çatı:</strong> Sınıf 4 darbe dayanımlı kiremit/shingle<br>
-                            • <strong>Drenaj:</strong> Oluk temizliği, su birikmesini önle<br>
-                            • <strong>İç Mekan:</strong> Elektronik eşyaları pencereden uzaklaştır, değerli eşyaları bodruma al</p>
-                        </div>
-                        
-                        <div class="firstaid-step-card">
-                            <h4><span style="color: #8b5cf6;">🚗</span> Araç Koruma Protokolü</h4>
-                            <p>• <strong>Öncelik:</strong> Kapalı garaj → Ağaç altı (dikkat: dal kırılması) → Kalın battaniye/özel araç örtüsü<br>
-                            • <strong>Yoldaysa:</strong> Güvenli yere çek, dörtlüleri yak, camlardan uzak dur, motoru çalışır bırak<br>
-                            • <strong>Sonrası:</strong> Hasar fotoğrafla, sigortayı hemen bilgilendir, cam kırıldıysa içeri su girmesini önle</p>
-                        </div>
-                        
-                        <div class="firstaid-step-card">
-                            <h4><span style="color: var(--success);">🌱</span> Tarım ve Hayvan Koruma</h4>
-                            <p>• <strong>Bitkiler:</strong> Dolu ağı, branda, sera güçlendirme; hassas fideler içeri al<br>
-                            • <strong>Hayvanlar:</strong> Kapalı barınağa al; açıkta kalanlar için rüzgarlık/barınak sağla<br>
-                            • <strong>Sulama:</strong> Dolu sonrası toprak sıkışması olursa hafif çapalama</p>
-                        </div>
-                        
-                        <div class="firstaid-step-card">
-                            <h4><span style="color: var(--warning);">⚠️</span> Dışarıda Yakalanırsanız</h4>
-                            <p>• Hemen sağlam bir binaya/araça SIĞIN<br>
-                            • Ağaç altına GİRME (dal kırılması + yıldırım riski)<br>
-                            • Başını çanta/kitap/kask ile KORU<br>
-                            • Yere ÇÖMEL, kapan, ayaklar bitişik<br>
-                            • Metal yapı/çitlerden UZAK dur</p>
-                        </div>
-                        
-                        <h3 style="margin-top: 1.25rem; color: var(--primary);">🔍 Dolu Sonrası Hasar Değerlendirme</h3>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin: 1rem 0;">
-                            <div class="info-card">
-                                <strong>🔍 Çatı</strong>
-                                <p>Kırık kiremit, oluk hasarı, izolasyon kontrolü</p>
-                            </div>
-                            <div class="info-card">
-                                <strong>🪟 Camlar</strong>
-                                <p>Çatlak/kırık var mı? Geçici örtü ile su girişini önle</p>
-                            </div>
-                            <div class="info-card">
-                                <strong>🚗 Araç</strong>
-                                <p>Cam, kaporta, far hasarı; sigorta sürecini başlat</p>
-                            </div>
-                            <div class="info-card">
-                                <strong>🌳 Çevre</strong>
-                                <p>Kırık dallar, elektrik telleri, yol buzlanması</p>
-                            </div>
-                        </div>
-                        
-                        <div class="firstaid-warning" role="alert">
-                            <h5><span>🚫</span> DOLUDA ASLA!</h5>
-                            <p>• Dolu tanelerini YEME (kir, bakteri, kimyasal riski)<br>
-                            • Hasarlı çatıya ÇIKMA (uzman çağır)<br>
-                            • Kırık cam elle DOKUNMA (kesilme riski)<br>
-                            • Elektrik tellerine YAKLAŞMA (en az 10m)<br>
-                            • Dolu suyunu İÇME (kontaminasyon riski)</p>
-                        </div>
-                    </div>
-                `
-            }
-        };
-
-        // ==================== ZORLAŞTIRILMIŞ TEST SORULARI ====================
-        // Sorular: Senaryo bazlı, çoklu faktör, zaman baskısı içeren ileri düzey
-        const testData = {
-            kasirga: [
-                {
-                    question: "EF-4 şiddetinde bir kasırga yaklaşırken, 2 katlı müstakil evde yaşıyorsunuz. Bodrum yok. En güvenli eylem planı nedir?",
-                    choices: [
-                        "Üst katta iç odada, penceresiz banyoda, yastıkla baş koruması",
-                        "Alt katta dış duvardan uzak iç odada, ağır mobilya yanında, baş koruması",
-                        "Hemen araca binip kasırga yönünün tersine kaçmak",
-                        "Pencereleri bantlayıp üst katta beklemek"
-                    ],
-                    correctAnswerIndex: 1, // Doğru cevap index'i (karıştırmadan önce)
-                    explanation: "Bodrum yoksa, en alt kat, dış duvarlardan uzak, penceresiz iç oda en güvenlisidir. Ağır mobilya (dolap, kanepe) yanına yatmak uçan parçalardan korur. Araçla kaçmak ölümcül risktir; bant camı kırılmaya karşı korumaz."
-                },
-                {
-                    question: "Kasırga sırasında elektrik kesildi, gaz kokusu alıyorsunuz. Acil eylem sıralaması nedir?",
-                    choices: [
-                        "1) Ana gaz vanasını kapat 2) Pencere aç 3) Dışarı çık 4) 112'yi ara",
-                        "1) Mum yak 2) Vanayı kapat 3) Pencere aç 4) Bekle",
-                        "1) Elektrik şalterini aç 2) Vanayı kontrol et 3) Telefonla ara",
-                        "1) Hemen dışarı koş 2) Komşuları uyar 3) Vanayı sonra kapat"
-                    ],
-                    correctAnswerIndex: 0,
-                    explanation: "Gaz kaçağında: Önce kaynağı kes (vana), sonra havalandır (pencere), sonra güvenli alana çık, en son 112'yi ara. Açık ateş (mum) veya elektrik anahtarı kıvılcım çıkarıp patlamaya neden olabilir."
-                },
-                {
-                    question: "Kasırga sonrası dışarı çıktınız. Bir elektrik teli yola düşmüş, etrafında su birikintisi var. Yaklaşan bir yayaya ne önerirsiniz?",
-                    choices: [
-                        "Tel 10 metreden uzaktaysa yavaşça geçebilir",
-                        "Su iletken olduğu için en az 10 metre uzak durmalı, 112'yi aramalı",
-                        "Plastik sopayla teli kenara itip yolu açmalı",
-                        "Tel hareket etmiyorsa dokunarak kontrol etmeli"
-                    ],
-                    correctAnswerIndex: 1,
-                    explanation: "Düşmüş elektrik teli + su = ölümcül kombinasyon. Su elektriği iletir, adım voltajı ile 10 metre ötede bile çarpılabilir. Asla yaklaşma, başkalarını da uzak tut, hemen 112'yi ara."
-                },
-                {
-                    question: "Kasırga uyarısı aldınız, 15 dakikanız var. Öncelik sırasına göre ilk 3 eyleminiz ne olmalı?",
-                    choices: [
-                        "1) Değerli eşyaları topla 2) Sosyal medya paylaş 3) Pencereyi bantla",
-                        "1) Aileyi toplanma noktasında bir araya getir 2) Acil çantayı al 3) Dış eşyaları sabitle/içeri al",
-                        "1) Arabayı benzinle doldur 2) Komşuları ara 3) Camları aç",
-                        "1) Yemek pişir 2) Duş al 3) Telefonu şarj et"
-                    ],
-                    correctAnswerIndex: 1,
-                    explanation: "Hayat önceliklidir: Önce insan güvenliği (toplanma), sonra acil ihtiyaçlar (çanta), sonra hasar önleme (dış eşyalar). Değerli eşya, sosyal medya, cam bandı ikincil önceliklerdir."
-                },
-                {
-                    question: "Kasırga sırasında pencere camı kırıldı, içeri rüzgar ve yağmur giriyor. Ne yapmalısınız?",
-                    choices: [
-                        "Hemen camın önüne geçip eliyle kapatmaya çalış",
-                        "Kırık camdan uzaklaş, odayı terk et, penceresiz iç odaya geç",
-                        "Plastik poşetle camı geçici olarak kapat",
-                        "Temizlik malzemesi getirip suyu sil"
-                    ],
-                    correctAnswerIndex: 1,
-                    explanation: "Kırık cam, kasırga sırasında ölümcül projektil kaynağıdır. Onarmaya çalışmak yerine, hemen güvenli bölgeye çekilmek hayati önem taşır. Hasar sonrası onarım, tehlike geçtikten sonra yapılır."
-                }
-            ],
-            yildirim: [
-                {
-                    question: "Açık alanda yürürken yıldırım fırtınası bastırdı. Etrafta: tek bir ağaç (15m), metal çit (20m), küçük bir kulübe (30m), aracınız (50m). En güvenli rota nedir?",
-                    choices: [
-                        "Ağaç altına sığın (yağmurdan korunursun)",
-                        "Metal çite yaslan (topraklama sağlar)",
-                        "Kulübeye koş (küçük de olsa kapalı alan)",
-                        "Araca doğru yürü, yolda yıldırım çarparsa doğru pozisyonu al"
-                    ],
-                    correctAnswerIndex: 3,
-                    explanation: "Araç en güvenlisidir (Faraday kafesi). 50m mesafede yıldırım çarpma riski düşük, çarparsa bile doğru pozisyon (çömel, ayaklar bitişik) riski minimize eder. Ağaç (yan çarpma), metal çit (iletken), kulübe (yetersiz koruma) daha risklidir."
-                },
-                {
-                    question: "Şimşek ile gök gürültüsü arasında 9 saniye geçti. 3 dakika sonra yeni bir şimşek gördünüz, gürültüyü 6 saniyede duydunuz. Durum değerlendirmesi nedir?",
-                    choices: [
-                        "Fırtına uzaklaşıyor (3km → 2km), risk azaldı, dışarıda kalabilirsin",
-                        "Fırtına yaklaşıyor (3km → 2km), risk arttı, hemen korunmalısın",
-                        "Mesafe aynı kaldı, durum değişmedi",
-                        "Hesap hatalı, tekrar ölçüm yapmalı"
-                    ],
-                    correctAnswerIndex: 1,
-                    explanation: "9÷3=3km, 6÷3=2km. Fırtına 1km yaklaştı! 30-30 kuralına göre 30 sn'den az ise RİSK YÜKSEK. Hemen kapalı alana sığınmak hayati önem taşır."
-                },
-                {
-                    question: "Yıldırım çarpan bir kişiye ilk müdahalede hangisi YANLIŞTIR?",
-                    choices: [
-                        "Kişinin elektrik yüklü olduğunu düşünüp dokunmadan beklemek",
-                        "Hemen 112'yi arayıp 'yıldırım çarpması' belirtmek",
-                        "Solunum yoksa CPR (30:2) başlamak",
-                        "Yanık bölgeye soğuk su uygulamak (buz değil)"
-                    ],
-                    correctAnswerIndex: 0,
-                    explanation: "Yıldırım çarpan kişi elektrik YÜKLÜ DEĞİLDİR, hemen müdahale edilebilir. Beklemek hayati zaman kaybıdır. Diğer seçenekler doğru ilk yardım protokolleridir."
-                },
-                {
-                    question: "Kapalı alanda yıldırım fırtınası sırasında hangi davranış GÜVENLİDİR?",
-                    choices: [
-                        "Kablolu telefonla konuşmak",
-                        "Duş almak (su boruları topraklama sağlar)",
-                        "Cep telefonu ile SMS göndermek",
-                        "Pencere kenarında fırtınayı izlemek"
-                    ],
-                    correctAnswerIndex: 2,
-                    explanation: "Cep telefonu kablosuz olduğu için güvenlidir. Kablolu telefon, su tesisatı, pencere kenarı yıldırım enerjisinin iletilme riski taşır. SMS, sesli aramadan daha az risklidir."
-                },
-                {
-                    question: "Açık alanda yıldırım riski var. Doğru korunma pozisyonu hangisidir?",
-                    choices: [
-                        "Ayakta dur, eller havada (dikkat çekme)",
-                        "Yere yat, eller baş üstünde",
-                        "Ayaklar bitişik çömel, baş dizlere gömülü, eller kulakta",
-                        "Koşarak en alçak noktaya ulaşmaya çalış"
-                    ],
-                    correctAnswerIndex: 2,
-                    explanation: "Çömelme pozisyonu: toprak temasını minimize eder, adım voltajı riskini azaltır, vücut profilini küçültür. Yere yatmak adım voltajı riskini artırır, koşmak düşme/çarpmaya açık hale getirir."
-                }
-            ],
-            dolu: [
-                {                    question: "Dolu fırtınası uyarısı aldınız, aracınız açık otoparkta. 10 dakikanız var. En etkili koruma stratejisi nedir?",
-                    choices: [
-                        "Aracın üzerine kalın battaniye ört, kenarlarını lastikle sabitle",
-                        "Aracı en yakın ağacın altına çek (dallar dolu keser)",
-                        "Aracı terk edip en yakın binaya sığın, hasarı sigortaya bırak",
-                        "Aracın camlarına karton yapıştır, içine gir bekle"
-                    ],
-                    correctAnswerIndex: 2,
-                    explanation: "İnsan hayatı her zaman önceliklidir. Büyük dolu (6.5cm+) araç camlarını kırabilir, battaniye yetersiz kalır. Ağaç dalı kırılıp araca düşebilir. Sigorta hasarı karşılar, can kaybı telafi edilemez."
-                },
-                {
-                    question: "Dolu fırtınası sırasında yolda araç kullanıyorsunuz. Camlar çatlamaya başladı. Acil eylem planı nedir?",
-                    choices: [
-                        "Hemen dur, dörtlüleri yak, camlardan uzak iç koltuğa geç, 112'yi ara",
-                        "Hızı artırarak fırtınadan çıkmaya çalış",
-                        "Aracı terk et, yol kenarına yat",
-                        "Camları açarak basınç eşitlemeye çalış"
-                    ],
-                    correctAnswerIndex: 0,
-                    explanation: "Güvenli duruş + dörtlüler + camlardan uzaklaş + yardım çağrısı = doğru protokol. Hız artırmak kontrol kaybına, araç terk etmek açık alanda kalmaya, cam açmak içeri dolu girmesine neden olur."
-                },
-                {
-                    question: "Dolu sonrası bahçenizdeki meyve ağaçları hasar gördü. Hangi müdahale YANLIŞTIR?",
-                    choices: [
-                        "Kırık dalları temiz kesimle budamak",
-                        "Hasarlı meyveleri toplayıp çürüme önlemek",
-                        "Hemen yoğun gübreleme ile ağacı toparlamaya çalışmak",
-                        "Yara yerlerine ağaç macunu uygulamak"
-                    ],
-                    correctAnswerIndex: 2,
-                    explanation: "Hasarlı ağaçta yoğun gübreleme 'stres gübrelemesi' olur, ağacı daha çok yorar. Önce temizlik, yara bakımı, hafif sulama yapılır. Gübreleme ağaç toparlandıktan sonra, uygun dozda uygulanır."
-                },
-                {
-                    question: "Dolu taneleri evinizin çatısına zarar verdi, içeride su sızıntısı var. Acil öncelik sıralaması nedir?",
-                    choices: [
-                        "1) Su birikintisini sil 2) Eşyaları kuru yere taşı 3) Çatıyı geçici ört 4) Sigortayı ara",
-                        "1) Elektriği kes (su+elektrik riski) 2) Değerli eşyaları koru 3) Çatıyı geçici ört 4) Profesyonel yardım çağır",
-                        "1) Hemen çatıya çık 2) Delikleri kapat 3) İçeri suyu temizle",
-                        "1) Komşuları uyar 2) Sosyal medya paylaş 3) Sonra önlem al"
-                    ],
-                    correctAnswerIndex: 1,
-                    explanation: "Güvenlik önceliklidir: Su+elektrik = ölümcül risk, önce şalteri indir. Sonra mal koruma, geçici önlem, en son profesyonel onarım. Çatıya çıkmak düşme riski taşır."
-                },
-                {
-                    question: "Dolu fırtınası sırasında açık alanda yürüyen birine ne önerirsiniz? (Çoklu seçim mantığı)",
-                    choices: [
-                        "En yakın sağlam binaya sığın",
-                        "Başını çanta/kitap ile koru",
-                        "Ağaç altına girme, metal nesneleri bırak",
-                        "Hepsi doğru, acil durumda hepsi uygulanmalı"                    ],
-                    correctAnswerIndex: 3,
-                    explanation: "Bu senaryoda tüm seçenekler hayati önem taşır: Kapalı alan öncelikli, baş koruması travmayı azaltır, ağaç/metal risklerini bilmek yaralanmayı önler. Çoklu faktörlü durumlarda bütüncül yaklaşım gerekir."
-                }
-            ]
-        };
-
-        // ==================== TEST STATE YÖNETİMİ ====================
-        let currentTest = null;
-        let currentQuestion = 0;
-        let score = 0;
-        let allAnswers = [];
-        let isAnswerSelected = false;
-        let autoContinueTimer = null;
-        let shuffledQuestions = []; // Karıştırılmış sorular
-
-        const testTitles = {
-            kasirga: "🌪️ Kasırga: İleri Düzey Test",
-            yildirim: "⚡ Yıldırım: Uzmanlık Testi", 
-            dolu: "🌨️ Dolu: Hasar Önleme Testi"
-        };
-
-        // Test Başlatma - Şıkları ve soruları karıştır
-        function startTest(type) {
-            currentTest = type;
-            currentQuestion = 0;
-            score = 0;
-            allAnswers = [];
-            isAnswerSelected = false;
-            
-            // Soruları ve şıkları karıştır
-            const originalQuestions = testData[type];
-            shuffledQuestions = originalQuestions.map((q, qIndex) => {
-                // Şıkları karıştır ve doğru cevap index'ini güncelle
-                const choicesWithIndex = q.choices.map((choice, cIndex) => ({
-                    text: choice,
-                    originalIndex: cIndex,
-                    isCorrect: cIndex === q.correctAnswerIndex
-                }));
-                const shuffledChoices = shuffleArray(choicesWithIndex);
-                
-                // Yeni doğru cevap index'ini bul
-                const newCorrectIndex = shuffledChoices.findIndex(c => c.isCorrect);
-                
-                return {
-                    question: q.question,
-                    choices: shuffledChoices.map(c => c.text),
-                    correctAnswerIndex: newCorrectIndex,
-                    explanation: q.explanation
-                };            });
-            // Soru sırasını da karıştır
-            shuffledQuestions = shuffleArray(shuffledQuestions);
-
-            document.getElementById('testTitle').textContent = testTitles[type];
-            document.getElementById('testOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            // Erişilebilirlik: Modal açıldığında odak yönetimi
-            const firstChoice = document.querySelector('.choice');
-            setTimeout(() => firstChoice?.focus(), 100);
-
-            renderQuestion();
+        if (type === 'shoot') {
+            oscillator.frequency.value = 880.0;
+            gainNode.gain.value = volume;
+        } else if (type === 'explode') {
+            oscillator.frequency.value = 150.0;
+            gainNode.gain.value = volume * 2;
+        } else if (type === 'lock') {
+            oscillator.frequency.value = 440.0;
+            gainNode.gain.value = volume * 0.5;
+        } else if (type === 'powerup') {
+            oscillator.frequency.value = 660.0;
+            gainNode.gain.value = volume;
         }
 
-        function closeTest() {
-            if (autoContinueTimer) clearTimeout(autoContinueTimer);
-            document.getElementById('testOverlay').classList.remove('active');
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.inset = '';
-            resetTest();
+        oscillator.start();
+        gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.2);
+        oscillator.stop(audioCtx.currentTime + 0.2);
+    } catch(e) {}
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  CANVAS SETUP
+// ═══════════════════════════════════════════════════════════════
+const bgC  = document.getElementById('bgCanvas');
+const mainC= document.getElementById('mainCanvas');
+const fxC  = document.getElementById('fxCanvas');
+const uiC  = document.getElementById('uiCanvas');
+const bgX  = bgC.getContext('2d');
+const ctx  = mainC.getContext('2d');
+const fxX  = fxC.getContext('2d');
+const uiX  = uiC.getContext('2d');
+let W = bgC.width;
+let H = bgC.height;
+
+function offscreen(w,h,fn){
+  const c=document.createElement('canvas');
+  c.width=w;c.height=h;
+  fn(c.getContext('2d'),w,h);
+  return c;
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  SPRITE FACTORY (Kısa versiyon - performans için)
+// ═══════════════════════════════════════════════════════════════
+const SPR_PLAYER = offscreen(64,88,(g,w,h)=>{
+  g.fillStyle='#2a4a7a';
+  g.beginPath();
+  g.moveTo(w/2,2);
+  g.lineTo(w/2+8,h*0.18);
+  g.lineTo(w/2+7,h*0.52);
+  g.lineTo(w/2+5,h*0.72);
+  g.lineTo(w/2,  h*0.78);
+  g.lineTo(w/2-5,h*0.72);
+  g.lineTo(w/2-7,h*0.52);
+  g.lineTo(w/2-8,h*0.18);
+  g.closePath(); g.fill();
+  g.fillStyle='#FFCC00';
+  g.beginPath(); g.arc(w/2,h*0.32,5,0,Math.PI*2); g.fill();
+});
+
+const SPR_SU57 = offscreen(52,62,(g,w,h)=>{
+  g.fillStyle='#882020';
+  g.beginPath();
+  g.moveTo(w/2,h-2);
+  g.lineTo(w/2+7,h*0.7);
+  g.lineTo(w/2+6,h*0.35);
+  g.lineTo(w/2,h*0.1);
+  g.lineTo(w/2-6,h*0.35);
+  g.lineTo(w/2-7,h*0.7);
+  g.closePath(); g.fill();
+});
+
+const SPR_MIG35 = offscreen(48,58,(g,w,h)=>{
+  g.fillStyle='#6622AA';
+  g.beginPath();
+  g.moveTo(w/2,h-2);
+  g.lineTo(w/2+6,h*0.68);
+  g.lineTo(w/2+5,h*0.3);
+  g.lineTo(w/2,h*0.08);
+  g.lineTo(w/2-5,h*0.3);
+  g.lineTo(w/2-6,h*0.68);
+  g.closePath(); g.fill();
+});
+
+const SPR_BOMBER = offscreen(90,50,(g,w,h)=>{
+  g.fillStyle='#1a1a2e';
+  g.beginPath();
+  g.moveTo(w/2,h-4);
+  g.lineTo(w/2+3,h*0.3);
+  g.lineTo(w-2,h*0.15);
+  g.lineTo(w,h*0.55);
+  g.lineTo(w*0.72,h*0.75);
+  g.lineTo(w/2+10,h-2);
+  g.lineTo(w/2,h+2);
+  g.lineTo(w/2-10,h-2);
+  g.lineTo(w*0.28,h*0.75);
+  g.lineTo(0,h*0.55);
+  g.lineTo(2,h*0.15);
+  g.lineTo(w/2-3,h*0.3);
+  g.closePath(); g.fill();
+});
+
+const SPR_F15 = offscreen(58,64,(g,w,h)=>{
+  g.fillStyle='#4a7aaa';
+  g.beginPath();
+  g.moveTo(w/2,h-3);
+  g.lineTo(w/2+7,h*0.6);
+  g.lineTo(w/2+5,h*0.2);
+  g.lineTo(w/2,h*0.05);
+  g.lineTo(w/2-5,h*0.2);
+  g.lineTo(w/2-7,h*0.6);
+  g.closePath(); g.fill();
+});
+
+const SPR_BOSS_BODY = offscreen(180,160,(g,w,h)=>{
+  g.fillStyle='#660010';
+  g.beginPath();
+  g.moveTo(w/2, h-8);
+  g.lineTo(w/2+20,h*0.72);
+  g.lineTo(w/2+26,h*0.45);
+  g.lineTo(w/2+22,h*0.18);
+  g.lineTo(w/2,    h*0.06);
+  g.lineTo(w/2-22,h*0.18);
+  g.lineTo(w/2-26,h*0.45);
+  g.lineTo(w/2-20,h*0.72);
+  g.closePath(); g.fill();
+  g.fillStyle='#FF3300';
+  g.beginPath(); g.arc(w/2,h*0.28,10,0,Math.PI*2); g.fill();
+});
+
+const SPR_TURRET = offscreen(24,24,(g,w,h)=>{
+  g.fillStyle='#FF3300';
+  g.beginPath(); g.arc(w/2,h/2,8,0,Math.PI*2); g.fill();
+});
+
+// ═══════════════════════════════════════════════════════════════
+//  OBJECT POOL
+// ═══════════════════════════════════════════════════════════════
+class Pool{
+  constructor(factory,reset,n=80){
+    this.free=[];this.active=[];
+    this.factory=factory;this.reset=reset;
+    for(let i=0;i<n;i++)this.free.push(factory());
+  }
+  get(o){const e=this.free.pop()||this.factory();this.reset(e,o);this.active.push(e);return e;}
+  release(e){const i=this.active.indexOf(e);if(i>=0){this.active.splice(i,1);this.free.push(e);}}
+  cull(fn){for(let i=this.active.length-1;i>=0;i--){if(fn(this.active[i])){this.free.push(this.active[i]);this.active.splice(i,1);}}}
+  clear(){while(this.active.length)this.free.push(this.active.pop());}
+}
+
+const bulletPool=new Pool(
+  ()=>({x:0,y:0,vx:0,vy:0,w:5,h:16,type:'p',dmg:1,trail:[],age:0}),
+  (o,d)=>{Object.assign(o,d);o.trail=[];o.age=0;},150
+);
+const enemyPool=new Pool(
+  ()=>({x:0,y:0,vx:0,vy:0,w:0,h:0,hp:1,maxHP:1,type:0,ft:0,wv:0,age:0,pattern:0}),
+  (o,d)=>{Object.assign(o,d);o.ft=40+Math.random()*60;o.wv=Math.random()*Math.PI*2;o.age=0;o.pattern=Math.floor(Math.random()*3);},60
+);
+const ptPool=new Pool(
+  ()=>({x:0,y:0,vx:0,vy:0,r:3,life:0,ml:30,col:'#FF6600',type:'circ',rot:0,vr:0}),
+  (o,d)=>{Object.assign(o,d);o.ml=o.life;},300
+);
+const trailPool=new Pool(
+  ()=>({x:0,y:0,life:0,ml:40,w:2}),
+  (o,d)=>{Object.assign(o,d);o.ml=o.life;},200
+);
+
+// ═══════════════════════════════════════════════════════════════
+//  GAME STATE
+// ═══════════════════════════════════════════════════════════════
+let gState='idle', score=0, hiScore=0, lives=3, bombs=3, shield=0;
+let frame=0, lastTime=0, dt=1;
+let level=1, bossActive=false;
+let shakeAmt=0, shakeX=0, shakeY=0;
+let terrainOff=0;
+let flashAlpha=0, flashColor='#FFFFFF';
+let chromaticAberration=0;
+let spawnT=0, bossT=0;
+let paused = false;
+let lastTouchTime = 0;
+let autoFireTimer = 0;
+const clouds=[];
+const powerUps=[];
+const warnings=[];
+const contrails=[];
+
+const player={x:W/2,y:H-120,vx:0,vy:0,w:52,h:66,inv:0,ft:0,ms:0,bank:0,thrustF:0};
+const keys={};
+
+const boss={active:false,x:W/2,y:140,vx:2,hp:0,maxHP:200,ft:0,phase:0,
+  turrets:[{a:0,va:.03},{a:Math.PI*.66,va:-.025},{a:Math.PI*1.33,va:.02}]};
+
+function lerp(a,b,t){return a+(b-a)*t;}
+function dist(ax,ay,bx,by){return Math.sqrt((ax-bx)**2+(ay-by)**2);}
+function collide(a,b){return Math.abs(a.x-b.x)<(a.w+b.w)*0.45&&Math.abs(a.y-b.y)<(a.h+b.h)*0.45;}
+function rand(a,b){return a+Math.random()*(b-a);}
+
+// ═══════════════════════════════════════════════════════════════
+//  EFFECTS
+// ═══════════════════════════════════════════════════════════════
+function bigExplosion(x,y,size=1){
+  playBeep('explode', 0.3);
+  shakeAmt=Math.max(shakeAmt,18*size);
+  flashAlpha=Math.min(1,0.5*size);
+  flashColor=size>1.5?'#FF8800':'#FFAA44';
+  chromaticAberration=Math.max(chromaticAberration,6*size);
+
+  for(let i=0;i<10*size;i++){
+    const a=rand(0,Math.PI*2), sp=rand(0.5,4)*size;
+    ptPool.get({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,r:rand(5,15)*size,life:rand(20,40),
+      col:['#FFFFFF','#FFD040','#FF8820','#FF4400'][Math.floor(rand(0,4))],type:'ball'});
+  }
+}
+
+function smallExplosion(x,y){
+  playBeep('explode', 0.1);
+  for(let i=0;i<5;i++){
+    const a=rand(0,Math.PI*2);
+    ptPool.get({x,y,vx:Math.cos(a)*rand(1,4),vy:Math.sin(a)*rand(1,4),r:rand(2,5),life:rand(10,20),
+      col:'#FF8800',type:'ball'});
+  }
+}
+
+function coinSpark(x,y,col){
+  for(let i=0;i<6;i++){
+    const a=rand(0,Math.PI*2);
+    ptPool.get({x,y,vx:Math.cos(a)*rand(1,3),vy:Math.sin(a)*rand(1,3)-1,r:3,life:20,col,type:'spark'});
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  BACKGROUND
+// ═══════════════════════════════════════════════════════════════
+const terrainBuf = offscreen(480*2, 200, (g,w,h)=>{
+  g.fillStyle='#030a1a';
+  g.fillRect(0,0,w,h);
+  for(let x=0;x<w;x+=30){
+    g.fillStyle=`rgba(0,${50+Math.sin(x)*30},100,0.2)`;
+    g.fillRect(x,0,10,h);
+  }
+});
+
+function buildStaticBg(){
+  bgX.fillStyle='#010510';
+  bgX.fillRect(0,0,W,H);
+}
+
+function initClouds(){
+  clouds.length=0;
+  for(let i=0;i<10;i++){
+    clouds.push({x:rand(0,W),y:rand(50,300),spd:rand(0.1,0.3),alpha:rand(0.1,0.2)});
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  DRAW FUNCTIONS (Basitleştirilmiş - mobil performans için)
+// ═══════════════════════════════════════════════════════════════
+function drawPlayerJet(spr, g, x, y, inv, shield, thrust, bank){
+  g.save();
+  g.translate(x,y);
+  g.rotate(bank*0.08);
+  if(inv && Math.floor(frame/5)%2===0) g.globalAlpha=0.5;
+  g.drawImage(spr, -32, -44);
+  g.globalAlpha=1;
+  if(shield>0){
+    g.strokeStyle='rgba(0,255,180,0.5)';
+    g.lineWidth=2;
+    g.beginPath(); g.ellipse(0,0,40,48,0,0,Math.PI*2); g.stroke();
+  }
+  g.restore();
+}
+
+function drawScene(){
+  ctx.clearRect(0,0,W,H);
+  ctx.save();
+  if(shakeAmt>0) ctx.translate(shakeX,shakeY);
+
+  // Arkaplan
+  ctx.fillStyle='#020a22';
+  ctx.fillRect(0,0,W,H);
+  
+  // Yıldızlar
+  for(let i=0;i<50;i++){
+    ctx.fillStyle=`rgba(255,255,255,${0.1+Math.sin(i+frame*0.01)*0.05})`;
+    ctx.fillRect((i*37)%W, (i*23)%(H*0.6), 1, 1);
+  }
+
+  // Şehir
+  ctx.drawImage(terrainBuf, -terrainOff%960, H-150);
+  
+  // Bulutlar
+  clouds.forEach(c=>{
+    ctx.globalAlpha=c.alpha;
+    ctx.fillStyle='rgba(120,160,210,0.1)';
+    ctx.beginPath(); ctx.arc(c.x,c.y,30,0,Math.PI*2); ctx.fill();
+    c.x-=c.spd*dt;
+    if(c.x<-50) c.x=W+50;
+  });
+
+  // Mermiler
+  bulletPool.active.forEach(b=>{
+    ctx.fillStyle=b.type==='p'?'#00CCFF':'#FF3300';
+    ctx.shadowBlur=10; ctx.shadowColor=b.type==='p'?'#00CCFF':'#FF3300';
+    ctx.fillRect(b.x-2,b.y-8,4,16);
+  });
+
+  // Düşmanlar
+  enemyPool.active.forEach(e=>{
+    let spr = e.type===0?SPR_SU57 : e.type===1?SPR_MIG35 : e.type===2?SPR_BOMBER : SPR_F15;
+    ctx.save();
+    ctx.translate(e.x,e.y);
+    ctx.drawImage(spr,-spr.width/2,-spr.height/2);
+    ctx.restore();
+    e.age+=dt;
+  });
+
+  // Power-up'lar
+  powerUps.forEach(p=>{
+    ctx.fillStyle='#00FFCC';
+    ctx.shadowBlur=20; ctx.shadowColor='#00FFCC';
+    ctx.beginPath(); ctx.arc(p.x,p.y,12,0,Math.PI*2); ctx.fill();
+    ctx.fillStyle='#000';
+    ctx.font="bold 12px 'Orbitron'";
+    ctx.textAlign='center'; ctx.fillText(p.type[0].toUpperCase(),p.x,p.y+4);
+  });
+
+  // Boss
+  if(boss.active){
+    ctx.drawImage(SPR_BOSS_BODY, boss.x-90, boss.y-80);
+    // HP bar
+    ctx.fillStyle='#FF0000';
+    ctx.fillRect(boss.x-90, boss.y-90, 180*(boss.hp/boss.maxHP), 8);
+  }
+
+  // Oyuncu
+  drawPlayerJet(SPR_PLAYER, ctx, player.x, player.y,
+    player.inv>0, shield, player.thrustF, player.bank);
+
+  ctx.restore();
+
+  // FX
+  fxX.clearRect(0,0,W,H);
+  if(flashAlpha>0){
+    fxX.fillStyle=flashColor; fxX.globalAlpha=flashAlpha; fxX.fillRect(0,0,W,H);
+    flashAlpha-=0.02;
+  }
+}
+
+function drawHUD(){
+  uiX.clearRect(0,0,W,H);
+
+  // Skor
+  uiX.font="bold 20px 'Orbitron'"; uiX.fillStyle='#00FFCC';
+  uiX.textAlign='right'; uiX.fillText(score, W-10, 40);
+
+  // Canlar
+  for(let i=0;i<lives;i++){
+    uiX.fillStyle='#00FFCC';
+    uiX.fillRect(10+i*25, 10, 15, 15);
+  }
+
+  // Bombalar
+  for(let i=0;i<bombs;i++){
+    uiX.fillStyle='#FF6600';
+    uiX.beginPath(); uiX.arc(20+i*25, 40, 7, 0, Math.PI*2); uiX.fill();
+  }
+
+  // Uyarılar
+  warnings.forEach((w,i)=>{
+    uiX.font=`bold ${w.size||20}px Orbitron`;
+    uiX.fillStyle=w.col||'#FFCC00';
+    uiX.textAlign='center';
+    uiX.fillText(w.text, W/2, w.y);
+    w.y-=0.5; w.life--;
+  });
+  warnings = warnings.filter(w=>w.life>0);
+  
+  if(paused){
+    uiX.fillStyle='rgba(0,200,255,0.9)';
+    uiX.font="bold 24px Orbitron";
+    uiX.textAlign='center';
+    uiX.fillText('DURAKLATILDI', W/2, H/2);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  GAME LOGIC
+// ═══════════════════════════════════════════════════════════════
+function firePlayer(){
+  playBeep('shoot', 0.05);
+  bulletPool.get({x:player.x,y:player.y-30,vx:0,vy:-12,type:'p',dmg:1,w:5,h:18});
+  if(player.ms>0){
+    bulletPool.get({x:player.x-15,y:player.y-20,vx:-1,vy:-11,type:'p',dmg:1,w:5,h:18});
+    bulletPool.get({x:player.x+15,y:player.y-20,vx:1,vy:-11,type:'p',dmg:1,w:5,h:18});
+  }
+}
+
+function enemyFire(e){
+  const dx=player.x-e.x, dy=player.y-e.y;
+  const d=Math.sqrt(dx*dx+dy*dy)||1;
+  bulletPool.get({x:e.x,y:e.y+e.h/2,vx:(dx/d)*3.5,vy:(dy/d)*3.5,type:'e',dmg:1,w:5,h:14});
+}
+
+function bossFire(){
+  for(let a=-2;a<=2;a++){
+    bulletPool.get({x:boss.x+a*20,y:boss.y+50,vx:a*0.5,vy:4,type:'e',dmg:1,w:6,h:16});
+  }
+}
+
+function spawnPowerUp(x,y){
+  const types=['multi','shield','bomb','health'];
+  powerUps.push({x,y,vy:1,type:types[Math.floor(rand(0,4))],life:300});
+}
+
+function applyPowerUp(p){
+  playBeep('powerup',0.2);
+  warnings.push({text:p.type.toUpperCase(),y:H/2-50,life:60,size:30,col:'#00FFCC'});
+  if(p.type==='multi') player.ms=400;
+  else if(p.type==='shield') shield=Math.min(300,shield+150);
+  else if(p.type==='bomb') bombs++;
+  else if(p.type==='health') lives++;
+}
+
+function useBomb(){
+  if(bombs<=0) return;
+  bombs--;
+  bigExplosion(player.x,player.y-50,2);
+  bulletPool.cull(b=>b.type==='e');
+  enemyPool.active.forEach(e=>{ e.hp-=5; smallExplosion(e.x,e.y); });
+  if(boss.active) boss.hp-=20;
+}
+
+function hitPlayer(){
+  if(player.inv>0) return;
+  if(shield>0){ shield=0; player.inv=60; return; }
+  lives--;
+  player.inv=120;
+  bigExplosion(player.x,player.y,1);
+  if(lives<=0){
+    player.inv=999;
+    warnings.push({text:'JET İMHA',y:H/2,life:120,col:'#FF0000',size:40});
+    setTimeout(endGame, 1500);
+  }
+}
+
+function spawnEnemy(){
+  const types = [
+    {type:0, hp:1, w:52, h:62, vy:2},  // Su-57
+    {type:1, hp:2, w:48, h:58, vy:1.8}, // MiG-35
+    {type:2, hp:4, w:90, h:50, vy:1.2}, // B-2
+    {type:3, hp:3, w:58, h:64, vy:2.2}  // F-15
+  ];
+  let t = types[Math.floor(Math.random()*types.length)];
+  enemyPool.get({...t, x:rand(40,W-40), y:rand(-50,-20), vx:rand(-1,1)});
+}
+
+function spawnBoss(){
+  boss.active=true; boss.x=W/2; boss.y=-50; boss.maxHP=100+level*50; boss.hp=boss.maxHP;
+  boss.vx=2; bossActive=true; enemyPool.clear();
+  warnings.push({text:'BOSS GELİYOR',y:H/2,life:90,size:30,col:'#FF4400'});
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  UPDATE
+// ═══════════════════════════════════════════════════════════════
+function update(ts){
+  if(gState!=='playing' || paused) return;
+  dt=Math.min((ts-lastTime)/16.667,3);
+  lastTime=ts; frame++;
+
+  // Otomatik ateş (sürekli)
+  autoFireTimer-=dt;
+  if(autoFireTimer<=0){
+    firePlayer();
+    autoFireTimer = player.ms>0 ? 8 : 12;
+  }
+
+  // Player hareket (mobil için parmakla)
+  // touchmove'da güncellenecek
+
+  // Atalet
+  player.x = Math.max(30, Math.min(W-30, player.x + player.vx*dt));
+  player.y = Math.max(70, Math.min(H-70, player.y + player.vy*dt));
+  player.vx = lerp(player.vx, 0, 0.1);
+  player.vy = lerp(player.vy, 0, 0.1);
+  if(player.inv>0) player.inv-=dt;
+  if(player.ms>0) player.ms-=dt;
+
+  // Scroll
+  terrainOff += 2*dt;
+
+  // Sarsıntı
+  if(shakeAmt>0){
+    shakeAmt*=0.95;
+    shakeX = (Math.random()-0.5)*shakeAmt;
+    shakeY = (Math.random()-0.5)*shakeAmt;
+  }
+
+  // Spawn
+  if(!bossActive){
+    spawnT-=dt;
+    if(spawnT<=0){
+      spawnEnemy();
+      spawnT = Math.max(15, 40 - level*2);
+    }
+    bossT-=dt;
+    if(bossT<=0 && currentMission % 3 === 0){ spawnBoss(); bossT=2000; }
+  }
+
+  // Mermiler
+  bulletPool.active.forEach(b=>{ b.x+=b.vx*dt; b.y+=b.vy*dt; });
+  bulletPool.cull(b=>b.y<-20||b.y>H+20||b.x<-20||b.x>W+20);
+
+  // Düşmanlar
+  enemyPool.active.forEach(e=>{
+    e.x+=e.vx*dt; e.y+=e.vy*dt;
+    e.ft-=dt;
+    if(e.ft<=0){ enemyFire(e); e.ft=30+Math.random()*30; }
+    if(e.y>H+50 || e.hp<=0){
+      if(e.hp<=0){
+        bigExplosion(e.x,e.y,0.8);
+        score += e.type===2?300 : 100;
+        if(Math.random()<0.1) spawnPowerUp(e.x,e.y);
+      }
+      e.active=false;
+    }
+    if(collide({x:e.x,y:e.y,w:e.w*0.6,h:e.h*0.6},{x:player.x,y:player.y,w:30,h:40})){
+      hitPlayer(); e.hp=0;
+    }
+  });
+  enemyPool.cull(e=>!e.active);
+
+  // Çarpışmalar
+  bulletPool.active.forEach(b=>{
+    if(b.type==='p'){
+      enemyPool.active.forEach(e=>{
+        if(!b.active) return;
+        if(Math.abs(b.x-e.x)<e.w*0.4 && Math.abs(b.y-e.y)<e.h*0.4){
+          e.hp-=b.dmg; b.active=false;
+          smallExplosion(b.x,b.y);
         }
-
-        function resetTest() {
-            currentTest = null;
-            currentQuestion = 0;
-            score = 0;
-            allAnswers = [];
-            isAnswerSelected = false;
-            shuffledQuestions = [];
-            if (autoContinueTimer) {
-                clearTimeout(autoContinueTimer);
-                autoContinueTimer = null;
-            }
+      });
+      if(boss.active && b.active && Math.abs(b.x-boss.x)<70 && Math.abs(b.y-boss.y)<50){
+        boss.hp-=b.dmg; b.active=false;
+        if(boss.hp<=0){
+          bigExplosion(boss.x,boss.y,3);
+          boss.active=false; bossActive=false;
+          score+=2000; level++;
+          
+          // Görevi tamamlandı olarak işaretle
+          let missionId = `${currentChapter}-${currentMission}`;
+          if(!completedMissions.includes(missionId)){
+            completedMissions.push(missionId);
+            saveProgress();
+            unlockMissions();
+          }
+          
+          warnings.push({text:'GÖREV TAMAM',y:H/2-20,life:120,size:30,col:'#FFCC00'});
         }
+      }
+    } else {
+      if(Math.abs(b.x-player.x)<20 && Math.abs(b.y-player.y)<25){
+        hitPlayer(); b.active=false;
+      }
+    }
+  });
+  bulletPool.cull(b=>!b.active);
 
-        function renderQuestion() {
-            if (!currentTest || currentQuestion >= shuffledQuestions.length) {
-                showResults();
-                return;
-            }
+  // Boss
+  if(boss.active){
+    boss.x+=boss.vx*dt;
+    if(boss.x<80 || boss.x>W-80) boss.vx*=-1;
+    if(boss.y<120) boss.y+=2*dt;
+    boss.ft-=dt;
+    if(boss.ft<=0){ bossFire(); boss.ft=30; }
+  }
 
-            const testContent = document.getElementById('testContent');
-            const questionData = shuffledQuestions[currentQuestion];
-            const progress = ((currentQuestion + 1) / shuffledQuestions.length) * 100;
+  // Power-up'lar
+  for(let i=powerUps.length-1;i>=0;i--){
+    let p=powerUps[i];
+    p.y+=p.vy*dt; p.life-=dt;
+    if(p.life<=0 || p.y>H+30){ powerUps.splice(i,1); continue; }
+    if(Math.abs(p.x-player.x)<20 && Math.abs(p.y-player.y)<20){
+      applyPowerUp(p); powerUps.splice(i,1);
+    }
+  }
 
-            testContent.innerHTML = `
-                <div class="progress-container">
-                    <div class="progress-label">                        <span>Soru ${currentQuestion + 1} / ${shuffledQuestions.length}</span>
-                        <span>Skor: ${score}</span>
-                    </div>
-                    <div class="progress-bar" role="progressbar" aria-valuenow="${Math.round(progress)}" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-fill" style="width: ${progress}%"></div>
-                    </div>
-                </div>
-                
-                <div class="question" role="heading" aria-level="3">${questionData.question}</div>
-                
-                <div class="choices" id="choicesContainer" role="radiogroup" aria-label="Cevap Seçenekleri">
-                    ${questionData.choices.map((choice, index) => `
-                        <button class="choice" 
-                                role="radio" 
-                                aria-checked="false"
-                                onclick="selectAnswer(${index})" 
-                                id="choice-${index}"
-                                tabindex="0">
-                            ${String.fromCharCode(65 + index)}. ${choice}
-                        </button>
-                    `).join('')}
-                </div>
-                
-                <div id="feedbackContainer" aria-live="polite"></div>
-            `;
-        }
+  // Partiküller
+  ptPool.active.forEach(p=>{ p.x+=p.vx*dt; p.y+=p.vy*dt; p.life-=dt; });
+  ptPool.cull(p=>p.life<=0);
 
-        function selectAnswer(choiceIndex) {
-            if (isAnswerSelected) return;
-            isAnswerSelected = true;
+  score++;
+  if(score>hiScore) hiScore=score;
+}
 
-            const questionData = shuffledQuestions[currentQuestion];
-            const isCorrect = choiceIndex === questionData.correctAnswerIndex;
+// ═══════════════════════════════════════════════════════════════
+//  GAME LOOP
+// ═══════════════════════════════════════════════════════════════
+let rafID=null;
+function loop(ts){
+  if(gState==='playing') update(ts);
+  drawScene();
+  drawHUD();
+  rafID=requestAnimationFrame(loop);
+}
 
-            // Tüm seçenekleri devre dışı bırak ve aria güncelle
-            const choices = document.querySelectorAll('.choice');
-            choices.forEach((choice, idx) => {
-                choice.disabled = true;
-                choice.setAttribute('aria-checked', idx === choiceIndex ? 'true' : 'false');
-            });
+function startGame(){
+  if(rafID) cancelAnimationFrame(rafID);
+  
+  // Bölüm ayarları
+  level = currentChapter * 2 + currentMission;
+  lives = 3 + Math.floor(currentMission/2);
+  bombs = 2 + Math.floor(currentMission/3);
+  
+  gState='playing'; paused=false;
+  score=0; shield=0; player.inv=60;
+  player.x=W/2; player.y=H-120; player.vx=0; player.vy=0;
+  bossActive=false; boss.active=false;
+  spawnT=20; bossT=800;
+  bulletPool.clear(); enemyPool.clear(); ptPool.clear();
+  powerUps.length=0; warnings.length=0;
+  
+  document.getElementById('overlay').style.display='none';
+  document.getElementById('pauseMenu').style.display='none';
+  document.getElementById('bombBtn').style.display='flex';
+  
+  lastTime=performance.now();
+  rafID=requestAnimationFrame(loop);
+}
 
-            // Görsel feedback
-            const selectedChoice = document.getElementById(`choice-${choiceIndex}`);
-            selectedChoice.classList.add(isCorrect ? 'correct' : 'wrong');
-            
-            if (!isCorrect) {
-                const correctChoice = document.getElementById(`choice-${questionData.correctAnswerIndex}`);
-                correctChoice.classList.add('correct');
-            }
-            // Cevabı kaydet
-            allAnswers.push({
-                question: questionData.question,
-                userAnswer: questionData.choices[choiceIndex],
-                correctAnswer: questionData.choices[questionData.correctAnswerIndex],
-                isCorrect: isCorrect,
-                explanation: questionData.explanation
-            });
+function endGame(){
+  gState='dead'; paused=false;
+  cancelAnimationFrame(rafID);
+  if(score>hiScore) hiScore=score;
+  document.getElementById('finalVal').textContent=score;
+  document.getElementById('hiDisp').textContent=hiScore;
+  document.getElementById('chapterDisp').textContent=currentChapter;
+  document.getElementById('finalBlock').style.display='block';
+  document.getElementById('overlay').style.display='flex';
+  document.getElementById('bombBtn').style.display='none';
+}
 
-            if (isCorrect) score++;
+// ═══════════════════════════════════════════════════════════════
+//  MOBİL KONTROLLER
+// ═══════════════════════════════════════════════════════════════
+mainC.addEventListener('touchstart', e => {
+  e.preventDefault();
+  const touch = e.touches[0];
+  const rect = mainC.getBoundingClientRect();
+  player.x = Math.max(30, Math.min(W-30, (touch.clientX - rect.left) * (W/rect.width)));
+  player.y = Math.max(70, Math.min(H-70, (touch.clientY - rect.top) * (H/rect.height)));
+  player.vx = 0; player.vy = 0;
+  lastTouchTime = Date.now();
+});
 
-            // Feedback göster
-            const feedbackContainer = document.getElementById('feedbackContainer');
-            feedbackContainer.innerHTML = `
-                <div class="feedback ${isCorrect ? 'correct' : 'wrong'}" role="alert">
-                    <strong>${isCorrect ? '✅ Mükemmel!' : '❌ Yanlış!'}</strong><br>
-                    ${questionData.explanation}
-                </div>
-                
-                <button class="auto-continue-btn" id="autoContinueBtn" onclick="nextQuestion()" aria-label="${currentQuestion < shuffledQuestions.length - 1 ? 'Sonraki soruya geç' : 'Sonuçları gör'}">
-                    <span aria-hidden="true">${currentQuestion < shuffledQuestions.length - 1 ? '⏭️' : '🏁'}</span> 
-                    ${currentQuestion < shuffledQuestions.length - 1 ? 'Sonraki Soru' : 'Sonuçları Göster'}
-                </button>
-                
-                <div class="countdown-text" id="countdownText" aria-live="polite">
-                    Otomatik geçiş: <span id="countdownNumber">3</span> saniye
-                </div>
-            `;
+mainC.addEventListener('touchmove', e => {
+  if(gState!=='playing' || paused) return;
+  e.preventDefault();
+  const touch = e.touches[0];
+  const rect = mainC.getBoundingClientRect();
+  let newX = (touch.clientX - rect.left) * (W/rect.width);
+  let newY = (touch.clientY - rect.top) * (H/rect.height);
+  
+  // Hızı hesapla (kaydırma hissi için)
+  player.vx = (newX - player.x) * 0.3;
+  player.vy = (newY - player.y) * 0.3;
+  
+  player.x = Math.max(30, Math.min(W-30, newX));
+  player.y = Math.max(70, Math.min(H-70, newY));
+}, {passive:false});
 
-            startAutoContinue();
-        }
+// Bomba butonu
+document.getElementById('bombBtn').addEventListener('touchstart', e => {
+  e.preventDefault();
+  if(gState==='playing') useBomb();
+});
 
-        function startAutoContinue() {
-            let countdown = 3;
-            const countdownElement = document.getElementById('countdownNumber');
-            
-            autoContinueTimer = setInterval(() => {
-                countdown--;
-                if (countdownElement) countdownElement.textContent = countdown;
+// Klavye (debug için)
+document.addEventListener('keydown', e => {
+  keys[e.key]=true;
+  if(e.key===' ' && gState==='playing'){ e.preventDefault(); useBomb(); }
+  if((e.key==='p'||e.key==='P') && gState==='playing'){
+    paused=!paused; document.getElementById('pauseMenu').style.display=paused?'flex':'none';
+  }
+  if(e.key==='Escape' && paused){ paused=false; document.getElementById('pauseMenu').style.display='none'; }
+});
+document.addEventListener('keyup', e => { keys[e.key]=false; });
 
-                if (countdown <= 0) {
-                    clearInterval(autoContinueTimer);
-                    nextQuestion();
-                }
-            }, 1000);
-        }
+// Menu butonları
+document.getElementById('startBtn').addEventListener('click', startGame);
+document.getElementById('resumeBtn').addEventListener('click', ()=>{ paused=false; document.getElementById('pauseMenu').style.display='none'; });
+document.getElementById('quitBtn').addEventListener('click', ()=>{ paused=false; endGame(); });
 
-        function nextQuestion() {
-            if (autoContinueTimer) clearTimeout(autoContinueTimer);
-            currentQuestion++;            isAnswerSelected = false;
-            renderQuestion();
-        }
-
-        function showResults() {
-            const testContent = document.getElementById('testContent');
-            const totalQuestions = shuffledQuestions.length;
-            const percentage = Math.round((score / totalQuestions) * 100);
-
-            // Performans değerlendirme
-            let resultIcon, resultMessage, performanceTip;
-            if (percentage >= 90) {
-                resultIcon = '🏆';
-                resultMessage = 'OLAĞANÜSTÜ! 🎯 Afet yönetimi konusunda uzman seviyesindesin!';
-                performanceTip = 'Bu bilgiyi başkalarıyla paylaş, toplumu güçlendir!';
-            } else if (percentage >= 75) {
-                resultIcon = '🌟';
-                resultMessage = 'Çok İyi! 💪 Hava afetlerine karşı iyi hazırlıklısın.';
-                performanceTip = 'Detaylı bilgileri tekrar gözden geçir, mükemmelleştir.';
-            } else if (percentage >= 60) {
-                resultIcon = '👍';
-                resultMessage = 'İyi Başlangıç! 📚 Temel bilgileri öğrenmişsin, geliştirilmeye açık.';
-                performanceTip = 'Bilgi bölümünü detaylı incele, testi tekrar dene.';
-            } else {
-                resultIcon = '💡';
-                resultMessage = 'Öğrenme Fırsatı! 🔄 Afet bilinci hayati önem taşır, pes etme.';
-                performanceTip = 'Her sorunun açıklamasını oku, bilgi bölümünü çalış, tekrar dene.';
-            }
-
-            // Detaylı sonuçlar
-            let detailedResultsHTML = '';
-            allAnswers.forEach((answer, index) => {
-                detailedResultsHTML += `
-                    <div class="result-item ${answer.isCorrect ? 'correct' : 'wrong'}">
-                        <div class="result-question">Soru ${index + 1}: ${answer.question}</div>
-                        <div class="result-answer ${answer.isCorrect ? 'correct' : 'wrong'}">
-                            ${answer.isCorrect ? '✅' : '❌'} 
-                            <strong>Cevabın:</strong> ${answer.userAnswer}
-                        </div>
-                        ${!answer.isCorrect ? `
-                            <div class="result-answer correct">
-                                ✅ <strong>Doğru:</strong> ${answer.correctAnswer}
-                            </div>
-                        ` : ''}
-                        <div class="result-explanation">
-                            💡 ${answer.explanation}
-                        </div>
-                    </div>
-                `;
-            });
-            testContent.innerHTML = `
-                <div class="result-screen">
-                    <div class="result-icon" aria-hidden="true">${resultIcon}</div>
-                    <div class="result-score" aria-label="Skor: ${score} doğru, ${totalQuestions} sorudan">${score}/${totalQuestions}</div>
-                    <div class="result-message">
-                        ${resultMessage}
-                        <br><strong>Başarı Oranı: %${percentage}</strong>
-                        <br><small style="color: var(--gray-500); display: block; margin-top: 0.5rem;">${performanceTip}</small>
-                    </div>
-                    
-                    <div class="detailed-results">
-                        <h3 style="margin-bottom: 1rem; color: var(--primary);">📊 Detaylı Analiz:</h3>
-                        ${detailedResultsHTML}
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
-                        <button class="card-btn primary" onclick="startTest('${currentTest}')" aria-label="Testi Tekrar Başlat">
-                            <span aria-hidden="true">🔄</span> Tekrar Dene
-                        </button>
-                        <button class="card-btn secondary" onclick="closeTest()" aria-label="Ana Sayfaya Dön">
-                            <span aria-hidden="true">🏠</span> Ana Sayfa
-                        </button>
-                    </div>
-                    
-                    ${percentage < 75 ? `
-                    <div style="margin-top: 1.5rem; padding: 1rem; background: var(--gray-100); border-radius: var(--radius-md);">
-                        <strong style="color: var(--primary);">💡 Öneri:</strong> 
-                        <span style="color: var(--gray-600);">Bilgi Al butonuna tıklayarak detaylı rehberi incele, sonra testi tekrar dene.</span>
-                    </div>` : ''}
-                </div>
-            `;
-        }
-
-        // ==================== BİLGİ GÖSTERME SİSTEMİ (DOMPurify ile güvenli) ====================
-        function showInfo(type) {
-            const info = infoData[type];
-            document.getElementById('detailTitle').textContent = info.title;
-            
-            // XSS Koruması: DOMPurify ile sanitize et
-            const sanitizedContent = sanitize(info.content);
-            document.getElementById('detailContent').innerHTML = sanitizedContent;
-            
-            document.getElementById('detailSection').style.display = 'block';
-            document.querySelectorAll('.card').forEach(card => card.style.display = 'none');
-            document.querySelector('.section-title').style.display = 'none';
-            
-            // Sayfayı bilgi bölümüne kaydır
-            document.getElementById('detailSection').scrollIntoView({ behavior: 'smooth' });
-                        // Erişilebilirlik: Odak yönetimi
-            document.getElementById('detailSection').setAttribute('tabindex', '-1');
-            document.getElementById('detailSection').focus();
-        }
-
-        function hideInfo() {
-            document.getElementById('detailSection').style.display = 'none';
-            document.querySelectorAll('.card').forEach(card => card.style.display = 'flex');
-            document.querySelector('.section-title').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // ==================== EVENT LISTENERS & INIT ====================
-        document.addEventListener('DOMContentLoaded', () => {
-            // Animasyonları tetikle
-            const animatedElements = document.querySelectorAll('.animate-fade-in-up');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            animatedElements.forEach((el, index) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = `opacity 0.6s ease ${index * 100}ms, transform 0.6s ease ${index * 100}ms`;
-                observer.observe(el);
-            });
-
-            // Emergency banner click
-            document.getElementById('emergencyBanner')?.addEventListener('click', () => {
-                alert('🚨 ACİL DURUM PROTOKOLÜ:\n\n1️⃣ SAKİN OL - Panik kararları kötüleştirir\n2️⃣ 112\'yi ARA - Konum, olay, yaralı bilgisi ver\n3️⃣ GÜVENLİĞİ SAĞLA - Kendin ve çevren için\n4️⃣ İLK YARDIM UYGULA - Temel kuralları hatırla\n\n💡 Bu uygulama bilgilendirme amaçlıdır. Gerçek acilde 112 esastır.');
-            });
-
-            // Klavye kısayolları
-            document.addEventListener('keydown', (e) => {
-                // Ctrl/Cmd + F: İlk Yardım
-                if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'f') {
-                    e.preventDefault();
-                    openFirstAidModal();
-                }
-                // Escape: Modal/Test kapat
-                if (e.key === 'Escape') {
-                    if (document.getElementById('testOverlay')?.classList.contains('active')) {
-                        closeTest();
-                    } else if (firstAidModal?.classList.contains('active')) {                        closeFirstAidModal();
-                    } else if (mobileMenu?.classList.contains('active')) {
-                        toggleMobileMenu();
-                    }
-                }
-            });
-
-            // Ziyaret sayacı (localStorage)
-            try {
-                const visits = parseInt(localStorage.getItem('afetHazirlik_hava_visits') || '0') + 1;
-                localStorage.setItem('afetHazirlik_hava_visits', visits.toString());
-            } catch (e) {
-                // localStorage kapalıysa hata verme
-                console.warn('LocalStorage erişilemedi');
-            }
-
-            // Service Worker registration (PWA hazırlığı)
-            if ('serviceWorker' in navigator) {
-                // window.addEventListener('load', () => {
-                //     navigator.serviceWorker.register('/sw.js').catch(err => {
-                //         console.log('SW registration failed:', err);
-                //     });
-                // });
-            }
-        });
-
-        // ==================== PERFORMANS OPTİMİZASYONLARI ====================
-        // Resize debounce
-        let resizeTimer;
-        window.addEventListener('resize', debounce(() => {
-            // Mobil/PC geçişinde animasyon sürelerini ayarla
-            const isMobile = window.innerWidth <= 768;
-            document.documentElement.style.setProperty(
-                '--transition-normal', 
-                isMobile ? '200ms' : '300ms'
-            );
-        }, 250));
-
-        // Scroll performans
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    // Scroll'a bağlı efektler buraya
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }, { passive: true });
-        // Touch swipe ile test kapatma (mobil)
-        if ('ontouchstart' in window) {
-            const testOverlay = document.getElementById('testOverlay');
-            let touchStartX = 0;
-            
-            testOverlay?.addEventListener('touchstart', (e) => {
-                touchStartX = e.touches[0].clientX;
-            }, { passive: true });
-            
-            testOverlay?.addEventListener('touchend', (e) => {
-                const touchEndX = e.changedTouches[0].clientX;
-                const diff = touchStartX - touchEndX;
-                
-                // Sağdan sola swipe ile kapat
-                if (diff > 100 && testOverlay.classList.contains('active')) {
-                    closeTest();
-                }
-            }, { passive: true });
-        }
-
-        // ==================== HATA YÖNETİMİ & FALLBACKS ====================
-        // Leaflet yüklenmezse fallback
-        if (typeof L === 'undefined') {
-            console.warn('Leaflet yüklenemedi, harita özellikleri devre dışı.');
-            // Harita gerektiren özellikleri disable et
-            document.querySelectorAll('[data-requires-map]').forEach(el => {
-                el.style.opacity = '0.5';
-                el.style.pointerEvents = 'none';
-                el.setAttribute('aria-disabled', 'true');
-            });
-        }
-
-        // DOMPurify yüklenmezse uyarı
-        if (typeof DOMPurify === 'undefined') {
-            console.warn('⚠️ DOMPurify bulunamadı! XSS koruması sınırlı. Production\'da CDN\'yi kontrol edin.');
-        }
-
-        // ==================== ANALYTICS (Opsiyonel - Gizlilik Dostu) ====================
-        // Basit, anonim istatistik (GDPR uyumlu)
-        const trackEvent = (category, action, label) => {
-            // Gerçek uygulamada: Google Analytics 4 (konsent ile) veya Matomo
-            console.log(`[Analytics] ${category} | ${action} | ${label}`);
-            // Örnek: trackEvent('Test', 'Start', 'kasirga');
-        };
-
-        // Test başlangıç/sonuç takibi
-        const originalStartTest = startTest;
-        startTest = function(type) {
-            trackEvent('Test', 'Start', type);
-            originalStartTest(type);        };
-
-        // İlk yardım modal açılış takibi
-        const originalOpenFirstAid = openFirstAidModal;
-        openFirstAidModal = function() {
-            trackEvent('FirstAid', 'Open', 'modal');
-            originalOpenFirstAid();
-        };
-
-        // Sayfa görünür olduğunda (görünürlük API)
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') {
-                trackEvent('Page', 'Visible', 'hava.html');
-            }
-        });
-    </script>
+// Başlangıç
+buildStaticBg();
+initClouds();
+</script>
 </body>
 </html>

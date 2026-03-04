@@ -2,43 +2,30 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- PWA ve performans meta etiketleri -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
-    <!-- Google Dark Mode için gerekli meta etiketleri -->
     <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
-    
-    <!-- SEO Optimizasyonu -->
+    <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a0a1a" media="(prefers-color-scheme: dark)">
     <title>Hakkında - Afet Hazırlık Platformu</title>
     <meta name="description" content="Afet Hazırlık platformu hakkında bilgi, misyonumuz, vizyonumuz ve iletişim.">
     <meta name="keywords" content="afet hazırlık, hakkında, misyon, vizyon, iletişim">
     <meta name="author" content="Afet Hazırlık">
-    <link rel="canonical" href="https://afethazirlik.com/hakkinda.html">
-
     <style>
-        /* Modern Reset ve Değişkenler - Index ile tam uyumlu */
+        /* ============ DEĞİŞKENLER ============ */
         :root {
-            /* Color-scheme eklemesi */
             color-scheme: light dark;
-
-            /* YENİ KALİTELİ RENK PALETİ - Teal/Turkuaz tonları (Index ile aynı) */
-            --primary: #0f766e;
-            --primary-dark: #115e59;
-            --primary-light: #14b8a6;
-            --primary-soft: #99f6e4;
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --primary-light: #6366f1;
+            --primary-soft: #ede9fe;
             --accent: #dc2626;
             --accent-light: #f87171;
             --warning: #d97706;
             --success: #059669;
-
-            /* Nötr Renkler - YÜKSEK KONTRAST */
             --gray-50: #f9fafb;
             --gray-100: #f3f4f6;
             --gray-200: #e5e7eb;
@@ -49,1239 +36,477 @@
             --gray-700: #374151;
             --gray-800: #1f2937;
             --gray-900: #111827;
-
             --white: #ffffff;
             --black: #000000;
-
-            /* Efektler */
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            --radius-sm: 0.375rem;
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,.15);
+            --radius-sm: .375rem;
+            --radius-md: .5rem;
+            --radius-lg: .75rem;
             --radius-xl: 1rem;
-
-            /* Transitions */
-            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* Fluid Typography Değişkenleri */
-            --fluid-min-width: 320;
-            --fluid-max-width: 1200;
-            --fluid-min-size: 16;
-            --fluid-max-size: 18;
+            --transition-fast: 150ms cubic-bezier(.4,0,.2,1);
+            --transition-normal: 300ms cubic-bezier(.4,0,.2,1);
         }
 
-        /* Fluid Typography */
-        html {
-            font-size: clamp(
-                calc(var(--fluid-min-size) / 16 * 1rem),
-                calc(var(--fluid-min-size) / 16 * 1rem + (var(--fluid-max-size) - var(--fluid-min-size)) * (100vw - var(--fluid-min-width) * 1px) / (var(--fluid-max-width) - var(--fluid-min-width))),
-                calc(var(--fluid-max-size) / 16 * 1rem)
-            );
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-
-        /* Koyu Tema - GÜNCELLENMİŞ ve DÜZELTİLMİŞ */
-        @media (prefers-color-scheme: dark) {
+        /* ============ KARANLIK TEMA ============ */
+        @media(prefers-color-scheme:dark) {
             :root {
-                --primary: #14b8a6;
-                --primary-dark: #0d9488;
-                --primary-light: #5eead4;
-                --primary-soft: #99f6e4;
+                --primary: #818cf8;
+                --primary-dark: #6366f1;
+                --primary-light: #a5b4fc;
+                --primary-soft: #1e1b4b;
                 --accent: #ef4444;
                 --accent-light: #fca5a5;
                 --warning: #f59e0b;
                 --success: #10b981;
-
-                /* Daha yüksek kontrastlı renkler */
-                --gray-50: #0f172a;
-                --gray-100: #1e293b;
-                --gray-200: #334155;
-                --gray-300: #475569;
-                --gray-400: #64748b;
-                --gray-500: #94a3b8;
-                --gray-600: #cbd5e1;
-                --gray-700: #e2e8f0;
-                --gray-800: #f1f5f9;
-                --gray-900: #f8fafc;
+                --gray-50: #0f0f1a;
+                --gray-100: #1a1a2e;
+                --gray-200: #252545;
+                --gray-300: #2e2e5a;
+                --gray-400: #4a4a8a;
+                --gray-500: #7070b8;
+                --gray-600: #a0a0d0;
+                --gray-700: #c8c8e8;
+                --gray-800: #e8e8f8;
+                --gray-900: #f0f0ff;
+                --white: #1a1a2e;
+                --black: #f0f0ff;
             }
-
-            /* Body ve temel renkler */
-            body {
-                background-color: #0f172a !important;
-                color: #e2e8f0 !important;
+            body { background-color: #0a0a1a !important; color: #e0e0ff !important; }
+            h1,h2,h3,h4,h5,h6 { color: #f0f0ff !important; }
+            p { color: #c7c7f0 !important; }
+            .logo-title { color: #f0f0ff !important; }
+            .logo-subtitle { color: #a5b4fc !important; }
+            header { background: rgba(10,10,26,.97) !important; border-bottom-color: #252545 !important; }
+            .nav-link { color: #a5b4fc !important; }
+            .nav-link:hover { color: #f0f0ff !important; background: rgba(129,140,248,.1) !important; }
+            .nav-link.active { color: #fff !important; background: linear-gradient(135deg,#4f46e5,#4338ca) !important; }
+            .nav-link.firstaid-button { background: linear-gradient(135deg,#dc2626,#b91c1c) !important; color: #fff !important; }
+            .page-hero { background: linear-gradient(135deg,rgba(67,56,202,.97) 0%,rgba(79,70,229,.92) 50%,rgba(165,180,252,.85) 100%) !important; }
+            .page-hero h1 { color: #fff !important; }
+            .page-hero p { color: rgba(255,255,255,.93) !important; }
+            main { background-color: #0a0a1a !important; }
+            .section-title h2 { background: linear-gradient(135deg,#818cf8,#a5b4fc) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
+            .section-title p { color: #c7c7f0 !important; }
+            .about-content h3 { color: #f0f0ff !important; }
+            .about-content p { color: #c7c7f0 !important; }
+            .about-image h3 { color: #f0f0ff !important; }
+            .about-image p { color: #a5b4fc !important; }
+            .about-icon { color: #818cf8 !important; }
+            .mission-card, .vision-card, .feature-card {
+                background: linear-gradient(145deg,#1a1a3e,#12122a) !important;
+                border: 1px solid #252545 !important;
             }
+            .mission-card:hover, .vision-card:hover, .feature-card:hover { border-color: #818cf8 !important; }
+            .mission-card h3, .vision-card h3 { color: #f0f0ff !important; }
+            .mission-card p, .vision-card p { color: #c7c7f0 !important; }
+            .feature-card h4 { color: #f0f0ff !important; }
+            .feature-card p { color: #c7c7f0 !important; }
+            .card-icon { background: linear-gradient(135deg,rgba(129,140,248,.15),rgba(26,26,62,.5)) !important; color: #818cf8 !important; }
+            .feature-card .card-icon { background: linear-gradient(135deg,rgba(239,68,68,.15),rgba(26,26,62,.5)) !important; color: #ef4444 !important; }
+            .contact-section { background: linear-gradient(145deg,#1a1a3e,#12122a) !important; border-color: #252545 !important; }
+            .contact-section h2 { background: linear-gradient(135deg,#818cf8,#a5b4fc) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
+            .contact-section p { color: #c7c7f0 !important; }
+            .contact-item { background: #12122a !important; border-color: #252545 !important; color: #c7c7f0 !important; }
+            .contact-item:hover { background: #1a1a3e !important; color: #f0f0ff !important; }
+            .contact-icon { color: #818cf8 !important; }
+            footer { background-color: #07070f !important; }
+            .footer-column h4 { color: #f0f0ff !important; }
+            .footer-links a { color: #a5b4fc !important; }
+            .footer-links a:hover { color: #f0f0ff !important; }
+            .footer-bottom { border-top-color: #252545 !important; color: #4a4a8a !important; }
+            .mobile-menu { background-color: #12122a !important; }
+            .mobile-menu-link { color: #c7c7f0 !important; }
+            .mobile-menu-link:hover, .mobile-menu-link.active { background: #4f46e5 !important; color: #fff !important; }
+            .menu-overlay { background: rgba(0,0,0,.7) !important; }
+            .menu-line { background: #a5b4fc !important; }
+            /* Modal dark */
+            .firstaid-modal-content { background-color: #12122a !important; }
+            .firstaid-modal-header { background: linear-gradient(135deg,#dc2626,#b91c1c) !important; }
+            .firstaid-tabs { background: #0a0a1a !important; border-bottom-color: #252545 !important; }
+            .firstaid-tab { background-color: #12122a !important; color: #a5b4fc !important; }
+            .firstaid-tab:hover { background-color: #1e1b4b !important; color: #f0f0ff !important; }
+            .firstaid-tab.active { background-color: #12122a !important; color: #ef4444 !important; border-bottom-color: #f87171 !important; }
+            .firstaid-tab-content { color: #c7c7f0 !important; }
+            .firstaid-step-card { background: linear-gradient(145deg,#1a1a3e,#12122a) !important; border: 1px solid #2e2e5a !important; }
+            .firstaid-step-card:hover { border-color: #6366f1 !important; }
+            .firstaid-step-card h4 { color: #f0f0ff !important; }
+            .firstaid-step-card p { color: #c7c7f0 !important; }
+            .firstaid-warning { background: #1a0e00 !important; border-left-color: #f59e0b !important; color: #fef3c7 !important; }
+            .firstaid-warning h5 { color: #fbbf24 !important; }
+            .firstaid-tip { background: #1e1b4b !important; border-color: #4f46e5 !important; }
+            .firstaid-tip h5 { color: #a5b4fc !important; }
+            .firstaid-tip p { color: #c7c7f0 !important; }
+            .emergency-number { background: #12122a !important; border: 1px solid #252545 !important; }
+            .emergency-number .service { color: #f0f0ff !important; }
+            .emergency-number p { color: #a5b4fc !important; }
+            .number-list li { background: #12122a !important; border: 1px solid #252545 !important; }
+            .number-list .service { color: #f0f0ff !important; }
+            ::-webkit-scrollbar-track { background: #12122a !important; }
+            ::-webkit-scrollbar-thumb { background: #252545 !important; }
+            ::-webkit-scrollbar-thumb:hover { background: #4a4a8a !important; }
+        }
 
-            /* Başlıklar */
-            h1, h2, h3, h4, h5, h6 {
-                color: #f8fafc !important;
-                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-            }
-
-            /* Paragraflar */
-            p, span, li, div:not(.logo-subtitle) {
-                color: #e2e8f0 !important;
-            }
-
-            /* Link kontrastı */
-            a {
-                color: #5eead4 !important;
-            }
-
-            a:hover {
-                color: #ffffff !important;
-            }
-
-            /* Logo */
-            .logo-title {
-                color: #ffffff !important;
-            }
-
-            .logo-subtitle {
-                color: #94a3b8 !important;
-            }
-
-            /* Kartlar */
-            .mission-card, .vision-card, .feature-card, .contact-section {
-                background-color: #1e293b !important;
-                border: 1px solid #475569 !important;
-                color: #cbd5e1 !important;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-            }
-
-            .mission-card h3, .vision-card h3, .feature-card h4 {
-                color: #ffffff !important;
-            }
-
-            .mission-card p, .vision-card p, .feature-card p {
-                color: #cbd5e1 !important;
-            }
-
-            /* About content */
-            .about-content h3 {
-                color: #ffffff !important;
-            }
-
-            .about-content p {
-                color: #cbd5e1 !important;
-            }
-
-            .about-image h3 {
-                color: #ffffff !important;
-            }
-
-            .about-image p {
-                color: #94a3b8 !important;
-            }
-
-            /* Contact items */
-            .contact-item {
-                background: #334155 !important;
-                border-color: #475569 !important;
-                color: #cbd5e1 !important;
-            }
-
-            .contact-item:hover {
-                background: #475569 !important;
-                color: #f1f5f9 !important;
-            }
-
-            .contact-icon {
-                color: #5eead4 !important;
-                filter: brightness(1.2);
-            }
-
-            /* Navigasyon */
-            .nav-link {
-                color: #94a3b8 !important;
-            }
-
-            .nav-link:hover {
-                color: #5eead4 !important;
-                background: rgba(94, 234, 212, 0.1) !important;
-            }
-
-            .nav-link.active {
-                color: #ffffff !important;
-                background: linear-gradient(135deg, #14b8a6, #0d9488) !important;
-                box-shadow: 0 4px 15px rgba(20, 184, 166, 0.3);
-            }
-
-            /* Page Hero */
-            .page-hero {
-                background: linear-gradient(135deg, 
-                    rgba(20, 184, 166, 0.95) 0%, 
-                    rgba(13, 148, 136, 0.9) 50%,
-                    rgba(94, 234, 212, 0.85) 100%) !important;
-            }
-
-            .page-hero h1 {
-                color: #ffffff !important;
-            }
-
-            .page-hero p {
-                color: rgba(255, 255, 255, 0.9) !important;
-            }
-
-            /* Section title */
-            .section-title h2 {
-                color: transparent !important;
-                background: linear-gradient(135deg, #14b8a6, #0d9488) !important;
-                -webkit-background-clip: text !important;
-                -webkit-text-fill-color: transparent !important;
-                background-clip: text !important;
-            }
-
-            .section-title p {
-                color: #cbd5e1 !important;
-            }
-
-            /* Header */
-            header {
-                background: rgba(30, 41, 59, 0.95) !important;
-                border-bottom-color: #334155 !important;
-                backdrop-filter: blur(12px) !important;
-            }
-
-            /* Card icons */
-            .card-icon {
-                color: #14b8a6 !important;
-                background: rgba(20, 184, 166, 0.1) !important;
-                filter: brightness(1.2);
-            }
-
-            .feature-card .card-icon {
-                color: #ef4444 !important;
-                background: rgba(239, 68, 68, 0.1) !important;
-            }
-
-            /* About icon */
-            .about-icon {
-                color: #14b8a6 !important;
-                filter: brightness(1.2);
-            }
-
-            /* Footer */
-            footer {
-                background-color: #0f172a !important;
-            }
-
-            .footer-links a {
-                color: #94a3b8 !important;
-            }
-
-            .footer-links a:hover {
-                color: #ffffff !important;
-            }
-
-            .footer-column h4 {
-                color: #ffffff !important;
-            }
-
-            .footer-column p {
-                color: #64748b !important;
-            }
-
-            .footer-bottom {
-                border-top-color: #334155 !important;
-                color: #64748b !important;
-            }
-
-            /* Mobile menu */
-            .mobile-menu {
-                background-color: #1e293b !important;
-            }
-
-            .mobile-menu-link {
-                color: #cbd5e1 !important;
-            }
-
-            .mobile-menu-link:hover,
-            .mobile-menu-link.active {
-                background: #14b8a6 !important;
-                color: #ffffff !important;
-            }
-
-            /* Scrollbar */
-            ::-webkit-scrollbar-track {
-                background: #1e293b !important;
-            }
-
-            ::-webkit-scrollbar-thumb {
-                background: #475569 !important;
-            }
-
-            ::-webkit-scrollbar-thumb:hover {
-                background: #64748b !important;
-            }
-
-            /* Menu overlay */
-            .menu-overlay {
-                background: rgba(0, 0, 0, 0.7) !important;
-            }
-
-            /* Menu button lines */
-            .menu-line {
-                background: #cbd5e1 !important;
-            }
-
-            /* Main content background */
-            main {
-                background-color: #0f172a !important;
+        /* ============ REDUCE MOTION ============ */
+        @media(prefers-reduced-motion:reduce) {
+            *,*::before,*::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+                scroll-behavior: auto !important;
             }
         }
 
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-        }
-
+        /* ============ RESET ============ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; scroll-padding-top: 80px; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: var(--gray-50);
             color: var(--gray-800);
             line-height: 1.5;
             min-height: 100vh;
             overflow-x: hidden;
-            font-display: swap;
+            transition: background-color .3s ease, color .3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Tipografi - Index ile aynı */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--gray-900);
-        }
+        /* ============ TİPOGRAFİ ============ */
+        h1,h2,h3,h4,h5,h6 { font-weight: 700; line-height: 1.2; color: var(--gray-900); }
+        h1 { font-size: clamp(2rem,6vw,3.5rem); letter-spacing: -.025em; }
+        h2 { font-size: clamp(1.5rem,4vw,2.25rem); letter-spacing: -.025em; }
+        h3 { font-size: clamp(1.1rem,3vw,1.5rem); }
+        p { font-size: clamp(.95rem,2.5vw,1.125rem); color: var(--gray-600); line-height: 1.7; }
 
-        h1 {
-            font-size: 3rem;
-            letter-spacing: -0.025em;
-        }
+        /* ============ CONTAINER ============ */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        @media(min-width:1440px) { .container { max-width: 1400px; } }
 
-        h2 {
-            font-size: 2.25rem;
-            letter-spacing: -0.025em;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-        }
-
-        p {
-            font-size: 1.125rem;
-            color: var(--gray-600);
-        }
-
-        /* Container - Index ile aynı */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            overflow-x: hidden;
-        }
-
-        /* Büyük ekran optimizasyonu */
-        @media (min-width: 1400px) {
-            .container {
-                max-width: 1320px;
-            }
-            
-            .page-hero h1 {
-                font-size: 4.5rem;
-            }
-            
-            .section-title h2 {
-                font-size: 3rem;
-            }
-        }
-
-        @media (min-width: 1920px) {
-            .container {
-                max-width: 1600px;
-            }
-            
-            .features-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 2.5rem;
-            }
-        }
-
-        /* Header - Index ile AYNI (pusula ikonu dahil) */
+        /* ============ HEADER ============ */
         header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(255,255,255,.95);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--gray-200);
-            padding: 1rem 0;
+            padding: .875rem 0;
+            transition: background-color .3s ease, border-color .3s ease;
         }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-        }
-
-        /* Pusula İkonu - Index ile aynı */
+        .header-content { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+        .logo { display: flex; align-items: center; gap: .625rem; text-decoration: none; flex-shrink: 0; }
         .logo-icon.compass {
-            width: 2.5rem;
-            height: 2.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            width: 2.25rem; height: 2.25rem;
+            background: linear-gradient(135deg,#4f46e5,#4338ca);
             border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.1rem;
-            font-weight: 600;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
+            display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
         }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-title { font-size: clamp(1.1rem,3vw,1.4rem); font-weight: 700; color: var(--gray-900); line-height: 1.2; }
+        .logo-subtitle { font-size: .75rem; color: var(--gray-500); font-weight: 500; }
 
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--gray-900);
-            line-height: 1.2;
-        }
-
-        .logo-subtitle {
-            font-size: 0.875rem;
-            color: var(--gray-500);
-            font-weight: 500;
-        }
-
-        /* Navigation - Index ile AYNI (ilk yardım butonu dahil) */
-        .nav-desktop {
-            display: none;
-        }
-
-        @media (min-width: 768px) {
-            .nav-desktop {
-                display: flex;
-                gap: 1rem;
-                align-items: center;
-            }
-        }
-
+        /* ============ NAV ============ */
+        .nav-desktop { display: none; }
+        @media(min-width:768px) { .nav-desktop { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; } }
+        @media(min-width:1024px) { .nav-desktop { gap: .625rem; } }
         .nav-link {
-            color: var(--gray-600);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-md);
-            transition: var(--transition-fast);
-            min-height: 44px;
-            min-width: 44px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            touch-action: manipulation;
+            color: var(--gray-600); text-decoration: none; font-weight: 500; font-size: .875rem;
+            padding: .5rem .875rem; border-radius: var(--radius-md);
+            transition: var(--transition-fast); min-height: 44px;
+            display: flex; align-items: center; gap: .3rem; white-space: nowrap;
         }
+        .nav-link:hover { color: #4f46e5; background: var(--gray-100); }
+        .nav-link.active { background: linear-gradient(135deg,#4f46e5,#4338ca); color: white; }
+        .nav-link.firstaid-button { background: linear-gradient(135deg,#dc2626,#b91c1c); color: white; }
+        .nav-link.firstaid-button:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
-        /* PC hover efektleri */
-        @media (hover: hover) and (pointer: fine) {
-            .nav-link:hover {
-                transform: translateY(-2px);
-                color: var(--primary);
-                background: var(--gray-100);
-            }
-        }
-
-        .nav-link.active {
-            color: var(--primary);
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--white);
-        }
-
-        /* İlk Yardım Butonu - Index ile aynı */
-        .nav-link.firstaid-button {
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-link.firstaid-button:hover {
-            background: linear-gradient(135deg, var(--accent), #b91c1c);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Mobile Menu Button - Index ile aynı */
+        /* ============ MOBILE MENU BTN ============ */
         .mobile-menu-btn {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: var(--radius-md);
-            min-height: 44px;
-            min-width: 44px;
-            touch-action: manipulation;
+            display: flex; flex-direction: column; gap: 5px; background: none; border: none;
+            cursor: pointer; padding: .625rem; border-radius: var(--radius-md);
+            min-height: 44px; min-width: 44px; align-items: center; justify-content: center;
+            -webkit-tap-highlight-color: transparent;
         }
+        @media(min-width:768px) { .mobile-menu-btn { display: none; } }
+        .menu-line { width: 22px; height: 2px; background: var(--gray-600); transition: var(--transition-fast); border-radius: 1px; }
+        .mobile-menu-btn.active .menu-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .mobile-menu-btn.active .menu-line:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active .menu-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-        @media (min-width: 768px) {
-            .mobile-menu-btn {
-                display: none;
-            }
+        /* ============ MOBILE MENU ============ */
+        .mobile-menu {
+            position: fixed; top: 0; right: -100%; width: min(300px,85vw); height: 100vh;
+            background: white; z-index: 200; transition: right var(--transition-normal);
+            padding: 2rem; box-shadow: var(--shadow-xl);
+            display: flex; flex-direction: column; overflow-y: auto;
         }
-
-        .menu-line {
-            width: 1.5rem;
-            height: 2px;
-            background: var(--gray-600);
-            transition: var(--transition-fast);
-            border-radius: 1px;
+        .mobile-menu.active { right: 0; }
+        .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .mobile-menu-links { display: flex; flex-direction: column; gap: .375rem; }
+        .mobile-menu-link {
+            padding: .875rem 1rem; border-radius: var(--radius-md); color: var(--gray-700);
+            text-decoration: none; font-weight: 500; transition: var(--transition-fast);
+            min-height: 52px; display: flex; align-items: center; gap: .5rem;
+            -webkit-tap-highlight-color: transparent;
         }
+        .mobile-menu-link:hover, .mobile-menu-link.active { background: #4f46e5; color: white; }
+        .mobile-menu-link.firstaid-button { background: linear-gradient(135deg,#dc2626,#b91c1c); color: white; justify-content: center; margin-top: .75rem; }
+        .menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 199; opacity: 0; visibility: hidden; transition: var(--transition-normal); }
+        .menu-overlay.active { opacity: 1; visibility: visible; }
 
-        /* Page Hero - Index hero ile aynı renkler */
+        /* ============ PAGE HERO ============ */
         .page-hero {
-            padding: 4rem 1rem;
-            background: linear-gradient(135deg, 
-                rgba(15, 118, 110, 0.95) 0%, 
-                rgba(20, 184, 166, 0.9) 50%,
-                rgba(153, 246, 228, 0.85) 100%);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: clamp(3rem,10vw,5rem) 1rem;
+            background: linear-gradient(135deg,rgba(67,56,202,.97) 0%,rgba(79,70,229,.92) 50%,rgba(165,180,252,.85) 100%);
+            text-align: center; position: relative; overflow: hidden;
         }
-
         .page-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 20% 80%,rgba(255,255,255,.1) 0%,transparent 50%),
+                        radial-gradient(circle at 80% 20%,rgba(255,255,255,.05) 0%,transparent 50%);
+            pointer-events: none;
         }
+        .page-hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .page-hero h1 { color: white; margin-bottom: 1rem; font-size: clamp(2.25rem,7vw,4rem); line-height: 1.1; text-shadow: 0 2px 12px rgba(0,0,0,.2); }
+        .page-hero p { color: rgba(255,255,255,.95); font-size: clamp(1rem,3vw,1.35rem); max-width: 600px; margin: 0 auto; line-height: 1.6; }
 
-        .page-hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        /* ============ MAIN ============ */
+        main { padding: clamp(3rem,8vw,5rem) 1rem; background-color: var(--gray-50); transition: background-color .3s ease; }
 
-        .page-hero h1 {
-            color: var(--white);
-            margin-bottom: 1rem;
-            font-size: 3.5rem;
-            line-height: 1.1;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (min-width: 768px) {
-            .page-hero h1 {
-                font-size: 4rem;
-            }
-        }
-
-        .page-hero p {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 1.35rem;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 400;
-            line-height: 1.6;
-        }
-
-        /* Main Content */
-        main {
-            padding: 4rem 1rem;
-            background-color: var(--gray-50);
-        }
-
-        /* About Section */
-        .about-section {
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
+        /* ============ SECTION TITLE ============ */
+        .section-title { text-align: center; margin-bottom: clamp(2rem,5vw,3rem); }
         .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: clamp(1.5rem,5vw,2.5rem); margin-bottom: .75rem;
+            background: linear-gradient(135deg,#4f46e5,#818cf8);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
+        .section-title p { font-size: clamp(.9rem,2.5vw,1.1rem); color: var(--gray-500); max-width: 600px; margin: 0 auto; }
 
-        .section-title p {
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        /* ============ ABOUT SECTION ============ */
+        .about-section { margin-bottom: clamp(3rem,6vw,5rem); }
+        .about-grid { display: grid; gap: 2.5rem; }
+        @media(min-width:768px) { .about-grid { grid-template-columns: 1fr 1fr; align-items: center; } }
+        .about-content h3 { font-size: clamp(1.3rem,4vw,1.75rem); margin-bottom: 1.25rem; color: var(--gray-900); }
+        .about-content p { margin-bottom: 1.25rem; line-height: 1.7; }
+        .about-content p:last-child { margin-bottom: 0; }
+        .about-image { text-align: center; }
+        .about-icon { font-size: 5rem; color: #4f46e5; margin-bottom: 1rem; display: block; }
+        .about-image h3 { font-size: clamp(1.2rem,3vw,1.6rem); margin-bottom: .5rem; color: var(--gray-900); }
+        .about-image p { color: var(--gray-500); }
 
-        .about-grid {
-            display: grid;
-            gap: 3rem;
-        }
-
-        @media (min-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr 1fr;
-                align-items: center;
-            }
-        }
-
-        .about-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--gray-900);
-        }
-
-        .about-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.125rem;
-            line-height: 1.7;
-        }
-
-        .about-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .about-image {
-            text-align: center;
-        }
-
-        .about-icon {
-            font-size: 5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-
-        .about-image h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--gray-900);
-        }
-
-        .about-image p {
-            font-size: 1.125rem;
-            color: var(--gray-600);
-        }
-
-        /* Mission Vision */
-        .mission-vision-section {
-            margin-bottom: 4rem;
-        }
-
-        .mission-vision-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .mission-vision-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem;
-            }
-        }
-
+        /* ============ MISSION VISION ============ */
+        .mission-vision-section { margin-bottom: clamp(3rem,6vw,5rem); }
+        .mission-vision-grid { display: grid; gap: 1.5rem; }
+        @media(min-width:768px) { .mission-vision-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
         .mission-card, .vision-card {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: 2.5rem;
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-            transition: var(--transition-normal);
-            border: 1px solid var(--gray-200);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            will-change: transform;
-            backface-visibility: hidden;
-            -webkit-font-smoothing: antialiased;
+            background: white; border-radius: var(--radius-xl);
+            padding: clamp(1.5rem,4vw,2.5rem); box-shadow: var(--shadow-lg);
+            text-align: center; transition: var(--transition-normal);
+            border: 1px solid var(--gray-200); height: 100%;
+            display: flex; flex-direction: column; align-items: center;
         }
-
-        /* PC hover efektleri */
-        @media (hover: hover) and (pointer: fine) {
-            .mission-card:hover, .vision-card:hover {
-                transform: translateY(-8px);
-                box-shadow: var(--shadow-xl);
-                border-color: var(--primary-light);
-            }
+        @media(hover:hover) and (pointer:fine) {
+            .mission-card:hover, .vision-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: #6366f1; }
         }
-
         .card-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            width: 5rem;
-            height: 5rem;
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary-soft), var(--white));
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
+            font-size: 2.5rem; margin-bottom: 1.25rem;
+            width: 4.5rem; height: 4.5rem; border-radius: var(--radius-lg);
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg,var(--primary-soft),white);
+            color: #4f46e5; flex-shrink: 0;
         }
+        .mission-card h3, .vision-card h3 { font-size: clamp(1.1rem,3vw,1.4rem); margin-bottom: .875rem; color: var(--gray-900); }
+        .mission-card p, .vision-card p { font-size: clamp(.875rem,2.5vw,1rem); color: var(--gray-600); line-height: 1.6; }
 
-        .mission-card h3, .vision-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--gray-900);
-        }
-
-        .mission-card p, .vision-card p {
-            font-size: 1rem;
-            color: var(--gray-600);
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        /* Features */
-        .features-section {
-            margin-bottom: 4rem;
-        }
-
-        .features-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 2.5rem;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 2.5rem;
-            }
-        }
-
+        /* ============ FEATURES ============ */
+        .features-section { margin-bottom: clamp(3rem,6vw,5rem); }
+        .features-grid { display: grid; gap: 1.5rem; }
+        @media(min-width:560px) { .features-grid { grid-template-columns: repeat(2,1fr); } }
+        @media(min-width:900px) { .features-grid { grid-template-columns: repeat(4,1fr); } }
         .feature-card {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-            transition: var(--transition-normal);
-            border: 1px solid var(--gray-200);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            will-change: transform;
-            backface-visibility: hidden;
-            -webkit-font-smoothing: antialiased;
+            background: white; border-radius: var(--radius-xl);
+            padding: clamp(1.25rem,4vw,2rem); box-shadow: var(--shadow-lg);
+            text-align: center; transition: var(--transition-normal);
+            border: 1px solid var(--gray-200); height: 100%;
+            display: flex; flex-direction: column; align-items: center;
         }
-
-        /* PC hover efektleri */
-        @media (hover: hover) and (pointer: fine) {
-            .feature-card:hover {
-                transform: translateY(-12px) scale(1.02);
-                box-shadow: var(--shadow-xl);
-                border-color: var(--primary-light);
-            }
+        @media(hover:hover) and (pointer:fine) {
+            .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: #6366f1; }
         }
+        .feature-card .card-icon { background: linear-gradient(135deg,#fee2e2,white); color: #dc2626; }
+        .feature-card h4 { font-size: clamp(1rem,2.5vw,1.2rem); margin-bottom: .75rem; color: var(--gray-900); }
+        .feature-card p { font-size: clamp(.875rem,2.5vw,.975rem); color: var(--gray-600); line-height: 1.6; }
 
-        .feature-card .card-icon {
-            color: var(--accent);
-            background: linear-gradient(135deg, #fee2e2, var(--white));
-        }
-
-        .feature-card h4 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--gray-900);
-        }
-
-        .feature-card p {
-            font-size: 1rem;
-            color: var(--gray-600);
-            margin-bottom: 0;
-        }
-
-        /* Contact Section */
+        /* ============ CONTACT ============ */
         .contact-section {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: 3rem;
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-            border: 1px solid var(--gray-200);
+            background: white; border-radius: var(--radius-xl);
+            padding: clamp(2rem,5vw,3rem); box-shadow: var(--shadow-lg);
+            text-align: center; border: 1px solid var(--gray-200);
         }
-
-        .contact-section p {
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        @media (min-width: 1024px) {
-            .contact-info {
-                gap: 2rem;
-            }
-            
-            .contact-item {
-                padding: 1.5rem 2rem;
-            }
-        }
-
+        .contact-info { display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: center; margin-top: 2rem; }
         .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1.25rem 1.5rem;
-            border-radius: var(--radius-lg);
-            background: var(--gray-100);
-            transition: var(--transition-fast);
-            border: 1px solid var(--gray-200);
-            font-size: 1.125rem;
-            min-height: 44px;
-            min-width: 44px;
-            touch-action: manipulation;
+            display: flex; align-items: center; gap: .75rem;
+            padding: 1rem 1.5rem; border-radius: var(--radius-lg);
+            background: var(--gray-100); transition: var(--transition-fast);
+            border: 1px solid var(--gray-200); font-size: 1rem; min-height: 52px;
+            -webkit-tap-highlight-color: transparent;
         }
-
-        /* PC hover efektleri */
-        @media (hover: hover) and (pointer: fine) {
-            .contact-item:hover {
-                background: var(--gray-200);
-                transform: translateY(-6px);
-                box-shadow: var(--shadow-lg);
-                border-color: var(--primary-light);
-            }
+        @media(hover:hover) and (pointer:fine) {
+            .contact-item:hover { background: var(--gray-200); transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: #6366f1; }
         }
+        @media(max-width:600px) { .contact-item { width: 100%; max-width: 320px; justify-content: center; } }
+        .contact-icon { font-size: 1.5rem; color: #4f46e5; flex-shrink: 0; }
 
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--primary);
+        /* ============ FOOTER ============ */
+        footer { background: var(--gray-900); color: var(--gray-300); padding: clamp(3rem,6vw,4rem) 1rem 2rem; margin-top: clamp(2rem,5vw,4rem); }
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; gap: 2.5rem; margin-bottom: 2.5rem; }
+        @media(min-width:768px) { .footer-grid { grid-template-columns: repeat(3,1fr); } }
+        .footer-column h4 { color: white; font-size: 1.05rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: .5rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: .5rem; }
+        .footer-links a { color: var(--gray-400); text-decoration: none; transition: var(--transition-fast); display: flex; align-items: center; gap: .5rem; min-height: 44px; font-size: .9rem; }
+        .footer-links a:hover { color: white; transform: translateX(4px); }
+        .footer-bottom { border-top: 1px solid var(--gray-800); padding-top: 1.5rem; text-align: center; color: var(--gray-500); font-size: .875rem; }
+
+        /* ============ FOOTER FIRST AID ============ */
+        #footerFirstAidButton {
+            background: linear-gradient(135deg,#dc2626,#b91c1c); color: white; border: none;
+            padding: .75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer;
+            display: flex; align-items: center; gap: .5rem; font-weight: 600;
+            transition: all .3s ease; margin-top: 1rem; width: 100%;
+            justify-content: center; min-height: 48px; font-size: .95rem;
+            -webkit-tap-highlight-color: transparent;
         }
+        #footerFirstAidButton:hover { filter: brightness(1.1); transform: translateY(-2px); }
 
-        /* Footer - Index ile TAMAMEN AYNI */
-        footer {
-            background: var(--gray-900);
-            color: var(--gray-300);
-            padding: 4rem 1rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        @media (min-width: 768px) {
-            .footer-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .footer-column h4 {
-            color: var(--white);
-            font-size: 1.125rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links a {
-            color: var(--gray-400);
-            text-decoration: none;
-            transition: var(--transition-fast);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            min-height: 44px;
-            min-width: 44px;
-        }
-
-        .footer-links a:hover {
-            color: var(--white);
-            transform: translateX(4px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--gray-800);
-            padding-top: 2rem;
-            text-align: center;
-            color: var(--gray-500);
-            font-size: 0.875rem;
-        }
-
-        /* Animations - Index ile aynı */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in-up {
-            animation: fadeInUp 0.6s ease-out forwards;
-            opacity: 0;
-            backface-visibility: hidden;
-        }
-
+        /* ============ ANİMASYON ============ */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in-up { animation: fadeInUp .6s ease-out forwards; opacity: 0; }
         .animate-delay-100 { animation-delay: 100ms; }
         .animate-delay-200 { animation-delay: 200ms; }
         .animate-delay-300 { animation-delay: 300ms; }
 
-        /* Mobile Menu - Index ile TAMAMEN AYNI */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 100%;
-            max-width: 320px;
-            height: 100vh;
-            background: var(--white);
-            z-index: 100;
-            transition: var(--transition-normal);
-            padding: 1.5rem;
-            box-shadow: var(--shadow-xl);
-            display: flex;
-            flex-direction: column;
-            touch-action: manipulation;
+        /* ============ İLK YARDIM MODAL ============ */
+        .firstaid-modal {
+            position: fixed; inset: 0; background: rgba(10,10,26,.95);
+            z-index: 1000; display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: var(--transition-normal); padding: 1rem;
         }
-
-        .mobile-menu.active {
-            right: 0;
+        .firstaid-modal.active { opacity: 1; visibility: visible; }
+        .firstaid-modal-content {
+            background: white; border-radius: var(--radius-xl);
+            width: 100%; height: 90%; max-height: 90vh; max-width: 1000px;
+            overflow: hidden; display: flex; flex-direction: column;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,.5);
         }
-
-        .mobile-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
+        .firstaid-modal-header {
+            padding: 1.25rem 1.5rem; display: flex; justify-content: space-between;
+            align-items: center; background: linear-gradient(135deg,#dc2626,#b91c1c);
+            color: white; flex-shrink: 0;
         }
-
-        .mobile-menu-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+        .firstaid-modal-header h3 { color: white; margin: 0; display: flex; align-items: center; gap: .625rem; font-size: clamp(1rem,3.5vw,1.4rem); }
+        .close-modal-btn {
+            background: rgba(255,255,255,.2); border: none; width: 2.5rem; height: 2.5rem;
+            border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.5rem; cursor: pointer; transition: var(--transition-fast);
+            min-height: 44px; min-width: 44px; flex-shrink: 0;
         }
-
-        .mobile-menu-link {
-            padding: 1.25rem 1rem;
-            border-radius: var(--radius-md);
-            color: var(--gray-700);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition-fast);
-            min-height: 44px;
-            min-width: 44px;
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-            touch-action: manipulation;
+        .close-modal-btn:hover { background: rgba(255,255,255,.3); transform: rotate(90deg); }
+        .firstaid-modal-body { display: flex; flex-direction: column; height: 100%; overflow: hidden; }
+        .firstaid-tabs {
+            display: flex; border-bottom: 1px solid var(--gray-200); background: var(--gray-50);
+            flex-shrink: 0; overflow-x: auto; -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; -ms-overflow-style: none;
         }
-
-        .mobile-menu-link:hover,
-        .mobile-menu-link.active {
-            background: var(--primary);
-            color: var(--white);
+        .firstaid-tabs::-webkit-scrollbar { display: none; }
+        .firstaid-tab {
+            flex: 1; min-width: 130px; padding: 1rem 1.25rem; border: none; background: none;
+            font-family: inherit; font-weight: 600; color: var(--gray-600); cursor: pointer;
+            transition: var(--transition-fast); display: flex; align-items: center;
+            justify-content: center; gap: .5rem; font-size: clamp(.8rem,2.5vw,.95rem);
+            white-space: nowrap; min-height: 52px; -webkit-tap-highlight-color: transparent;
         }
+        .firstaid-tab:hover { background: var(--gray-100); }
+        .firstaid-tab.active { color: #dc2626; border-bottom: 3px solid #dc2626; background: white; }
+        .firstaid-tab-content { flex: 1; overflow-y: auto; padding: clamp(1rem,4vw,2rem); display: none; -webkit-overflow-scrolling: touch; }
+        .firstaid-tab-content.active { display: block; }
+        .firstaid-step-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: clamp(1rem,3vw,1.5rem); margin-bottom: 1.25rem; transition: var(--transition-fast); }
+        @media(hover:hover) and (pointer:fine) { .firstaid-step-card:hover { transform: translateX(4px); border-color: #6366f1; box-shadow: var(--shadow-md); } }
+        .firstaid-step-card h4 { color: var(--gray-900); margin-bottom: .625rem; display: flex; align-items: center; gap: .625rem; font-size: clamp(1rem,3vw,1.2rem); }
+        .firstaid-step-card p { font-size: clamp(.875rem,2.5vw,1rem); color: var(--gray-600); line-height: 1.6; margin-bottom: 0; }
+        .firstaid-warning { background: #fef3c7; border-left: 4px solid var(--warning); padding: 1.125rem; border-radius: var(--radius-md); margin: 1.25rem 0; }
+        .firstaid-warning h5 { color: #92400e; margin-bottom: .375rem; display: flex; align-items: center; gap: .375rem; }
+        .firstaid-tips { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.25rem; margin-top: 1.5rem; }
+        .firstaid-tip { background: linear-gradient(135deg,var(--primary-soft),white); border-radius: var(--radius-lg); padding: 1.25rem; border: 1px solid var(--primary-light); }
+        .firstaid-tip h5 { color: #4338ca; margin-bottom: .5rem; display: flex; align-items: center; gap: .375rem; }
+        .firstaid-tip p { font-size: clamp(.875rem,2.5vw,.975rem); color: var(--gray-600); }
+        .emergency-numbers { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 1rem; margin-top: 1.5rem; }
+        .emergency-number { background: var(--gray-100); border-radius: var(--radius-lg); padding: 1.125rem; text-align: center; transition: var(--transition-fast); cursor: pointer; }
+        @media(hover:hover) and (pointer:fine) { .emergency-number:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); } }
+        .emergency-number .number { font-size: 1.75rem; font-weight: 700; color: var(--accent); margin-bottom: .375rem; }
+        .emergency-number .service { font-weight: 600; color: var(--gray-800); font-size: .875rem; }
+        .number-list { list-style: none; padding-left: 0; }
+        .number-list li { margin-bottom: .625rem; padding: .75rem; background: var(--gray-50); border-radius: var(--radius-md); display: flex; align-items: center; gap: 1rem; border: 1px solid var(--gray-200); }
+        .number-list .number { font-weight: 700; font-size: 1.2rem; color: var(--accent); min-width: 90px; }
+        .number-list .service { flex: 1; font-weight: 600; color: var(--gray-800); }
+        .icon-red { color: var(--accent); }
+        .icon-blue { color: #4f46e5; }
+        .icon-green { color: var(--success); }
+        .icon-orange { color: var(--warning); }
+        .icon-purple { color: #7c3aed; }
 
-        /* İlk yardım butonu mobile menüye - Index ile aynı */
-        .mobile-menu-link.firstaid-button {
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-top: 1rem;
+        /* ============ FOCUS & SCROLLBAR ============ */
+        :focus-visible { outline: 3px solid #4f46e5; outline-offset: 3px; border-radius: var(--radius-md); }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: var(--gray-100); }
+        ::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
+
+        /* ============ RESPONSİVE ============ */
+        @media(max-width:768px) {
+            .firstaid-tabs { flex-direction: column; }
+            .firstaid-tab { min-width: 100%; justify-content: flex-start; border-bottom: 1px solid var(--gray-200); }
+            .firstaid-tab.active { border-bottom: 3px solid #dc2626; }
+            .firstaid-modal-content { height: 95%; max-height: 95vh; }
+            .contact-info { flex-direction: column; align-items: center; }
         }
-
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 99;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition-normal);
+        @media(max-width:480px) {
+            .logo-subtitle { display: none; }
         }
-
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* iOS input zoom önleme */
-        @media screen and (max-width: 768px) {
-            input, textarea {
-                font-size: 16px;
-            }
-        }
-
-        /* Responsive - Index ile uyumlu */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .page-hero h1 {
-                font-size: 2.75rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .mission-vision-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-item {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-            
-            /* Mobilde daha hafif gölgeler */
-            .mission-card, .vision-card, .feature-card {
-                box-shadow: var(--shadow-md);
-            }
-            
-            /* Mobilde animasyonları optimize et */
-            .animate-fade-in-up {
-                animation: none;
-                opacity: 1;
-                transform: none;
-            }
-            
-            /* Mobilde sticky header yüksekliğini azalt */
-            header {
-                padding: 0.75rem 0;
-            }
-        }
-
-        /* Mobilde daha küçük ekranlar */
-        @media (max-width: 480px) {
-            html {
-                font-size: 14px;
-            }
-            
-            .page-hero h1 {
-                font-size: 2.25rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.75rem;
-            }
-            
-            .mobile-menu {
-                padding: 1rem;
-            }
-            
-            .mobile-menu-link {
-                padding: 1rem;
-                font-size: 1rem;
-            }
-        }
-
-        /* Focus Styles - İyileştirilmiş */
-        :focus-visible {
-            outline: 3px solid var(--primary);
-            outline-offset: 3px;
-            box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.3);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :focus-visible {
-                outline-color: #14b8a6;
-                box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.5);
-            }
-        }
-
-        /* Yüksek kontrast modu desteği */
-        @media (prefers-contrast: high) {
-            :root {
-                --primary: #0d9488;
-                --accent: #dc2626;
-            }
-            
-            .nav-link.active {
-                outline: 2px solid #000000;
-            }
-        }
-
-        /* Custom Scrollbar - Index ile aynı */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--gray-100);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gray-300);
-            border-radius: 5px;
-            border: 2px solid var(--gray-100);
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--gray-400);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            ::-webkit-scrollbar {
-                width: 10px;
-                background: #0f172a;
-            }
-            
-            ::-webkit-scrollbar-track {
-                background: #0f172a;
-            }
-            
-            ::-webkit-scrollbar-thumb {
-                background: #475569;
-                border-radius: 5px;
-                border: 2px solid #0f172a;
-            }
-            
-            ::-webkit-scrollbar-thumb:hover {
-                background: #64748b;
-            }
-        }
-
-        /* Pusula animasyonu - Index ile aynı */
-        .compass-icon {
-            animation: rotateSlow 20s linear infinite;
-        }
-
-        @keyframes rotateSlow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        /* PC'de daha hızlı geçişler */
-        @media (min-width: 1024px) {
-            :root {
-                --transition-fast: 100ms cubic-bezier(0.4, 0, 0.2, 1);
-                --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-            }
+        @media(max-width:375px) { .container { padding: 0 .75rem; } }
+        @media print {
+            .page-hero, footer, .mobile-menu-btn { display: none !important; }
+            body { background: white !important; color: black !important; }
         }
     </style>
 </head>
 <body>
-    <!-- Header - Index ile TAMAMEN AYNI (ilk yardım butonu dahil) -->
+
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="index.html" class="logo">
-                    <!-- Pusula ile - Index ile aynı -->
-                    <div class="logo-icon compass">🧭</div>
+                <a href="index.html" class="logo" aria-label="Afet Hazırlık Ana Sayfa">
+                    <div class="logo-icon compass" aria-hidden="true">🧭</div>
                     <div class="logo-text">
                         <div class="logo-title">Afet Hazırlık</div>
                         <div class="logo-subtitle">Güvende Kal</div>
                     </div>
                 </a>
-
-                <!-- Desktop Navigation - Index ile aynı (ilk yardım butonu dahil) -->
                 <nav class="nav-desktop" aria-label="Ana Navigasyon">
-                    <a href="index.html" class="nav-link">🏠 Ana Sayfa</a>
-                    <a href="yer.html" class="nav-link">🏔️ Yer Afetleri</a>
-                    <a href="su.html" class="nav-link">🌊 Su Afetleri</a>
-                    <a href="hava.html" class="nav-link">🌪️ Hava Afetleri</a>
-                    <a href="İnsan.html" class="nav-link">🔥 İnsan Kaynaklı</a>
-                    <a href="hakkinda.html" class="nav-link active">ℹ️ Hakkında</a>
-                    <!-- İlk Yardım Butonu - Index ile aynı -->
+                    <a href="index.html"    class="nav-link">🏠 Ana Sayfa</a>
+                    <a href="yer.html"      class="nav-link">🏔️ Yer Afetleri</a>
+                    <a href="su.html"       class="nav-link">🌊 Su Afetleri</a>
+                    <a href="hava.html"     class="nav-link">🌪️ Hava Afetleri</a>
+                    <a href="İnsan.html"    class="nav-link">🔥 İnsan Kaynaklı</a>
+                    <a href="hakkinda.html" class="nav-link active" aria-current="page">ℹ️ Hakkında</a>
                     <a href="#" class="nav-link firstaid-button" id="firstAidButton">
-                        <span>🆘</span>
-                        İlk Yardım Rehberi
+                        <span>🆘</span> İlk Yardım Rehberi
                     </a>
                 </nav>
-
-                <!-- Mobile Menu Button - Index ile aynı -->
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü Aç">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü Aç" aria-expanded="false">
                     <span class="menu-line"></span>
                     <span class="menu-line"></span>
                     <span class="menu-line"></span>
@@ -1290,60 +515,153 @@
         </div>
     </header>
 
-    <!-- Mobile Menu - Index ile TAMAMEN AYNI (ilk yardım butonu dahil) -->
-    <div class="menu-overlay" id="menuOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
+    <!-- Mobile Menu -->
+    <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
         <div class="mobile-menu-header">
             <div class="logo">
-                <div class="logo-icon compass">🧭</div>
-                <div class="logo-text">
-                    <div class="logo-title">Afet Hazırlık</div>
-                </div>
+                <div class="logo-icon compass" aria-hidden="true">🧭</div>
+                <div class="logo-text"><div class="logo-title">Afet Hazırlık</div></div>
             </div>
-            <button id="closeMenuBtn" style="background:none;border:none;font-size:1.5rem;color:var(--gray-600);cursor:pointer;min-height:44px;min-width:44px;touch-action:manipulation;">×</button>
+            <button id="closeMenuBtn" style="background:none;border:none;font-size:1.75rem;color:var(--gray-600);cursor:pointer;min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;" aria-label="Menüyü Kapat">×</button>
         </div>
         <nav class="mobile-menu-links" aria-label="Mobil Navigasyon">
-            <a href="index.html" class="mobile-menu-link">🏠 Ana Sayfa</a>
-            <a href="yer.html" class="mobile-menu-link">🏔️ Yer Afetleri</a>
-            <a href="su.html" class="mobile-menu-link">🌊 Su Afetleri</a>
-            <a href="hava.html" class="mobile-menu-link">🌪️ Hava Afetleri</a>
-            <a href="İnsan.html" class="mobile-menu-link">🔥 İnsan Kaynaklı</a>
-            <a href="hakkinda.html" class="mobile-menu-link active">ℹ️ Hakkında</a>
-            <!-- Mobil Menüye İlk Yardım Butonu - Index ile aynı -->
+            <a href="index.html"    class="mobile-menu-link">🏠 Ana Sayfa</a>
+            <a href="yer.html"      class="mobile-menu-link">🏔️ Yer Afetleri</a>
+            <a href="su.html"       class="mobile-menu-link">🌊 Su Afetleri</a>
+            <a href="hava.html"     class="mobile-menu-link">🌪️ Hava Afetleri</a>
+            <a href="İnsan.html"    class="mobile-menu-link">🔥 İnsan Kaynaklı</a>
+            <a href="hakkinda.html" class="mobile-menu-link active" aria-current="page">ℹ️ Hakkında</a>
             <a href="#" class="mobile-menu-link firstaid-button" id="mobileFirstAidButton">
-                <span>🆘</span>
-                İlk Yardım Rehberi
+                <span>🆘</span> İlk Yardım Rehberi
             </a>
         </nav>
     </div>
 
+    <!-- İLK YARDIM MODAL -->
+    <div class="firstaid-modal" id="firstAidModal" role="dialog" aria-modal="true" aria-labelledby="firstAidModalTitle">
+        <div class="firstaid-modal-content">
+            <div class="firstaid-modal-header">
+                <h3 id="firstAidModalTitle"><span>🆘</span> Acil Durumda İlk Yardım Rehberi</h3>
+                <button class="close-modal-btn" id="closeFirstAidModal" aria-label="Kapat">×</button>
+            </div>
+            <div class="firstaid-modal-body">
+                <div class="firstaid-tabs" role="tablist">
+                    <button class="firstaid-tab active" data-tab="basic"       role="tab" aria-selected="true">🧠 Temel Kurallar</button>
+                    <button class="firstaid-tab"        data-tab="bleeding"    role="tab" aria-selected="false">🩸 Kanamalar</button>
+                    <button class="firstaid-tab"        data-tab="unconscious" role="tab" aria-selected="false">😴 Bayılma</button>
+                    <button class="firstaid-tab"        data-tab="burn"        role="tab" aria-selected="false">🔥 Yanıklar</button>
+                    <button class="firstaid-tab"        data-tab="fracture"    role="tab" aria-selected="false">🦴 Kırıklar</button>
+                    <button class="firstaid-tab"        data-tab="numbers"     role="tab" aria-selected="false">📞 Acil Numaralar</button>
+                </div>
+
+                <!-- Temel -->
+                <div class="firstaid-tab-content active" id="basic-tab" role="tabpanel">
+                    <h3 style="margin-bottom:1.5rem;color:#dc2626;">İlk Yardımın Temel Kuralları</h3>
+                    <div class="firstaid-step-card"><h4><span class="icon-red">1️⃣</span> Sakin Olun ve Güvenliği Sağlayın</h4><p>Önce kendi güvenliğinizi kontrol edin, sonra çevreyi değerlendirin. Elektrik, gaz, yangın gibi riskleri kontrol edin.</p></div>
+                    <div class="firstaid-step-card"><h4><span class="icon-blue">2️⃣</span> 112'yi Arayın</h4><p>Hemen 112 Acil'i arayın. Sakin bir şekilde: olayın ne olduğunu, adresi, yaralı sayısını ve isim/telefonunuzu bildirin.</p></div>
+                    <div class="firstaid-step-card"><h4><span class="icon-green">3️⃣</span> Yaralıyı Değerlendirin</h4><p>• Bilinç kontrolü yapın<br>• Solunumunu kontrol edin<br>• Nabzını kontrol edin<br>• Ciddi kanama olup olmadığını kontrol edin</p></div>
+                    <div class="firstaid-step-card"><h4><span class="icon-orange">4️⃣</span> Temel Yaşam Desteği (ABC)</h4><p><strong>A (Airway):</strong> Havayolunu açık tutun<br><strong>B (Breathing):</strong> Solunumu sağlayın<br><strong>C (Circulation):</strong> Dolaşımı destekleyin</p></div>
+                    <div class="firstaid-warning"><h5><span>⚠️</span> ÖNEMLİ UYARI</h5><p>• Bilinçsiz yaralıları hareket ettirmeyin<br>• Bilinçsiz yaralılara su veya yiyecek vermeyin<br>• Yaralıyı sıcak tutun ama terletmeyin</p></div>
+                </div>
+
+                <!-- Kanamalar -->
+                <div class="firstaid-tab-content" id="bleeding-tab" role="tabpanel">
+                    <h3 style="margin-bottom:1.5rem;color:#dc2626;">Kanamalarda İlk Yardım</h3>
+                    <div class="firstaid-step-card"><h4><span class="icon-red">🩸</span> İç Kanama Belirtileri</h4><p>• Soluk, soğuk, nemli cilt<br>• Hızlı ve zayıf nabız<br>• Baş dönmesi, baygınlık hissi<br>• Şok belirtileri</p></div>
+                    <div class="firstaid-step-card"><h4><span class="icon-blue">🎯</span> Kanamayı Durdurma</h4><p><strong>1. Basınç:</strong> Temiz bezle kanayan yere direkt basınç uygulayın<br><strong>2. Yükseltme:</strong> Kanayan bölgeyi kalp seviyesinin üzerine kaldırın</p></div>
+                    <div class="firstaid-step-card"><h4><span class="icon-green">⚠️</span> Turnike (Sadece Hayati Risk!)</h4><p>• 5-7 cm genişliğinde bez kullanın<br>• Uygulama saatini not edin<br>• 15-20 dakikada bir 5-10 saniye gevşetin</p></div>
+                    <div class="firstaid-warning"><h5><span>❌</span> YAPILMAMASI GEREKENLER</h5><p>• Yaraya tentürdiyot/alkol dökmeyin<br>• Yaraya pamuk basmayın<br>• Batmış cisimleri çıkarmayın</p></div>
+                </div>
+
+                <!-- Bayılma -->
+                <div class="firstaid-tab-content" id="unconscious-tab" role="tabpanel">
+                    <h3 style="margin-bottom:1.5rem;color:#dc2626;">Bilinç Kaybı ve Bayılmada İlk Yardım</h3>
+                    <div class="firstaid-step-card"><h4><span class="icon-red">😴</span> Bilinç Kontrolü</h4><p>1. Omuzlarından sarsarak "İyi misiniz?" diye sorun<br>2. Yanıt yoksa 112'yi arayın<br>3. Solunum ve nabzı kontrol edin</p></div>
+                    <div class="firstaid-step-card"><h4><span class="icon-blue">🔄</span> Koma Pozisyonu</h4><p>1. Sırt üstü yatırın → yakın kolu uzatın → diğer eli yanağa koy<br>2. Uzak bacağı bük → omuz ve kalçadan çevir → baş geriye yatır</p></div>
+                    <div class="firstaid-step-card"><h4><span class="icon-green">💓</span> Kalp Masajı</h4><p>• 30 bası + 2 solunum<br>• Dakikada 100-120 bası<br>• Göğüs 5-6 cm çökmeli</p></div>
+                    <div class="firstaid-tips">
+                        <div class="firstaid-tip"><h5>🌬️ Suni Solunum</h5><p>Başı geriye yatır, burunu kapat, 1 saniye üfle.</p></div>
+                        <div class="firstaid-tip"><h5>👶 Bebeklerde</h5><p>2 parmak, 4 cm derinlik, 30+2.</p></div>
+                        <div class="firstaid-tip"><h5>🧒 Çocuklarda</h5><p>1 el, 5 cm derinlik, 30+2.</p></div>
+                    </div>
+                </div>
+
+                <!-- Yanıklar -->
+                <div class="firstaid-tab-content" id="burn-tab" role="tabpanel">
+                    <h3 style="margin-bottom:1.5rem;color:#dc2626;">Yanıklarda İlk Yardım</h3>
+                    <div class="firstaid-step-card"><h4><span class="icon-red">🔥</span> 1. Derece</h4><p><strong>Belirtiler:</strong> Kızarıklık, hafif şişlik<br>15-20 dk soğuk su → yanık kremi → steril bez</p></div>
+                    <div class="firstaid-step-card"><h4><span class="icon-blue">🔥</span> 2. Derece</h4><p><strong>Belirtiler:</strong> Kabarcıklar, şiddetli ağrı<br>Soğuk su (buz değil!) → kabarcıkları patlatma → acil servis</p></div>
+                    <div class="firstaid-step-card"><h4><span class="icon-green">🔥</span> 3. Derece</h4><p><strong>Belirtiler:</strong> Deri kömürleşmiş, ağrı yok<br>112'yi ara → kuru steril bez → kesinlikle su uygulama</p></div>
+                    <div class="firstaid-warning"><h5><span>❌</span> YANIKLARDA ASLA</h5><p>• Diş macunu, yoğurt, buz uygulamayın<br>• Kabarcıkları patlatmayın</p></div>
+                </div>
+
+                <!-- Kırıklar -->
+                <div class="firstaid-tab-content" id="fracture-tab" role="tabpanel">
+                    <h3 style="margin-bottom:1.5rem;color:#dc2626;">Kırık ve Çıkıklarda İlk Yardım</h3>
+                    <div class="firstaid-step-card"><h4><span class="icon-red">🦴</span> Kırık Belirtileri</h4><p>• Şiddetli ağrı, şişlik, morarma<br>• Şekil bozukluğu, hareket edememe</p></div>
+                    <div class="firstaid-step-card"><h4><span class="icon-blue">🩹</span> Kapalı Kırık</h4><p>1. Hareketsiz tutun<br>2. Eklemleri sabitleyin<br>3. Soğuk uygulayın<br>4. Acil servis</p></div>
+                    <div class="firstaid-step-card"><h4><span class="icon-green">⚠️</span> Açık Kırık</h4><p>1. Kanamayı durdurun<br>2. Kemik uçlarını içeri itmeyin<br>3. Temiz bezle örtün<br>4. Hemen 112</p></div>
+                    <div class="firstaid-step-card"><h4><span class="icon-orange">🦵</span> Atel Uygulama</h4><p>• Kırık bölgeyi + üst/alt eklemleri sabitle<br>• Sargıyı çok sıkma<br>• Parmakları açıkta bırak</p></div>
+                </div>
+
+                <!-- Numaralar -->
+                <div class="firstaid-tab-content" id="numbers-tab" role="tabpanel">
+                    <h3 style="margin-bottom:1.5rem;color:#dc2626;">Acil Durum Telefon Numaraları</h3>
+                    <div class="emergency-numbers">
+                        <div class="emergency-number" onclick="location.href='tel:112'" role="button"><div class="number">112</div><div class="service">ACİL YARDIM</div><p style="font-size:.875rem;margin-top:.375rem;">Tüm acil durumlar</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:110'" role="button"><div class="number">110</div><div class="service">İTFAİYE</div><p style="font-size:.875rem;margin-top:.375rem;">Yangın, kurtarma</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:155'" role="button"><div class="number">155</div><div class="service">POLİS İMDAT</div><p style="font-size:.875rem;margin-top:.375rem;">Güvenlik</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:156'" role="button"><div class="number">156</div><div class="service">JANDARMA</div><p style="font-size:.875rem;margin-top:.375rem;">Kırsal bölgeler</p></div>
+                    </div>
+                    <div style="margin-top:2rem;">
+                        <h4 style="color:#4f46e5;margin-bottom:1rem;">📞 Diğer Önemli Numaralar</h4>
+                        <ul class="number-list">
+                            <li><span class="number">184</span><span class="service">SABİM - Sağlık Bakanlığı</span></li>
+                            <li><span class="number">185</span><span class="service">SU ŞİKAYET</span></li>
+                            <li><span class="number">186</span><span class="service">ELEKTRİK ARIZA</span></li>
+                            <li><span class="number">187</span><span class="service">DOĞAL GAZ ARIZA</span></li>
+                            <li><span class="number">153</span><span class="service">BELEDİYE ZABITA</span></li>
+                            <li><span class="number">154</span><span class="service">TRAFİK POLİSİ</span></li>
+                        </ul>
+                    </div>
+                    <div class="firstaid-warning" style="margin-top:1.5rem;">
+                        <h5><span>📱</span> ACİL ARAMA YAPARKEN</h5>
+                        <p>1. Sakin olun ve net konuşun<br>2. Tam adresinizi söyleyin<br>3. Yaralı sayısını bildirin<br>4. Telefonu ilk siz kapatmayın</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="page-hero" aria-label="Sayfa başlığı">
         <div class="container">
             <div class="page-hero-content">
                 <h1 class="animate-fade-in-up">Hakkımızda</h1>
                 <p class="animate-fade-in-up animate-delay-100">
-                    Afet Hazırlık platformu hakkında bilgi edinin. Misyonumuz, vizyonumuz ve 
+                    Afet Hazırlık platformu hakkında bilgi edinin. Misyonumuz, vizyonumuz ve
                     topluma nasıl katkıda bulunduğumuzu öğrenin.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Ana İçerik -->
     <main>
-        <!-- About Section -->
+
+        <!-- Hakkında -->
         <section class="about-section">
             <div class="container">
                 <div class="about-grid animate-fade-in-up">
                     <div class="about-content">
                         <h3>Afet Hazırlık Nedir?</h3>
                         <p>Afet Hazırlık platformu, doğal ve insan kaynaklı afetler hakkında farkındalık oluşturmak, afet öncesi, sırası ve sonrasında doğru davranışları öğretmek amacıyla geliştirilmiş kapsamlı bir rehber platformudur.</p>
-                        <p>Platformumuz, kullanıcların afet durumlarında nasıl hareket etmeleri gerektiğini öğrenmelerini sağlar. Amacımız, toplumun her kesiminin afetlere hazırlıklı olmasına katkıda bulunmaktır.</p>
-                        <p>Herkes için ücretsiz olarak sunulan bu platform, pratik bilgiler ve hazırlık rehberleri ile güvenli bir yaşam için destek sağlar. Doğru bilgi ve doğru hazırlık ile afetlerin etkilerini en aza indirmeyi hedefliyoruz.</p>
+                        <p>Platformumuz, kullanıcıların afet durumlarında nasıl hareket etmeleri gerektiğini öğrenmelerini sağlar. Amacımız, toplumun her kesiminin afetlere hazırlıklı olmasına katkıda bulunmaktır.</p>
+                        <p>Herkes için ücretsiz olarak sunulan bu platform, pratik bilgiler ve hazırlık rehberleri ile güvenli bir yaşam için destek sağlar.</p>
                     </div>
                     <div class="about-image animate-fade-in-up animate-delay-100">
-                        <div class="about-icon">🛡️</div>
+                        <span class="about-icon" aria-hidden="true">🛡️</span>
                         <h3>Güvenlik İlk Önceliğimiz</h3>
                         <p>Doğru bilgi hayat kurtarır</p>
                     </div>
@@ -1351,7 +669,7 @@
             </div>
         </section>
 
-        <!-- Mission & Vision -->
+        <!-- Misyon & Vizyon -->
         <section class="mission-vision-section">
             <div class="container">
                 <div class="section-title animate-fade-in-up">
@@ -1360,12 +678,12 @@
                 </div>
                 <div class="mission-vision-grid">
                     <div class="mission-card animate-fade-in-up">
-                        <div class="card-icon">🎯</div>
+                        <div class="card-icon" aria-hidden="true">🎯</div>
                         <h3>Misyonumuz</h3>
                         <p>Toplumun afetler konusundaki farkındalığını artırmak, afet öncesi hazırlık, afet sırasında doğru davranış ve afet sonrası toparlanma süreçlerine ilişkin bilgi ve becerileri geliştirmek.</p>
                     </div>
                     <div class="vision-card animate-fade-in-up animate-delay-100">
-                        <div class="card-icon">👁️</div>
+                        <div class="card-icon" aria-hidden="true">👁️</div>
                         <h3>Vizyonumuz</h3>
                         <p>Afetlere karşı dirençli bir toplum oluşturmak, her bireyin afet durumunda kendisini ve sevdiklerini koruyabilecek bilgi ve beceriye sahip olmasını sağlamak.</p>
                     </div>
@@ -1373,7 +691,7 @@
             </div>
         </section>
 
-        <!-- Features -->
+        <!-- Özellikler -->
         <section class="features-section">
             <div class="container">
                 <div class="section-title animate-fade-in-up">
@@ -1382,22 +700,22 @@
                 </div>
                 <div class="features-grid">
                     <div class="feature-card animate-fade-in-up">
-                        <div class="card-icon">📚</div>
+                        <div class="card-icon" aria-hidden="true">📚</div>
                         <h4>Kapsamlı Bilgi</h4>
                         <p>4 ana afet kategorisinde detaylı bilgi ve rehberler</p>
                     </div>
                     <div class="feature-card animate-fade-in-up animate-delay-100">
-                        <div class="card-icon">🎯</div>
+                        <div class="card-icon" aria-hidden="true">🎯</div>
                         <h4>Pratik Öneriler</h4>
                         <p>Uygulanabilir ve kolay anlaşılır hazırlık önerileri</p>
                     </div>
                     <div class="feature-card animate-fade-in-up animate-delay-200">
-                        <div class="card-icon">📱</div>
+                        <div class="card-icon" aria-hidden="true">📱</div>
                         <h4>Mobil Uyumluluk</h4>
                         <p>Her cihazdan erişilebilen responsive tasarım</p>
                     </div>
                     <div class="feature-card animate-fade-in-up animate-delay-300">
-                        <div class="card-icon">🎓</div>
+                        <div class="card-icon" aria-hidden="true">🎓</div>
                         <h4>Eğitim Odaklı</h4>
                         <p>Öğrenmeyi kolaylaştıran görsel içerik</p>
                     </div>
@@ -1405,56 +723,44 @@
             </div>
         </section>
 
-        <!-- Contact -->
+        <!-- İletişim -->
         <section class="contact-section animate-fade-in-up">
-            <div class="container">
-                <div class="section-title">
-                    <h2>İletişim</h2>
-                    <p>Projemiz hakkında sorularınız veya önerileriniz varsa bizimle iletişime geçebilirsiniz.</p>
+            <div class="section-title">
+                <h2>İletişim</h2>
+                <p>Projemiz hakkında sorularınız veya önerileriniz varsa bizimle iletişime geçebilirsiniz.</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon" aria-hidden="true">📧</div>
+                    <div>bilgi@afethazirlik.com</div>
                 </div>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>E-posta: bilgi@afethazirlik.com</div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div>Telefon: (555) 123 4567</div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>Konum: Denizli, Türkiye</div>
-                    </div>
+                <div class="contact-item">
+                    <div class="contact-icon" aria-hidden="true">📱</div>
+                    <div>(555) 123 4567</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon" aria-hidden="true">📍</div>
+                    <div>Denizli, Türkiye</div>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <!-- Footer - Index ile TAMAMEN AYNI (ilk yardım butonu dahil) -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-grid">
                     <div class="footer-column">
-                        <h4>
-                            <span>🚨</span>
-                            Afet Hazırlık
-                        </h4>
-                        <p style="color: var(--gray-400); margin-bottom: 1.5rem;">
+                        <h4><span>🚨</span> Afet Hazırlık</h4>
+                        <p style="color:var(--gray-400);margin-bottom:1.25rem;font-size:.9rem;line-height:1.6;">
                             Doğal afetlere hazırlık için rehber ve bilgi kaynağı. Herkes için güvenlik.
                         </p>
-                        <!-- İlk Yardım Butonu - Index ile aynı -->
-                        <button id="footerFirstAidButton" style="background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-weight: 600; transition: all 0.3s ease; margin-top: 1rem; width: 100%; justify-content: center; min-height: 44px; min-width: 44px; touch-action: manipulation;">
-                            <span>🆘</span>
-                            İlk Yardım Rehberi
-                        </button>
+                        <button id="footerFirstAidButton"><span>🆘</span> İlk Yardım Rehberi</button>
                     </div>
-
                     <div class="footer-column">
-                        <h4>
-                            <span>🔗</span>
-                            Hızlı Bağlantılar
-                        </h4>
+                        <h4><span>🔗</span> Hızlı Bağlantılar</h4>
                         <ul class="footer-links">
                             <li><a href="index.html"><span>🏠</span> Ana Sayfa</a></li>
                             <li><a href="yer.html"><span>🏔️</span> Yer Afetleri</a></li>
@@ -1464,1043 +770,130 @@
                             <li><a href="hakkinda.html"><span>ℹ️</span> Hakkında</a></li>
                         </ul>
                     </div>
-
                     <div class="footer-column">
-                        <h4>
-                            <span>📞</span>
-                            Acil Kaynaklar
-                        </h4>
+                        <h4><span>📞</span> Acil Kaynaklar</h4>
                         <ul class="footer-links">
-                            <li><a href="https://www.afad.gov.tr" target="_blank" rel="noopener"><span>🏛️</span> AFAD</a></li>
-                            <li><a href="https://www.mgm.gov.tr" target="_blank" rel="noopener"><span>🌤️</span> Meteoroloji</a></li>
-                            <li><a href="https://www.112.gov.tr" target="_blank" rel="noopener"><span>🚨</span> 112 Acil</a></li>
-                            <li><a href="https://www.kizilay.org.tr" target="_blank" rel="noopener"><span>❤️</span> Kızılay</a></li>
+                            <li><a href="https://www.afad.gov.tr"      target="_blank" rel="noopener noreferrer"><span>🏛️</span> AFAD</a></li>
+                            <li><a href="https://www.mgm.gov.tr"       target="_blank" rel="noopener noreferrer"><span>🌤️</span> Meteoroloji</a></li>
+                            <li><a href="https://www.112.gov.tr"       target="_blank" rel="noopener noreferrer"><span>🚨</span> 112 Acil</a></li>
+                            <li><a href="https://www.kizilay.org.tr"   target="_blank" rel="noopener noreferrer"><span>❤️</span> Kızılay</a></li>
                         </ul>
                     </div>
                 </div>
-
                 <div class="footer-bottom">
-                    <p style="margin-top: 1rem;">
-                        © 2026 Afet Hazırlık Rehberi<br>
-                        <small>Bilgilendirme amaçlıdır. Acil durumlarda 112'yi arayınız.</small>
-                    </p>
+                    <p>© 2026 Afet Hazırlık Rehberi<br>
+                    <small>Bilgilendirme amaçlıdır. Acil durumlarda 112'yi arayınız.</small></p>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- İLK YARDIM MODAL'I - TAMAMEN KARANLIK MOD UYUMLU -->
-    <div class="firstaid-modal" id="firstAidModal">
-        <div class="firstaid-modal-content">
-            <div class="firstaid-modal-header">
-                <h3><span>🆘</span> Acil Durumda İlk Yardım Rehberi</h3>
-                <button class="close-modal-btn" id="closeFirstAidModal" style="min-height:44px;min-width:44px;touch-action:manipulation;">×</button>
-            </div>
-
-            <div class="firstaid-modal-body">
-                <div class="firstaid-tabs">
-                    <button class="firstaid-tab active" data-tab="basic" style="min-height:44px;min-width:44px;touch-action:manipulation;">🧠 Temel Kurallar</button>
-                    <button class="firstaid-tab" data-tab="bleeding" style="min-height:44px;min-width:44px;touch-action:manipulation;">🩸 Kanamalar</button>
-                    <button class="firstaid-tab" data-tab="unconscious" style="min-height:44px;min-width:44px;touch-action:manipulation;">😴 Bayılma</button>
-                    <button class="firstaid-tab" data-tab="burn" style="min-height:44px;min-width:44px;touch-action:manipulation;">🔥 Yanıklar</button>
-                    <button class="firstaid-tab" data-tab="fracture" style="min-height:44px;min-width:44px;touch-action:manipulation;">🦴 Kırıklar</button>
-                    <button class="firstaid-tab" data-tab="numbers" style="min-height:44px;min-width:44px;touch-action:manipulation;">📞 Acil Numaralar</button>
-                </div>
-
-                <!-- Temel Kurallar Tab'ı -->
-                <div class="firstaid-tab-content active" id="basic-tab">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--accent);">İlk Yardımın Temel Kuralları</h3>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-red">1️⃣</span> Sakin Olun ve Güvenliği Sağlayın</h4>
-                        <p>Önce kendi güvenliğinizi kontrol edin, sonra çevreyi değerlendirin. Elektrik, gaz, yangın gibi riskleri kontrol edin. Yaralıyı güvenli bir yere alın.</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-blue">2️⃣</span> 112'yi Arayın veya Aratın</h4>
-                        <p>Hemen 112 Acil'i arayın veya başkasına aratın. Sakin bir şekilde:<br>
-                        • Olayın ne olduğunu<br>
-                        • Adresi tam olarak<br>
-                        • Yaralı sayısını ve durumunu<br>
-                        • İsim ve telefon numaranızı bildirin.</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-green">3️⃣</span> Yaralıyı Değerlendirin</h4>
-                        <p>• Bilinç kontrolü yapın<br>
-                        • Solunumunu kontrol edin<br>
-                        • Nabzını kontrol edin<br>
-                        • Ciddi kanama olup olmadığını kontrol edin</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-orange">4️⃣</span> Temel Yaşam Desteği (ABC Kuralı)</h4>
-                        <p><strong>A (Airway):</strong> Havayolunu açık tutun<br>
-                        <strong>B (Breathing):</strong> Solunumu sağlayın<br>
-                        <strong>C (Circulation):</strong> Dolaşımı destekleyin</p>
-                    </div>
-
-                    <div class="firstaid-warning">
-                        <h5><span>⚠️</span> ÖNEMLİ UYARI</h5>
-                        <p>• Bilinçsiz yaralıları hareket ettirmeyin (boyun yaralanması riski)<br>
-                        • Bilinçsiz yaralılara kesinlikle su veya yiyecek vermeyin<br>
-                        • Yaralının üzerindeki giysileri keserek çıkarın<br>
-                        • Yaralıyı sıcak tutun ama terletmeyin</p>
-                    </div>
-                </div>
-
-                <!-- Kanamalar Tab'ı -->
-                <div class="firstaid-tab-content" id="bleeding-tab">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Kanamalarda İlk Yardım</h3>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-red">🩸</span> İç Kanama Belirtileri</h4>
-                        <p>• Soluk, soğuk, nemli cilt<br>
-                        • Hızlı ve zayıf nabız<br>
-                        • Hızlı ve yüzeysel solunum<br>
-                        • Baş dönmesi, baygınlık hissi<br>
-                        • Şok belirtileri</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-blue">🎯</span> Kanamayı Durdurma Yöntemleri</h4>
-                        <p><strong>1. Basınç Uygulama:</strong> Temiz bir bezle kanayan yere direkt basınç uygulayın<br>
-                        <strong>2. Yüksekte Tutma:</strong> Kanayan bölgeyi kalp seviyesinin üzerine kaldırın<br>
-                        <strong>3. Basınç Noktaları:</strong> Atardamar kanamalarında basınç noktalarına basın</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-green">⚠️</span> Turnike Uygulama (Sadece Hayati Risk Varsa!)</h4>
-                        <p>• Sadece atardamar kanamalarında ve diğer yöntemler işe yaramazsa<br>
-                        • 5-7 cm genişliğinde bir bez kullanın<br>
-                        • Kanayan yer ile vücut arasına uygulayın<br>
-                        • Uygulama saatini not edin<br>
-                        • 15-20 dakikada bir 5-10 saniye gevşetin</p>
-                    </div>
-
-                    <div class="firstaid-warning">
-                        <h5><span>❌</span> YAPILMAMASI GEREKENLER</h5>
-                        <p>• Kanayan yere tentürdiyot, alkol vs. dökmeyin<br>
-                        • Yaraya pamuk basmayın<br>
-                        • Batmış cisimleri çıkarmaya çalışmayın<br>
-                        • Turnikeyi gereksiz yere sıkmayın</p>
-                    </div>
-                </div>
-
-                <!-- Bayılma Tab'ı -->
-                <div class="firstaid-tab-content" id="unconscious-tab">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Bilinç Kaybı ve Bayılmada İlk Yardım</h3>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-red">😴</span> Bilinç Kontrolü Nasıl Yapılır?</h4>
-                        <p>1. Omuzlarından hafifçe sarsarak "İyi misiniz?" diye sorun<br>
-                        2. Yanıt yoksa acil servisi arayın<br>
-                        3. Solunumunu kontrol edin (göğüs hareketi, nefes sesi)<br>
-                        4. Nabzını kontrol edin (boyun veya bilekten)</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-blue">🔄</span> Koma Pozisyonu (Yan Yatış)</h4>
-                        <p>1. Yaralıyı sırt üstü yatırın<br>
-                        2. Yakın taraftaki kolu baş hizasında uzatın<br>
-                        3. Diğer elini yanağının altına koyun<br>
-                        4. Uzaktaki bacağını dizden bükün<br>
-                        5. Omuz ve kalçadan çevirerek yan yatırın<br>
-                        6. Başını geriye yatırıp çeneyi yukarı kaldırın</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-green">💓</span> Kalp Masajı (Temel Yaşam Desteği)</h4>
-                        <p><strong>Yetişkinler için:</strong><br>
-                        • 30 kalp masajı - 2 suni solunum<br>
-                        • Dakikada 100-120 bası<br>
-                        • Göğüs 5-6 cm çökmeli<br>
-                        • Dirsekler dik, omuzlar bası noktasının üstünde</p>
-                    </div>
-
-                    <div class="firstaid-tips">
-                        <div class="firstaid-tip">
-                            <h5><span>🌬️</span> Suni Solunum</h5>
-                            <p>Başı geriye yatır, çeneyi kaldır. Burunu kapat, ağızdan ağza 1 saniye üfle, göğsün kalktığını gör.</p>
-                        </div>
-                        <div class="firstaid-tip">
-                            <h5><span>👶</span> Bebeklerde</h5>
-                            <p>2 parmakla göğüs ortasına bas. 30 masaj - 2 solunum. Göğüs 4 cm çökmeli.</p>
-                        </div>
-                        <div class="firstaid-tip">
-                            <h5><span>🧒</span> Çocuklarda</h5>
-                            <p>1 el veya 2 parmakla. 30 masaj - 2 solunum. Göğüs 5 cm çökmeli.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Yanıklar Tab'ı -->
-                <div class="firstaid-tab-content" id="burn-tab">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Yanıklarda İlk Yardım</h3>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-red">🔥</span> 1. Derece Yanık</h4>
-                        <p><strong>Belirtiler:</strong> Kızarıklık, hafif şişlik, ağrı<br>
-                        <strong>Yapılacaklar:</strong><br>
-                        1. Yanık bölgeyi 15-20 dakika soğuk su altında tutun<br>
-                        2. Temiz bir bezle kurulayın<br>
-                        3. Yanık kremi sürün<br>
-                        4. Steril gazlı bezle kapatın</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-blue">🔥</span> 2. Derece Yanık</h4>
-                        <p><strong>Belirtiler:</strong> İçi su dolu kabarcıklar, şiddetli ağrı<br>
-                        <strong>Yapılacaklar:</strong><br>
-                        1. Soğuk su uygulayın (buz değil!)<br>
-                        2. Kabarcıkları patlatmayın<br>
-                        3. Temiz bezle örtün<br>
-                        4. Acil servise başvurun</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-green">🔥</span> 3. Derece Yanık</h4>
-                        <p><strong>Belirtiler:</strong> Deri beyaz veya kömürleşmiş, ağrı yok (sinirler yandı)<br>
-                        <strong>Yapılacaklar:</strong><br>
-                        1. Hemen 112'yi arayın<br>
-                        2. Yanık bölgeyi temiz bezle örtün<br>
-                        3. Yaralıyı sıcak tutun<br>
-                        4. Kesinlikle su uygulamayın</p>
-                    </div>
-
-                    <div class="firstaid-warning">
-                        <h5><span>❌</span> YANIKLARDA ASLA YAPMAYIN!</h5>
-                        <p>• Diş macunu, yoğurt, salça sürmeyin<br>
-                        • Buz uygulamayın<br>
-                        • Kabarcıkları patlatmayın<br>
-                        • Yapışkan pansuman yapmayın<br>
-                        • Yanık üzerine direkt ilaç sürmeyin</p>
-                    </div>
-                </div>
-
-                <!-- Kırıklar Tab'ı -->
-                <div class="firstaid-tab-content" id="fracture-tab">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Kırık, Çıkık ve Burkulmalarda İlk Yardım</h3>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-red">🦴</span> Kırık Belirtileri</h4>
-                        <p>• Şiddetli ağrı<br>
-                        • Şişlik ve morarma<br>
-                        • Şekil bozukluğu<br>
-                        • Hareket edememe<br>
-                        • Kırık sesi duyulması<br>
-                        • Kemik uçlarının görülmesi (açık kırık)</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-blue">🩹</span> Kapalı Kırıkta İlk Yardım</h4>
-                        <p>1. Yaralı bölgeyi hareket ettirmeyin<br>
-                        2. Kırık bölgenin üstündeki ve altındaki eklemleri sabitleyin<br>
-                        3. Soğuk uygulayın (buz torbası)<br>
-                        4. Yaralı bölgeyi kalp seviyesinden yukarıda tutun<br>
-                        5. Acil servise başvurun</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-green">⚠️</span> Açık Kırıkta İlk Yardım</h4>
-                        <p>1. Kanamayı kontrol altına alın<br>
-                        2. Dışarı çıkan kemik uçlarını içeri itmeyin<br>
-                        3. Temiz bir bezle örtün<br>
-                        4. Atel uygulayın (tahta, karton, gazete)<br>
-                        5. Hemen 112'yi arayın</p>
-                    </div>
-
-                    <div class="firstaid-step-card">
-                        <h4><span class="icon-orange">🦵</span> Atel Uygulama</h4>
-                        <p>• Kırık bölgenin üstündeki ve altındaki eklemleri içine alacak şekilde<br>
-                        • Yumuşak malzeme ile destekleyin<br>
-                        • Sargıyı çok sıkı yapmayın<br>
-                        • Parmakları açıkta bırakın (dolaşım kontrolü için)<br>
-                        • 20 dakikada bir dolaşımı kontrol edin</p>
-                    </div>
-                </div>
-
-                <!-- Acil Numaralar Tab'ı -->
-                <div class="firstaid-tab-content" id="numbers-tab">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--accent);">Acil Durum Telefon Numaraları</h3>
-
-                    <div class="emergency-numbers">
-                        <div class="emergency-number">
-                            <div class="number">112</div>
-                            <div class="service">ACİL YARDIM</div>
-                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Tüm acil durumlar</p>
-                        </div>
-                        <div class="emergency-number">
-                            <div class="number">110</div>
-                            <div class="service">İTFAİYE</div>
-                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Yangın, kurtarma</p>
-                        </div>
-                        <div class="emergency-number">
-                            <div class="number">155</div>
-                            <div class="service">POLİS İMDAT</div>
-                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Güvenlik, asayiş</p>
-                        </div>
-                        <div class="emergency-number">
-                            <div class="number">156</div>
-                            <div class="service">JANDARMA</div>
-                            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Kırsal bölgeler</p>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 2.5rem;">
-                        <h4 style="color: var(--primary); margin-bottom: 1rem;">📞 Diğer Önemli Numaralar</h4>
-                        <ul class="number-list">
-                            <li>
-                                <span class="number">184</span>
-                                <span class="service">SABİM - Sağlık Bakanlığı Bilgi</span>
-                            </li>
-                            <li>
-                                <span class="number">185</span>
-                                <span class="service">SU ŞİKAYET</span>
-                            </li>
-                            <li>
-                                <span class="number">186</span>
-                                <span class="service">ELEKTRİK ARIZA</span>
-                            </li>
-                            <li>
-                                <span class="number">187</span>
-                                <span class="service">DOĞAL GAZ ARIZA</span>
-                            </li>
-                            <li>
-                                <span class="number">153</span>
-                                <span class="service">BELEDİYE ZABITA</span>
-                            </li>
-                            <li>
-                                <span class="number">154</span>
-                                <span class="service">TRAFİK POLİSİ</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="firstaid-warning" style="margin-top: 2rem;">
-                        <h5><span>📱</span> ACİL ARAMA YAPARKEN</h5>
-                        <p>1. <strong>Sakin olun</strong> ve net konuşun<br>
-                        2. <strong>Tam adresinizi</strong> söyleyin<br>
-                        3. <strong>Olayın ne olduğunu</strong> açıklayın<br>
-                        4. <strong>Yaralı sayısı ve durumunu</strong> bildirin<br>
-                        5. <strong>İsminizi ve telefonunuzu</strong> söyleyin<br>
-                        6. <strong>Telefonu ilk siz kapatmayın</strong></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <style>
-        /* İLK YARDIM MODAL STİLLERİ - KARANLIK MOD UYUMLU */
-        .firstaid-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(15, 23, 42, 0.95);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition-normal);
-            padding: 1rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .firstaid-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .firstaid-modal-content {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            width: 100%;
-            height: 90%;
-            max-height: 90vh;
-            max-width: 1000px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            border: none;
-        }
-
-        .firstaid-modal-header {
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid var(--gray-200);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(135deg, var(--accent), #b91c1c);
-            color: white;
-        }
-
-        .firstaid-modal-header h3 {
-            color: white;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.5rem;
-        }
-
-        .close-modal-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            width: 2.5rem;
-            height: 2.5rem;
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition-fast);
-            touch-action: manipulation;
-        }
-
-        .close-modal-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
-        }
-
-        .firstaid-modal-body {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .firstaid-tabs {
-            display: flex;
-            border-bottom: 1px solid var(--gray-200);
-            background: var(--gray-50);
-            flex-shrink: 0;
-            overflow-x: auto;
-        }
-
-        .firstaid-tab {
-            flex: 1;
-            min-width: 150px;
-            padding: 1.25rem 1.5rem;
-            border: none;
-            background: none;
-            font-family: inherit;
-            font-weight: 600;
-            color: var(--gray-600);
-            cursor: pointer;
-            transition: var(--transition-fast);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            font-size: 1rem;
-            position: relative;
-            white-space: nowrap;
-            touch-action: manipulation;
-        }
-
-        .firstaid-tab:hover {
-            background: var(--gray-100);
-        }
-
-        .firstaid-tab.active {
-            color: var(--accent);
-            border-bottom: 3px solid var(--accent);
-            background: var(--white);
-        }
-
-        .firstaid-tab-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 2rem;
-            display: none;
-            animation: fadeInUp 0.3s ease-out;
-        }
-
-        .firstaid-tab-content.active {
-            display: block;
-        }
-
-        /* İlk Yardım İçerik Stilleri */
-        .firstaid-step-card {
-            background: var(--gray-50);
-            border: 1px solid var(--gray-200);
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            transition: var(--transition-fast);
-        }
-
-        .firstaid-step-card:hover {
-            transform: translateX(4px);
-            border-color: var(--accent-light);
-            box-shadow: var(--shadow-md);
-        }
-
-        .firstaid-step-card:last-child {
-            margin-bottom: 0;
-        }
-
-        .firstaid-step-card h4 {
-            color: var(--gray-900);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.25rem;
-        }
-
-        .firstaid-step-card p {
-            font-size: 1rem;
-            color: var(--gray-600);
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        .firstaid-warning {
-            background: linear-gradient(135deg, #fef3c7, #fef3c7);
-            border-left: 4px solid var(--warning);
-            padding: 1.25rem;
-            border-radius: var(--radius-md);
-            margin: 1.5rem 0;
-        }
-
-        .firstaid-warning h5 {
-            color: var(--warning);
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .firstaid-tips {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .firstaid-tip {
-            background: linear-gradient(135deg, var(--primary-soft), var(--white));
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            border: 1px solid var(--primary-light);
-        }
-
-        .firstaid-tip h5 {
-            color: var(--primary-dark);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .emergency-numbers {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .emergency-number {
-            background: var(--gray-100);
-            border-radius: var(--radius-lg);
-            padding: 1.25rem;
-            text-align: center;
-            transition: var(--transition-fast);
-        }
-
-        .emergency-number:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .emergency-number .number {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .emergency-number .service {
-            font-weight: 600;
-            color: var(--gray-800);
-        }
-
-        .number-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .number-list li {
-            margin-bottom: 0.75rem;
-            padding: 0.75rem;
-            background: var(--gray-50);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            touch-action: manipulation;
-        }
-
-        .number-list .number {
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--accent);
-            min-width: 100px;
-        }
-
-        .number-list .service {
-            flex: 1;
-            font-weight: 600;
-            color: var(--gray-800);
-        }
-
-        /* Renkli ikonlar */
-        .icon-red { color: var(--accent); }
-        .icon-blue { color: var(--primary); }
-        .icon-green { color: var(--success); }
-        .icon-orange { color: var(--warning); }
-        .icon-purple { color: #7c3aed; }
-
-        /* KARANLIK MOD İÇİN İLK YARDIM MODAL GÜNCELLEMELERİ */
-        @media (prefers-color-scheme: dark) {
-            .firstaid-modal {
-                background: rgba(0, 0, 0, 0.95) !important;
-                backdrop-filter: blur(10px);
-            }
-
-            .firstaid-modal-content {
-                background: #1e293b !important;
-                border: 1px solid #334155 !important;
-            }
-
-            .firstaid-tabs {
-                background: #0f172a !important;
-                border-bottom-color: #334155 !important;
-            }
-
-            .firstaid-tab {
-                color: #94a3b8 !important;
-            }
-
-            .firstaid-tab:hover {
-                background: #334155 !important;
-            }
-
-            .firstaid-tab.active {
-                color: #ef4444 !important;
-                background: #1e293b !important;
-                border-bottom-color: #ef4444 !important;
-            }
-
-            .firstaid-tab-content {
-                color: #cbd5e1 !important;
-            }
-
-            .firstaid-step-card {
-                background: #0f172a !important;
-                border-color: #334155 !important;
-            }
-
-            .firstaid-step-card h4 {
-                color: #ffffff !important;
-            }
-
-            .firstaid-step-card p {
-                color: #cbd5e1 !important;
-            }
-
-            .firstaid-warning {
-                background: rgba(245, 158, 11, 0.1) !important;
-                border-left-color: #f59e0b !important;
-            }
-
-            .firstaid-warning h5 {
-                color: #f59e0b !important;
-            }
-
-            .firstaid-warning p {
-                color: #cbd5e1 !important;
-            }
-
-            .firstaid-tip {
-                background: rgba(20, 184, 166, 0.1) !important;
-                border-color: #14b8a6 !important;
-            }
-
-            .firstaid-tip h5 {
-                color: #5eead4 !important;
-            }
-
-            .firstaid-tip p {
-                color: #cbd5e1 !important;
-            }
-
-            .emergency-number {
-                background: #0f172a !important;
-                border: 1px solid #334155 !important;
-            }
-
-            .emergency-number .number {
-                color: #ef4444 !important;
-            }
-
-            .emergency-number .service {
-                color: #ffffff !important;
-            }
-
-            .emergency-number p {
-                color: #94a3b8 !important;
-            }
-
-            .number-list li {
-                background: #0f172a !important;
-                border: 1px solid #334155 !important;
-            }
-
-            .number-list .number {
-                color: #ef4444 !important;
-            }
-
-            .number-list .service {
-                color: #ffffff !important;
-            }
-
-            /* Modal içindeki tüm h3 ve h4'ler */
-            .firstaid-tab-content h3 {
-                color: #ffffff !important;
-            }
-
-            .firstaid-tab-content h4 {
-                color: #ffffff !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .firstaid-modal-content {
-                height: 95%;
-                max-height: 95vh;
-                border-radius: var(--radius-lg);
-            }
-
-            .firstaid-tabs {
-                flex-direction: column;
-                overflow-x: auto;
-                flex-wrap: nowrap;
-            }
-
-            .firstaid-tab {
-                padding: 1rem;
-                border-bottom: 1px solid var(--gray-200);
-                justify-content: flex-start;
-                min-width: 100%;
-            }
-
-            .firstaid-tab.active {
-                border-bottom: 3px solid var(--accent);
-            }
-
-            .firstaid-tab-content {
-                padding: 1.5rem;
-            }
-
-            .firstaid-tips {
-                grid-template-columns: 1fr;
-            }
-
-            .emergency-numbers {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .firstaid-modal-header {
-                padding: 1rem;
-            }
-
-            .firstaid-modal-header h3 {
-                font-size: 1.25rem;
-            }
-
-            .firstaid-tab {
-                font-size: 0.9rem;
-                padding: 0.75rem;
-            }
-
-            .firstaid-step-card {
-                padding: 1rem;
-            }
-        }
-    </style>
-
     <script>
-        // Performans için debounce fonksiyonu
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        // Mobile Menu Toggle - Index ile aynı
+        // ===== MOBILE MENU =====
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const closeMenuBtn = document.getElementById('closeMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenuBtn  = document.getElementById('closeMenuBtn');
+        const mobileMenu    = document.getElementById('mobileMenu');
+        const menuOverlay   = document.getElementById('menuOverlay');
 
         function toggleMobileMenu() {
-            mobileMenu.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            const open = mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active', open);
+            mobileMenuBtn.classList.toggle('active', open);
+            mobileMenuBtn.setAttribute('aria-expanded', open);
+            mobileMenu.setAttribute('aria-hidden', !open);
+            menuOverlay.setAttribute('aria-hidden', !open);
+            document.body.style.overflow = open ? 'hidden' : '';
         }
-
         mobileMenuBtn.addEventListener('click', toggleMobileMenu);
         closeMenuBtn.addEventListener('click', toggleMobileMenu);
         menuOverlay.addEventListener('click', toggleMobileMenu);
 
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                toggleMobileMenu();
-            }
-        });
-
-        // Theme detection
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
-
-        // Handle page load animations
-        window.addEventListener('load', () => {
-            const animatedElements = document.querySelectorAll('.animate-fade-in-up');
-            animatedElements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
-            
-            // Lazy loading için intersection observer
-            if ('IntersectionObserver' in window) {
-                const observerOptions = {
-                    root: null,
-                    rootMargin: '50px',
-                    threshold: 0.1
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                        }
-                    });
-                }, observerOptions);
-
-                // Gözlemlemek istediğiniz elementleri seçin
-                document.querySelectorAll('.feature-card, .mission-card, .vision-card').forEach(card => {
-                    observer.observe(card);
-                });
-            }
-        });
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            // Escape to close menu
-            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                toggleMobileMenu();
-            }
-            // Ctrl + F for first aid
-            if (e.ctrlKey && e.key === 'f') {
-                e.preventDefault();
-                openFirstAidModal();
-            }
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                const id = this.getAttribute('href');
+                if (id === '#') return;
+                const el = document.querySelector(id);
+                if (el) { e.preventDefault(); window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' }); }
             });
         });
 
-        // Scroll event optimizasyonu
-        let scrollTimeout;
-        window.addEventListener('scroll', debounce(() => {
-            // Scroll durduğunda yapılacak işlemler
-            // Örneğin: sticky header güncellemeleri
-        }, 100));
-
-        // Resize observer ile performans
-        if ('ResizeObserver' in window) {
-            const resizeObserver = new ResizeObserver(debounce((entries) => {
-                for (let entry of entries) {
-                    // Responsive optimizasyonlar
-                }
-            }, 250));
-            
-            // Container'ı gözlemle
-            const container = document.querySelector('.container');
-            if (container) {
-                resizeObserver.observe(container);
-            }
-        }
-
-        // ==================== İLK YARDIM MODAL SİSTEMİ - TAMAMEN UYUMLU ====================
-
-        // Modal elementleri
-        const firstAidModal = document.getElementById('firstAidModal');
-        const firstAidButton = document.getElementById('firstAidButton');
+        // ===== İLK YARDIM MODAL =====
+        const firstAidModal        = document.getElementById('firstAidModal');
+        const firstAidButton       = document.getElementById('firstAidButton');
         const mobileFirstAidButton = document.getElementById('mobileFirstAidButton');
         const footerFirstAidButton = document.getElementById('footerFirstAidButton');
-        const closeFirstAidModal = document.getElementById('closeFirstAidModal');
-        const firstAidTabs = document.querySelectorAll('.firstaid-tab');
-        const firstAidTabContents = document.querySelectorAll('.firstaid-tab-content');
+        const closeFirstAidModal   = document.getElementById('closeFirstAidModal');
+        const firstAidTabs         = document.querySelectorAll('.firstaid-tab');
+        const firstAidTabContents  = document.querySelectorAll('.firstaid-tab-content');
 
-        // Modal'ı aç
         function openFirstAidModal() {
             firstAidModal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            // Varsayılan tab'ı aktif et
             switchFirstAidTab('basic');
-            
-            // Performans için focus management
-            setTimeout(() => {
-                const activeTab = document.querySelector('.firstaid-tab.active');
-                if (activeTab) activeTab.focus();
-            }, 100);
+            setTimeout(() => closeFirstAidModal.focus(), 300);
         }
-
-        // Modal'ı kapat
         function closeFirstAidModalFunc() {
             firstAidModal.classList.remove('active');
             document.body.style.overflow = '';
-            
-            // Focus'u açan butona geri ver
-            if (document.activeElement && document.activeElement.classList.contains('firstaid-tab')) {
-                firstAidButton.focus();
-            }
         }
-
-        // Tab değiştirme
         function switchFirstAidTab(tabName) {
-            // Tüm tab'ları deaktif et
-            firstAidTabs.forEach(tab => {
-                tab.classList.remove('active');
-                if (tab.dataset.tab === tabName) {
-                    tab.classList.add('active');
-                }
+            firstAidTabs.forEach(t => {
+                const active = t.dataset.tab === tabName;
+                t.classList.toggle('active', active);
+                t.setAttribute('aria-selected', active);
             });
-
-            // Tüm içerikleri gizle
-            firstAidTabContents.forEach(content => {
-                content.classList.remove('active');
-                if (content.id === `${tabName}-tab`) {
-                    content.classList.add('active');
-                }
+            firstAidTabContents.forEach(c => {
+                const active = c.id === `${tabName}-tab`;
+                c.classList.toggle('active', active);
+                if (active) c.scrollTop = 0;
             });
-
-            // İçeriği en üste kaydır
-            const activeContent = document.getElementById(`${tabName}-tab`);
-            if (activeContent) {
-                activeContent.scrollTop = 0;
-            }
+            document.querySelector(`.firstaid-tab[data-tab="${tabName}"]`)
+                ?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
 
-        // ==================== EVENT LISTENERS ====================
-
-        // İlk yardım modal butonları
-        firstAidButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            openFirstAidModal();
-        });
-
-        mobileFirstAidButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            openFirstAidModal();
-            toggleMobileMenu();
-        });
-
-        footerFirstAidButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            openFirstAidModal();
-        });
-
+        firstAidButton.addEventListener('click', e => { e.preventDefault(); openFirstAidModal(); });
+        mobileFirstAidButton.addEventListener('click', e => { e.preventDefault(); openFirstAidModal(); toggleMobileMenu(); });
+        footerFirstAidButton.addEventListener('click', openFirstAidModal);
         closeFirstAidModal.addEventListener('click', closeFirstAidModalFunc);
+        firstAidModal.addEventListener('click', e => { if (e.target === firstAidModal) closeFirstAidModalFunc(); });
+        firstAidTabs.forEach(t => t.addEventListener('click', () => switchFirstAidTab(t.dataset.tab)));
 
-        // Modal dışına tıklayarak kapatma
-        firstAidModal.addEventListener('click', (e) => {
-            if (e.target === firstAidModal) {
-                closeFirstAidModalFunc();
+        // ===== ESCAPE =====
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                if (firstAidModal.classList.contains('active')) closeFirstAidModalFunc();
+                else if (mobileMenu.classList.contains('active')) toggleMobileMenu();
             }
+            if (e.ctrlKey && e.key === 'f') { e.preventDefault(); openFirstAidModal(); }
         });
 
-        // Tab'lar için event listener
-        firstAidTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                switchFirstAidTab(tab.dataset.tab);
-            });
-            
-            // Klavye erişilebilirliği
-            tab.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    switchFirstAidTab(tab.dataset.tab);
-                }
-            });
+        // ===== FOCUS TRAP =====
+        firstAidModal.addEventListener('keydown', e => {
+            if (e.key !== 'Tab') return;
+            const f = [...firstAidModal.querySelectorAll('button,[href],[tabindex]:not([tabindex="-1"])')];
+            if (e.shiftKey) { if (document.activeElement === f[0]) { e.preventDefault(); f[f.length-1].focus(); } }
+            else { if (document.activeElement === f[f.length-1]) { e.preventDefault(); f[0].focus(); } }
         });
 
-        // Escape tuşu ile modal'ı kapatma
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && firstAidModal.classList.contains('active')) {
-                closeFirstAidModalFunc();
-            }
-            
-            // Tab tuşu ile modal içinde gezinme
-            if (firstAidModal.classList.contains('active') && e.key === 'Tab') {
-                const focusableElements = firstAidModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-                
-                if (e.shiftKey) {
-                    if (document.activeElement === firstElement) {
-                        lastElement.focus();
-                        e.preventDefault();
+        // ===== ANİMASYON =====
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach(en => {
+                    if (en.isIntersecting) {
+                        en.target.style.opacity = '1';
+                        en.target.style.transform = 'translateY(0)';
+                        obs.unobserve(en.target);
                     }
-                } else {
-                    if (document.activeElement === lastElement) {
-                        firstElement.focus();
-                        e.preventDefault();
-                    }
-                }
-            }
-        });
-
-        // Touch optimizasyonu için passive event listener
-        document.addEventListener('touchstart', () => {}, { passive: true });
-        window.addEventListener('touchmove', () => {}, { passive: true });
+                });
+            }, { rootMargin: '30px', threshold: .1 });
+            document.querySelectorAll('.animate-fade-in-up').forEach(el => obs.observe(el));
+        } else {
+            document.querySelectorAll('.animate-fade-in-up').forEach(el => {
+                el.style.opacity = '1'; el.style.transform = 'translateY(0)';
+            });
+        }
     </script>
 </body>
 </html>

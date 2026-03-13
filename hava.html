@@ -3,256 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#0a0a1a" media="(prefers-color-scheme: dark)">
     <title>Hava Afetleri - Kasırga, Yıldırım, Dolu | Afet Hazırlık Rehberi</title>
     <meta name="description" content="Kasırga, yıldırım fırtınası ve şiddetli dolu için kapsamlı hazırlık rehberi, ileri düzey testler ve ilk yardım bilgileri.">
-    <meta name="keywords" content="kasırga, yıldırım, dolu, hava afetleri, fırtına, Beaufort, afet hazırlık, AFAD, MGM">
-    <meta name="author" content="Afet Hazırlık Platformu">
+    <script>
+        (function(){
+            var s=localStorage.getItem('theme');
+            var t=s==='dark'||s==='light'?s:window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+            document.documentElement.setAttribute('data-theme',t);
+        })();
+    </script>
     <style>
+        /* ============ LIGHT TEMA ============ */
         :root {
             color-scheme:light dark;
-            --primary:#4f46e5; --primary-dark:#3730a3; --primary-light:#818cf8; --primary-soft:#e0e7ff;
+            --primary:#4f46e5; --primary-dark:#4338ca; --primary-light:#6366f1; --primary-soft:#ede9fe;
             --accent:#dc2626; --accent-light:#f87171; --warning:#d97706; --success:#059669;
             --gray-50:#f9fafb; --gray-100:#f3f4f6; --gray-200:#e5e7eb; --gray-300:#d1d5db;
             --gray-400:#9ca3af; --gray-500:#6b7280; --gray-600:#4b5563; --gray-700:#374151;
-            --gray-800:#1f2937; --gray-900:#111827; --white:#ffffff; --black:#000000;
-            --shadow-sm:0 1px 2px 0 rgba(0,0,0,0.05); --shadow-md:0 4px 6px -1px rgba(0,0,0,0.1);
-            --shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1); --shadow-xl:0 20px 25px -5px rgba(0,0,0,0.1);
+            --gray-800:#1f2937; --gray-900:#111827;
+            --bg-body:#f9fafb; --bg-card:#ffffff; --bg-header:rgba(255,255,255,0.95);
+            --bg-feature:#f3f4f6; --bg-footer:#111827;
+            --bg-modal:#ffffff; --bg-drawer:#f9fafb; --bg-drawer-item:#f3f4f6;
+            --bg-drawer-active:#ede9fe; --bg-step-card:#f9fafb;
+            --bg-mobile-menu:#ffffff; --bg-emg-number:#f3f4f6; --bg-number-li:#f9fafb;
+            --text-body:#1f2937; --text-heading:#111827; --text-muted:#4b5563;
+            --text-subtle:#6b7280; --text-nav:#4b5563; --text-logo:#111827; --text-logo-sub:#6b7280;
+            --text-card:#1f2937; --text-card-p:#4b5563;
+            --text-drawer:#374151; --text-drawer-active:#4338ca;
+            --text-step-h:#111827; --text-step-p:#4b5563;
+            --text-emg-num:#dc2626; --text-emg-svc:#1f2937;
+            --text-footer-p:#9ca3af; --text-footer-h:#ffffff; --text-footer-a:#9ca3af; --text-footer-bot:#6b7280;
+            --border-card:#e5e7eb; --border-header:#e5e7eb; --border-drawer:#e5e7eb;
+            --border-step:#e5e7eb; --border-li:#e5e7eb; --border-footer:#1f2937;
+            --shadow-sm:0 1px 2px rgba(0,0,0,.05); --shadow-md:0 4px 6px -1px rgba(0,0,0,.1);
+            --shadow-lg:0 10px 15px -3px rgba(0,0,0,.1); --shadow-xl:0 20px 25px -5px rgba(0,0,0,.15);
+            --shadow-card-hover:0 20px 25px -5px rgba(0,0,0,.15);
+            --nav-hover-bg:#f3f4f6; --nav-hover-clr:#4f46e5;
+            --tip-bg:linear-gradient(135deg,#ede9fe,#fff); --tip-border:#6366f1; --tip-h:#4338ca;
+            --sb-track:#f3f4f6; --sb-thumb:#d1d5db; --sb-hover:#9ca3af;
             --radius-sm:.375rem; --radius-md:.5rem; --radius-lg:.75rem; --radius-xl:1rem;
-            --transition-fast:150ms cubic-bezier(.4,0,.2,1);
-            --transition-normal:300ms cubic-bezier(.4,0,.2,1);
-            --transition-smooth:200ms cubic-bezier(.4,0,.2,1);
-            --safe-top:env(safe-area-inset-top,0px); --safe-bottom:env(safe-area-inset-bottom,0px);
-            --safe-left:env(safe-area-inset-left,0px); --safe-right:env(safe-area-inset-right,0px);
+            --tf:150ms cubic-bezier(.4,0,.2,1); --tn:300ms cubic-bezier(.4,0,.2,1);
         }
+        /* ============ DARK — sistem ============ */
         @media(prefers-color-scheme:dark){
-            :root{
+            :root:not([data-theme="light"]){
                 --primary:#818cf8; --primary-dark:#6366f1; --primary-light:#a5b4fc; --primary-soft:#1e1b4b;
-                --accent:#ef4444; --accent-light:#fca5a5; --warning:#f59e0b; --success:#10b981;
-                --gray-50:#0f172a; --gray-100:#1e293b; --gray-200:#334155; --gray-300:#475569;
-                --gray-400:#64748b; --gray-500:#94a3b8; --gray-600:#cbd5e1; --gray-700:#e2e8f0;
-                --gray-800:#f1f5f9; --gray-900:#f8fafc; --white:#1e293b; --black:#f8fafc;
+                --accent:#ef4444; --warning:#f59e0b; --success:#10b981;
+                --gray-50:#0f0f1a; --gray-100:#1a1a2e; --gray-200:#252545; --gray-300:#2e2e5a;
+                --gray-400:#4a4a8a; --gray-500:#7070b8; --gray-600:#a0a0d0;
+                --gray-700:#c8c8e8; --gray-800:#e8e8f8; --gray-900:#f0f0ff;
+                --bg-body:#0a0a1a; --bg-card:linear-gradient(145deg,#1a1a3e,#12122a);
+                --bg-header:rgba(10,10,26,.97); --bg-feature:#0f0f1e; --bg-footer:#07070f;
+                --bg-modal:#12122a; --bg-drawer:#0d0d20; --bg-drawer-item:#12122a;
+                --bg-drawer-active:#1e1b4b; --bg-step-card:linear-gradient(145deg,#1a1a3e,#12122a);
+                --bg-mobile-menu:#12122a; --bg-emg-number:#12122a; --bg-number-li:#12122a;
+                --text-body:#e0e0ff; --text-heading:#f0f0ff; --text-muted:#c7c7f0;
+                --text-subtle:#a5b4fc; --text-nav:#a5b4fc; --text-logo:#f0f0ff; --text-logo-sub:#a5b4fc;
+                --text-card:#f0f0ff; --text-card-p:#c7c7f0;
+                --text-drawer:#c7c7f0; --text-drawer-active:#a5b4fc;
+                --text-step-h:#f0f0ff; --text-step-p:#c7c7f0;
+                --text-emg-num:#ef4444; --text-emg-svc:#f0f0ff;
+                --text-footer-p:#7070b8; --text-footer-h:#f0f0ff; --text-footer-a:#a5b4fc; --text-footer-bot:#4a4a8a;
+                --border-card:#252545; --border-header:#252545; --border-drawer:#2e2e5a;
+                --border-step:#2e2e5a; --border-li:#252545; --border-footer:#252545;
+                --shadow-card-hover:0 10px 25px -3px rgba(0,0,0,.6);
+                --nav-hover-bg:rgba(129,140,248,.1); --nav-hover-clr:#f0f0ff;
+                --tip-bg:#1e1b4b; --tip-border:#4f46e5; --tip-h:#a5b4fc;
+                --sb-track:#12122a; --sb-thumb:#252545; --sb-hover:#4a4a8a;
+                color-scheme:dark;
             }
-            body{background-color:#08091a!important;color:#e0e7ff!important;}
-            h1,h2,h3,h4,h5,h6{color:#f0f0ff!important;}
-            p{color:#c7d2fe!important;}
-            .logo-title{color:#f0f0ff!important;} .logo-subtitle{color:#a5b4fc!important;}
-            header{background:rgba(8,9,26,.97)!important;border-bottom-color:#1e1b4b!important;}
-            .nav-link{color:#a5b4fc!important;}
-            .nav-link:hover{color:#e0e7ff!important;background:rgba(129,140,248,.12)!important;}
-            .nav-link.active{color:#fff!important;background:linear-gradient(135deg,#6366f1,#4f46e5)!important;}
-            .card{background-color:#0f0f2e!important;border-color:#1e1b4b!important;box-shadow:0 4px 6px -1px rgba(0,0,0,.5)!important;}
-            .card:hover{box-shadow:0 10px 25px -3px rgba(0,0,0,.6)!important;border-color:#818cf8!important;}
-            .card h3{color:#f0f0ff!important;} .card p{color:#c7d2fe!important;}
-            .card-btn.primary{background:linear-gradient(135deg,#6366f1,#4f46e5)!important;color:#fff!important;}
-            .card-btn.secondary{background:#1e1b4b!important;color:#c7d2fe!important;}
-            .page-hero h1{color:#fff!important;} .page-hero p{color:rgba(255,255,255,.95)!important;}
-            .section-title h2{background:linear-gradient(135deg,#818cf8,#a5b4fc)!important;-webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;background-clip:text!important;}
-            .section-title p{color:#c7d2fe!important;}
-            .detail-section{background-color:#0f0f2e!important;border-color:#1e1b4b!important;}
-            .detail-section h2{color:#818cf8!important;} .detail-section h3{color:#e0e7ff!important;}
-            .detail-section h4{color:#c7d2fe!important;} .detail-section h5{color:#a5b4fc!important;}
-            .detail-section p{color:#c7d2fe!important;}
-            .detail-section .info-box-indigo{background:#1a1a4e!important;border-left-color:#818cf8!important;}
-            .detail-section .info-box-indigo h3{color:#a5b4fc!important;} .detail-section .info-box-indigo p{color:#c7d2fe!important;}
-            .detail-section .info-box-yellow{background:#451a03!important;border-left-color:#f59e0b!important;}
-            .detail-section .info-box-yellow h3{color:#fbbf24!important;} .detail-section .info-box-yellow p{color:#fef3c7!important;}
-            .detail-section .info-box-purple{background:#2e1065!important;border-left-color:#a855f7!important;}
-            .detail-section .info-box-purple h3{color:#d8b4fe!important;} .detail-section .info-box-purple p{color:#ede9fe!important;}
-            .detail-section .info-box-green{background:#064e3b!important;border-left-color:#10b981!important;}
-            .detail-section .info-box-green h3{color:#6ee7b7!important;} .detail-section .info-box-green h5{color:#6ee7b7!important;} .detail-section .info-box-green p{color:#a7f3d0!important;}
-            .detail-section .info-box-sky{background:#0c2d4a!important;border-left-color:#38bdf8!important;}
-            .detail-section .info-box-sky h3{color:#7dd3fc!important;} .detail-section .info-box-sky p{color:#bae6fd!important;}
-            .detail-section .stat-box{background-color:#1e1b4b!important;color:#e0e7ff!important;}
-            .detail-section .stat-box p{color:#c7d2fe!important;}
-            .detail-section .stat-box-primary{background:linear-gradient(135deg,#4338ca,#6366f1)!important;}
-            .detail-section .stat-box-primary p{color:rgba(255,255,255,.9)!important;}
-            .detail-section .stat-box-accent{background:linear-gradient(135deg,#b91c1c,#ef4444)!important;}
-            .detail-section .stat-box-accent p{color:rgba(255,255,255,.9)!important;}
-            .detail-section .stat-box-violet{background:linear-gradient(135deg,#6d28d9,#8b5cf6)!important;}
-            .detail-section .stat-box-violet p{color:rgba(255,255,255,.9)!important;}
-            .detail-section .step-card{background-color:#12123a!important;border-color:#1e1b4b!important;}
-            .detail-section .step-card h4{color:#e0e7ff!important;} .detail-section .step-card p{color:#c7d2fe!important;}
-            .detail-section .warning-box{background:#451a03!important;border-color:#f59e0b!important;}
-            .detail-section .warning-box h5{color:#fbbf24!important;} .detail-section .warning-box p{color:#fef3c7!important;}
-            .detail-section .danger-box{background:#450a0a!important;border-color:#ef4444!important;}
-            .detail-section .danger-box h5{color:#fca5a5!important;} .detail-section .danger-box p{color:#fecaca!important;}
-            .detail-section .emergency-info{background:#0f0f2e!important;border-color:#1e1b4b!important;}
-            .detail-section .emergency-info h5{color:#818cf8!important;}
-            .detail-section .emergency-info p{color:#c7d2fe!important;}
-            .detail-section .emergency-info strong{color:#e0e7ff!important;}
-            .test-overlay{background:rgba(8,9,26,.98)!important;}
-            .test-header{background:linear-gradient(135deg,#6366f1,#4f46e5)!important;}
-            .question{background:#0f0f2e!important;color:#e0e7ff!important;border-color:#1e1b4b!important;}
-            .progress-label{color:#a5b4fc!important;} .progress-bar{background:#1e1b4b!important;}
-            .choice{background:#0f0f2e!important;border-color:#1e1b4b!important;color:#c7d2fe!important;}
-            .choice:hover:not(:disabled){background:#4f46e5!important;color:#fff!important;border-color:#818cf8!important;}
-            .choice.correct{background:#065f46!important;border-color:#10b981!important;color:#d1fae5!important;}
-            .choice.wrong{background:#7f1d1d!important;border-color:#ef4444!important;color:#fecaca!important;}
-            .feedback.correct{background:#064e3b!important;border-color:#10b981!important;color:#a7f3d0!important;}
-            .feedback.wrong{background:#7f1d1d!important;border-color:#ef4444!important;color:#fecaca!important;}
-            .result-score{background:linear-gradient(135deg,#818cf8,#a5b4fc)!important;-webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;background-clip:text!important;}
-            .result-message{color:#a5b4fc!important;}
-            .detailed-results{background:#0f0f2e!important;border-color:#1e1b4b!important;}
-            .result-item{border-bottom-color:#1e1b4b!important;} .result-question{color:#e0e7ff!important;}
-            .result-explanation{background:#1e1b4b!important;color:#c7d2fe!important;}
-            .result-answer.correct{color:#10b981!important;} .result-answer.wrong{color:#ef4444!important;}
-            .auto-continue-btn{background:linear-gradient(135deg,#6366f1,#4f46e5)!important;color:#fff!important;}
-            .countdown-text{color:#a5b4fc!important;} .small-close-btn{background:rgba(255,255,255,.15)!important;color:#fff!important;}
-            .firstaid-modal-content{background-color:#0f0f2e!important;}
-            .firstaid-modal-header{background:linear-gradient(135deg,rgba(220,38,38,.95),rgba(185,28,28,.9))!important;}
-            .firstaid-tabs{background:#08091a!important;border-bottom-color:#1e1b4b!important;}
-            .firstaid-tab{background-color:#0f0f2e!important;color:#a5b4fc!important;}
-            .firstaid-tab:hover{background-color:#1e1b4b!important;color:#e0e7ff!important;}
-            .firstaid-tab.active{background-color:#0f0f2e!important;color:#ef4444!important;border-bottom-color:#f87171!important;}
-            .firstaid-tab-content{color:#c7d2fe!important;}
-            .firstaid-step-card{background-color:#12123a!important;border-color:#1e1b4b!important;}
-            .firstaid-step-card h4{color:#e0e7ff!important;} .firstaid-step-card p{color:#c7d2fe!important;}
-            .firstaid-warning{background:#451a03!important;border-color:#f59e0b!important;color:#fef3c7!important;}
-            .firstaid-warning h5{color:#fbbf24!important;}
-            .firstaid-tip{background:#1a1a4e!important;border-color:#6366f1!important;}
-            .firstaid-tip h5{color:#a5b4fc!important;} .firstaid-tip p{color:#c7d2fe!important;}
-            .emergency-number{background:#0f0f2e!important;border:1px solid #1e1b4b!important;}
-            .emergency-number .number{color:#ef4444!important;} .emergency-number .service{color:#e0e7ff!important;}
-            .emergency-number p{color:#a5b4fc!important;}
-            .number-list li{background:#0f0f2e!important;border:1px solid #1e1b4b!important;color:#c7d2fe!important;}
-            .number-list .service{color:#e0e7ff!important;} .number-list .number{color:#ef4444!important;}
-            footer{background-color:#04040f!important;}
-            .footer-column h4{color:#f0f0ff!important;}
-            .footer-links a{color:#a5b4fc!important;} .footer-links a:hover{color:#e0e7ff!important;}
-            .footer-bottom{border-top-color:#1e1b4b!important;color:#4a4a8a!important;}
-            .mobile-menu{background-color:#0f0f2e!important;}
-            .mobile-menu-link{color:#c7d2fe!important;}
-            .mobile-menu-link:hover,.mobile-menu-link.active{background:#4f46e5!important;color:#fff!important;}
-            ::-webkit-scrollbar-track{background:#0f0f2e!important;}
-            ::-webkit-scrollbar-thumb{background:#1e1b4b!important;}
         }
-        *{margin:0;padding:0;box-sizing:border-box;}
-        html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background-color:var(--gray-50);color:var(--gray-800);line-height:1.5;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;transition:background-color var(--transition-smooth),color var(--transition-smooth);-webkit-tap-highlight-color:transparent;}
-        h1,h2,h3,h4,h5,h6{font-weight:700;line-height:1.2;color:var(--gray-900);}
-        h1{font-size:clamp(1.75rem,5vw,3rem);letter-spacing:-.025em;} h2{font-size:clamp(1.5rem,4vw,2.25rem);letter-spacing:-.025em;} h3{font-size:clamp(1.2rem,3vw,1.5rem);}
-        p{font-size:clamp(.95rem,2.5vw,1.125rem);color:var(--gray-600);}
-        .container{width:100%;max-width:1200px;margin:0 auto;padding-left:max(1rem,calc(1rem + var(--safe-left)));padding-right:max(1rem,calc(1rem + var(--safe-right)));}
-        header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);padding-top:max(.75rem,calc(.75rem + var(--safe-top)));padding-bottom:.75rem;transition:background-color var(--transition-smooth),border-color var(--transition-smooth);}
-        .header-content{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:3rem;}
+        /* ============ DARK — manuel ============ */
+        [data-theme="dark"]{
+            --primary:#818cf8; --primary-dark:#6366f1; --primary-light:#a5b4fc; --primary-soft:#1e1b4b;
+            --accent:#ef4444; --warning:#f59e0b; --success:#10b981;
+            --gray-50:#0f0f1a; --gray-100:#1a1a2e; --gray-200:#252545; --gray-300:#2e2e5a;
+            --gray-400:#4a4a8a; --gray-500:#7070b8; --gray-600:#a0a0d0;
+            --gray-700:#c8c8e8; --gray-800:#e8e8f8; --gray-900:#f0f0ff;
+            --bg-body:#0a0a1a; --bg-card:linear-gradient(145deg,#1a1a3e,#12122a);
+            --bg-header:rgba(10,10,26,.97); --bg-feature:#0f0f1e; --bg-footer:#07070f;
+            --bg-modal:#12122a; --bg-drawer:#0d0d20; --bg-drawer-item:#12122a;
+            --bg-drawer-active:#1e1b4b; --bg-step-card:linear-gradient(145deg,#1a1a3e,#12122a);
+            --bg-mobile-menu:#12122a; --bg-emg-number:#12122a; --bg-number-li:#12122a;
+            --text-body:#e0e0ff; --text-heading:#f0f0ff; --text-muted:#c7c7f0;
+            --text-subtle:#a5b4fc; --text-nav:#a5b4fc; --text-logo:#f0f0ff; --text-logo-sub:#a5b4fc;
+            --text-card:#f0f0ff; --text-card-p:#c7c7f0;
+            --text-drawer:#c7c7f0; --text-drawer-active:#a5b4fc;
+            --text-step-h:#f0f0ff; --text-step-p:#c7c7f0;
+            --text-emg-num:#ef4444; --text-emg-svc:#f0f0ff;
+            --text-footer-p:#7070b8; --text-footer-h:#f0f0ff; --text-footer-a:#a5b4fc; --text-footer-bot:#4a4a8a;
+            --border-card:#252545; --border-header:#252545; --border-drawer:#2e2e5a;
+            --border-step:#2e2e5a; --border-li:#252545; --border-footer:#252545;
+            --shadow-card-hover:0 10px 25px -3px rgba(0,0,0,.6);
+            --nav-hover-bg:rgba(129,140,248,.1); --nav-hover-clr:#f0f0ff;
+            --tip-bg:#1e1b4b; --tip-border:#4f46e5; --tip-h:#a5b4fc;
+            --sb-track:#12122a; --sb-thumb:#252545; --sb-hover:#4a4a8a;
+            color-scheme:dark;
+        }
+
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}}
+
+        /* ============ RESET ============ */
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background-color:var(--bg-body);color:var(--text-body);line-height:1.5;min-height:100vh;overflow-x:hidden;transition:background-color .3s,color .3s;-webkit-font-smoothing:antialiased;}
+        h1,h2,h3,h4,h5,h6{font-weight:700;line-height:1.2;color:var(--text-heading);}
+        h1{font-size:clamp(2rem,6vw,3.5rem);letter-spacing:-.025em;}
+        h2{font-size:clamp(1.5rem,4vw,2.25rem);letter-spacing:-.025em;}
+        h3{font-size:clamp(1.1rem,3vw,1.5rem);}
+        p{font-size:clamp(.95rem,2.5vw,1.125rem);color:var(--text-muted);line-height:1.7;}
+        .container{width:100%;max-width:1200px;margin:0 auto;padding:0 1rem;}
+
+        /* ============ HEADER ============ */
+        header{position:sticky;top:0;z-index:50;background:var(--bg-header);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border-header);padding:.875rem 0;transition:background-color .3s,border-color .3s;}
+        .header-content{display:flex;justify-content:space-between;align-items:center;gap:1rem;}
         .logo{display:flex;align-items:center;gap:.625rem;text-decoration:none;flex-shrink:0;}
-        .logo-icon.compass{width:2.25rem;height:2.25rem;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1rem;font-weight:600;flex-shrink:0;}
-        .logo-text{display:flex;flex-direction:column;}
-        .logo-title{font-size:clamp(1.1rem,3vw,1.5rem);font-weight:700;color:var(--gray-900);line-height:1.2;}
-        .logo-subtitle{font-size:.75rem;color:var(--gray-500);font-weight:500;}
-        @media(max-width:360px){.logo-subtitle{display:none;}}
+        .logo-icon.compass{width:2.25rem;height:2.25rem;background:linear-gradient(135deg,#4f46e5,#4338ca);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+        .logo-title{font-size:clamp(1.1rem,3vw,1.4rem);font-weight:700;color:var(--text-logo);line-height:1.2;}
+        .logo-subtitle{font-size:.75rem;color:var(--text-logo-sub);font-weight:500;}
         .nav-desktop{display:none;}
         @media(min-width:768px){.nav-desktop{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;}}
-        @media(min-width:1024px){.nav-desktop{gap:1rem;}}
-        .nav-link{color:var(--gray-600);text-decoration:none;font-weight:500;font-size:.875rem;padding:.5rem .75rem;border-radius:var(--radius-md);transition:var(--transition-fast);min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;white-space:nowrap;}
-        .nav-link:hover{color:var(--primary);background:var(--gray-100);}
-        .nav-link.active{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;}
-        .nav-link.firstaid-button{background:linear-gradient(135deg,var(--accent),var(--accent-light));color:white;gap:.4rem;}
-        .nav-link.firstaid-button:hover{background:linear-gradient(135deg,var(--accent),#b91c1c);transform:translateY(-2px);box-shadow:var(--shadow-md);}
-        .mobile-menu-btn{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.625rem;border-radius:var(--radius-md);min-height:44px;min-width:44px;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+        @media(min-width:1024px){.nav-desktop{gap:.625rem;}}
+        .nav-link{color:var(--text-nav);text-decoration:none;font-weight:500;font-size:.875rem;padding:.5rem .875rem;border-radius:var(--radius-md);transition:var(--tf);min-height:44px;display:flex;align-items:center;gap:.3rem;white-space:nowrap;}
+        .nav-link:hover{color:var(--nav-hover-clr);background:var(--nav-hover-bg);}
+        .nav-link.active{background:linear-gradient(135deg,#4f46e5,#4338ca);color:white;}
+        .nav-link.firstaid-button{background:linear-gradient(135deg,#dc2626,#b91c1c);color:white;}
+        .nav-link.firstaid-button:hover{filter:brightness(1.1);transform:translateY(-2px);}
+        .theme-toggle{background:none;border:1px solid var(--border-card);color:var(--text-nav);cursor:pointer;width:2.5rem;height:2.5rem;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:var(--tf);flex-shrink:0;min-height:44px;min-width:44px;}
+        .theme-toggle:hover{background:var(--nav-hover-bg);border-color:var(--primary);}
+        #themeToggleMobile{display:flex;}
+        @media(min-width:768px){#themeToggleMobile{display:none;}}
+        .mobile-menu-btn{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.625rem;border-radius:var(--radius-md);min-height:44px;min-width:44px;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent;}
         @media(min-width:768px){.mobile-menu-btn{display:none;}}
-        .menu-line{width:22px;height:2px;background:var(--gray-600);transition:var(--transition-fast);border-radius:1px;}
+        .menu-line{width:22px;height:2px;background:var(--text-muted);transition:var(--tf);border-radius:1px;}
         .mobile-menu-btn.active .menu-line:nth-child(1){transform:translateY(7px) rotate(45deg);}
-        .mobile-menu-btn.active .menu-line:nth-child(2){opacity:0;transform:scaleX(0);}
+        .mobile-menu-btn.active .menu-line:nth-child(2){opacity:0;}
         .mobile-menu-btn.active .menu-line:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-        .mobile-menu{position:fixed;top:0;right:-100%;width:min(320px,85vw);height:100%;height:100dvh;background:white;z-index:200;transition:right var(--transition-normal);padding:max(1.5rem,calc(1.5rem + var(--safe-top))) 1.5rem max(1.5rem,calc(1.5rem + var(--safe-bottom)));box-shadow:var(--shadow-xl);display:flex;flex-direction:column;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+        .mobile-menu{position:fixed;top:0;right:-100%;width:min(300px,85vw);height:100vh;background:var(--bg-mobile-menu);z-index:200;transition:right var(--tn);padding:2rem;box-shadow:var(--shadow-xl);display:flex;flex-direction:column;overflow-y:auto;}
         .mobile-menu.active{right:0;}
         .mobile-menu-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;}
         .mobile-menu-links{display:flex;flex-direction:column;gap:.375rem;}
-        .mobile-menu-link{padding:.875rem 1rem;border-radius:var(--radius-md);color:var(--gray-700);text-decoration:none;font-weight:500;font-size:1rem;transition:var(--transition-fast);min-height:52px;display:flex;align-items:center;gap:.5rem;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
-        .mobile-menu-link:hover,.mobile-menu-link.active{background:var(--primary);color:white;}
-        .mobile-menu-link.firstaid-button{background:linear-gradient(135deg,var(--accent),var(--accent-light));color:white;justify-content:center;margin-top:1rem;}
-        .menu-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:199;opacity:0;visibility:hidden;transition:var(--transition-normal);}
+        .mobile-menu-link{padding:.875rem 1rem;border-radius:var(--radius-md);color:var(--text-muted);text-decoration:none;font-weight:500;transition:var(--tf);min-height:52px;display:flex;align-items:center;gap:.5rem;-webkit-tap-highlight-color:transparent;}
+        .mobile-menu-link:hover,.mobile-menu-link.active{background:#4f46e5;color:white;}
+        .mobile-menu-link.firstaid-button{background:linear-gradient(135deg,#dc2626,#b91c1c);color:white;justify-content:center;margin-top:.75rem;}
+        .close-mobile-btn{background:none;border:none;font-size:1.75rem;color:var(--text-muted);cursor:pointer;min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;}
+        .menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:199;opacity:0;visibility:hidden;transition:var(--tn);}
         .menu-overlay.active{opacity:1;visibility:visible;}
-        .page-hero{padding:clamp(2.5rem,8vw,5rem) 1rem;background:linear-gradient(135deg,rgba(55,48,163,.97) 0%,rgba(79,70,229,.92) 50%,rgba(99,102,241,.85) 100%);position:relative;overflow:hidden;}
-        .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 80%,rgba(255,255,255,.1) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(255,255,255,.06) 0%,transparent 50%);pointer-events:none;}
-        .page-hero-content{position:relative;z-index:1;text-align:center;max-width:800px;margin:0 auto;}
-        .page-hero h1{color:white;margin-bottom:1rem;font-size:clamp(2rem,7vw,4rem);line-height:1.1;text-shadow:0 2px 12px rgba(0,0,0,.3);}
-        .page-hero p{color:rgba(255,255,255,.95);font-size:clamp(1rem,3vw,1.35rem);margin-bottom:clamp(1.5rem,5vw,3rem);max-width:600px;margin-left:auto;margin-right:auto;padding:0 .5rem;}
-        main{padding:clamp(2rem,6vw,4rem) 0;background-color:var(--gray-50);}
-        .section-title{text-align:center;margin-bottom:clamp(1.5rem,5vw,3rem);padding:0 1rem;}
-        .section-title h2{font-size:clamp(1.5rem,5vw,2.5rem);margin-bottom:.75rem;background:linear-gradient(135deg,var(--primary),var(--primary-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-        .emergency-banner{background:linear-gradient(135deg,var(--accent),#b91c1c);color:white;padding:1rem 1.25rem;border-radius:var(--radius-xl);margin:1.25rem 0;box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap;}
-        .emergency-banner-info{display:flex;align-items:center;gap:.75rem;flex:1;min-width:0;}
-        .emergency-banner-icon{font-size:1.25rem;flex-shrink:0;}
-        .emergency-banner-text{min-width:0;}
-        .emergency-banner-text strong{font-size:clamp(1rem,3vw,1.25rem);display:block;}
-        .emergency-banner-text span{font-size:.85rem;opacity:.9;}
-        .emergency-banner-btn{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);color:white;padding:.625rem 1rem;border-radius:var(--radius-md);cursor:pointer;display:flex;align-items:center;gap:.5rem;font-weight:600;font-size:.9rem;transition:all .3s ease;white-space:nowrap;min-height:44px;flex-shrink:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
-        .emergency-banner-btn:hover{background:rgba(255,255,255,.3);}
-        .grid{display:grid;gap:1.25rem;}
+
+        /* ============ HERO ============ */
+        .hero{padding:clamp(3.5rem,10vw,6rem) 1rem;background:linear-gradient(135deg,rgba(67,56,202,.97),rgba(79,70,229,.92),rgba(165,180,252,.85));position:relative;overflow:hidden;}
+        .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 80%,rgba(255,255,255,.1),transparent 50%),radial-gradient(circle at 80% 20%,rgba(255,255,255,.05),transparent 50%);pointer-events:none;}
+        .hero-content{position:relative;z-index:1;text-align:center;max-width:800px;margin:0 auto;}
+        .hero h1{color:white;margin-bottom:1.25rem;font-size:clamp(2.25rem,7vw,4rem);line-height:1.1;text-shadow:0 2px 12px rgba(0,0,0,.2);}
+        .hero p{color:rgba(255,255,255,.95);font-size:clamp(1rem,3vw,1.35rem);margin-bottom:0;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.6;}
+
+        /* ============ EMERGENCY BANNER ============ */
+        .emergency-banner{background:linear-gradient(135deg,#dc2626,#b91c1c);color:white;padding:1rem 1.5rem;border-radius:var(--radius-xl);margin:1.5rem 0;box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap;}
+        @media(prefers-reduced-motion:no-preference){.emergency-banner{animation:pulse 2s infinite;}}
+        @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.015);}}
+        .emergency-banner-left{display:flex;align-items:center;gap:.875rem;flex:1;min-width:0;}
+
+        /* ============ GRID & SECTION ============ */
+        .grid{display:grid;gap:1.5rem;}
         @media(min-width:600px){.grid-cols-3{grid-template-columns:repeat(2,1fr);}}
         @media(min-width:900px){.grid-cols-3{grid-template-columns:repeat(3,1fr);}}
-        .card{background:white;border-radius:var(--radius-xl);padding:clamp(1.25rem,4vw,2rem);box-shadow:var(--shadow-lg);transition:var(--transition-normal);border:1px solid var(--gray-200);height:100%;display:flex;flex-direction:column;cursor:pointer;position:relative;overflow:hidden;transform:translateZ(0);-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
-        @media(hover:hover) and (pointer:fine){.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-xl);border-color:var(--primary-light);}}
-        @media(hover:none){.card:active{transform:scale(.98);opacity:.9;}}
-        .card-icon{width:3.5rem;height:3.5rem;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;font-size:1.5rem;color:white;flex-shrink:0;}
+        .section{padding:clamp(3rem,8vw,5rem) 1rem;}
+        .section-title{text-align:center;margin-bottom:clamp(2rem,5vw,3rem);}
+        .section-title h2{font-size:clamp(1.5rem,5vw,2.5rem);margin-bottom:.75rem;background:linear-gradient(135deg,var(--primary),var(--primary-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .section-title p{font-size:clamp(.9rem,2.5vw,1.1rem);color:var(--text-subtle);}
+
+        /* ============ CARDS ============ */
+        .card{background:var(--bg-card);border-radius:var(--radius-xl);padding:clamp(1.25rem,4vw,2rem);box-shadow:var(--shadow-lg);transition:var(--tn);border:1px solid var(--border-card);height:100%;display:flex;flex-direction:column;cursor:pointer;min-height:260px;-webkit-tap-highlight-color:transparent;}
+        @media(hover:hover) and (pointer:fine){.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-card-hover);border-color:var(--primary-light);}}
+        @media(hover:none){.card:active{transform:scale(.98);}}
+        .card-icon{width:3.75rem;height:3.75rem;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;font-size:1.75rem;color:white;flex-shrink:0;}
         .card[data-type="kasirga"]  .card-icon{background:linear-gradient(135deg,#4f46e5,#3730a3);}
         .card[data-type="yildirim"] .card-icon{background:linear-gradient(135deg,#d97706,#92400e);}
         .card[data-type="dolu"]     .card-icon{background:linear-gradient(135deg,#0891b2,#164e63);}
-        .card h3{font-size:clamp(1.15rem,3.5vw,1.5rem);margin-bottom:.75rem;color:var(--gray-900);}
-        .card p{font-size:clamp(.875rem,2.5vw,1rem);color:var(--gray-600);margin-bottom:1.25rem;flex-grow:1;line-height:1.6;}
+        .card h3{font-size:clamp(1.1rem,3vw,1.4rem);margin-bottom:.75rem;color:var(--text-card);}
+        .card p{font-size:clamp(.875rem,2.5vw,1rem);color:var(--text-card-p);margin-bottom:1.25rem;flex-grow:1;line-height:1.6;}
         .card-actions{display:flex;gap:.75rem;margin-top:auto;flex-wrap:wrap;}
-        .card-btn{display:inline-flex;align-items:center;justify-content:center;gap:.375rem;padding:.75rem 1rem;border-radius:var(--radius-md);text-decoration:none;font-weight:600;font-size:clamp(.8rem,2.5vw,.95rem);transition:var(--transition-fast);border:none;cursor:pointer;flex:1;min-height:48px;min-width:44px;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+        .card-btn{display:inline-flex;align-items:center;justify-content:center;gap:.375rem;padding:.75rem 1rem;border-radius:var(--radius-md);text-decoration:none;font-weight:600;font-size:clamp(.8rem,2.5vw,.95rem);transition:var(--tf);border:none;cursor:pointer;flex:1;min-height:48px;min-width:44px;-webkit-tap-highlight-color:transparent;}
         .card-btn.primary{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;}
-        .card-btn.secondary{background:var(--gray-200);color:var(--gray-700);}
-        @media(hover:hover) and (pointer:fine){.card-btn.primary:hover{background:linear-gradient(135deg,var(--primary-dark),#2e27a0);transform:translateY(-2px);}.card-btn.secondary:hover{background:var(--gray-300);transform:translateY(-2px);}}
+        .card-btn.secondary{background:var(--gray-200);color:var(--text-body);}
+        @media(hover:hover) and (pointer:fine){.card-btn.primary:hover{filter:brightness(1.08);transform:translateY(-2px);}.card-btn.secondary:hover{filter:brightness(.95);transform:translateY(-2px);}}
         @media(hover:none){.card-btn:active{opacity:.8;transform:scale(.97);}}
-        .detail-section{background:white;border-radius:var(--radius-xl);padding:clamp(1.25rem,5vw,3rem);box-shadow:var(--shadow-lg);margin-top:2rem;border:1px solid var(--gray-200);transition:background-color var(--transition-smooth),border-color var(--transition-smooth);word-wrap:break-word;overflow-wrap:break-word;overflow-x:hidden;}
+
+        /* ============ DETAIL SECTION ============ */
+        .detail-section{background:var(--bg-card);border-radius:var(--radius-xl);padding:clamp(1.25rem,5vw,3rem);box-shadow:var(--shadow-lg);margin-top:2rem;border:1px solid var(--border-card);transition:background-color .3s,border-color .3s;word-wrap:break-word;overflow-wrap:break-word;overflow-x:hidden;}
         .detail-section h2{font-size:clamp(1.35rem,4vw,2rem);margin-bottom:1.25rem;color:var(--primary);}
+        .detail-section h3,.detail-section h4,.detail-section h5{color:var(--text-heading);}
+        .detail-section p{color:var(--text-muted);}
+
+        .info-h3{margin-top:1.5rem;margin-bottom:.875rem;color:var(--primary);font-size:clamp(1.1rem,3vw,1.4rem);}
+
         .info-box-indigo{background:linear-gradient(135deg,#eef2ff,#e0e7ff);padding:clamp(1.25rem,4vw,2rem);border-radius:var(--radius-lg);margin-bottom:1.5rem;border-left:4px solid var(--primary);}
-        .info-box-indigo h3{color:var(--primary-dark);margin-bottom:.75rem;} .info-box-indigo p{color:#312e81;}
+        .info-box-indigo h3{color:#3730a3;margin-bottom:.75rem;}
+        .info-box-indigo p{color:#312e81;}
+        [data-theme="dark"] .info-box-indigo{background:#1a1a4e;}
+        [data-theme="dark"] .info-box-indigo h3{color:var(--primary-light);}
+        [data-theme="dark"] .info-box-indigo p{color:var(--text-muted);}
+        @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .info-box-indigo{background:#1a1a4e;}:root:not([data-theme="light"]) .info-box-indigo h3{color:var(--primary-light);}:root:not([data-theme="light"]) .info-box-indigo p{color:var(--text-muted);}}
+
         .info-box-yellow{background:linear-gradient(135deg,#fef3c7,#fef9c3);padding:clamp(1.25rem,4vw,2rem);border-radius:var(--radius-lg);margin-bottom:1.5rem;border-left:4px solid var(--warning);}
-        .info-box-yellow h3{color:var(--warning);margin-bottom:.75rem;}
-        .info-box-purple{background:linear-gradient(135deg,#faf5ff,#ede9fe);padding:clamp(1.25rem,4vw,2rem);border-radius:var(--radius-lg);margin-bottom:1.5rem;border-left:4px solid #a855f7;}
-        .info-box-purple h3{color:#7e22ce;margin-bottom:.75rem;}
+        .info-box-yellow h3{color:#92400e;margin-bottom:.75rem;}
+        [data-theme="dark"] .info-box-yellow{background:#451a03;}
+        [data-theme="dark"] .info-box-yellow h3{color:#fbbf24;}
+        [data-theme="dark"] .info-box-yellow p{color:#fef3c7;}
+        @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .info-box-yellow{background:#451a03;}:root:not([data-theme="light"]) .info-box-yellow h3{color:#fbbf24;}:root:not([data-theme="light"]) .info-box-yellow p{color:#fef3c7;}}
+
         .info-box-sky{background:linear-gradient(135deg,#e0f2fe,#dbeafe);padding:clamp(1.25rem,4vw,2rem);border-radius:var(--radius-lg);margin-bottom:1.5rem;border-left:4px solid #0284c7;}
         .info-box-sky h3{color:#075985;margin-bottom:.75rem;}
+        [data-theme="dark"] .info-box-sky{background:#0c2d4a;}
+        [data-theme="dark"] .info-box-sky h3{color:#7dd3fc;}
+        [data-theme="dark"] .info-box-sky p{color:#bae6fd;}
+        @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .info-box-sky{background:#0c2d4a;}:root:not([data-theme="light"]) .info-box-sky h3{color:#7dd3fc;}:root:not([data-theme="light"]) .info-box-sky p{color:#bae6fd;}}
+
         .info-box-green{background:linear-gradient(135deg,#dcfce7,#d1fae5);padding:1.25rem;border-radius:var(--radius-lg);margin-top:1.5rem;border-left:4px solid var(--success);}
         .info-box-green h3,.info-box-green h5{color:var(--success);margin-bottom:.75rem;}
+        [data-theme="dark"] .info-box-green{background:#064e3b;}
+        [data-theme="dark"] .info-box-green h3,[data-theme="dark"] .info-box-green h5{color:#6ee7b7;}
+        [data-theme="dark"] .info-box-green p{color:#a7f3d0;}
+        @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .info-box-green{background:#064e3b;}:root:not([data-theme="light"]) .info-box-green h3,:root:not([data-theme="light"]) .info-box-green h5{color:#6ee7b7;}:root:not([data-theme="light"]) .info-box-green p{color:#a7f3d0;}}
+
+        .warning-box{background:#fef3c7;border-left:4px solid var(--warning);padding:1.125rem;border-radius:var(--radius-md);margin:1.25rem 0;}
+        .warning-box h5{color:#92400e;margin-bottom:.375rem;display:flex;align-items:center;gap:.375rem;}
+        [data-theme="dark"] .warning-box{background:#451a03;}
+        [data-theme="dark"] .warning-box h5{color:#fbbf24;}
+        [data-theme="dark"] .warning-box p{color:#fef3c7;}
+        @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .warning-box{background:#451a03;}:root:not([data-theme="light"]) .warning-box h5{color:#fbbf24;}:root:not([data-theme="light"]) .warning-box p{color:#fef3c7;}}
+
+        .danger-box{background:#fee2e2;border-left:4px solid var(--accent);padding:1.125rem;border-radius:var(--radius-md);margin:1.25rem 0;}
+        .danger-box h5{color:#991b1b;margin-bottom:.375rem;display:flex;align-items:center;gap:.375rem;}
+        [data-theme="dark"] .danger-box{background:#450a0a;}
+        [data-theme="dark"] .danger-box h5{color:#fca5a5;}
+        [data-theme="dark"] .danger-box p{color:#fecaca;}
+        @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .danger-box{background:#450a0a;}:root:not([data-theme="light"]) .danger-box h5{color:#fca5a5;}:root:not([data-theme="light"]) .danger-box p{color:#fecaca;}}
+
+        .step-card{background:var(--bg-step-card);border:1px solid var(--border-step);border-radius:var(--radius-lg);padding:clamp(1rem,3vw,1.5rem);margin-bottom:1.25rem;transition:var(--tf);}
+        @media(hover:hover) and (pointer:fine){.step-card:hover{transform:translateX(4px);border-color:var(--primary-light);box-shadow:var(--shadow-md);}}
+        .step-card h4{color:var(--text-step-h);margin-bottom:.625rem;display:flex;align-items:center;gap:.5rem;font-size:clamp(1rem,3vw,1.25rem);}
+        .step-card p{font-size:clamp(.875rem,2.5vw,1rem);color:var(--text-step-p);line-height:1.6;margin-bottom:0;}
+
         .stat-box{background:var(--gray-100);padding:1rem;border-radius:var(--radius-md);text-align:center;}
-        .stat-box p{font-size:.875rem;}
+        .stat-box p{font-size:.875rem;color:var(--text-muted);}
         .stat-box-primary{background:linear-gradient(135deg,var(--primary-light),var(--primary));color:white;padding:1.25rem;border-radius:var(--radius-lg);text-align:center;}
         .stat-box-primary p{font-size:.875rem;opacity:.9;color:white;}
         .stat-box-accent{background:linear-gradient(135deg,var(--accent-light),var(--accent));color:white;padding:1.25rem;border-radius:var(--radius-lg);text-align:center;}
         .stat-box-accent p{font-size:.875rem;opacity:.9;color:white;}
         .stat-box-violet{background:linear-gradient(135deg,#a78bfa,#7c3aed);color:white;padding:1.25rem;border-radius:var(--radius-lg);text-align:center;}
         .stat-box-violet p{font-size:.875rem;opacity:.9;color:white;}
-        .step-card{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:clamp(1rem,3vw,1.5rem);margin-bottom:1.25rem;transition:var(--transition-fast);}
-        @media(hover:hover) and (pointer:fine){.step-card:hover{transform:translateX(4px);border-color:var(--primary-light);box-shadow:var(--shadow-md);}}
-        .step-card h4{color:var(--gray-900);margin-bottom:.625rem;display:flex;align-items:center;gap:.5rem;font-size:clamp(1rem,3vw,1.25rem);}
-        .step-card p{font-size:clamp(.875rem,2.5vw,1rem);color:var(--gray-600);line-height:1.6;margin-bottom:0;}
-        .warning-box{background:#fef3c7;border-left:4px solid var(--warning);padding:1.125rem;border-radius:var(--radius-md);margin:1.25rem 0;}
-        .warning-box h5{color:var(--warning);margin-bottom:.375rem;display:flex;align-items:center;gap:.375rem;}
-        .danger-box{background:#fee2e2;border-left:4px solid var(--accent);padding:1.125rem;border-radius:var(--radius-md);margin:1.25rem 0;}
-        .danger-box h5{color:var(--accent);margin-bottom:.375rem;display:flex;align-items:center;gap:.375rem;}
-        .emergency-info{background:var(--gray-100);padding:1.25rem;border-radius:var(--radius-lg);margin-top:1.5rem;border:1px solid var(--gray-200);}
-        .emergency-info h5{color:var(--primary-dark);margin-bottom:.5rem;}
+
         .info-grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;margin:1rem 0;}
         @media(min-width:600px){.info-grid-4{grid-template-columns:repeat(4,1fr);}}
         .info-grid-2{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.5rem;}
         @media(min-width:480px){.info-grid-2{grid-template-columns:repeat(2,1fr);}}
         .info-grid-3{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.5rem;}
         @media(min-width:480px){.info-grid-3{grid-template-columns:repeat(3,1fr);}}
-        .info-h3{margin-top:1.25rem;color:var(--primary);font-size:clamp(1.1rem,3vw,1.5rem);}
-        .test-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,9,26,.97);z-index:1000;display:none;flex-direction:column;padding:max(.75rem,calc(.75rem + var(--safe-top))) max(.75rem,calc(.75rem + var(--safe-right))) max(.75rem,calc(.75rem + var(--safe-bottom))) max(.75rem,calc(.75rem + var(--safe-left)));overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
+
+        .emergency-info{background:var(--gray-100);padding:1.25rem;border-radius:var(--radius-lg);margin-top:1.5rem;border:1px solid var(--border-card);}
+        .emergency-info h5{color:var(--primary-dark);margin-bottom:.5rem;}
+        .emergency-info p{color:var(--text-muted);}
+
+        /* ============ BUTTONS ============ */
+        #emergencyFirstAidButton{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);color:white;padding:.75rem 1.25rem;border-radius:var(--radius-md);cursor:pointer;display:flex;align-items:center;gap:.5rem;font-weight:600;font-size:.9rem;transition:all .3s;white-space:nowrap;min-height:44px;flex-shrink:0;}
+        #emergencyFirstAidButton:hover{background:rgba(255,255,255,.3);transform:translateY(-2px);}
+        #footerFirstAidButton{background:linear-gradient(135deg,#dc2626,#b91c1c);color:white;border:none;padding:.75rem 1.5rem;border-radius:var(--radius-md);cursor:pointer;display:flex;align-items:center;gap:.5rem;font-weight:600;transition:all .3s;margin-top:1rem;width:100%;justify-content:center;min-height:48px;font-size:.95rem;}
+        #footerFirstAidButton:hover{filter:brightness(1.1);transform:translateY(-2px);}
+
+        /* ============ TEST OVERLAY ============ */
+        .test-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg-body);z-index:1000;display:none;flex-direction:column;padding:.75rem;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
         .test-overlay.active{display:flex;}
         .test-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.875rem;padding:1rem 1.25rem;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;border-radius:var(--radius-lg);gap:.75rem;flex-shrink:0;}
-        .test-header h2{color:white!important;font-size:clamp(1rem,3.5vw,1.5rem);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+        .test-header h2{color:white;font-size:clamp(1rem,3.5vw,1.5rem);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
         .test-content{flex:1;display:flex;flex-direction:column;max-width:800px;margin:0 auto;width:100%;}
-        .small-close-btn{background:rgba(255,255,255,.2);border:none;color:white;font-size:1.25rem;cursor:pointer;padding:.25rem;border-radius:var(--radius-md);transition:var(--transition-fast);display:flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;flex-shrink:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+        .small-close-btn{background:rgba(255,255,255,.2);border:none;color:white;font-size:1.25rem;cursor:pointer;padding:.25rem;border-radius:var(--radius-md);transition:var(--tf);display:flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;flex-shrink:0;}
         .progress-container{margin-bottom:1.25rem;}
-        .progress-label{display:flex;justify-content:space-between;margin-bottom:.375rem;color:var(--gray-600);font-weight:500;font-size:.875rem;}
+        .progress-label{display:flex;justify-content:space-between;margin-bottom:.375rem;color:var(--text-muted);font-weight:500;font-size:.875rem;}
         .progress-bar{width:100%;height:6px;background:var(--gray-200);border-radius:1rem;overflow:hidden;}
         .progress-fill{height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-light));border-radius:1rem;transition:width .4s ease;}
-        .question{font-size:clamp(1rem,3.5vw,1.4rem);font-weight:600;color:var(--gray-900);margin-bottom:1.25rem;line-height:1.5;padding:1.125rem;background:white;border-radius:var(--radius-xl);box-shadow:var(--shadow-md);border:2px solid var(--gray-200);}
+        .question{font-size:clamp(1rem,3.5vw,1.4rem);font-weight:600;color:var(--text-heading);margin-bottom:1.25rem;line-height:1.5;padding:1.125rem;background:var(--bg-card);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);border:2px solid var(--border-card);}
         .choices{display:grid;gap:.75rem;margin-bottom:1.25rem;}
-        .choice{padding:1rem 1.125rem;background:white;border:2px solid var(--gray-300);border-radius:var(--radius-lg);font-size:clamp(.9rem,3vw,1.1rem);text-align:left;cursor:pointer;transition:var(--transition-fast);color:var(--gray-700);min-height:52px;display:flex;align-items:center;line-height:1.4;-webkit-tap-highlight-color:transparent;touch-action:manipulation;word-break:break-word;overflow-wrap:break-word;}
+        .choice{padding:1rem 1.125rem;background:var(--bg-card);border:2px solid var(--border-card);border-radius:var(--radius-lg);font-size:clamp(.9rem,3vw,1.1rem);text-align:left;cursor:pointer;transition:var(--tf);color:var(--text-body);min-height:52px;display:flex;align-items:center;line-height:1.4;-webkit-tap-highlight-color:transparent;word-break:break-word;}
         @media(hover:hover) and (pointer:fine){.choice:hover:not(:disabled){border-color:var(--primary);transform:translateX(8px);background:var(--primary);color:white;}}
-        @media(hover:none){.choice:not(:disabled):active{background:var(--primary);border-color:var(--primary-dark);color:white;}}
         .choice.correct{background:#10b981;border-color:#059669;color:white;animation:pulseCorrect .5s ease;}
         .choice.wrong{background:#ef4444;border-color:#dc2626;color:white;animation:pulseWrong .5s ease;}
         .choice:disabled{cursor:not-allowed;opacity:.8;}
@@ -262,659 +302,740 @@
         @keyframes slideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
         .feedback.correct{background:#d1fae5;border:2px solid #10b981;color:#065f46;}
         .feedback.wrong{background:#fee2e2;border:2px solid #ef4444;color:#7f1d1d;}
-        .auto-continue-btn{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;border:none;padding:.875rem 1.5rem;border-radius:var(--radius-lg);font-size:clamp(.9rem,2.5vw,1rem);font-weight:600;cursor:pointer;transition:var(--transition-fast);width:100%;margin-top:.75rem;display:flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
-        .countdown-text{font-size:.8rem;color:var(--gray-500);text-align:center;margin-top:.375rem;}
+        [data-theme="dark"] .feedback.correct{background:#064e3b;border-color:#10b981;color:#a7f3d0;}
+        [data-theme="dark"] .feedback.wrong{background:#7f1d1d;border-color:#ef4444;color:#fecaca;}
+        @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .feedback.correct{background:#064e3b;border-color:#10b981;color:#a7f3d0;}:root:not([data-theme="light"]) .feedback.wrong{background:#7f1d1d;border-color:#ef4444;color:#fecaca;}}
+        .auto-continue-btn{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;border:none;padding:.875rem 1.5rem;border-radius:var(--radius-lg);font-size:clamp(.9rem,2.5vw,1rem);font-weight:600;cursor:pointer;transition:var(--tf);width:100%;margin-top:.75rem;display:flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;}
+        .countdown-text{font-size:.8rem;color:var(--text-subtle);text-align:center;margin-top:.375rem;}
         .result-screen{text-align:center;padding:1.25rem .5rem;}
         .result-icon{font-size:3.5rem;margin-bottom:1rem;animation:bounce 1s ease infinite;}
         @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
         .result-score{font-size:clamp(2rem,8vw,3rem);font-weight:700;margin:1rem 0;background:linear-gradient(135deg,var(--primary),var(--primary-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-        .result-message{font-size:clamp(.95rem,3vw,1.2rem);color:var(--gray-600);margin-bottom:1.5rem;}
-        .detailed-results{text-align:left;background:white;border-radius:var(--radius-xl);padding:clamp(1rem,4vw,2rem);margin:1.5rem 0;box-shadow:var(--shadow-md);border:1px solid var(--gray-200);}
-        .result-item{padding:1.125rem;border-bottom:2px solid var(--gray-200);margin-bottom:1.125rem;border-radius:var(--radius-md);}
+        .result-message{font-size:clamp(.95rem,3vw,1.2rem);color:var(--text-muted);margin-bottom:1.5rem;}
+        .detailed-results{text-align:left;background:var(--bg-card);border-radius:var(--radius-xl);padding:clamp(1rem,4vw,2rem);margin:1.5rem 0;box-shadow:var(--shadow-md);border:1px solid var(--border-card);}
+        .result-item{padding:1.125rem;border-bottom:2px solid var(--border-card);margin-bottom:1.125rem;border-radius:var(--radius-md);}
         .result-item:last-child{border-bottom:none;margin-bottom:0;}
         .result-item.correct{background:rgba(16,185,129,.1);border-left:4px solid #10b981;}
         .result-item.wrong{background:rgba(239,68,68,.1);border-left:4px solid #ef4444;}
-        .result-question{font-weight:600;margin-bottom:.625rem;color:var(--gray-900);font-size:clamp(.875rem,2.5vw,1rem);}
+        .result-question{font-weight:600;margin-bottom:.625rem;color:var(--text-heading);font-size:clamp(.875rem,2.5vw,1rem);}
         .result-answer{display:flex;align-items:flex-start;gap:.5rem;margin:.375rem 0;font-size:clamp(.8rem,2.5vw,.95rem);flex-wrap:wrap;}
-        .result-answer.correct{color:#059669;} .result-answer.wrong{color:#dc2626;}
-        .result-explanation{color:var(--gray-600);font-size:clamp(.8rem,2vw,.95rem);margin-top:.75rem;padding:.875rem;background:var(--gray-100);border-radius:var(--radius-md);}
+        .result-answer.correct{color:#059669;}
+        .result-answer.wrong{color:#dc2626;}
+        .result-explanation{color:var(--text-muted);font-size:clamp(.8rem,2vw,.95rem);margin-top:.75rem;padding:.875rem;background:var(--gray-100);border-radius:var(--radius-md);}
         .result-actions{display:flex;gap:.75rem;margin-top:1.5rem;flex-wrap:wrap;}
         .result-actions .card-btn{min-width:120px;}
-        footer{background:var(--gray-900);color:var(--gray-300);padding:clamp(2rem,6vw,4rem) 0 0;margin-top:clamp(2rem,6vw,4rem);padding-bottom:max(1.5rem,calc(1.5rem + var(--safe-bottom)));transition:background-color var(--transition-smooth);}
-        .footer-content{max-width:1200px;margin:0 auto;}
+
+        /* ============ İLK YARDIM MODAL — DRAWER ============ */
+        .firstaid-modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;display:flex;align-items:stretch;justify-content:flex-end;opacity:0;visibility:hidden;transition:opacity var(--tn),visibility var(--tn);}
+        .firstaid-modal.active{opacity:1;visibility:visible;}
+        .firstaid-modal-content{background:var(--bg-modal);width:100%;max-width:1100px;height:100%;display:flex;flex-direction:column;box-shadow:-10px 0 50px rgba(0,0,0,.4);transform:translateX(100%);transition:transform var(--tn);overflow:hidden;}
+        .firstaid-modal.active .firstaid-modal-content{transform:translateX(0);}
+        .firstaid-modal-header{padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#dc2626,#b91c1c);color:white;flex-shrink:0;}
+        .firstaid-modal-header h3{color:white;margin:0;display:flex;align-items:center;gap:.625rem;font-size:clamp(.95rem,3vw,1.3rem);}
+        .close-modal-btn{background:rgba(255,255,255,.2);border:none;width:2.5rem;height:2.5rem;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:white;font-size:1.4rem;cursor:pointer;transition:var(--tf);min-height:44px;min-width:44px;flex-shrink:0;}
+        .close-modal-btn:hover{background:rgba(255,255,255,.35);transform:rotate(90deg);}
+        .firstaid-modal-body{display:flex;flex:1;min-height:0;overflow:hidden;}
+        .firstaid-drawer{width:250px;flex-shrink:0;background:var(--bg-drawer);border-right:1px solid var(--border-drawer);display:flex;flex-direction:column;overflow:hidden;transition:transform var(--tn);}
+        .firstaid-drawer-header{padding:.875rem 1.25rem;border-bottom:1px solid var(--border-drawer);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+        .firstaid-drawer-header span{font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-subtle);}
+        .drawer-close-btn{display:none;background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:1.3rem;min-height:36px;min-width:36px;align-items:center;justify-content:center;border-radius:var(--radius-md);transition:var(--tf);}
+        .drawer-close-btn:hover{background:var(--gray-200);}
+        .firstaid-drawer-nav{flex:1;overflow-y:auto;padding:.5rem;}
+        .drawer-item{width:100%;display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;margin-bottom:.2rem;border:none;border-radius:var(--radius-lg);background:transparent;cursor:pointer;font-family:inherit;font-size:.925rem;font-weight:500;color:var(--text-drawer);text-align:left;transition:var(--tf);-webkit-tap-highlight-color:transparent;position:relative;}
+        .drawer-item:hover{background:var(--bg-drawer-item);color:var(--text-heading);}
+        .drawer-item.active{background:var(--bg-drawer-active);color:var(--text-drawer-active);font-weight:700;}
+        .drawer-item.active::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:3px;border-radius:0 3px 3px 0;background:var(--accent);}
+        .drawer-item-icon{font-size:1.2rem;flex-shrink:0;width:1.8rem;text-align:center;}
+        .drawer-item-text{flex:1;line-height:1.3;}
+        .drawer-item-badge{font-size:.65rem;font-weight:700;background:var(--accent);color:white;padding:.1rem .4rem;border-radius:999px;flex-shrink:0;}
+        .drawer-toggle-btn{display:none;position:absolute;top:.75rem;left:.75rem;z-index:5;background:var(--bg-drawer);border:1px solid var(--border-drawer);border-radius:var(--radius-md);padding:.45rem .75rem;cursor:pointer;font-size:.8rem;font-weight:600;color:var(--text-muted);gap:.4rem;align-items:center;transition:var(--tf);min-height:38px;}
+        .drawer-toggle-btn:hover{background:var(--gray-200);color:var(--text-heading);}
+        .firstaid-content-area{flex:1;min-width:0;display:flex;flex-direction:column;overflow:hidden;position:relative;}
+        .firstaid-tab-content{display:none;flex:1;overflow-y:auto;overflow-x:hidden;padding:clamp(1.5rem,3vw,2.5rem);font-size:clamp(1rem,1.8vw,1.1rem);line-height:1.8;-webkit-overflow-scrolling:touch;}
+        .firstaid-tab-content.active{display:block;}
+        .tab-section-title{display:flex;align-items:center;gap:.75rem;margin-bottom:1.75rem;padding-bottom:1rem;border-bottom:2px solid var(--border-step);}
+        .tab-section-title h3{font-size:clamp(1.2rem,3vw,1.6rem);color:var(--accent);margin:0;}
+        .firstaid-step-card{background:var(--bg-step-card);border:1px solid var(--border-step);border-radius:var(--radius-lg);padding:clamp(1rem,3vw,1.5rem);margin-bottom:1.25rem;transition:var(--tf);}
+        @media(hover:hover) and (pointer:fine){.firstaid-step-card:hover{transform:translateX(4px);border-color:var(--primary);box-shadow:var(--shadow-md);}}
+        .firstaid-step-card h4{color:var(--text-step-h);margin-bottom:.75rem;display:flex;align-items:center;gap:.625rem;font-size:clamp(1.05rem,2.5vw,1.25rem);}
+        .firstaid-step-card p{font-size:clamp(1rem,2vw,1.1rem);color:var(--text-step-p);line-height:1.8;margin-bottom:0;}
+        .firstaid-warning{background:#fef3c7;border-left:4px solid var(--warning);padding:1.25rem;border-radius:var(--radius-md);margin:1.25rem 0;}
+        [data-theme="dark"] .firstaid-warning{background:#1a0e00;color:#fef3c7;}
+        @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .firstaid-warning{background:#1a0e00;color:#fef3c7;}}
+        .firstaid-warning h5{color:#92400e;margin-bottom:.375rem;display:flex;align-items:center;gap:.375rem;font-size:1rem;}
+        [data-theme="dark"] .firstaid-warning h5{color:#fbbf24;}
+        @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .firstaid-warning h5{color:#fbbf24;}}
+        .firstaid-warning p{font-size:clamp(1rem,2vw,1.05rem);line-height:1.8;}
+        .firstaid-tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:1.5rem;}
+        .firstaid-tip{background:var(--tip-bg);border-radius:var(--radius-lg);padding:1.25rem;border:1px solid var(--tip-border);}
+        .firstaid-tip h5{color:var(--tip-h);margin-bottom:.5rem;display:flex;align-items:center;gap:.375rem;font-size:1rem;}
+        .firstaid-tip p{font-size:clamp(1rem,2vw,1.05rem);color:var(--text-muted);line-height:1.7;}
+        .emergency-numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1.5rem;}
+        .emergency-number{background:var(--bg-emg-number);border-radius:var(--radius-lg);padding:1.25rem;text-align:center;transition:var(--tf);cursor:pointer;border:1px solid var(--border-step);}
+        @media(hover:hover) and (pointer:fine){.emergency-number:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}}
+        .emergency-number .number{font-size:2rem;font-weight:700;color:var(--text-emg-num);margin-bottom:.375rem;}
+        .emergency-number .service{font-weight:600;color:var(--text-emg-svc);font-size:.875rem;}
+        .emergency-number p{color:var(--text-subtle);font-size:.9rem;margin-top:.25rem;}
+        .number-list{list-style:none;}
+        .number-list li{margin-bottom:.625rem;padding:.875rem 1rem;background:var(--bg-number-li);border-radius:var(--radius-md);display:flex;align-items:center;gap:1rem;border:1px solid var(--border-li);}
+        .number-list .number{font-weight:700;font-size:1.2rem;color:var(--text-emg-num);min-width:90px;}
+        .number-list .service{flex:1;font-weight:600;color:var(--text-emg-svc);font-size:1rem;}
+        @media(max-width:700px){
+            .firstaid-drawer{position:absolute;top:0;left:0;bottom:0;z-index:10;width:min(270px,85%);transform:translateX(-100%);box-shadow:4px 0 24px rgba(0,0,0,.3);}
+            .firstaid-drawer.open{transform:translateX(0);}
+            .drawer-close-btn{display:flex;}
+            .drawer-toggle-btn{display:flex;}
+            .firstaid-tab-content{padding:3.75rem 1.25rem 1.5rem;}
+            .firstaid-drawer-overlay{position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:9;display:none;pointer-events:none;}
+            .firstaid-drawer-overlay.active{display:block;pointer-events:auto;}
+        }
+
+        /* ============ FOOTER ============ */
+        footer{background:var(--bg-footer);color:var(--text-footer-p);padding:clamp(2rem,6vw,4rem) 0 1.5rem;margin-top:clamp(2rem,6vw,4rem);}
         .footer-grid{display:grid;gap:2rem;margin-bottom:2rem;}
         @media(min-width:600px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
         @media(min-width:900px){.footer-grid{grid-template-columns:repeat(3,1fr);}}
-        .footer-column h4{color:white;font-size:1.05rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem;}
+        .footer-column h4{color:var(--text-footer-h);font-size:1.05rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem;}
         .footer-links{list-style:none;}
         .footer-links li{margin-bottom:.375rem;}
-        .footer-links a{color:var(--gray-400);text-decoration:none;transition:var(--transition-fast);display:flex;align-items:center;gap:.5rem;min-height:44px;font-size:.9rem;-webkit-tap-highlight-color:transparent;}
-        .footer-links a:hover{color:white;transform:translateX(4px);}
-        .footer-bottom{border-top:1px solid var(--gray-800);padding-top:1.5rem;text-align:center;color:var(--gray-500);font-size:.875rem;}
-        .footer-firstaid-btn{background:linear-gradient(135deg,var(--accent),var(--accent-light));color:white;border:none;padding:.75rem 1.25rem;border-radius:var(--radius-md);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.5rem;font-weight:600;font-size:.95rem;transition:all .3s ease;margin-top:1rem;width:100%;min-height:48px;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+        .footer-links a{color:var(--text-footer-a);text-decoration:none;transition:var(--tf);display:flex;align-items:center;gap:.5rem;min-height:44px;font-size:.9rem;}
+        .footer-links a:hover{color:var(--text-footer-h);transform:translateX(4px);}
+        .footer-bottom{border-top:1px solid var(--border-footer);padding-top:1.5rem;text-align:center;color:var(--text-footer-bot);font-size:.875rem;}
+
+        /* ============ ANİMASYON & SCROLLBAR ============ */
         @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
         .animate-fade-in-up{animation:fadeInUp .5s ease-out forwards;opacity:0;}
-        .animate-delay-100{animation-delay:100ms;} .animate-delay-200{animation-delay:200ms;}
-        .firstaid-modal{position:fixed;inset:0;background:rgba(8,9,26,.95);z-index:300;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:var(--transition-normal);padding:max(.5rem,var(--safe-top)) max(.5rem,var(--safe-right)) max(.5rem,var(--safe-bottom)) max(.5rem,var(--safe-left));}
-        .firstaid-modal.active{opacity:1;visibility:visible;}
-        .firstaid-modal-content{background:white;border-radius:var(--radius-xl);width:100%;max-width:1000px;height:100%;max-height:100dvh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);transform:translateZ(0);}
-        .firstaid-modal-header{padding:.875rem 1.125rem;border-bottom:1px solid var(--gray-200);display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,var(--accent),#b91c1c);color:white;flex-shrink:0;gap:.75rem;}
-        .firstaid-modal-header h3{color:white;margin:0;display:flex;align-items:center;gap:.5rem;font-size:clamp(1rem,3.5vw,1.35rem);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-        .close-modal-btn{background:rgba(255,255,255,.2);border:none;min-width:44px;min-height:44px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:white;font-size:1.375rem;cursor:pointer;transition:var(--transition-fast);flex-shrink:0;-webkit-tap-highlight-color:transparent;}
-        .close-modal-btn:hover{background:rgba(255,255,255,.3);transform:rotate(90deg);}
-        .firstaid-modal-body{display:flex;flex-direction:column;flex:1;overflow:hidden;min-height:0;}
-        .firstaid-tabs{display:flex;border-bottom:1px solid var(--gray-200);background:var(--gray-50);flex-shrink:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;touch-action:pan-x;overscroll-behavior-x:contain;}
-        .firstaid-tabs::-webkit-scrollbar{display:none;}
-        .firstaid-tab{flex:0 0 auto;padding:.875rem 1rem;border:none;background:none;font-family:inherit;font-weight:600;color:var(--gray-600);cursor:pointer;transition:var(--transition-fast);display:flex;align-items:center;justify-content:center;gap:.375rem;font-size:clamp(.8rem,2.5vw,.95rem);position:relative;white-space:nowrap;min-height:52px;min-width:80px;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
-        .firstaid-tab:hover{background:var(--gray-100);}
-        .firstaid-tab.active{color:var(--accent);border-bottom:3px solid var(--accent);background:white;}
-        .firstaid-tab-content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:clamp(1rem,4vw,1.5rem);display:none;animation:fadeInUp .3s ease-out;overscroll-behavior:contain;}
-        .firstaid-tab-content.active{display:block;}
-        .firstaid-step-card{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:clamp(1rem,3vw,1.5rem);margin-bottom:1.125rem;transition:var(--transition-fast);}
-        @media(hover:hover) and (pointer:fine){.firstaid-step-card:hover{transform:translateX(4px);border-color:var(--accent-light);box-shadow:var(--shadow-md);}}
-        .firstaid-step-card h4{color:var(--gray-900);margin-bottom:.625rem;display:flex;align-items:center;gap:.5rem;font-size:clamp(1rem,3vw,1.2rem);}
-        .firstaid-step-card p{font-size:clamp(.875rem,2.5vw,1rem);color:var(--gray-600);line-height:1.6;margin-bottom:0;}
-        .firstaid-warning{background:#fef3c7;border-left:4px solid var(--warning);padding:1.125rem;border-radius:var(--radius-md);margin:1.25rem 0;}
-        .firstaid-warning h5{color:var(--warning);margin-bottom:.375rem;display:flex;align-items:center;gap:.375rem;font-size:.95rem;}
-        .firstaid-tips{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.5rem;}
-        @media(min-width:480px){.firstaid-tips{grid-template-columns:repeat(2,1fr);}}
-        .firstaid-tip{background:linear-gradient(135deg,var(--primary-soft),white);border-radius:var(--radius-lg);padding:1.125rem;border:1px solid var(--primary-light);}
-        .firstaid-tip h5{color:var(--primary-dark);margin-bottom:.5rem;display:flex;align-items:center;gap:.375rem;}
-        .emergency-numbers{display:grid;grid-template-columns:repeat(2,1fr);gap:.875rem;margin-top:1.5rem;}
-        @media(min-width:480px){.emergency-numbers{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}}
-        .emergency-number{background:var(--gray-100);border-radius:var(--radius-lg);padding:1rem;text-align:center;transition:var(--transition-fast);cursor:pointer;-webkit-tap-highlight-color:transparent;}
-        @media(hover:hover) and (pointer:fine){.emergency-number:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}}
-        @media(hover:none){.emergency-number:active{transform:scale(.97);}}
-        .emergency-number .number{font-size:clamp(1.375rem,5vw,1.75rem);font-weight:700;color:var(--accent);margin-bottom:.25rem;}
-        .emergency-number .service{font-weight:600;color:var(--gray-800);font-size:.85rem;}
-        .emergency-number p{font-size:.8rem;margin-top:.25rem;}
-        .number-list{list-style:none;padding-left:0;}
-        .number-list li{margin-bottom:.625rem;padding:.75rem;background:var(--gray-50);border-radius:var(--radius-md);display:flex;align-items:center;gap:.875rem;border:1px solid var(--gray-200);}
-        .number-list .number{font-weight:700;font-size:clamp(1rem,4vw,1.25rem);color:var(--accent);min-width:80px;}
-        .number-list .service{flex:1;font-weight:600;color:var(--gray-800);font-size:clamp(.85rem,2.5vw,1rem);}
-        :focus-visible{outline:3px solid var(--primary);outline-offset:2px;}
+        .animate-delay-100{animation-delay:100ms;}
+        .animate-delay-200{animation-delay:200ms;}
+        :focus-visible{outline:3px solid var(--primary);outline-offset:3px;border-radius:var(--radius-md);}
         ::-webkit-scrollbar{width:6px;height:6px;}
-        ::-webkit-scrollbar-track{background:var(--gray-100);}
-        ::-webkit-scrollbar-thumb{background:var(--gray-300);border-radius:4px;}
-        button,a,[role="button"]{-webkit-tap-highlight-color:transparent;}
-        body.scroll-locked{overflow:hidden;position:fixed;width:100%;}
+        ::-webkit-scrollbar-track{background:var(--sb-track);}
+        ::-webkit-scrollbar-thumb{background:var(--sb-thumb);border-radius:4px;}
+        ::-webkit-scrollbar-thumb:hover{background:var(--sb-hover);}
+        @media(max-width:768px){.emergency-banner{flex-direction:column;text-align:center;}#emergencyFirstAidButton{width:100%;justify-content:center;}}
+        @media(max-width:480px){.logo-subtitle{display:none;}}
+        @media(min-width:1440px){.container{max-width:1400px;}}
     </style>
 </head>
 <body>
 
 <header>
-  <div class="container">
-    <div class="header-content">
-      <a href="index.html" class="logo" aria-label="Afet Hazırlık Ana Sayfa">
-        <div class="logo-icon compass" aria-hidden="true">🧭</div>
-        <div class="logo-text">
-          <div class="logo-title">Afet Hazırlık</div>
-          <div class="logo-subtitle">Güvende Kal</div>
+    <div class="container">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon compass">🧭</div>
+                <div class="logo-text">
+                    <div class="logo-title">Afet Hazırlık</div>
+                    <div class="logo-subtitle">Güvende Kal</div>
+                </div>
+            </a>
+            <nav class="nav-desktop">
+                <a href="index.html"    class="nav-link">🏠 Ana Sayfa</a>
+                <a href="yer.html"      class="nav-link">🏔️ Yer Afetleri</a>
+                <a href="su.html"       class="nav-link">🌊 Su Afetleri</a>
+                <a href="hava.html"     class="nav-link active" aria-current="page">🌪️ Hava Afetleri</a>
+                <a href="İnsan.html"    class="nav-link">🔥 İnsan Kaynaklı</a>
+                <a href="hakkinda.html" class="nav-link">ℹ️ Hakkında</a>
+                <a href="#" class="nav-link firstaid-button" id="firstAidButton">🆘 İlk Yardım Rehberi</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Karanlık moda geç">🌙</button>
+            </nav>
+            <div style="display:flex;align-items:center;gap:.5rem;">
+                <button class="theme-toggle" id="themeToggleMobile" aria-label="Karanlık moda geç">🌙</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-label="Menüyü aç">
+                    <span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span>
+                </button>
+            </div>
         </div>
-      </a>
-      <nav class="nav-desktop" aria-label="Ana Navigasyon">
-        <a href="index.html"    class="nav-link">🏠 Ana Sayfa</a>
-        <a href="yer.html"      class="nav-link">🏔️ Yer</a>
-        <a href="su.html"       class="nav-link">🌊 Su</a>
-        <a href="hava.html"     class="nav-link active" aria-current="page">🌪️ Hava</a>
-        <a href="İnsan.html"    class="nav-link">🔥 İnsan</a>
-        <a href="hakkinda.html" class="nav-link">ℹ️</a>
-        <a href="#" class="nav-link firstaid-button" id="firstAidButton"><span aria-hidden="true">🆘</span> İlk Yardım</a>
-      </nav>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü Aç" aria-expanded="false" aria-controls="mobileMenu">
-        <span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span>
-      </button>
     </div>
-  </div>
 </header>
 
-<div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
-<nav class="mobile-menu" id="mobileMenu" aria-label="Mobil Navigasyon" aria-hidden="true">
-  <div class="mobile-menu-header">
-    <div class="logo"><div class="logo-icon compass" aria-hidden="true">🧭</div><div class="logo-text"><div class="logo-title">Afet Hazırlık</div></div></div>
-    <button id="closeMenuBtn" style="background:none;border:none;font-size:1.75rem;color:var(--gray-600);cursor:pointer;min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;" aria-label="Menüyü Kapat">×</button>
-  </div>
-  <div class="mobile-menu-links">
-    <a href="index.html"    class="mobile-menu-link">🏠 Ana Sayfa</a>
-    <a href="yer.html"      class="mobile-menu-link">🏔️ Yer Afetleri</a>
-    <a href="su.html"       class="mobile-menu-link">🌊 Su Afetleri</a>
-    <a href="hava.html"     class="mobile-menu-link active" aria-current="page">🌪️ Hava Afetleri</a>
-    <a href="İnsan.html"    class="mobile-menu-link">🔥 İnsan Kaynaklı</a>
-    <a href="hakkinda.html" class="mobile-menu-link">ℹ️ Hakkında</a>
-    <a href="#" class="mobile-menu-link firstaid-button" id="mobileFirstAidButton">🆘 İlk Yardım Rehberi</a>
-  </div>
-</nav>
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+        <div class="logo">
+            <div class="logo-icon compass">🧭</div>
+            <div class="logo-text"><div class="logo-title">Afet Hazırlık</div></div>
+        </div>
+        <button id="closeMenuBtn" class="close-mobile-btn" aria-label="Menüyü kapat">×</button>
+    </div>
+    <nav class="mobile-menu-links">
+        <a href="index.html"    class="mobile-menu-link">🏠 Ana Sayfa</a>
+        <a href="yer.html"      class="mobile-menu-link">🏔️ Yer Afetleri</a>
+        <a href="su.html"       class="mobile-menu-link">🌊 Su Afetleri</a>
+        <a href="hava.html"     class="mobile-menu-link active" aria-current="page">🌪️ Hava Afetleri</a>
+        <a href="İnsan.html"    class="mobile-menu-link">🔥 İnsan Kaynaklı</a>
+        <a href="hakkinda.html" class="mobile-menu-link">ℹ️ Hakkında</a>
+        <a href="#" class="mobile-menu-link firstaid-button" id="mobileFirstAidButton">🆘 İlk Yardım Rehberi</a>
+    </nav>
+</div>
 
-<!-- İLK YARDIM MODAL -->
+<!-- ===== İLK YARDIM MODAL — DRAWER ===== -->
 <div class="firstaid-modal" id="firstAidModal" role="dialog" aria-modal="true" aria-labelledby="firstAidModalTitle">
-  <div class="firstaid-modal-content">
-    <div class="firstaid-modal-header">
-      <h3 id="firstAidModalTitle">🆘 Acil İlk Yardım Rehberi</h3>
-      <button class="close-modal-btn" id="closeFirstAidModal" aria-label="Kapat">×</button>
+    <div class="firstaid-modal-content">
+        <div class="firstaid-modal-header">
+            <h3 id="firstAidModalTitle">🆘 Acil Durumda İlk Yardım Rehberi</h3>
+            <button class="close-modal-btn" id="closeFirstAidModal" aria-label="Kapat">×</button>
+        </div>
+        <div class="firstaid-modal-body">
+            <aside class="firstaid-drawer" id="firstaidDrawer">
+                <div class="firstaid-drawer-header">
+                    <span>📋 Konular</span>
+                    <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Menüyü kapat">×</button>
+                </div>
+                <nav class="firstaid-drawer-nav">
+                    <button class="drawer-item active" data-tab="basic">
+                        <span class="drawer-item-icon">🧠</span>
+                        <span class="drawer-item-text">Temel Kurallar</span>
+                    </button>
+                    <button class="drawer-item" data-tab="lightning">
+                        <span class="drawer-item-icon">⚡</span>
+                        <span class="drawer-item-text">Yıldırım Çarpması</span>
+                        <span class="drawer-item-badge">ACİL</span>
+                    </button>
+                    <button class="drawer-item" data-tab="bleeding">
+                        <span class="drawer-item-icon">🩸</span>
+                        <span class="drawer-item-text">Kanamalar</span>
+                    </button>
+                    <button class="drawer-item" data-tab="cpr">
+                        <span class="drawer-item-icon">💓</span>
+                        <span class="drawer-item-text">CPR / Kalp Masajı</span>
+                    </button>
+                    <button class="drawer-item" data-tab="hypo">
+                        <span class="drawer-item-icon">🥶</span>
+                        <span class="drawer-item-text">Hipotermi</span>
+                    </button>
+                    <button class="drawer-item" data-tab="numbers">
+                        <span class="drawer-item-icon">📞</span>
+                        <span class="drawer-item-text">Acil Numaralar</span>
+                    </button>
+                </nav>
+            </aside>
+
+            <div class="firstaid-content-area">
+                <button class="drawer-toggle-btn" id="drawerToggleBtn">☰ Konular</button>
+                <div class="firstaid-drawer-overlay" id="drawerOverlay"></div>
+
+                <!-- Temel Kurallar -->
+                <div class="firstaid-tab-content active" id="basic-tab">
+                    <div class="tab-section-title"><span style="font-size:2rem;">🧠</span><h3>İlk Yardımın Temel Kuralları</h3></div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#dc2626;">🛡️</span> 1. Önce Kendinizi Koruyun</h4>
+                        <p>Hava afetleri sırasında sahaya çıkmadan ortamın güvenli olduğunu doğrulayın. Elektrik telleri, çökmüş yapılar ve devam eden fırtına koşullarında müdahale etmeyin.</p>
+                    </div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#4f46e5;">📞</span> 2. Hemen 112'yi Arayın</h4>
+                        <p>Olayın yeri, yaralı sayısı ve türünü net bildirin. Fırtına koşullarında GPS konumunuzu paylaşın. Operatör yönlendirene kadar hattı kesmeyin.</p>
+                    </div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#059669;">🔍</span> 3. ABC Değerlendirmesi</h4>
+                        <p><strong>A — Hava Yolu:</strong> Açık mı?<br><strong>B — Solunum:</strong> Nefes alıyor mu?<br><strong>C — Dolaşım:</strong> Nabız var mı? Ciddi kanama?</p>
+                    </div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#d97706;">🌪️</span> 4. Hava Afetine Özel Kurallar</h4>
+                        <p>• Kopmuş elektrik telinden en az 10 m uzak durun<br>• Hasarlı binaya girmeyin<br>• Gaz kokusu → vanayı kapatın, dışarı çıkın, 187'yi arayın<br>• Yıldırım çarpan kişiye güvenle dokunabilirsiniz — elektrik depolamaz</p>
+                    </div>
+                    <div class="firstaid-warning">
+                        <h5>⚠️ KRİTİK UYARILAR</h5>
+                        <p>• Düşmüş elektrik telinin yakınındaki su birikintisine girmeyin — basamak gerilimi öldürür<br>• Kasırga "gözü" geçtiğinde sükûnet aldatıcıdır — fırtına ikinci yarısıyla döner<br>• Jeneratörü kapalı alanda çalıştırmayın — CO zehirlenmesi ölümcüldür</p>
+                    </div>
+                </div>
+
+                <!-- Yıldırım Çarpması -->
+                <div class="firstaid-tab-content" id="lightning-tab">
+                    <div class="tab-section-title"><span style="font-size:2rem;">⚡</span><h3>Yıldırım Çarpmasında İlk Yardım</h3></div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#d97706;">⚡</span> Güvenli Mi?</h4>
+                        <p>Yıldırım çarpan kişiye dokunmak güvenlidir — vücutta elektrik depolanmaz. Ancak fırtına hâlâ devam ediyorsa sizi de çarpabilir; kişiyi kapalı alana alın.</p>
+                    </div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#4f46e5;">🔍</span> Değerlendirme ve İlk Müdahale</h4>
+                        <p>1. Hemen 112'yi arayın<br>2. Solunum ve nabzı kontrol edin<br>3. Solunum yoksa derhal CPR başlayın<br>4. Boyun ve omurga yaralanması olabilir — başı taşırken destekleyin</p>
+                    </div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#059669;">🩹</span> Yıldırım Yanığı</h4>
+                        <p>• Yanık bölgelere soğuk (buz değil) suya batırılmış bez uygulayın<br>• Giysileri zorla çıkarmayın — erimiş olabilir<br>• Steril örtü ile kapatın<br>• Tüm yıldırım çarpması vakaları hastanede değerlendirilmeli</p>
+                    </div>
+                    <div class="firstaid-warning">
+                        <h5>❌ YAPILMAMASI GEREKENLER</h5>
+                        <p>• Kişiye dokunmaktan kaçınmayın — elektrik yok<br>• Buz uygulamayın<br>• Görünürde iyi olsa bile hastaneye götürmeden bırakmayın</p>
+                    </div>
+                    <div class="firstaid-tips">
+                        <div class="firstaid-tip"><h5>⏱️ Altın Dakikalar</h5><p>Yıldırım çarpmalarında solunum durması sık görülür. CPR'a hızla başlamak hayatta kalma şansını büyük ölçüde artırır.</p></div>
+                        <div class="firstaid-tip"><h5>🧠 Geç Belirtiler</h5><p>Kafa ağrısı, hafıza kaybı, uyuşukluk saatler sonra ortaya çıkabilir. 24 saat takip gerekir.</p></div>
+                    </div>
+                </div>
+
+                <!-- Kanamalar -->
+                <div class="firstaid-tab-content" id="bleeding-tab">
+                    <div class="tab-section-title"><span style="font-size:2rem;">🩸</span><h3>Kanamalarda İlk Yardım</h3></div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#dc2626;">🩸</span> Dış Kanama Durdurma</h4>
+                        <p><strong>1. Direkt basınç:</strong> Temiz bezle sıkıca bastırın, bezi değiştirmeyin<br><strong>2. Yükseltme:</strong> Kanayan bölgeyi kalp seviyesinin üzerine kaldırın<br><strong>3. Bezi değiştirmeyin</strong> — sızarsa üstüne ekleyin</p>
+                    </div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#4f46e5;">⚠️</span> Turnike (Yalnızca Hayati Risk!)</h4>
+                        <p>• 5-7 cm genişliğinde bez kullanın<br>• Uygulama saatini not edin<br>• 15-20 dakikada bir kısa gevşetin</p>
+                    </div>
+                    <div class="firstaid-warning">
+                        <h5>🌪️ HAVA AFETİ YARASI</h5>
+                        <p>Uçan cam ve metal parçaları derin kesik bırakabilir. Yabancı cismi çıkarmaya çalışmayın — sabitleyip hastaneye götürün.</p>
+                    </div>
+                </div>
+
+                <!-- CPR -->
+                <div class="firstaid-tab-content" id="cpr-tab">
+                    <div class="tab-section-title"><span style="font-size:2rem;">💓</span><h3>CPR — Temel Yaşam Desteği</h3></div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#dc2626;">💓</span> Yetişkin CPR</h4>
+                        <p><strong>Döngü:</strong> 30 göğüs bası + 2 solunum<br><strong>Hız:</strong> 100-120 bası/dakika<br><strong>Derinlik:</strong> 5-6 cm, dirsekler dik</p>
+                    </div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#4f46e5;">👶</span> Çocuk ve Bebek</h4>
+                        <p><strong>Çocuk:</strong> 1 el, 5 cm, 30:2<br><strong>Bebek:</strong> 2 parmak, 4 cm, 30:2</p>
+                    </div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#059669;">🌬️</span> Suni Solunum</h4>
+                        <p>1. Başı geriye yatır, çeneyi kaldır<br>2. Burnu kapat, ağızdan ~1 saniye üfle<br>3. Göğsün yükselip alçaldığını kontrol et</p>
+                    </div>
+                    <div class="firstaid-tips">
+                        <div class="firstaid-tip"><h5>⚡ AED Cihazı</h5><p>Otomatik defibrilatör varsa hemen kullan — sesli yönlendirir, CPR'a devam et.</p></div>
+                        <div class="firstaid-tip"><h5>⏱️ Zaman Kritik</h5><p>Her geçen dakika hayatta kalma şansını %7-10 düşürür. Ambulans gelene kadar bırakmayın.</p></div>
+                    </div>
+                </div>
+
+                <!-- Hipotermi -->
+                <div class="firstaid-tab-content" id="hypo-tab">
+                    <div class="tab-section-title"><span style="font-size:2rem;">🥶</span><h3>Hipotermi İlk Yardımı</h3></div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#0284c7;">🥶</span> Belirtiler</h4>
+                        <p><strong>Hafif (35-32°C):</strong> Titreme, koordinasyon bozukluğu<br><strong>Orta (32-28°C):</strong> Konfüzyon, yavaş nabız<br><strong>Ağır (&lt;28°C):</strong> Bilinç kaybı — KRİTİK</p>
+                    </div>
+                    <div class="firstaid-step-card">
+                        <h4><span style="color:#059669;">🏠</span> Yapılacaklar</h4>
+                        <p>1. Soğuk ve rüzgardan uzaklaştırın<br>2. Islak kıyafetleri dikkatlice çıkarın<br>3. Battaniyeyle sarın (baş dahil)<br>4. Koltuk altı ve kasıkları ılık kompresle ısıtın<br>5. Bilinçliyse ılık içecek verin<br>6. 112'yi arayın</p>
+                    </div>
+                    <div class="firstaid-warning">
+                        <h5>❌ YAPILMAMASI GEREKENLER</h5>
+                        <p>• Alkol vermeyin<br>• Sıcak su banyosu uygulamayın — ani ısıtma kalp krizi riskini artırır<br>• Cilde ovalama yapmayın</p>
+                    </div>
+                </div>
+
+                <!-- Acil Numaralar -->
+                <div class="firstaid-tab-content" id="numbers-tab">
+                    <div class="tab-section-title"><span style="font-size:2rem;">📞</span><h3>Acil Durum Telefon Numaraları</h3></div>
+                    <div class="emergency-numbers">
+                        <div class="emergency-number" onclick="location.href='tel:112'" role="button"><div class="number">112</div><div class="service">ACİL YARDIM</div><p>Tüm acil durumlar</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:122'" role="button"><div class="number">122</div><div class="service">AFAD</div><p>Afet koordinasyon</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:110'" role="button"><div class="number">110</div><div class="service">İTFAİYE</div><p>Yangın ve kurtarma</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:155'" role="button"><div class="number">155</div><div class="service">POLİS</div><p>Güvenlik</p></div>
+                    </div>
+                    <div style="margin-top:2rem;">
+                        <h4 style="color:var(--primary);margin-bottom:1rem;">📞 Diğer Önemli Numaralar</h4>
+                        <ul class="number-list">
+                            <li><span class="number">186</span><span class="service">ELEKTRİK ARIZA</span></li>
+                            <li><span class="number">187</span><span class="service">DOĞAL GAZ ARIZA</span></li>
+                            <li><span class="number">153</span><span class="service">BELEDİYE — Altyapı</span></li>
+                            <li><span class="number">mgm.gov.tr</span><span class="service">MGM — Meteoroloji</span></li>
+                        </ul>
+                    </div>
+                    <div class="firstaid-warning" style="margin-top:1.5rem;">
+                        <h5>📱 ACİL ARAMADA</h5>
+                        <p>1. Sakin olun, net konuşun<br>2. GPS koordinatı veya tam adresinizi söyleyin<br>3. Operatör kapatana kadar hattı kesmeyin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="firstaid-modal-body">
-      <div class="firstaid-tabs" role="tablist">
-        <button class="firstaid-tab active" data-tab="basic"    role="tab" aria-selected="true" >🧠 Temel</button>
-        <button class="firstaid-tab"        data-tab="lightning" role="tab" aria-selected="false">⚡ Yıldırım</button>
-        <button class="firstaid-tab"        data-tab="bleeding" role="tab" aria-selected="false">🩸 Kanama</button>
-        <button class="firstaid-tab"        data-tab="cpr"      role="tab" aria-selected="false">💓 CPR</button>
-        <button class="firstaid-tab"        data-tab="hypo"     role="tab" aria-selected="false">🥶 Hipotermi</button>
-        <button class="firstaid-tab"        data-tab="numbers"  role="tab" aria-selected="false">📞 Numaralar</button>
-      </div>
-
-      <!-- Temel -->
-      <div class="firstaid-tab-content active" id="basic-tab" role="tabpanel">
-        <h3 style="margin-bottom:1.25rem;color:var(--accent);">İlk Yardımın Temel Kuralları</h3>
-        <div class="firstaid-step-card"><h4>🛡️ 1. Önce Kendinizi Koruyun</h4><p>Hava afetleri sırasında sahneye çıkmadan ortamın güvenli olduğunu doğrulayın. Elektrik telleri, çökmüş yapılar ve fırtına devam ederken müdahale etmeyin.</p></div>
-        <div class="firstaid-step-card"><h4>📞 2. Hemen 112'yi Arayın</h4><p>Olayın yeri, yaralı sayısı ve türünü net bildirin. Fırtına koşullarında GPS konumunuzu paylaşın. Operatör sizi yönlendirene kadar telefonu kapatmayın.</p></div>
-        <div class="firstaid-step-card"><h4>🔍 3. ABC Değerlendirmesi</h4><p><strong>A — Hava Yolu:</strong> Açık mı?<br><strong>B — Solunum:</strong> Nefes alıyor mu?<br><strong>C — Dolaşım:</strong> Nabız var mı? Ciddi kanama?</p></div>
-        <div class="firstaid-step-card"><h4>🌪️ 4. Hava Afetine Özel Kurallar</h4><p>• Kopmuş elektrik telinden en az 10 m uzak durun<br>• Hasarlı binaya girmeyin<br>• Gaz kokusu → vanayı kapatın, dışarı çıkın, 187'yi arayın<br>• Yıldırım çarpan kişiye güvenle dokunabilirsiniz — elektrik depolamaz</p></div>
-        <div class="firstaid-warning"><h5>⚠️ KRİTİK UYARILAR</h5><p>• Düşmüş elektrik telinin yakınındaki su birikintisine girmeyin — basamak gerilimi öldürür<br>• Kasırga "gözü" geçtiğinde sükûnet aldatıcıdır — fırtına ikinci yarısıyla döner<br>• Jeneratörü kapalı alanda çalıştırmayın — CO zehirlenmesi ölümcüldür</p></div>
-      </div>
-
-      <!-- Yıldırım Çarpması -->
-      <div class="firstaid-tab-content" id="lightning-tab" role="tabpanel">
-        <h3 style="margin-bottom:1.25rem;color:var(--accent);">Yıldırım Çarpmasında İlk Yardım</h3>
-        <div class="firstaid-step-card"><h4>⚡ Güvenli mi?</h4><p>Yıldırım çarpan kişiye dokunmak güvenlidir — vücutta elektrik depolanmaz. Ancak fırtına hâlâ devam ediyorsa sizi de çarpabilir; kapalı alana alın.</p></div>
-        <div class="firstaid-step-card"><h4>🔍 Değerlendirme</h4><p>1. Hemen 112'yi arayın<br>2. Solunum ve nabzı kontrol edin<br>3. Solunum yoksa derhal CPR başlayın<br>4. Boyun ve omurga yaralanması olabilir — başı taşırken destekleyin</p></div>
-        <div class="firstaid-step-card"><h4>🩹 Yıldırım Yanığı</h4><p>• Yanık bölgelere soğuk (buz değil) suya batırılmış bez uygulayın<br>• Giysileri zorla çıkarmayın — erimiş olabilir<br>• Steril örtü ile kapatın<br>• Tüm yıldırım çarpması vakaları hastanede değerlendirilmeli</p></div>
-        <div class="firstaid-warning"><h5>❌ YAPILMAMASI GEREKENLER</h5><p>• Kişiye dokunmaktan kaçınmayın — elektrik yok<br>• Buz uygulamayın<br>• Görünürde iyi olsa bile hastaneye götürmeden bırakmayın (iç hasar olabilir)</p></div>
-        <div class="firstaid-tips">
-          <div class="firstaid-tip"><h5>⏱️ Altın Dakikalar</h5><p>Yıldırım çarpmalarında solunum durması sık görülür. CPR'a hızla başlamak hayatta kalma şansını büyük ölçüde artırır.</p></div>
-          <div class="firstaid-tip"><h5>🧠 Geç Belirtiler</h5><p>Kafa ağrısı, hafıza kaybı, uyuşukluk saatler sonra ortaya çıkabilir. 24 saat takip gerekir.</p></div>
-        </div>
-      </div>
-
-      <!-- Kanama -->
-      <div class="firstaid-tab-content" id="bleeding-tab" role="tabpanel">
-        <h3 style="margin-bottom:1.25rem;color:var(--accent);">Kanamalarda İlk Yardım</h3>
-        <div class="firstaid-step-card"><h4>🩸 Dış Kanama Durdurma</h4><p><strong>1. Direkt basınç:</strong> Temiz bezle sıkıca bastırın<br><strong>2. Yükseltme:</strong> Kanayan bölgeyi kalp seviyesinin üzerine kaldırın<br><strong>3. Bezi değiştirmeyin</strong> — sızarsa üstüne ekleyin</p></div>
-        <div class="firstaid-step-card"><h4>⚠️ Turnike (Yalnızca Hayati Risk!)</h4><p>• 5-7 cm genişliğinde bez kullanın<br>• Uygulama saatini not edin<br>• 15-20 dakikada bir kısa gevşetin</p></div>
-        <div class="firstaid-warning"><h5>🌪️ HAVA AFETİ YARASI</h5><p>Uçan cam ve metal parçaları derin kesik bırakabilir. Yabancı cismi çıkarmaya çalışmayın — stabili hale getirip hastaneye götürün.</p></div>
-      </div>
-
-      <!-- CPR -->
-      <div class="firstaid-tab-content" id="cpr-tab" role="tabpanel">
-        <h3 style="margin-bottom:1.25rem;color:var(--accent);">CPR — Temel Yaşam Desteği</h3>
-        <div class="firstaid-step-card"><h4>💓 Yetişkin CPR</h4><p><strong>Döngü:</strong> 30 göğüs bası + 2 solunum<br><strong>Hız:</strong> 100-120 bası/dakika<br><strong>Derinlik:</strong> 5-6 cm</p></div>
-        <div class="firstaid-step-card"><h4>👶 Çocuk ve Bebek</h4><p><strong>Çocuk:</strong> 1 el, 5 cm, 30:2<br><strong>Bebek:</strong> 2 parmak, 4 cm, 30:2</p></div>
-        <div class="firstaid-step-card"><h4>🌬️ Suni Solunum</h4><p>1. Başı hafifçe geriye yatır, çeneyi kaldır<br>2. Burnu kapat, ağzını kapay, ~1 saniye üfle<br>3. Göğsün yükselip alçaldığını kontrol et</p></div>
-        <div class="firstaid-tips">
-          <div class="firstaid-tip"><h5>⚡ AED Cihazı</h5><p>Otomatik defibrilatör varsa hemen kullan — sesli yönlendirir, CPR'a devam et.</p></div>
-          <div class="firstaid-tip"><h5>⏱️ Zaman</h5><p>Her geçen dakika hayatta kalma şansını %7-10 düşürür. Ambulans gelene kadar bırakmayın.</p></div>
-        </div>
-      </div>
-
-      <!-- Hipotermi -->
-      <div class="firstaid-tab-content" id="hypo-tab" role="tabpanel">
-        <h3 style="margin-bottom:1.25rem;color:var(--accent);">Hipotermi İlk Yardımı</h3>
-        <div class="firstaid-step-card"><h4>🥶 Belirtiler</h4><p><strong>Hafif (35-32°C):</strong> Titreme, koordinasyon bozukluğu<br><strong>Orta (32-28°C):</strong> Konfüzyon, yavaş nabız<br><strong>Ağır (&lt;28°C):</strong> Bilinç kaybı — KRİTİK</p></div>
-        <div class="firstaid-step-card"><h4>🏠 Yapılacaklar</h4><p>1. Soğuk ve rüzgardan uzaklaştırın<br>2. Islak kıyafetleri dikkatlice çıkarın<br>3. Battaniyeyle sarın (baş dahil)<br>4. Koltuk altı ve kasıkları ılık kompresle ısıtın<br>5. Bilinçliyse ılık içecek verin<br>6. 112'yi arayın</p></div>
-        <div class="firstaid-warning"><h5>❌ YAPILMAMASI GEREKENLER</h5><p>• Alkol vermeyin<br>• Sıcak su banyosu uygulamayın — ani ısıtma kalp krizi riskini artırır<br>• Deriye ovalama yapmayın</p></div>
-      </div>
-
-      <!-- Numaralar -->
-      <div class="firstaid-tab-content" id="numbers-tab" role="tabpanel">
-        <h3 style="margin-bottom:1.25rem;color:var(--accent);">Acil Durum Telefon Numaraları</h3>
-        <div class="emergency-numbers">
-          <div class="emergency-number" onclick="location.href='tel:112'" role="button"><div class="number">112</div><div class="service">ACİL YARDIM</div><p>Tüm acil durumlar</p></div>
-          <div class="emergency-number" onclick="location.href='tel:122'" role="button"><div class="number">122</div><div class="service">AFAD</div><p>Afet koordinasyon</p></div>
-          <div class="emergency-number" onclick="location.href='tel:110'" role="button"><div class="number">110</div><div class="service">İTFAİYE</div><p>Yangın ve kurtarma</p></div>
-          <div class="emergency-number" onclick="location.href='tel:155'" role="button"><div class="number">155</div><div class="service">POLİS</div><p>Güvenlik</p></div>
-        </div>
-        <div style="margin-top:2rem;">
-          <h4 style="color:var(--primary);margin-bottom:1rem;">📞 Diğer Önemli Numaralar</h4>
-          <ul class="number-list">
-            <li><span class="number">186</span><span class="service">ELEKTRİK ARIZA</span></li>
-            <li><span class="number">187</span><span class="service">DOĞAL GAZ ARIZA</span></li>
-            <li><span class="number">153</span><span class="service">BELEDİYE — Altyapı</span></li>
-            <li><span class="number">mgm.gov.tr</span><span class="service">MGM — Meteoroloji</span></li>
-          </ul>
-        </div>
-        <div class="firstaid-warning" style="margin-top:1.5rem;">
-          <h5>📱 ACİL ARAMADA</h5>
-          <p>1. Sakin olun, net konuşun<br>2. GPS koordinatı veya tam adresinizi söyleyin<br>3. Telefonu ilk siz kapatmayın</p>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- HERO -->
-<section class="page-hero">
-  <div class="container">
-    <div class="page-hero-content">
-      <h1 class="animate-fade-in-up">🌪️ Hava Afetleri</h1>
-      <p class="animate-fade-in-up animate-delay-100">Kasırga, yıldırım fırtınası ve şiddetli dolu için kapsamlı hazırlık rehberi ve ileri düzey testler</p>
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="animate-fade-in-up">🌪️ Hava Afetleri</h1>
+            <p class="animate-fade-in-up animate-delay-100">Kasırga, yıldırım fırtınası ve şiddetli dolu için kapsamlı hazırlık rehberi ve ileri düzey testler</p>
+        </div>
     </div>
-  </div>
 </section>
 
 <div class="container">
-  <div class="emergency-banner">
-    <div class="emergency-banner-info">
-      <div class="emergency-banner-icon" aria-hidden="true">🚨</div>
-      <div class="emergency-banner-text">
-        <strong>ACİL DURUM: 112</strong>
-        <span>Hava afetleri ve tüm acil durumlar için</span>
-      </div>
+    <div class="emergency-banner">
+        <div class="emergency-banner-left">
+            <span style="font-size:1.5rem;">🚨</span>
+            <div>
+                <strong style="font-size:clamp(1rem,3vw,1.25rem);display:block;">ACİL DURUM: 112</strong>
+                <span style="font-size:.875rem;opacity:.9;">Hava afetleri ve tüm acil durumlar için</span>
+            </div>
+        </div>
+        <button id="emergencyFirstAidButton">🆘 İlk Yardım</button>
     </div>
-    <button id="emergencyFirstAidButton" class="emergency-banner-btn" aria-label="İlk Yardım Rehberini Aç">🆘 İlk Yardım</button>
-  </div>
 </div>
 
 <main>
-  <div class="container">
-    <div class="section-title animate-fade-in-up">
-      <h2>Hava Afeti Türleri</h2>
-      <p class="animate-fade-in-up animate-delay-100">Bir afet türü seçerek bilgi alın veya testi başlatın</p>
-    </div>
-    <div class="grid grid-cols-3">
-      <div class="card animate-fade-in-up" data-type="kasirga" tabindex="0" role="button">
-        <div class="card-icon" aria-hidden="true">🌪️</div>
-        <h3>Kasırga</h3>
-        <p>Saatte 100 km'yi aşan rüzgar sistemleri. Bodrum koruması, "göz" efsanesi, jeneratör güvenliği ve kasırga sonrası elektrik tehlikeleri.</p>
-        <div class="card-actions">
-          <button class="card-btn primary" onclick="startTest('kasirga')">▶️ Test Başlat</button>
-          <button class="card-btn secondary" onclick="showInfo('kasirga')">📚 Bilgi Al</button>
+    <section class="section">
+        <div class="container">
+            <div class="section-title animate-fade-in-up">
+                <h2>Hava Afeti Türleri</h2>
+                <p class="animate-fade-in-up animate-delay-100">Bir afet türü seçerek detaylı bilgi alın veya testi başlatın</p>
+            </div>
+            <div class="grid grid-cols-3">
+                <div class="card animate-fade-in-up" data-type="kasirga" tabindex="0" role="button" aria-label="Kasırga kartı">
+                    <div class="card-icon">🌪️</div>
+                    <h3>Kasırga</h3>
+                    <p>Saatte 118+ km rüzgar sistemleri. Bodrum koruması, "göz" efsanesi, jeneratör güvenliği ve kasırga sonrası elektrik tehlikeleri.</p>
+                    <div class="card-actions">
+                        <button class="card-btn primary" onclick="startTest('kasirga');event.stopPropagation()">▶️ Test Başlat</button>
+                        <button class="card-btn secondary" onclick="showInfo('kasirga');event.stopPropagation()">📚 Bilgi Al</button>
+                    </div>
+                </div>
+                <div class="card animate-fade-in-up animate-delay-100" data-type="yildirim" tabindex="0" role="button" aria-label="Yıldırım fırtınası kartı">
+                    <div class="card-icon">⚡</div>
+                    <h3>Yıldırım Fırtınası</h3>
+                    <p>30.000°C sıcaklık, 1-5 milyar volt enerji. 30/30 kuralı, Faraday kafesi etkisi, ilk yardım ve efsanelerin çürütülmesi.</p>
+                    <div class="card-actions">
+                        <button class="card-btn primary" onclick="startTest('yildirim');event.stopPropagation()">▶️ Test Başlat</button>
+                        <button class="card-btn secondary" onclick="showInfo('yildirim');event.stopPropagation()">📚 Bilgi Al</button>
+                    </div>
+                </div>
+                <div class="card animate-fade-in-up animate-delay-200" data-type="dolu" tabindex="0" role="button" aria-label="Şiddetli dolu kartı">
+                    <div class="card-icon">🌨️</div>
+                    <h3>Şiddetli Dolu</h3>
+                    <p>Kümülonimbüs bulutlarında katmanlı buz. Updraft hızı ve tane büyüklüğü ilişkisi, araç koruması ve köprü altı tehlikesi.</p>
+                    <div class="card-actions">
+                        <button class="card-btn primary" onclick="startTest('dolu');event.stopPropagation()">▶️ Test Başlat</button>
+                        <button class="card-btn secondary" onclick="showInfo('dolu');event.stopPropagation()">📚 Bilgi Al</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-section animate-fade-in-up" id="detailSection" style="display:none;">
+                <h2 id="detailTitle"></h2>
+                <div id="detailContent"></div>
+                <button class="card-btn secondary" style="margin-top:1.5rem;max-width:200px;" onclick="hideInfo()">← Geri Dön</button>
+            </div>
         </div>
-      </div>
-      <div class="card animate-fade-in-up animate-delay-100" data-type="yildirim" tabindex="0" role="button">
-        <div class="card-icon" aria-hidden="true">⚡</div>
-        <h3>Yıldırım Fırtınası</h3>
-        <p>30.000°C sıcaklık, 1-5 milyar volt enerji. 30/30 kuralı, Faraday kafesi etkisi, yıldırım çarpması ilk yardımı ve efsanelerin çürütülmesi.</p>
-        <div class="card-actions">
-          <button class="card-btn primary" onclick="startTest('yildirim')">▶️ Test Başlat</button>
-          <button class="card-btn secondary" onclick="showInfo('yildirim')">📚 Bilgi Al</button>
-        </div>
-      </div>
-      <div class="card animate-fade-in-up animate-delay-200" data-type="dolu" tabindex="0" role="button">
-        <div class="card-icon" aria-hidden="true">🌨️</div>
-        <h3>Şiddetli Dolu</h3>
-        <p>Kümülonimbüs bulutlarında katmanlı buz. Updraft hızı ve tane büyüklüğü ilişkisi, araç koruması ve köprü altı tehlikesi.</p>
-        <div class="card-actions">
-          <button class="card-btn primary" onclick="startTest('dolu')">▶️ Test Başlat</button>
-          <button class="card-btn secondary" onclick="showInfo('dolu')">📚 Bilgi Al</button>
-        </div>
-      </div>
-    </div>
-    <div class="detail-section animate-fade-in-up" id="detailSection" style="display:none;">
-      <h2 id="detailTitle">Afet Bilgisi</h2>
-      <div id="detailContent"></div>
-      <button class="card-btn primary" style="margin-top:1.5rem;max-width:200px;" onclick="hideInfo()">← Geri Dön</button>
-    </div>
-  </div>
+    </section>
 </main>
 
 <div class="test-overlay" id="testOverlay" role="dialog" aria-modal="true" aria-labelledby="testTitle">
-  <div class="test-header">
-    <h2 id="testTitle">Test</h2>
-    <button class="small-close-btn" onclick="closeTest()" aria-label="Testi Kapat">✕</button>
-  </div>
-  <div class="test-content" id="testContent"></div>
+    <div class="test-header">
+        <h2 id="testTitle">Test</h2>
+        <button class="small-close-btn" onclick="closeTest()" aria-label="Testi Kapat">✕</button>
+    </div>
+    <div class="test-content" id="testContent"></div>
 </div>
 
 <footer>
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-grid">
-        <div class="footer-column">
-          <h4>🚨 Afet Hazırlık</h4>
-          <p style="color:var(--gray-400);margin-bottom:1rem;font-size:.9rem;">Doğal afetlere hazırlık için rehber ve bilgi kaynağı.</p>
-          <button id="footerFirstAidButton" class="footer-firstaid-btn">🆘 İlk Yardım Rehberi</button>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>🚨 Afet Hazırlık</h4>
+                <p style="color:var(--text-footer-p);margin-bottom:1rem;font-size:.9rem;">Doğal afetlere karşı hazırlıklı olmak için kapsamlı rehber.</p>
+                <button id="footerFirstAidButton">🆘 İlk Yardım Rehberi</button>
+            </div>
+            <div class="footer-column">
+                <h4>🔗 Hızlı Bağlantılar</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">🏠 Ana Sayfa</a></li>
+                    <li><a href="yer.html">🏔️ Yer Afetleri</a></li>
+                    <li><a href="su.html">🌊 Su Afetleri</a></li>
+                    <li><a href="hava.html">🌪️ Hava Afetleri</a></li>
+                    <li><a href="İnsan.html">🔥 İnsan Kaynaklı</a></li>
+                    <li><a href="hakkinda.html">ℹ️ Hakkında</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>📞 Acil Kaynaklar</h4>
+                <ul class="footer-links">
+                    <li><a href="https://www.afad.gov.tr" target="_blank" rel="noopener">🏛️ AFAD</a></li>
+                    <li><a href="https://www.mgm.gov.tr"  target="_blank" rel="noopener">🌤️ Meteoroloji</a></li>
+                    <li><a href="https://www.112.gov.tr"  target="_blank" rel="noopener">🚨 112 Acil</a></li>
+                    <li><a href="https://www.kizilay.org.tr" target="_blank" rel="noopener">❤️ Kızılay</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-column">
-          <h4>🔗 Hızlı Bağlantılar</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">🏠 Ana Sayfa</a></li>
-            <li><a href="yer.html">🏔️ Yer Afetleri</a></li>
-            <li><a href="su.html">🌊 Su Afetleri</a></li>
-            <li><a href="hava.html">🌪️ Hava Afetleri</a></li>
-            <li><a href="İnsan.html">🔥 İnsan Kaynaklı</a></li>
-            <li><a href="hakkinda.html">ℹ️ Hakkında</a></li>
-          </ul>
+        <div class="footer-bottom">
+            <p>© 2026 Afet Hazırlık Rehberi<br><small>Bilgilendirme amaçlıdır. Acil durumlarda 112'yi arayınız.</small></p>
         </div>
-        <div class="footer-column">
-          <h4>📞 Acil Kaynaklar</h4>
-          <ul class="footer-links">
-            <li><a href="https://www.afad.gov.tr" target="_blank" rel="noopener noreferrer">🏛️ AFAD</a></li>
-            <li><a href="https://www.mgm.gov.tr"  target="_blank" rel="noopener noreferrer">🌤️ Meteoroloji Genel Müd.</a></li>
-            <li><a href="https://www.112.gov.tr"  target="_blank" rel="noopener noreferrer">🚨 112 Acil</a></li>
-            <li><a href="https://www.kizilay.org.tr" target="_blank" rel="noopener noreferrer">❤️ Kızılay</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 Afet Hazırlık Rehberi<br><small>Bilgilendirme amaçlıdır. Acil durumlarda 112'yi arayınız.</small></p>
-      </div>
     </div>
-  </div>
 </footer>
 
 <script>
-let savedScrollY=0;
-function lockScroll(){savedScrollY=window.scrollY;document.body.style.top=`-${savedScrollY}px`;document.body.classList.add('scroll-locked');}
-function unlockScroll(){document.body.classList.remove('scroll-locked');document.body.style.top='';window.scrollTo(0,savedScrollY);}
+// ===== TEMA =====
+function getPreferredTheme(){const s=localStorage.getItem('theme');if(s==='dark'||s==='light')return s;return window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}
+function applyTheme(t){
+    document.documentElement.setAttribute('data-theme',t);
+    const icon=t==='dark'?'☀️':'🌙';
+    const label=t==='dark'?'Aydınlık moda geç':'Karanlık moda geç';
+    document.querySelectorAll('.theme-toggle').forEach(b=>{b.textContent=icon;b.setAttribute('aria-label',label);b.title=label;});
+}
+applyTheme(getPreferredTheme());
+function toggleTheme(){const n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';localStorage.setItem('theme',n);applyTheme(n);}
+window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',e=>{if(!localStorage.getItem('theme'))applyTheme(e.matches?'dark':'light');});
+document.getElementById('themeToggle').addEventListener('click',toggleTheme);
+document.getElementById('themeToggleMobile').addEventListener('click',toggleTheme);
 
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){
-    if(firstAidModal.classList.contains('active'))closeFA();
-    else if(document.getElementById('testOverlay').classList.contains('active'))closeTest();
-    else if(mobileMenu.classList.contains('active'))toggleMenu();
-  }
-});
-
+// ===== MOBİL MENÜ =====
 const mobileMenuBtn=document.getElementById('mobileMenuBtn');
 const closeMenuBtn=document.getElementById('closeMenuBtn');
 const mobileMenu=document.getElementById('mobileMenu');
 const menuOverlay=document.getElementById('menuOverlay');
-function toggleMenu(){
-  const o=mobileMenu.classList.toggle('active');
-  menuOverlay.classList.toggle('active',o);
-  mobileMenuBtn.classList.toggle('active',o);
-  mobileMenuBtn.setAttribute('aria-expanded',o);
-  mobileMenu.setAttribute('aria-hidden',!o);
-  menuOverlay.setAttribute('aria-hidden',!o);
-  o?lockScroll():unlockScroll();
+function toggleMobileMenu(){
+    const open=mobileMenu.classList.toggle('active');
+    menuOverlay.classList.toggle('active',open);
+    mobileMenuBtn.classList.toggle('active',open);
+    mobileMenuBtn.setAttribute('aria-expanded',open);
+    document.body.style.overflow=open?'hidden':'';
 }
-mobileMenuBtn.addEventListener('click',toggleMenu);
-closeMenuBtn.addEventListener('click',toggleMenu);
-menuOverlay.addEventListener('click',toggleMenu);
-let mtx=0;
-mobileMenu.addEventListener('touchstart',e=>{mtx=e.touches[0].clientX;},{passive:true});
-mobileMenu.addEventListener('touchend',e=>{if(e.changedTouches[0].clientX-mtx>60)toggleMenu();},{passive:true});
+mobileMenuBtn.addEventListener('click',toggleMobileMenu);
+closeMenuBtn.addEventListener('click',toggleMobileMenu);
+menuOverlay.addEventListener('click',toggleMobileMenu);
 
-document.querySelectorAll('.card').forEach(c=>{
-  c.addEventListener('click',function(e){if(!e.target.closest('button'))showInfo(this.dataset.type);});
-  c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();showInfo(this.dataset.type);}});
+// ===== İLK YARDIM MODAL + DRAWER =====
+const modal=document.getElementById('firstAidModal');
+const drawer=document.getElementById('firstaidDrawer');
+const drawerOverlay=document.getElementById('drawerOverlay');
+const toggleBtn=document.getElementById('drawerToggleBtn');
+const drawerCloseBtn=document.getElementById('drawerCloseBtn');
+const closeModalBtn=document.getElementById('closeFirstAidModal');
+const drawerItems=document.querySelectorAll('.drawer-item');
+const tabContents=document.querySelectorAll('.firstaid-tab-content');
+
+function openModal(tab){modal.classList.add('active');document.body.style.overflow='hidden';switchTab(tab||'basic');setTimeout(()=>closeModalBtn.focus(),350);}
+function closeModal(){modal.classList.remove('active');document.body.style.overflow='';drawer.classList.remove('open');drawerOverlay.classList.remove('active');}
+function openDrawer(){drawer.classList.add('open');drawerOverlay.classList.add('active');}
+function closeDrawer(){drawer.classList.remove('open');drawerOverlay.classList.remove('active');}
+
+toggleBtn.addEventListener('click',openDrawer);
+drawerCloseBtn.addEventListener('click',closeDrawer);
+drawerOverlay.addEventListener('click',closeDrawer);
+
+function switchTab(name){
+    drawerItems.forEach(item=>{const on=item.dataset.tab===name;item.classList.toggle('active',on);item.setAttribute('aria-selected',on);});
+    tabContents.forEach(c=>{const on=c.id===`${name}-tab`;c.classList.toggle('active',on);if(on)c.scrollTop=0;});
+}
+drawerItems.forEach(item=>{item.addEventListener('click',()=>{switchTab(item.dataset.tab);if(window.innerWidth<=700)closeDrawer();});});
+
+['firstAidButton','emergencyFirstAidButton','footerFirstAidButton'].forEach(id=>{
+    document.getElementById(id)?.addEventListener('click',e=>{e.preventDefault();openModal();});
+});
+document.getElementById('mobileFirstAidButton')?.addEventListener('click',e=>{e.preventDefault();toggleMobileMenu();openModal();});
+closeModalBtn.addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+
+document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+        if(drawer.classList.contains('open'))closeDrawer();
+        else if(modal.classList.contains('active'))closeModal();
+        else if(document.getElementById('testOverlay').classList.contains('active'))closeTest();
+        else if(mobileMenu.classList.contains('active'))toggleMobileMenu();
+    }
 });
 
-const prm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-if(!prm&&'IntersectionObserver' in window){
-  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}});},{rootMargin:'30px',threshold:.1});
-  document.querySelectorAll('.animate-fade-in-up').forEach(el=>obs.observe(el));
+// ===== ANİMASYON =====
+if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches&&'IntersectionObserver' in window){
+    const obs=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){en.target.style.opacity='1';en.target.style.transform='translateY(0)';obs.unobserve(en.target);}});},{rootMargin:'30px',threshold:.1});
+    document.querySelectorAll('.animate-fade-in-up').forEach(el=>obs.observe(el));
 }else{document.querySelectorAll('.animate-fade-in-up').forEach(el=>{el.style.opacity='1';el.style.transform='translateY(0)';});}
 
-const firstAidModal=document.getElementById('firstAidModal');
-const closeFirstAidModalEl=document.getElementById('closeFirstAidModal');
-const faTabs=document.querySelectorAll('.firstaid-tab');
-const faContents=document.querySelectorAll('.firstaid-tab-content');
-function openFA(){lockScroll();firstAidModal.classList.add('active');switchFA('basic');setTimeout(()=>closeFirstAidModalEl.focus(),300);}
-function closeFA(){firstAidModal.classList.remove('active');unlockScroll();}
-function switchFA(n){
-  faTabs.forEach(t=>{t.classList.toggle('active',t.dataset.tab===n);t.setAttribute('aria-selected',t.dataset.tab===n);});
-  faContents.forEach(c=>{c.classList.toggle('active',c.id===`${n}-tab`);if(c.id===`${n}-tab`)c.scrollTop=0;});
-  const at=document.querySelector(`.firstaid-tab[data-tab="${n}"]`);
-  if(at)at.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
-}
-document.getElementById('firstAidButton').addEventListener('click',e=>{e.preventDefault();openFA();});
-document.getElementById('mobileFirstAidButton').addEventListener('click',e=>{e.preventDefault();openFA();toggleMenu();});
-document.getElementById('emergencyFirstAidButton').addEventListener('click',openFA);
-document.getElementById('footerFirstAidButton').addEventListener('click',openFA);
-closeFirstAidModalEl.addEventListener('click',closeFA);
-firstAidModal.addEventListener('click',e=>{if(e.target===firstAidModal)closeFA();});
-faTabs.forEach(t=>t.addEventListener('click',()=>switchFA(t.dataset.tab)));
-firstAidModal.addEventListener('keydown',e=>{
-  if(e.key!=='Tab')return;
-  const f=[...firstAidModal.querySelectorAll('button,[href],[tabindex]:not([tabindex="-1"])')];
-  const first=f[0],last=f[f.length-1];
-  if(e.shiftKey){if(document.activeElement===first){e.preventDefault();last.focus();}}
-  else{if(document.activeElement===last){e.preventDefault();first.focus();}}
-});
-
+// ===== BİLGİ İÇERİKLERİ =====
 const infoData={
 kasirga:{
-title:"🌪️ Kasırga Hakkında Detaylı Bilgi",
+title:"🌪️ Kasırga — Detaylı Bilgi",
 content:`
-<div class="info-box-indigo">
-  <h3>🌪️ Kasırga Nedir?</h3>
-  <p><strong>Kasırga</strong>, Türkiye'de özellikle Karadeniz ve Ege kıyılarında görülen, konvektif fırtınalarla ilişkili şiddetli rüzgar sistemleridir. Beaufort skalasında 12. kuvvetin (saatte 118+ km) üzerindeki rüzgarlar "kasırga" olarak tanımlanır. Türkiye'de kasırga kuvvetinde rüzgarlar ağırlıklı olarak sonbahar-kış aylarında görülür.</p>
-</div>
+<div class="info-box-indigo"><h3>🌪️ Kasırga Nedir?</h3><p>Türkiye'de özellikle Karadeniz ve Ege kıyılarında görülen, saatte 118+ km rüzgar hızına ulaşabilen şiddetli fırtına sistemleridir. Beaufort skalasında 12. kuvvetin üzerindeki rüzgarlar "kasırga" olarak tanımlanır.</p></div>
 <h3 class="info-h3">🛡️ Kasırga Öncesi Hazırlık</h3>
 <div class="step-card"><h4><span style="color:var(--warning)">🎒</span> 72 Saatlik Acil Çanta</h4><p>• Su: kişi başı 3 lt/gün × 3 gün<br>• Kalorisi yüksek hazır gıdalar, reçeteli ilaçlar<br>• El feneri (yedek pilli), pilli radyo, şarjlı güç bankası<br>• Önemli belgelerin kopyaları (su geçirmez kap), nakit para</p></div>
-<div class="step-card"><h4><span style="color:var(--primary)">🏠</span> Ev Güvenliği</h4><p>• Dışarıdaki mobilya, saksı ve eşyaları içeri alın veya sıkıca bağlayın<br>• Çatı kiremitlerini, olukları kontrol edin<br>• Bodrum katı temizleyin ve güvenli hale getirin<br>• Elektrik panosunu ve gaz vanasını kapatmayı öğrenin</p></div>
-<div class="step-card"><h4><span style="color:var(--success)">📲</span> Bilgi Kaynakları</h4><p>• MGM (mgm.gov.tr) uyarılarını takip edin<br>• AFAD uygulaması bildirimlerini açın<br>• Yerel yönetim tahliye planlarını öğrenin</p></div>
-
+<div class="step-card"><h4><span style="color:var(--primary)">🏠</span> Ev Güvenliği</h4><p>• Dışarıdaki mobilya, saksı ve eşyaları içeri alın veya sıkıca bağlayın<br>• Çatı kiremitlerini ve olukları kontrol edin<br>• Bodrum katı temizleyin ve güvenli hale getirin<br>• Elektrik panosunu ve gaz vanasını kapatmayı öğrenin</p></div>
 <h3 class="info-h3">🌀 Kasırga Sırasında</h3>
-<div class="step-card"><h4><span style="color:var(--accent)">🏚️</span> Bina İçinde</h4><p>• En iç odalarda veya bodrum katta, yerde kalın<br>• Pencerelerden en az 1,5 metre uzak durun<br>• Elektrikli aletleri fişten çekin; metal borulara dokunmayın<br>• Başınızı koruyun (yastık, kask, kalın kitap)</p></div>
-<div class="danger-box"><h5>☠️ KASIRGA "GÖZÜ" TUZAĞI</h5><p>Göz geçtiğinde hava aniden sakinleşir ve güneş açabilir. Bu aldatıcıdır — fırtınanın ikinci yarısı geliyor demektir. Dışarı çıkmayın! İçeride kalmaya devam edin.</p></div>
-<div class="warning-box"><h5>🚫 YAPILMAMASI GEREKENLER</h5><p>• Pencereleri açmayın — "basıncı eşitleme" efsanesi tamamen yanlıştır<br>• Kasırga altında arabaya binip kaçmaya çalışmayın<br>• Asansör kullanmayın<br>• Nehir veya dere kenarına yaklaşmayın</p></div>
-
+<div class="step-card"><h4><span style="color:var(--accent)">🏚️</span> Bina İçinde</h4><p>• En iç odalarda veya bodrum katta, yerde kalın<br>• Pencerelerden en az 1,5 m uzak durun<br>• Elektrikli aletleri fişten çekin; metal borulara dokunmayın</p></div>
+<div class="danger-box"><h5>☠️ KASIRGA "GÖZÜ" TUZAĞI</h5><p>Göz geçtiğinde hava aniden sakinleşir ve güneş açabilir. Bu aldatıcıdır — fırtınanın ikinci yarısı geliyor demektir. Kesinlikle dışarı çıkmayın!</p></div>
+<div class="warning-box"><h5>🚫 YAPILMAMASI GEREKENLER</h5><p>• Pencereleri açmayın — "basıncı eşitleme" efsanesi tamamen yanlıştır<br>• Kasırga altında arabaya binip kaçmaya çalışmayın<br>• Asansör kullanmayın</p></div>
 <h3 class="info-h3">✅ Kasırga Sonrası</h3>
 <div class="step-card"><h4><span style="color:var(--accent)">⚡</span> Elektrik Tehlikesi</h4><p>• Kopmuş elektrik teline en az 10 m yaklaşmayın<br>• Telin yakınındaki su birikintisine girmeyin — basamak gerilimi öldürür<br>• Elektrikçi değerlendirmesi yapılmadan panoyu açmayın</p></div>
 <div class="step-card"><h4><span style="color:var(--warning)">🔥</span> Jeneratör Güvenliği</h4><p>• Jeneratörü yalnızca binadan uzak, açık havada çalıştırın<br>• Karbonmonoksit (CO) renksiz, kokusuz ve ölümcüldür<br>• Garajda, pencere açık bile olsa kullanmayın</p></div>
-<div class="step-card"><h4><span style="color:var(--success)">🏗️</span> Bina Değerlendirmesi</h4><p>• Hasarlı binaya yetkili izni olmadan girmeyin<br>• Yapısal çatlak, temel kayması için dışarıdan inceleyin<br>• Gaz kokusu → vanayı kapatın, dışarı çıkın, 187'yi arayın</p></div>
-
 <div class="info-grid-4">
-  <div class="stat-box"><strong style="color:var(--accent)">💨 Beaufort 12+</strong><p>118+ km/s kasırga kuvveti</p></div>
-  <div class="stat-box"><strong style="color:var(--warning)">🚀 Uçan Nesneler</strong><p>Cam, tahta, metal parçalar</p></div>
-  <div class="stat-box"><strong style="color:var(--primary)">🏚️ Yapısal Hasar</strong><p>Çatı, duvar yıkılması</p></div>
+  <div class="stat-box"><strong style="color:var(--accent)">💨 118+ km/s</strong><p>Kasırga kuvveti</p></div>
+  <div class="stat-box"><strong style="color:var(--warning)">🚀 Uçan Nesneler</strong><p>Cam, tahta, metal</p></div>
+  <div class="stat-box"><strong style="color:var(--primary)">🏚️ Yapısal Hasar</strong><p>Çatı ve duvar yıkılması</p></div>
   <div class="stat-box"><strong style="color:#8b5cf6">💀 CO Zehiri</strong><p>Jeneratör ölümleri</p></div>
 </div>
 <div class="emergency-info"><h5>📞 Acil Numaralar</h5><p><strong>112</strong> Acil &nbsp;|&nbsp; <strong>122</strong> AFAD &nbsp;|&nbsp; <strong>186</strong> Elektrik &nbsp;|&nbsp; <strong>187</strong> Gaz</p></div>`
 },
 yildirim:{
-title:"⚡ Yıldırım Fırtınası Hakkında Detaylı Bilgi",
+title:"⚡ Yıldırım Fırtınası — Detaylı Bilgi",
 content:`
-<div class="info-box-yellow">
-  <h3>⚡ Yıldırım Nedir?</h3>
-  <p><strong>Yıldırım</strong>, bulut ile yer arasında gerçekleşen devasa elektrik boşalmasıdır. Sıcaklığı <strong>30.000°C</strong>'ye (güneş yüzeyinin 5 katı) ulaşır ve her darbe <strong>1-5 milyar volt</strong> enerji taşır. Türkiye'de yılda yaklaşık <strong>3 milyon yıldırım</strong> düşmektedir. Yıldırım çarpması vakalarının %10-30'u ölümle sonuçlanır.</p>
-</div>
-
+<div class="info-box-yellow"><h3>⚡ Yıldırım Nedir?</h3><p>Bulut ile yer arasında gerçekleşen devasa elektrik boşalması. Sıcaklığı <strong>30.000°C</strong>'ye ulaşır, her darbe <strong>1-5 milyar volt</strong> enerji taşır. Türkiye'de yılda yaklaşık 3 milyon yıldırım düşmektedir.</p></div>
 <h3 class="info-h3">📏 30/30 Güvenlik Kuralı</h3>
-<div class="step-card"><h4><span style="color:var(--warning)">⏱️</span> Uzaklık Hesaplama</h4><p>Şimşek ile gök gürültüsü arasındaki her <strong>3 saniye ≈ 1 km</strong> mesafe demektir.<br><strong>30 saniyenin altı</strong> → hemen kapalı alana girin (≈10 km içinde)<br><strong>Son gök gürültüsünden 30 dakika sonra</strong> → dışarısı güvenli kabul edilir<br>Yıldırım <strong>15 km'ye kadar</strong> yatay hareket edebilir — gök gürültüsü duymadan da çarpabilir.</p></div>
-
+<div class="step-card"><h4><span style="color:var(--warning)">⏱️</span> Uzaklık Hesaplama</h4><p>Şimşek ile gök gürültüsü arasındaki her <strong>3 saniye ≈ 1 km</strong> mesafedir.<br><strong>30 saniyenin altı</strong> → hemen kapalı alana girin (≈10 km içinde)<br><strong>Son gök gürültüsünden 30 dakika sonra</strong> → dışarısı güvenli</p></div>
 <h3 class="info-h3">🛡️ Korunma Yöntemleri</h3>
 <div class="step-card"><h4><span style="color:var(--success)">🏠</span> Kapalı Alanda</h4><p>• Pencere ve kapıları kapatın<br>• Kablolu telefon kullanmayın — elektrik iletebilir<br>• Banyo ve duş almayın — su boruları iletiyor<br>• TV, bilgisayar fişini çekin</p></div>
-<div class="step-card"><h4><span style="color:var(--accent)">🌳</span> Açık Alanda</h4><p>• En yakın sağlam binaya ya da araç içine sığının<br>• Ağaçlardan <strong>en az 30 metre</strong> uzak durun<br>• Yere uzanmayın — zemin akımı (basamak gerilimi) tehlikeli<br>• Metal nesneler (şemsiye, sopa) bırakın<br>• Ayakları bitişik çömelin — yere temas yüzeyini azaltır<br>• Grupsa dağılın — birbirinden 10 m arayla bekleyin</p></div>
-<div class="step-card"><h4><span style="color:var(--primary)">🚗</span> Araç İçinde</h4><p>• Araç içinde kalın — metal gövde Faraday kafesi etkisi yapar<br>• Metal kısımlara (kapı, direksiyon) dokunmayın<br>• Camları kapatın, aracı güvenli yere park edin<br>• Fırtına geçene kadar bekleyin</p></div>
-
-<div class="warning-box"><h5>🚫 TEHLİKELİ DAVRANIŞLAR</h5><p>• Bisiklet, motosiklet kullanmayın<br>• Sularda yüzmeyin, kayıkla gezmeyin<br>• Metal çit veya tel örgüye yaslanmayın<br>• Tepe zirvesinde durmayın</p></div>
-
-<div class="info-box-green">
-  <h5>🆘 Yıldırım Çarpması — İlk Yardım</h5>
-  <p><strong>1.</strong> Hemen 112'yi arayın<br>
-  <strong>2.</strong> Kişiye dokunmak güvenlidir — elektrik depolamaz<br>
-  <strong>3.</strong> Solunum ve nabız kontrolü; gerekirse CPR başlayın<br>
-  <strong>4.</strong> Yanıklara soğuk su (buz değil)<br>
-  <strong>5.</strong> Görünürde iyi olsa bile hastaneye götürün — iç hasar olabilir</p>
-</div>
-
+<div class="step-card"><h4><span style="color:var(--accent)">🌳</span> Açık Alanda</h4><p>• En yakın sağlam binaya ya da araç içine sığının<br>• Ağaçlardan <strong>en az 30 metre</strong> uzak durun<br>• Yere uzanmayın — zemin akımı tehlikeli<br>• Ayakları bitişik çömelin</p></div>
+<div class="step-card"><h4><span style="color:var(--primary)">🚗</span> Araç İçinde</h4><p>• Araç içinde kalın — metal gövde Faraday kafesi etkisi yapar<br>• Metal kısımlara dokunmayın<br>• Camları kapatın</p></div>
+<div class="info-box-green"><h5>🆘 Yıldırım Çarpması — İlk Yardım Özeti</h5><p><strong>1.</strong> Hemen 112'yi arayın<br><strong>2.</strong> Kişiye dokunmak güvenlidir — elektrik depolamaz<br><strong>3.</strong> Solunum ve nabız; gerekirse CPR başlayın<br><strong>4.</strong> Yanıklara soğuk su (buz değil)<br><strong>5.</strong> Görünürde iyi olsa bile hastaneye götürün</p></div>
 <div class="info-grid-4" style="margin-top:1.5rem;">
-  <div class="stat-box" style="text-align:center;"><div style="font-size:1.375rem;">⚡</div><strong>1-5 Milyar Volt</strong><p>Her çarpma</p></div>
-  <div class="stat-box" style="text-align:center;"><div style="font-size:1.375rem;">🔥</div><strong>30.000°C</strong><p>Güneşin 5 katı</p></div>
-  <div class="stat-box" style="text-align:center;"><div style="font-size:1.375rem;">💀</div><strong>%10-30</strong><p>Ölüm oranı</p></div>
-  <div class="stat-box" style="text-align:center;"><div style="font-size:1.375rem;">⏱️</div><strong>0.2 saniye</strong><p>Çarpma süresi</p></div>
+  <div class="stat-box"><div style="font-size:1.375rem;">⚡</div><strong>1-5 Milyar Volt</strong><p>Her çarpma</p></div>
+  <div class="stat-box"><div style="font-size:1.375rem;">🔥</div><strong>30.000°C</strong><p>Güneşin 5 katı</p></div>
+  <div class="stat-box"><div style="font-size:1.375rem;">💀</div><strong>%10-30</strong><p>Ölüm oranı</p></div>
+  <div class="stat-box"><div style="font-size:1.375rem;">⏱️</div><strong>0.2 saniye</strong><p>Çarpma süresi</p></div>
 </div>
-<div class="emergency-info"><h5>📞 Acil Numaralar</h5><p><strong>112</strong> Acil &nbsp;|&nbsp; <strong>122</strong> AFAD &nbsp;|&nbsp; MGM: mgm.gov.tr</p></div>`
+<div class="emergency-info"><h5>📞 Acil Numaralar</h5><p><strong>112</strong> Acil &nbsp;|&nbsp; <strong>122</strong> AFAD &nbsp;|&nbsp; mgm.gov.tr</p></div>`
 },
 dolu:{
-title:"🌨️ Şiddetli Dolu Hakkında Detaylı Bilgi",
+title:"🌨️ Şiddetli Dolu — Detaylı Bilgi",
 content:`
-<div class="info-box-sky">
-  <h3>🌨️ Dolu Nedir?</h3>
-  <p><strong>Dolu</strong>, kümülonimbüs bulutlarındaki güçlü yukarı hava akımlarının (updraft) su damlacıklarını defalarca donma bölgesine taşımasıyla oluşan katmanlı buz kürelerdir. Her tur yeni bir katman ekler; updraft zayıfladığında tane düşer. Türkiye'de özellikle <strong>Mayıs-Eylül</strong> arasında görülür ve yılda ortalama <strong>150.000+ hasar kaydı</strong> oluşturur.</p>
-</div>
-
+<div class="info-box-sky"><h3>🌨️ Dolu Nedir?</h3><p>Kümülonimbüs bulutlarındaki güçlü yukarı hava akımlarının su damlacıklarını defalarca donma bölgesine taşımasıyla oluşan katmanlı buz kürelerdir. Türkiye'de özellikle <strong>Mayıs-Eylül</strong> arasında görülür.</p></div>
 <h3 class="info-h3">📏 Dolu Boyutları ve Etkileri</h3>
 <div class="info-grid-4">
-  <div class="stat-box" style="text-align:center;"><div style="font-size:1.25rem;">🟢</div><strong style="color:var(--success)">Küçük</strong><p>0.5-1.5 cm — Bezelye<br>Cam hasarı az</p></div>
-  <div class="stat-box" style="text-align:center;"><div style="font-size:1.25rem;">🟡</div><strong style="color:var(--warning)">Orta</strong><p>1.5-4.5 cm — Ceviz<br>Araç hasarı</p></div>
-  <div class="stat-box" style="text-align:center;"><div style="font-size:1.25rem;">🔴</div><strong style="color:var(--accent)">Büyük</strong><p>4.5-8 cm — Tenis topu<br>Cam kırar, yaralanma</p></div>
-  <div class="stat-box" style="text-align:center;"><div style="font-size:1.25rem;">⚫</div><strong>Dev</strong><p>15+ cm — Greyfurt<br>ABD rekoru: 20 cm</p></div>
+  <div class="stat-box"><div style="font-size:1.25rem;">🟢</div><strong style="color:var(--success)">Küçük</strong><p>0.5-1.5 cm — Bezelye</p></div>
+  <div class="stat-box"><div style="font-size:1.25rem;">🟡</div><strong style="color:var(--warning)">Orta</strong><p>1.5-4.5 cm — Ceviz</p></div>
+  <div class="stat-box"><div style="font-size:1.25rem;">🔴</div><strong style="color:var(--accent)">Büyük</strong><p>4.5-8 cm — Tenis topu</p></div>
+  <div class="stat-box"><div style="font-size:1.25rem;">⚫</div><strong>Dev</strong><p>15+ cm — Greyfurt</p></div>
 </div>
-
 <h3 class="info-h3">☁️ Korunma Yöntemleri</h3>
-<div class="step-card"><h4><span style="color:var(--primary)">🏠</span> Ev İçi Önlemler</h4><p>• Çatı pencerelerini ve velux camları kapatın<br>• Balkon/teras eşyalarını içeri alın<br>• Güvenli konum olarak iç odaları tercih edin<br>• Yağmur oluğu ve drenleri önceden temizleyin — tıkanma sel riskini artırır</p></div>
-<div class="step-card"><h4><span style="color:var(--warning)">🚗</span> Araç Koruma</h4><p>• Araçları kapalı garaja veya çok katlı otopark altına alın<br>• Garaj yoksa kalın battaniye veya dolu brandası kullanın<br>• Dolu sırasında yoldaysanız güvenli bir yere çekin, camlardan uzak durun<br>• Köprü altına sığınmayın — ani sel birikimine yol açar</p></div>
-<div class="step-card"><h4><span style="color:var(--accent)">⚠️</span> Dışarıda Yakalanırsanız</h4><p>• Hemen kapalı alana koşun — öncelik budur<br>• Ağaç altına girmeyin<br>• Başınızı ve boyununuzu kollarınızla kapatın<br>• Yere çökün, topu andıran pozisyon alın</p></div>
-
-<div class="warning-box"><h5>🚫 YAPILMAMASI GEREKENLER</h5><p>• Dolu tanelerini yemeyin — yüzeyi kirli<br>• Dolu yağarken dışarı çıkmayın<br>• Kopan elektrik tellerine yaklaşmayın<br>• Köprü altına araçla sığınmayın</p></div>
-
+<div class="step-card"><h4><span style="color:var(--primary)">🏠</span> Ev İçi Önlemler</h4><p>• Çatı pencerelerini ve velux camları kapatın<br>• Balkon/teras eşyalarını içeri alın<br>• Güvenli konum olarak iç odaları tercih edin</p></div>
+<div class="step-card"><h4><span style="color:var(--warning)">🚗</span> Araç Koruma</h4><p>• Araçları kapalı garaja veya çok katlı otopark altına alın<br>• Garaj yoksa dolu brandası kullanın<br>• Köprü altına sığınmayın — ani sel birikimine yol açar</p></div>
+<div class="step-card"><h4><span style="color:var(--accent)">⚠️</span> Dışarıda Yakalanırsanız</h4><p>• Hemen kapalı alana koşun<br>• Ağaç altına girmeyin<br>• Başınızı ve boyununuzu kollarınızla kapatın</p></div>
+<div class="warning-box"><h5>🚫 YAPILMAMASI GEREKENLER</h5><p>• Dolu tanelerini yemeyin — yüzeyi kirli<br>• Dolu yağarken dışarı çıkmayın<br>• Köprü altına araçla sığınmayın</p></div>
 <h3 class="info-h3">🔬 Bilimsel Gerçekler</h3>
 <div class="info-grid-3">
   <div class="stat-box-primary"><div style="font-size:1.75rem;">☁️</div><strong>Updraft Hızı</strong><p>Büyük dolu için updraft 160 km/s'yi aşmalıdır.</p></div>
   <div class="stat-box-accent"><div style="font-size:1.75rem;">🌡️</div><strong>Oluşum Koşulu</strong><p>Bulut içinde -10°C altı sıcaklık zorunludur.</p></div>
-  <div class="stat-box-violet"><div style="font-size:1.75rem;">⏱️</div><strong>Düşme Hızı</strong><p>Büyük taneler 160 km/s ile çarpar — kurşun hızı.</p></div>
+  <div class="stat-box-violet"><div style="font-size:1.75rem;">⏱️</div><strong>Düşme Hızı</strong><p>Büyük taneler 160 km/s ile çarpar.</p></div>
 </div>
-<div class="info-grid-2" style="margin-top:1rem;">
-  <div class="stat-box"><strong style="color:var(--primary)">🌍 Türkiye'de Risk</strong><p>İç Ege, Karadeniz iç kesimleri ve Doğu Anadolu yüksek riskli bölgeler. Mayıs-Haziran pik dönem.</p></div>
-  <div class="stat-box"><strong style="color:var(--accent)">💰 Tarım Hasarı</strong><p>İlkbahar sonu dolu hasadı yok eder — meyve gelişim evresinde fiziksel hasar kalıcıdır.</p></div>
-</div>
-<div class="emergency-info"><h5>📞 Acil Numaralar</h5><p><strong>112</strong> Acil &nbsp;|&nbsp; <strong>122</strong> AFAD &nbsp;|&nbsp; MGM: mgm.gov.tr</p></div>`
+<div class="emergency-info"><h5>📞 Acil Numaralar</h5><p><strong>112</strong> Acil &nbsp;|&nbsp; <strong>122</strong> AFAD &nbsp;|&nbsp; mgm.gov.tr</p></div>`
 }
 };
 
+// ===== TEST VERİLERİ =====
 const testData={
 kasirga:[
-{question:"Kasırga 'göz' bölgesi geçtiğinde hava aniden sakinleşir. Bu durumda ne yapmalısınız?",choices:["Fırtınanın geçtiğini düşünerek hemen dışarı çıkın","İçeride kalmaya devam edin; göz geçtikten sonra fırtına ikinci yarısıyla geri döner","Üst katlara çıkın, yere yakın olmak tehlikelidir","Tüm pencereleri açarak basıncı dengeleyin"],correctAnswer:1,explanation:"Kasırga gözü sakin bir bölgedir ama fırtınanın ikinci yarısı geliyor demektir. Bu aldatıcı sükûnette dışarı çıkmak son derece tehlikelidir; içeride güvenli alanda beklemeye devam edin."},
-{question:"Kasırga sırasında 'pencereleri açarak basıncı dengeleme' önerisine göre hangisi doğrudur?",choices:["Bu doğru bir yöntemdir, basıncı dengeler ve çatıyı korur","Sadece rüzgar yönündeki pencereler açılmalıdır","Bu yanlış bir efsanedir; pencereler açılırsa rüzgar ve uçan nesneler içeri girer","Yalnızca bodrum katta uygulanabilir"],correctAnswer:2,explanation:"Pencereleri açmak tehlikelidir. Rüzgar ve uçan nesnelerin içeri girmesine yol açar. Bu yaygın efsane tamamen yanlıştır; pencereler kapalı tutulmalıdır."},
-{question:"Kasırgadan sonra hasarlı bir binayı değerlendirirken en önemli ilk adım nedir?",choices:["İçeri girerek eşyaları toplamak","Binayı dışarıdan inceleyerek yapısal çatlak ve temel kaymalarını kontrol etmek","Elektriği yeniden bağlatmak","Hemen temizliğe başlamak"],correctAnswer:1,explanation:"Hasarlı binaya girmeden önce dışarıdan yapısal bütünlüğünü değerlendirmek gerekir. Çatlak veya çökme riski varsa bina güvensizdir ve uzman değerlendirmesi gerekir."},
-{question:"Kasırga uyarısı bölgenize ulaştığında hangi sırayla hareket etmelisiniz?",choices:["Önce aracınızla şehri terk edin, sonra akrabalarınızı arayın","Acil çantanızı alın, dışarıdaki eşyaları güvence altına alın, bodrum veya iç odaya geçin","TV izlemeye devam edin, uyarı abartılı olabilir","Pencerelerinizi bantlayın ve üst kata çıkın"],correctAnswer:1,explanation:"Doğru sıra: acil çantayı hazır tutmak, dış eşyaları içeri almak ve bodrum ya da iç odalara geçmektir. Kasırga altında araçla kaçmak çok tehlikelidir."},
-{question:"Kasırga sonrası kopmuş elektrik teli yakınında su birikintisi varsa ne yapılmalıdır?",choices:["Tel titreşmiyorsa geçilebilir","Plastik tabanlı ayakkabıyla geçilebilir","Su birikintisine yaklaşılmamalı; toprak akımı öldürücü olabilir","Teli çubukla uzaklaştırarak geçilebilir"],correctAnswer:2,explanation:"Enerjili bir telin yakınındaki su 'basamak gerilimi' oluşturur. Görünürde titreşmese bile toprak üzerinden ölümcül akım geçebilir. En az 10 m uzak durun."},
-{question:"Kasırga koşullarında en iyi korumayı hangi yapı sağlar?",choices:["Ahşap çerçeveli bina — esnediği için rüzgara dayanır","Takviyeli betonarme iç odalar veya bodrum katlar","Metal prefabrik yapılar — hafif olduğu için uçmaz","Geniş ve yüksek binalar — rüzgar altlarından geçer"],correctAnswer:1,explanation:"Takviyeli betonarme iç odalar ve bodrum katlar kasırga rüzgarına karşı en güvenli korumayı sağlar. Ahşap ve hafif metal yapılar rüzgara karşı zayıftır."},
-{question:"Kasırga esnasında jeneratörü nerede çalıştırmalısınız?",choices:["Mutfakta, pencere açık","Binanın içinde düşük güçte","Garajda, kapı kısmen açık","Binanın dışında, açık ve havadar bir alanda"],correctAnswer:3,explanation:"Jeneratörler karbonmonoksit (CO) gazı üretir; renksiz ve kokusuz olan CO ölümcüldür. Garajda pencere açık bile olsa birikerek zehirler. Yalnızca açık havada, binadan uzakta çalıştırın."}
+{question:"Kasırga 'göz' bölgesi geçtiğinde hava aniden sakinleşir. Bu durumda ne yapmalısınız?",choices:["Fırtınanın geçtiğini düşünerek hemen dışarı çıkın","İçeride kalmaya devam edin; göz geçtikten sonra fırtına ikinci yarısıyla geri döner","Üst katlara çıkın, yere yakın olmak tehlikelidir","Tüm pencereleri açarak basıncı dengeleyin"],correctAnswer:1,explanation:"Kasırga gözü sakin bir bölgedir ama fırtınanın ikinci yarısı geliyor demektir. Bu aldatıcı sükûnette dışarı çıkmak son derece tehlikelidir."},
+{question:"Kasırga sırasında 'pencereleri açarak basıncı dengeleme' önerisine göre hangisi doğrudur?",choices:["Bu doğru bir yöntemdir, basıncı dengeler ve çatıyı korur","Sadece rüzgar yönündeki pencereler açılmalıdır","Bu yanlış bir efsanedir; pencereler açılırsa rüzgar ve uçan nesneler içeri girer","Yalnızca bodrum katta uygulanabilir"],correctAnswer:2,explanation:"Pencereleri açmak tehlikelidir. Rüzgar ve uçan nesnelerin içeri girmesine yol açar. Bu yaygın efsane tamamen yanlıştır."},
+{question:"Kasırgadan sonra hasarlı bir binayı değerlendirirken en önemli ilk adım nedir?",choices:["İçeri girerek eşyaları toplamak","Binayı dışarıdan inceleyerek yapısal çatlak ve temel kaymalarını kontrol etmek","Elektriği yeniden bağlatmak","Hemen temizliğe başlamak"],correctAnswer:1,explanation:"Hasarlı binaya girmeden önce dışarıdan yapısal bütünlüğünü değerlendirmek gerekir."},
+{question:"Kasırga uyarısı geldiğinde hangi sırayla hareket etmelisiniz?",choices:["Önce aracınızla şehri terk edin, sonra akrabalarınızı arayın","Acil çantanızı alın, dışarıdaki eşyaları güvence altına alın, bodrum veya iç odaya geçin","TV izlemeye devam edin, uyarı abartılı olabilir","Pencerelerinizi bantlayın ve üst kata çıkın"],correctAnswer:1,explanation:"Doğru sıra: acil çantayı hazır tutmak, dış eşyaları içeri almak ve bodrum ya da iç odalara geçmektir."},
+{question:"Kasırga sonrası kopmuş elektrik teli yakınında su birikintisi varsa ne yapılmalıdır?",choices:["Tel titreşmiyorsa geçilebilir","Plastik tabanlı ayakkabıyla geçilebilir","Su birikintisine yaklaşılmamalı; basamak gerilimi ölümcül olabilir","Teli çubukla uzaklaştırarak geçilebilir"],correctAnswer:2,explanation:"Enerjili bir telin yakınındaki su 'basamak gerilimi' oluşturur. Görünürde titreşmese bile toprak üzerinden ölümcül akım geçebilir."},
+{question:"Kasırga koşullarında en iyi korumayı hangi yapı sağlar?",choices:["Ahşap çerçeveli bina","Takviyeli betonarme iç odalar veya bodrum katlar","Metal prefabrik yapılar","Geniş ve yüksek binalar"],correctAnswer:1,explanation:"Takviyeli betonarme iç odalar ve bodrum katlar kasırga rüzgarına karşı en güvenli korumayı sağlar."},
+{question:"Kasırga esnasında jeneratörü nerede çalıştırmalısınız?",choices:["Mutfakta, pencere açık","Binanın içinde düşük güçte","Garajda, kapı kısmen açık","Binanın dışında, açık ve havadar bir alanda"],correctAnswer:3,explanation:"Jeneratörler karbonmonoksit (CO) gazı üretir; renksiz ve kokusuz olan CO ölümcüldür. Yalnızca açık havada, binadan uzakta çalıştırın."}
 ],
 yildirim:[
-{question:"Yıldırımın düşebileceği maksimum yatay mesafe nedir?",choices:["Yaklaşık 1 km; gök gürültüsü duyulmadan tehlike yoktur","Yaklaşık 5 km","Yaklaşık 15 km; gök gürültüsü duymadan da yıldırım çarpabilir","Yaklaşık 30 km"],correctAnswer:2,explanation:"Yıldırım yaklaşık 15 km mesafeye kadar yatay hareket edebilir. Gök gürültüsü duymadan da çarpma riski vardır. 30/30 kuralı: 30 saniyeden az aralık → içeri gir."},
-{question:"Açık alanda yıldırımdan korunmak için doğru vücut pozisyonu hangisidir?",choices:["Yere uzanmak","Ayakta durmak ve en kısa ağacın yanında beklemek","Ayakları bitişik çömelmek, ellerle kulaklarını kapatmak","Dört ayak pozisyonunda beklemek"],correctAnswer:2,explanation:"Ayakları bitişik çömelmek yere temas yüzeyini en aza indirir ve basamak gerilimi riskini azaltır. Yere uzanmak ise bu riski artırır."},
-{question:"Yıldırım çarpması kurbanlarına ilk yardımda hangisi kesinlikle yanlıştır?",choices:["Güvenli bir yere taşımak","Dokunmaktan kaçınmak çünkü kişi hâlâ elektrik yüklüdür","Solunum ve nabız kontrolü yapmak","Gerekirse CPR uygulamak"],correctAnswer:1,explanation:"Yıldırım çarpan kişi elektrik depolamaz; güvenle dokunulabilir ve ilk yardım uygulanabilir. Dokunmaktan kaçınmak değerli zamanı kaybettirir."},
-{question:"Araç içindeyken yıldırım çarparsa ne yapmalısınız?",choices:["Araçtan hemen atlayın","Metal yüzeylere dokunmadan bekleyin — Faraday kafesi etkisiyle enerji gövdeden geçer","Kapıları açık tutun","Hemen dışarı çıkın"],correctAnswer:1,explanation:"Araçların metal gövdesi Faraday kafesi görevi görür. Koltukta oturun, metal yüzeylere dokunmayın ve fırtına geçene kadar bekleyin."},
-{question:"Yıldırım fırtınası sırasında banyo yapmanın neden tehlikeli olduğu doğru açıklanmıştır?",choices:["Banyo buharı elektriği iletir","Su boruları topraklanmış iletken hat oluşturur; yıldırım bu hattan kişiye ulaşabilir","Plastik borular bile elektriği iletir","Yalnızca şehir dışında tehlikelidir"],correctAnswer:1,explanation:"Metal su boruları topraklanmış iletken bir yol oluşturur. Yıldırım binaya çarparsa bu enerji borular aracılığıyla banyodaki kişiye iletilir."},
-{question:"'Şimşek asla aynı yere iki kez çarpmaz' ifadesi hakkında hangisi doğrudur?",choices:["Doğrudur; çarpma noktasındaki elektrik boşaldığı için ikinci çarpma olmaz","Yanlıştır; yüksek yapılar tek fırtınada onlarca kez çarpma alabilir","Kısmen doğrudur; düz arazide tekrarlanmaz","Yalnızca yapay yapılarda tekrar çarpma görülür"],correctAnswer:1,explanation:"Bu inanış tamamen yanlıştır. Empire State Building bir fırtınada 8 kez çarpmıştır. Yüksek yapılar defalarca çarpmayı 'çeker'."},
-{question:"Yıldırım nereye çarpar?",choices:["Her zaman en yüksek noktaya","Islak yüzeylere","En iyi iletkenlik yolunu seçer; bu her zaman en yüksek nokta olmayabilir","Tepelerde hiç görülmez"],correctAnswer:2,explanation:"Yıldırım en kısa ve en iletken yolu seçer. İyi iletkenlik sunan nesneler öne çıkan nokta olmasa bile tercih edilebilir."}
+{question:"Yıldırımın düşebileceği maksimum yatay mesafe nedir?",choices:["Yaklaşık 1 km","Yaklaşık 5 km","Yaklaşık 15 km; gök gürültüsü duymadan da yıldırım çarpabilir","Yaklaşık 30 km"],correctAnswer:2,explanation:"Yıldırım yaklaşık 15 km mesafeye kadar yatay hareket edebilir. Gök gürültüsü duymadan da çarpma riski vardır."},
+{question:"Açık alanda yıldırımdan korunmak için doğru vücut pozisyonu hangisidir?",choices:["Yere uzanmak","Ayakta durmak ve en kısa ağacın yanında beklemek","Ayakları bitişik çömelmek, ellerle kulaklarını kapatmak","Dört ayak pozisyonunda beklemek"],correctAnswer:2,explanation:"Ayakları bitişik çömelmek yere temas yüzeyini en aza indirir ve basamak gerilimi riskini azaltır."},
+{question:"Yıldırım çarpması kurbanlarına ilk yardımda hangisi kesinlikle yanlıştır?",choices:["Güvenli bir yere taşımak","Dokunmaktan kaçınmak çünkü kişi hâlâ elektrik yüklüdür","Solunum ve nabız kontrolü yapmak","Gerekirse CPR uygulamak"],correctAnswer:1,explanation:"Yıldırım çarpan kişi elektrik depolamaz; güvenle dokunulabilir ve ilk yardım uygulanabilir."},
+{question:"Araç içindeyken yıldırım çarparsa ne yapmalısınız?",choices:["Araçtan hemen atlayın","Metal yüzeylere dokunmadan bekleyin — Faraday kafesi etkisiyle enerji gövdeden geçer","Kapıları açık tutun","Hemen dışarı çıkın"],correctAnswer:1,explanation:"Araçların metal gövdesi Faraday kafesi görevi görür. Koltukta oturun, metal yüzeylere dokunmayın."},
+{question:"Yıldırım fırtınası sırasında banyo yapmanın neden tehlikeli olduğu doğru açıklanmıştır?",choices:["Banyo buharı elektriği iletir","Su boruları topraklanmış iletken hat oluşturur; yıldırım bu hattan kişiye ulaşabilir","Plastik borular bile elektriği iletir","Yalnızca şehir dışında tehlikelidir"],correctAnswer:1,explanation:"Metal su boruları topraklanmış iletken bir yol oluşturur. Yıldırım binaya çarparsa enerji borular aracılığıyla banyodaki kişiye iletilir."},
+{question:"'Şimşek asla aynı yere iki kez çarpmaz' ifadesi için hangisi doğrudur?",choices:["Doğrudur; çarpma noktasındaki elektrik boşaldığı için ikinci çarpma olmaz","Yanlıştır; yüksek yapılar tek fırtınada onlarca kez çarpma alabilir","Kısmen doğrudur; düz arazide tekrarlanmaz","Yalnızca yapay yapılarda tekrar çarpma görülür"],correctAnswer:1,explanation:"Bu inanış tamamen yanlıştır. Empire State Building bir fırtınada 8 kez çarpmıştır."},
+{question:"Yıldırım hangi nesneye çarpar?",choices:["Her zaman en yüksek noktaya","Islak yüzeylere","En iyi iletkenlik yolunu seçer; bu her zaman en yüksek nokta olmayabilir","Tepelerde hiç görülmez"],correctAnswer:2,explanation:"Yıldırım en kısa ve en iletken yolu seçer. İyi iletkenlik sunan nesneler öne çıkan nokta olmasa bile tercih edilebilir."}
 ],
 dolu:[
-{question:"Dolu, kümülonimbüs bulutlarında nasıl oluşur?",choices:["Yağmur damlaları yere inerken donar","Güçlü yukarı hava akımları su damlacıklarını dondurup tekrar tekrar yukarı taşır; katmanlı buz oluşur","Fırtına bulutlarındaki elektrik su damlalarını dondurur","Kardan farklı bir yoğuşma süreci"],correctAnswer:1,explanation:"Güçlü yukarı akımlar su damlacıklarını defalarca donma bölgesine taşır. Her seferinde yeni bir buz katmanı eklenir; taneler büyüdükçe ağırlaşır ve düşer."},
-{question:"Dolu fırtınası araçtayken yakaladıysa ve kapalı alan bulamıyorsanız ne yapmalısınız?",choices:["Daha hızlı sürerek kaçmaya çalışın","Aracı durdurun, diz seviyesinin altına inin, elleri ensede kilitli çömelin, camlardan uzak durun","Camları indirerek tanelerin içeri girmesini önleyin","Araçtan çıkarak köprü altına sığının"],correctAnswer:1,explanation:"Aracı güvenle durdurmalı, camlardan uzaklaşmalı ve diz seviyesinin altına çömelerek başı ve boynu korumalısınız. Araçtan çıkmak dolu çarpması riskini artırır."},
-{question:"Dolu tanelerinin büyüklüğü ile yukarı hava akımı (updraft) hızı arasındaki ilişki nedir?",choices:["İlişki yoktur","Updraft ne kadar zayıfsa dolu o kadar büyük olur","Updraft ne kadar güçlüyse dolu taneleri o kadar büyür","Updraft hızı yalnızca dolu sayısını etkiler"],correctAnswer:2,explanation:"Güçlü yukarı hava akımları su damlacıklarını daha uzun süre donma bölgesinde tutar; her tur yeni bir buz katmanı ekler. Şiddetli fırtınalar daha büyük dolu üretir."},
-{question:"Dolu, tarım alanlarında en çok hangi dönemi etkiler?",choices:["Kış","İlkbahar sonu ve yaz başı; meyveler gelişim aşamasındayken fiziksel hasar oluşturur","Sonbahar","Yaz sonu"],correctAnswer:1,explanation:"İlkbahar sonu ve yaz başı (Mayıs-Haziran) en kritik dönemdir. Meyveler gelişiminin kritik evrelerinde dolu darbeleri kalıcı yara bırakır."},
-{question:"Şiddetli dolu sırasında köprü altına sığınmak neden tehlikeli olabilir?",choices:["Köprüler yıldırım riski taşır","Köprü altı sel suyu birikimine yol açabilir ve trafik güvenliğini tehdit eder","Ses yankısı kulak hasarı yapar","Tamamen güvenlidir"],correctAnswer:1,explanation:"Köprü altları ani sel sularının toplandığı noktalardır. Dolu ile gelen yoğun yağmur hızla birikerek kişiyi tuzakta bırakabilir."},
-{question:"Dolu kütlesini ölçmek için en doğru yöntem hangisidir?",choices:["En büyük tanelerin çapını ölçmek","Birim alana düşen toplam dolu kütlesini tartmak (kg/m²)","Tanelerin hız ve çapından hesaplama","Dolu tanelerini saymak"],correctAnswer:1,explanation:"Meteorolojik ölçümlerde birim alana (m²) düşen dolu kütlesi (kg) esas alınır. Bu yöntem tarım hasarı tahmininde ve sigorta değerlendirmelerinde kullanılır."},
-{question:"Dolu sigorta hasarında 'onarım değeri aşılırsa' ile ilgili doğru ifade hangisidir?",choices:["Sigorta her durumda tam ödeme yapar","Hasar piyasa değerinin %70'ini aşarsa araç 'toplam hasar' sayılabilir","Dolu hasarı her zaman sürücünün kusurudur","Kapsamlı kasko dolu hasarını kapsamaz"],correctAnswer:1,explanation:"Kasko sigortasında onarım maliyeti aracın piyasa değerinin belirli bir eşiğini aşarsa araç 'toplam hasar' ilan edilebilir. Kapsamlı kasko dolu hasarını kapsar."}
+{question:"Dolu, kümülonimbüs bulutlarında nasıl oluşur?",choices:["Yağmur damlaları yere inerken donar","Güçlü yukarı hava akımları su damlacıklarını dondurup tekrar tekrar yukarı taşır; katmanlı buz oluşur","Fırtına bulutlarındaki elektrik su damlalarını dondurur","Kardan farklı bir yoğuşma süreci"],correctAnswer:1,explanation:"Güçlü yukarı akımlar su damlacıklarını defalarca donma bölgesine taşır. Her seferinde yeni bir buz katmanı eklenir."},
+{question:"Dolu fırtınası araçtayken yakaladıysa ve kapalı alan bulamıyorsanız ne yapmalısınız?",choices:["Daha hızlı sürerek kaçmaya çalışın","Aracı durdurun, diz seviyesinin altına inin, elleri ensede kilitli çömelin, camlardan uzak durun","Camları indirerek tanelerin içeri girmesini önleyin","Araçtan çıkarak köprü altına sığının"],correctAnswer:1,explanation:"Aracı güvenle durdurmalı, camlardan uzaklaşmalı ve diz seviyesinin altına çömelerek başı ve boynu korumalısınız."},
+{question:"Dolu tanelerinin büyüklüğü ile yukarı hava akımı (updraft) hızı arasındaki ilişki nedir?",choices:["İlişki yoktur","Updraft ne kadar zayıfsa dolu o kadar büyük olur","Updraft ne kadar güçlüyse dolu taneleri o kadar büyür","Updraft hızı yalnızca dolu sayısını etkiler"],correctAnswer:2,explanation:"Güçlü yukarı hava akımları su damlacıklarını daha uzun süre donma bölgesinde tutar."},
+{question:"Dolu, tarım alanlarında en çok hangi dönemi etkiler?",choices:["Kış","İlkbahar sonu ve yaz başı; meyveler gelişim aşamasındayken fiziksel hasar oluşturur","Sonbahar","Yaz sonu"],correctAnswer:1,explanation:"İlkbahar sonu ve yaz başı (Mayıs-Haziran) en kritik dönemdir."},
+{question:"Şiddetli dolu sırasında köprü altına sığınmak neden tehlikeli olabilir?",choices:["Köprüler yıldırım riski taşır","Köprü altı sel suyu birikimine yol açabilir ve trafik güvenliğini tehdit eder","Ses yankısı kulak hasarı yapar","Tamamen güvenlidir"],correctAnswer:1,explanation:"Köprü altları ani sel sularının toplandığı noktalardır. Dolu ile gelen yoğun yağmur hızla birikebilir."},
+{question:"Dolu kütlesini ölçmek için en doğru yöntem hangisidir?",choices:["En büyük tanelerin çapını ölçmek","Birim alana düşen toplam dolu kütlesini tartmak (kg/m²)","Tanelerin hız ve çapından hesaplama","Dolu tanelerini saymak"],correctAnswer:1,explanation:"Meteorolojik ölçümlerde birim alana (m²) düşen dolu kütlesi (kg) esas alınır."},
+{question:"Dolu hasarında 'toplam hasar' eşiği neye göre belirlenir?",choices:["Sigorta her durumda tam ödeme yapar","Onarım maliyeti aracın piyasa değerinin belirli bir eşiğini aşarsa araç toplam hasar sayılabilir","Dolu hasarı her zaman sürücünün kusurudur","Kapsamlı kasko dolu hasarını kapsamaz"],correctAnswer:1,explanation:"Kasko sigortasında onarım maliyeti aracın piyasa değerinin belirli bir oranını aşarsa araç 'toplam hasar' ilan edilebilir."}
 ]
 };
 
 const testTitles={kasirga:"🌪️ Kasırga İleri Düzey Testi",yildirim:"⚡ Yıldırım Fırtınası Testi",dolu:"🌨️ Şiddetli Dolu Testi"};
-
 let currentTest=null,currentQuestion=0,score=0,allAnswers=[],isAnswerSelected=false,autoContinueTimer=null;
+
 function startTest(type){
-  currentTest=type;currentQuestion=0;score=0;allAnswers=[];isAnswerSelected=false;
-  document.getElementById('testTitle').textContent=testTitles[type];
-  const ov=document.getElementById('testOverlay');
-  ov.classList.add('active');ov.scrollTop=0;
-  lockScroll();renderQuestion();
+    currentTest=type;currentQuestion=0;score=0;allAnswers=[];isAnswerSelected=false;
+    document.getElementById('testTitle').textContent=testTitles[type];
+    const ov=document.getElementById('testOverlay');
+    ov.classList.add('active');ov.scrollTop=0;
+    document.body.style.overflow='hidden';
+    renderQuestion();
 }
 function closeTest(){
-  if(autoContinueTimer){clearInterval(autoContinueTimer);autoContinueTimer=null;}
-  document.getElementById('testOverlay').classList.remove('active');
-  unlockScroll();
-  currentTest=null;currentQuestion=0;score=0;allAnswers=[];isAnswerSelected=false;
+    if(autoContinueTimer){clearInterval(autoContinueTimer);autoContinueTimer=null;}
+    document.getElementById('testOverlay').classList.remove('active');
+    document.body.style.overflow='';
+    currentTest=null;
 }
 function renderQuestion(){
-  if(!currentTest||currentQuestion>=testData[currentTest].length){showResults();return;}
-  const tc=document.getElementById('testContent');
-  const q=testData[currentTest][currentQuestion];
-  const progress=((currentQuestion+1)/testData[currentTest].length)*100;
-  tc.innerHTML=`
-  <div class="progress-container">
-    <div class="progress-label"><span>Soru ${currentQuestion+1} / ${testData[currentTest].length}</span><span>Puan: ${score}</span></div>
-    <div class="progress-bar"><div class="progress-fill" style="width:${progress}%"></div></div>
-  </div>
-  <div class="question">${q.question}</div>
-  <div class="choices" id="choicesContainer">
-    ${q.choices.map((c,i)=>`<button class="choice" onclick="selectAnswer(${i})" id="choice-${i}">${c}</button>`).join('')}
-  </div>
-  <div id="feedbackContainer"></div>`;
-  tc.scrollTop=0;document.getElementById('testOverlay').scrollTop=0;
+    if(!currentTest||currentQuestion>=testData[currentTest].length){showResults();return;}
+    const tc=document.getElementById('testContent');
+    const q=testData[currentTest][currentQuestion];
+    const progress=((currentQuestion+1)/testData[currentTest].length)*100;
+    tc.innerHTML=`
+    <div class="progress-container">
+      <div class="progress-label"><span>Soru ${currentQuestion+1} / ${testData[currentTest].length}</span><span>Puan: ${score}</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${progress}%"></div></div>
+    </div>
+    <div class="question">${q.question}</div>
+    <div class="choices">${q.choices.map((c,i)=>`<button class="choice" onclick="selectAnswer(${i})" id="choice-${i}">${c}</button>`).join('')}</div>
+    <div id="feedbackContainer"></div>`;
+    tc.scrollTop=0;document.getElementById('testOverlay').scrollTop=0;
 }
 function selectAnswer(idx){
-  if(isAnswerSelected)return;
-  isAnswerSelected=true;
-  const q=testData[currentTest][currentQuestion];
-  const ok=idx===q.correctAnswer;
-  document.querySelectorAll('.choice').forEach(c=>c.disabled=true);
-  document.getElementById(`choice-${idx}`).classList.add(ok?'correct':'wrong');
-  if(!ok)document.getElementById(`choice-${q.correctAnswer}`).classList.add('correct');
-  allAnswers.push({question:q.question,userAnswer:q.choices[idx],correctAnswer:q.choices[q.correctAnswer],isCorrect:ok,explanation:q.explanation});
-  if(ok)score++;
-  const fb=document.getElementById('feedbackContainer');
-  fb.innerHTML=`
-  <div class="feedback ${ok?'correct':'wrong'}"><strong>${ok?'✅ Doğru!':'❌ Yanlış!'}</strong><br>${q.explanation}</div>
-  <button class="auto-continue-btn" onclick="nextQuestion()">
-    ${currentQuestion<testData[currentTest].length-1?'⏭️ Sonraki Soru':'🏁 Sonuçları Göster'}
-  </button>
-  <div class="countdown-text">Otomatik geçiş: <span id="countdownNumber">4</span> sn</div>`;
-  fb.scrollIntoView({behavior:'smooth',block:'nearest'});
-  let cd=4;
-  autoContinueTimer=setInterval(()=>{
-    cd--;const el=document.getElementById('countdownNumber');
-    if(el)el.textContent=cd;
-    if(cd<=0){clearInterval(autoContinueTimer);autoContinueTimer=null;nextQuestion();}
-  },1000);
+    if(isAnswerSelected)return;
+    isAnswerSelected=true;
+    const q=testData[currentTest][currentQuestion];
+    const ok=idx===q.correctAnswer;
+    document.querySelectorAll('.choice').forEach(c=>c.disabled=true);
+    document.getElementById(`choice-${idx}`).classList.add(ok?'correct':'wrong');
+    if(!ok)document.getElementById(`choice-${q.correctAnswer}`).classList.add('correct');
+    allAnswers.push({question:q.question,userAnswer:q.choices[idx],correctAnswer:q.choices[q.correctAnswer],isCorrect:ok,explanation:q.explanation});
+    if(ok)score++;
+    const fb=document.getElementById('feedbackContainer');
+    fb.innerHTML=`
+    <div class="feedback ${ok?'correct':'wrong'}"><strong>${ok?'✅ Doğru!':'❌ Yanlış!'}</strong><br>${q.explanation}</div>
+    <button class="auto-continue-btn" onclick="nextQuestion()">${currentQuestion<testData[currentTest].length-1?'⏭️ Sonraki Soru':'🏁 Sonuçları Göster'}</button>
+    <div class="countdown-text">Otomatik geçiş: <span id="countdownNumber">4</span> sn</div>`;
+    fb.scrollIntoView({behavior:'smooth',block:'nearest'});
+    let cd=4;
+    autoContinueTimer=setInterval(()=>{cd--;const el=document.getElementById('countdownNumber');if(el)el.textContent=cd;if(cd<=0){clearInterval(autoContinueTimer);autoContinueTimer=null;nextQuestion();}},1000);
 }
-function nextQuestion(){
-  if(autoContinueTimer){clearInterval(autoContinueTimer);autoContinueTimer=null;}
-  currentQuestion++;isAnswerSelected=false;renderQuestion();
-}
+function nextQuestion(){if(autoContinueTimer){clearInterval(autoContinueTimer);autoContinueTimer=null;}currentQuestion++;isAnswerSelected=false;renderQuestion();}
 function showResults(){
-  const tc=document.getElementById('testContent');
-  const total=testData[currentTest].length;
-  const pct=Math.round((score/total)*100);
-  let icon,msg;
-  if(pct>=80){icon='🏆';msg='Mükemmel! Gerçek bir uzmansın!';}
-  else if(pct>=57){icon='👍';msg='İyi iş! Detayları da öğrenmeye devam et.';}
-  else{icon='💡';msg='Bilgi kartlarını okuyarak tekrar dene!';}
-  tc.innerHTML=`
-  <div class="result-screen">
-    <div class="result-icon">${icon}</div>
-    <div class="result-score">${score}/${total}</div>
-    <div class="result-message">${msg}<br>Başarı oranın: <strong>%${pct}</strong></div>
-    <div class="detailed-results">
-      <h3 style="margin-bottom:1.25rem;color:var(--primary);">📊 Detaylı Sonuçlar</h3>
-      ${allAnswers.map((a,i)=>`
-      <div class="result-item ${a.isCorrect?'correct':'wrong'}">
-        <div class="result-question">Soru ${i+1}: ${a.question}</div>
-        <div class="result-answer ${a.isCorrect?'correct':'wrong'}">${a.isCorrect?'✅':'❌'} <strong>Senin cevabın:</strong> ${a.userAnswer}</div>
-        ${!a.isCorrect?`<div class="result-answer correct">✅ <strong>Doğru cevap:</strong> ${a.correctAnswer}</div>`:''}
-        <div class="result-explanation">💡 ${a.explanation}</div>
-      </div>`).join('')}
-    </div>
-    <div class="result-actions">
-      <button class="card-btn primary" onclick="startTest('${currentTest}')">🔄 Tekrar Dene</button>
-      <button class="card-btn secondary" onclick="closeTest()">🏠 Geri Dön</button>
-    </div>
-  </div>`;
-  document.getElementById('testOverlay').scrollTop=0;
+    const tc=document.getElementById('testContent');
+    const total=testData[currentTest].length;
+    const pct=Math.round((score/total)*100);
+    let icon,msg;
+    if(pct>=80){icon='🏆';msg='Mükemmel! Gerçek bir uzmansın!';}
+    else if(pct>=57){icon='👍';msg='İyi iş! Detayları da öğrenmeye devam et.';}
+    else{icon='💡';msg='Bilgi kartlarını okuyarak tekrar dene!';}
+    tc.innerHTML=`
+    <div class="result-screen">
+      <div class="result-icon">${icon}</div>
+      <div class="result-score">${score}/${total}</div>
+      <div class="result-message">${msg}<br>Başarı oranın: <strong>%${pct}</strong></div>
+      <div class="detailed-results">
+        <h3 style="margin-bottom:1.25rem;color:var(--primary);">📊 Detaylı Sonuçlar</h3>
+        ${allAnswers.map((a,i)=>`
+        <div class="result-item ${a.isCorrect?'correct':'wrong'}">
+          <div class="result-question">Soru ${i+1}: ${a.question}</div>
+          <div class="result-answer ${a.isCorrect?'correct':'wrong'}">${a.isCorrect?'✅':'❌'} <strong>Senin cevabın:</strong> ${a.userAnswer}</div>
+          ${!a.isCorrect?`<div class="result-answer correct">✅ <strong>Doğru cevap:</strong> ${a.correctAnswer}</div>`:''}
+          <div class="result-explanation">💡 ${a.explanation}</div>
+        </div>`).join('')}
+      </div>
+      <div class="result-actions">
+        <button class="card-btn primary" onclick="startTest('${currentTest}')">🔄 Tekrar Dene</button>
+        <button class="card-btn secondary" onclick="closeTest()">🏠 Geri Dön</button>
+      </div>
+    </div>`;
+    document.getElementById('testOverlay').scrollTop=0;
 }
 
 function showInfo(type){
-  const info=infoData[type];
-  document.getElementById('detailTitle').textContent=info.title;
-  document.getElementById('detailContent').innerHTML=info.content;
-  document.getElementById('detailSection').style.display='block';
-  document.querySelectorAll('.card').forEach(c=>c.style.display='none');
-  document.querySelector('.section-title').style.display='none';
-  setTimeout(()=>document.getElementById('detailSection').scrollIntoView({behavior:'smooth',block:'start'}),100);
+    const info=infoData[type];
+    document.getElementById('detailTitle').textContent=info.title;
+    document.getElementById('detailContent').innerHTML=info.content;
+    document.getElementById('detailSection').style.display='block';
+    document.querySelectorAll('.card').forEach(c=>c.style.display='none');
+    document.querySelector('.section-title').style.display='none';
+    setTimeout(()=>document.getElementById('detailSection').scrollIntoView({behavior:'smooth',block:'start'}),100);
 }
 function hideInfo(){
-  document.getElementById('detailSection').style.display='none';
-  document.querySelectorAll('.card').forEach(c=>c.style.display='flex');
-  document.querySelector('.section-title').style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
+    document.getElementById('detailSection').style.display='none';
+    document.querySelectorAll('.card').forEach(c=>c.style.display='flex');
+    document.querySelector('.section-title').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
 }
-
-if('ontouchstart' in window){
-  let sx=0,sy=0;
-  const to=document.getElementById('testOverlay');
-  to.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
-  to.addEventListener('touchend',e=>{
-    const dx=e.changedTouches[0].clientX-sx;const dy=Math.abs(e.changedTouches[0].clientY-sy);
-    if(Math.abs(dx)>dy&&dx<-80)closeTest();
-  },{passive:true});
-}
-window.addEventListener('scroll',()=>{},{passive:true});
-document.addEventListener('touchstart',()=>{},{passive:true});
 </script>
 </body>
 </html>

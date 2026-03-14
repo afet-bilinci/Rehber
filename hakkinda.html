@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="mobile-web-app-capable" content="yes">
@@ -10,890 +11,637 @@
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0a0a1a" media="(prefers-color-scheme: dark)">
-    <title>Hakkında - Afet Hazırlık Platformu</title>
-    <meta name="description" content="Afet Hazırlık platformu hakkında bilgi, misyonumuz, vizyonumuz ve iletişim.">
-    <meta name="keywords" content="afet hazırlık, hakkında, misyon, vizyon, iletişim">
-    <meta name="author" content="Afet Hazırlık">
+    <title>Hakk&#305;nda - Afet Haz&#305;rl&#305;k Platformu</title>
+    <meta name="description" content="Afet Haz&#305;rl&#305;k platformu hakk&#305;nda bilgi, misyonumuz, vizyonumuz ve ileti&#351;im.">
+    <script>
+        (function(){
+            var s=localStorage.getItem('theme');
+            var t=s==='dark'||s==='light'?s:window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+            document.documentElement.setAttribute('data-theme',t);
+        })();
+    </script>
     <style>
-        /* ============ DEĞİŞKENLER ============ */
+        /* ============ LIGHT TEMA ============ */
         :root {
-            color-scheme: light dark;
-            --primary: #4f46e5;
-            --primary-dark: #4338ca;
-            --primary-light: #6366f1;
-            --primary-soft: #ede9fe;
-            --accent: #dc2626;
-            --accent-light: #f87171;
-            --warning: #d97706;
-            --success: #059669;
-            --gray-50: #f9fafb;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-            --white: #ffffff;
-            --black: #000000;
-            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,.05);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.1);
-            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,.15);
-            --radius-sm: .375rem;
-            --radius-md: .5rem;
-            --radius-lg: .75rem;
-            --radius-xl: 1rem;
-            --transition-fast: 150ms cubic-bezier(.4,0,.2,1);
-            --transition-normal: 300ms cubic-bezier(.4,0,.2,1);
+            color-scheme:light dark;
+            --primary:#4f46e5; --primary-dark:#4338ca; --primary-light:#6366f1; --primary-soft:#ede9fe;
+            --accent:#dc2626; --accent-light:#f87171; --warning:#d97706; --success:#059669;
+            --gray-50:#f9fafb; --gray-100:#f3f4f6; --gray-200:#e5e7eb; --gray-300:#d1d5db;
+            --gray-400:#9ca3af; --gray-500:#6b7280; --gray-600:#4b5563; --gray-700:#374151;
+            --gray-800:#1f2937; --gray-900:#111827;
+            --bg-body:#f9fafb; --bg-card:#ffffff; --bg-header:rgba(255,255,255,0.95);
+            --bg-footer:#111827; --bg-mobile-menu:#ffffff;
+            --text-body:#1f2937; --text-heading:#111827; --text-muted:#4b5563;
+            --text-subtle:#6b7280; --text-nav:#4b5563; --text-logo:#111827; --text-logo-sub:#6b7280;
+            --text-footer-h:#ffffff; --text-footer-a:#9ca3af; --text-footer-bot:#6b7280;
+            --border-card:#e5e7eb; --border-header:#e5e7eb; --border-footer:#1f2937;
+            --shadow-sm:0 1px 2px rgba(0,0,0,.05); --shadow-md:0 4px 6px -1px rgba(0,0,0,.1);
+            --shadow-lg:0 10px 15px -3px rgba(0,0,0,.1); --shadow-xl:0 20px 25px -5px rgba(0,0,0,.15);
+            --nav-hover-bg:#f3f4f6; --nav-hover-clr:#4f46e5;
+            --tip-bg:linear-gradient(135deg,#ede9fe,#fff); --tip-border:#6366f1; --tip-h:#4338ca;
+            --sb-track:#f3f4f6; --sb-thumb:#d1d5db; --sb-hover:#9ca3af;
+            --radius-sm:.375rem; --radius-md:.5rem; --radius-lg:.75rem; --radius-xl:1rem;
+            --tf:150ms cubic-bezier(.4,0,.2,1); --tn:300ms cubic-bezier(.4,0,.2,1);
         }
-
-        /* ============ KARANLIK TEMA ============ */
-        @media(prefers-color-scheme:dark) {
-            :root {
-                --primary: #818cf8;
-                --primary-dark: #6366f1;
-                --primary-light: #a5b4fc;
-                --primary-soft: #1e1b4b;
-                --accent: #ef4444;
-                --accent-light: #fca5a5;
-                --warning: #f59e0b;
-                --success: #10b981;
-                --gray-50: #0f0f1a;
-                --gray-100: #1a1a2e;
-                --gray-200: #252545;
-                --gray-300: #2e2e5a;
-                --gray-400: #4a4a8a;
-                --gray-500: #7070b8;
-                --gray-600: #a0a0d0;
-                --gray-700: #c8c8e8;
-                --gray-800: #e8e8f8;
-                --gray-900: #f0f0ff;
-                --white: #1a1a2e;
-                --black: #f0f0ff;
-            }
-            body { background-color: #0a0a1a !important; color: #e0e0ff !important; }
-            h1,h2,h3,h4,h5,h6 { color: #f0f0ff !important; }
-            p { color: #c7c7f0 !important; }
-            .logo-title { color: #f0f0ff !important; }
-            .logo-subtitle { color: #a5b4fc !important; }
-            header { background: rgba(10,10,26,.97) !important; border-bottom-color: #252545 !important; }
-            .nav-link { color: #a5b4fc !important; }
-            .nav-link:hover { color: #f0f0ff !important; background: rgba(129,140,248,.1) !important; }
-            .nav-link.active { color: #fff !important; background: linear-gradient(135deg,#4f46e5,#4338ca) !important; }
-            .nav-link.firstaid-button { background: linear-gradient(135deg,#dc2626,#b91c1c) !important; color: #fff !important; }
-            .page-hero { background: linear-gradient(135deg,rgba(67,56,202,.97) 0%,rgba(79,70,229,.92) 50%,rgba(165,180,252,.85) 100%) !important; }
-            .page-hero h1 { color: #fff !important; }
-            .page-hero p { color: rgba(255,255,255,.93) !important; }
-            main { background-color: #0a0a1a !important; }
-            .section-title h2 { background: linear-gradient(135deg,#818cf8,#a5b4fc) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
-            .section-title p { color: #c7c7f0 !important; }
-            .about-content h3 { color: #f0f0ff !important; }
-            .about-content p { color: #c7c7f0 !important; }
-            .about-image h3 { color: #f0f0ff !important; }
-            .about-image p { color: #a5b4fc !important; }
-            .about-icon { color: #818cf8 !important; }
-            .mission-card, .vision-card, .feature-card {
-                background: linear-gradient(145deg,#1a1a3e,#12122a) !important;
-                border: 1px solid #252545 !important;
-            }
-            .mission-card:hover, .vision-card:hover, .feature-card:hover { border-color: #818cf8 !important; }
-            .mission-card h3, .vision-card h3 { color: #f0f0ff !important; }
-            .mission-card p, .vision-card p { color: #c7c7f0 !important; }
-            .feature-card h4 { color: #f0f0ff !important; }
-            .feature-card p { color: #c7c7f0 !important; }
-            .card-icon { background: linear-gradient(135deg,rgba(129,140,248,.15),rgba(26,26,62,.5)) !important; color: #818cf8 !important; }
-            .feature-card .card-icon { background: linear-gradient(135deg,rgba(239,68,68,.15),rgba(26,26,62,.5)) !important; color: #ef4444 !important; }
-            .contact-section { background: linear-gradient(145deg,#1a1a3e,#12122a) !important; border-color: #252545 !important; }
-            .contact-section h2 { background: linear-gradient(135deg,#818cf8,#a5b4fc) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
-            .contact-section p { color: #c7c7f0 !important; }
-            .contact-item { background: #12122a !important; border-color: #252545 !important; color: #c7c7f0 !important; }
-            .contact-item:hover { background: #1a1a3e !important; color: #f0f0ff !important; }
-            .contact-icon { color: #818cf8 !important; }
-            footer { background-color: #07070f !important; }
-            .footer-column h4 { color: #f0f0ff !important; }
-            .footer-links a { color: #a5b4fc !important; }
-            .footer-links a:hover { color: #f0f0ff !important; }
-            .footer-bottom { border-top-color: #252545 !important; color: #4a4a8a !important; }
-            .mobile-menu { background-color: #12122a !important; }
-            .mobile-menu-link { color: #c7c7f0 !important; }
-            .mobile-menu-link:hover, .mobile-menu-link.active { background: #4f46e5 !important; color: #fff !important; }
-            .menu-overlay { background: rgba(0,0,0,.7) !important; }
-            .menu-line { background: #a5b4fc !important; }
-            /* Modal dark */
-            .firstaid-modal-content { background-color: #12122a !important; }
-            .firstaid-modal-header { background: linear-gradient(135deg,#dc2626,#b91c1c) !important; }
-            .firstaid-tabs { background: #0a0a1a !important; border-bottom-color: #252545 !important; }
-            .firstaid-tab { background-color: #12122a !important; color: #a5b4fc !important; }
-            .firstaid-tab:hover { background-color: #1e1b4b !important; color: #f0f0ff !important; }
-            .firstaid-tab.active { background-color: #12122a !important; color: #ef4444 !important; border-bottom-color: #f87171 !important; }
-            .firstaid-tab-content { color: #c7c7f0 !important; }
-            .firstaid-step-card { background: linear-gradient(145deg,#1a1a3e,#12122a) !important; border: 1px solid #2e2e5a !important; }
-            .firstaid-step-card:hover { border-color: #6366f1 !important; }
-            .firstaid-step-card h4 { color: #f0f0ff !important; }
-            .firstaid-step-card p { color: #c7c7f0 !important; }
-            .firstaid-warning { background: #1a0e00 !important; border-left-color: #f59e0b !important; color: #fef3c7 !important; }
-            .firstaid-warning h5 { color: #fbbf24 !important; }
-            .firstaid-tip { background: #1e1b4b !important; border-color: #4f46e5 !important; }
-            .firstaid-tip h5 { color: #a5b4fc !important; }
-            .firstaid-tip p { color: #c7c7f0 !important; }
-            .emergency-number { background: #12122a !important; border: 1px solid #252545 !important; }
-            .emergency-number .service { color: #f0f0ff !important; }
-            .emergency-number p { color: #a5b4fc !important; }
-            .number-list li { background: #12122a !important; border: 1px solid #252545 !important; }
-            .number-list .service { color: #f0f0ff !important; }
-            ::-webkit-scrollbar-track { background: #12122a !important; }
-            ::-webkit-scrollbar-thumb { background: #252545 !important; }
-            ::-webkit-scrollbar-thumb:hover { background: #4a4a8a !important; }
-        }
-
-        /* ============ REDUCE MOTION ============ */
-        @media(prefers-reduced-motion:reduce) {
-            *,*::before,*::after {
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
-                scroll-behavior: auto !important;
+        /* ============ DARK — sistem ============ */
+        @media(prefers-color-scheme:dark){
+            :root:not([data-theme="light"]){
+                --primary:#818cf8; --primary-dark:#6366f1; --primary-light:#a5b4fc; --primary-soft:#1e1b4b;
+                --accent:#ef4444; --warning:#f59e0b; --success:#10b981;
+                --gray-50:#0f0f1a; --gray-100:#1a1a2e; --gray-200:#252545; --gray-300:#2e2e5a;
+                --gray-400:#4a4a8a; --gray-500:#7070b8; --gray-600:#a0a0d0;
+                --gray-700:#c8c8e8; --gray-800:#e8e8f8; --gray-900:#f0f0ff;
+                --bg-body:#0a0a1a; --bg-card:linear-gradient(145deg,#1a1a3e,#12122a);
+                --bg-header:rgba(10,10,26,.97); --bg-footer:#07070f; --bg-mobile-menu:#12122a;
+                --text-body:#e0e0ff; --text-heading:#f0f0ff; --text-muted:#c7c7f0;
+                --text-subtle:#a5b4fc; --text-nav:#a5b4fc; --text-logo:#f0f0ff; --text-logo-sub:#a5b4fc;
+                --text-footer-h:#f0f0ff; --text-footer-a:#a5b4fc; --text-footer-bot:#4a4a8a;
+                --border-card:#252545; --border-header:#252545; --border-footer:#252545;
+                --nav-hover-bg:rgba(129,140,248,.1); --nav-hover-clr:#f0f0ff;
+                --tip-bg:#1e1b4b; --tip-border:#4f46e5; --tip-h:#a5b4fc;
+                --sb-track:#12122a; --sb-thumb:#252545; --sb-hover:#4a4a8a;
+                color-scheme:dark;
             }
         }
-
-        /* ============ RESET ============ */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; scroll-padding-top: 80px; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--gray-50);
-            color: var(--gray-800);
-            line-height: 1.5;
-            min-height: 100vh;
-            overflow-x: hidden;
-            transition: background-color .3s ease, color .3s ease;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        /* ============ DARK — manuel ============ */
+        [data-theme="dark"]{
+            --primary:#818cf8; --primary-dark:#6366f1; --primary-light:#a5b4fc; --primary-soft:#1e1b4b;
+            --accent:#ef4444; --warning:#f59e0b; --success:#10b981;
+            --gray-50:#0f0f1a; --gray-100:#1a1a2e; --gray-200:#252545; --gray-300:#2e2e5a;
+            --gray-400:#4a4a8a; --gray-500:#7070b8; --gray-600:#a0a0d0;
+            --gray-700:#c8c8e8; --gray-800:#e8e8f8; --gray-900:#f0f0ff;
+            --bg-body:#0a0a1a; --bg-card:linear-gradient(145deg,#1a1a3e,#12122a);
+            --bg-header:rgba(10,10,26,.97); --bg-footer:#07070f; --bg-mobile-menu:#12122a;
+            --text-body:#e0e0ff; --text-heading:#f0f0ff; --text-muted:#c7c7f0;
+            --text-subtle:#a5b4fc; --text-nav:#a5b4fc; --text-logo:#f0f0ff; --text-logo-sub:#a5b4fc;
+            --text-footer-h:#f0f0ff; --text-footer-a:#a5b4fc; --text-footer-bot:#4a4a8a;
+            --border-card:#252545; --border-header:#252545; --border-footer:#252545;
+            --nav-hover-bg:rgba(129,140,248,.1); --nav-hover-clr:#f0f0ff;
+            --tip-bg:#1e1b4b; --tip-border:#4f46e5; --tip-h:#a5b4fc;
+            --sb-track:#12122a; --sb-thumb:#252545; --sb-hover:#4a4a8a;
+            color-scheme:dark;
         }
 
-        /* ============ TİPOGRAFİ ============ */
-        h1,h2,h3,h4,h5,h6 { font-weight: 700; line-height: 1.2; color: var(--gray-900); }
-        h1 { font-size: clamp(2rem,6vw,3.5rem); letter-spacing: -.025em; }
-        h2 { font-size: clamp(1.5rem,4vw,2.25rem); letter-spacing: -.025em; }
-        h3 { font-size: clamp(1.1rem,3vw,1.5rem); }
-        p { font-size: clamp(.95rem,2.5vw,1.125rem); color: var(--gray-600); line-height: 1.7; }
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}}
 
-        /* ============ CONTAINER ============ */
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-        @media(min-width:1440px) { .container { max-width: 1400px; } }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;scroll-padding-top:80px;}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background-color:var(--bg-body);color:var(--text-body);line-height:1.5;min-height:100vh;overflow-x:hidden;transition:background-color .3s,color .3s;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;}
+        h1,h2,h3,h4,h5,h6{font-weight:700;line-height:1.2;color:var(--text-heading);}
+        h1{font-size:clamp(2rem,6vw,3.5rem);letter-spacing:-.025em;}
+        h2{font-size:clamp(1.5rem,4vw,2.25rem);letter-spacing:-.025em;}
+        h3{font-size:clamp(1.1rem,3vw,1.5rem);}
+        p{font-size:clamp(.95rem,2.5vw,1.125rem);color:var(--text-muted);line-height:1.7;}
+        .container{width:100%;max-width:1200px;margin:0 auto;padding:0 1rem;}
 
-        /* ============ HEADER ============ */
-        header {
-            position: sticky; top: 0; z-index: 50;
-            background: rgba(255,255,255,.95);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--gray-200);
-            padding: .875rem 0;
-            transition: background-color .3s ease, border-color .3s ease;
-        }
-        .header-content { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-        .logo { display: flex; align-items: center; gap: .625rem; text-decoration: none; flex-shrink: 0; }
-        .logo-icon.compass {
-            width: 2.25rem; height: 2.25rem;
-            background: linear-gradient(135deg,#4f46e5,#4338ca);
-            border-radius: var(--radius-lg);
-            display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
-        }
-        .logo-text { display: flex; flex-direction: column; }
-        .logo-title { font-size: clamp(1.1rem,3vw,1.4rem); font-weight: 700; color: var(--gray-900); line-height: 1.2; }
-        .logo-subtitle { font-size: .75rem; color: var(--gray-500); font-weight: 500; }
+        /* HEADER */
+        header{position:sticky;top:0;z-index:50;background:var(--bg-header);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border-header);padding:.875rem 0;transition:background-color .3s,border-color .3s;}
+        .header-content{display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+        .logo{display:flex;align-items:center;gap:.625rem;text-decoration:none;flex-shrink:0;}
+        .logo-icon.compass{width:2.25rem;height:2.25rem;background:linear-gradient(135deg,#4f46e5,#4338ca);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+        .logo-title{font-size:clamp(1.1rem,3vw,1.4rem);font-weight:700;color:var(--text-logo);line-height:1.2;}
+        .logo-subtitle{font-size:.75rem;color:var(--text-logo-sub);font-weight:500;}
+        @media(max-width:480px){.logo-subtitle{display:none;}}
+        .nav-desktop{display:none;}
+        @media(min-width:768px){.nav-desktop{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;}}
+        @media(min-width:1024px){.nav-desktop{gap:.625rem;}}
+        .nav-link{color:var(--text-nav);text-decoration:none;font-weight:500;font-size:.875rem;padding:.5rem .875rem;border-radius:var(--radius-md);transition:var(--tf);min-height:44px;display:flex;align-items:center;gap:.3rem;white-space:nowrap;}
+        .nav-link:hover{color:var(--nav-hover-clr);background:var(--nav-hover-bg);}
+        .nav-link.active{background:linear-gradient(135deg,#4f46e5,#4338ca);color:white;}
+        .nav-link.firstaid-button{background:linear-gradient(135deg,#dc2626,#b91c1c);color:white;}
+        .nav-link.firstaid-button:hover{filter:brightness(1.1);transform:translateY(-2px);}
+        .theme-toggle{background:none;border:1px solid var(--border-card);color:var(--text-nav);cursor:pointer;width:2.5rem;height:2.5rem;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:var(--tf);flex-shrink:0;min-height:44px;min-width:44px;}
+        .theme-toggle:hover{background:var(--nav-hover-bg);border-color:var(--primary);}
+        #themeToggleMobile{display:flex;}
+        @media(min-width:768px){#themeToggleMobile{display:none;}}
+        .mobile-menu-btn{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.625rem;border-radius:var(--radius-md);min-height:44px;min-width:44px;align-items:center;justify-content:center;}
+        @media(min-width:768px){.mobile-menu-btn{display:none;}}
+        .menu-line{width:22px;height:2px;background:var(--text-muted);transition:var(--tf);border-radius:1px;}
+        .mobile-menu-btn.active .menu-line:nth-child(1){transform:translateY(7px) rotate(45deg);}
+        .mobile-menu-btn.active .menu-line:nth-child(2){opacity:0;}
+        .mobile-menu-btn.active .menu-line:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+        .mobile-menu{position:fixed;top:0;right:-100%;width:min(300px,85vw);height:100vh;background:var(--bg-mobile-menu);z-index:200;transition:right var(--tn);padding:2rem;box-shadow:var(--shadow-xl);display:flex;flex-direction:column;overflow-y:auto;}
+        .mobile-menu.active{right:0;}
+        .mobile-menu-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;}
+        .mobile-menu-links{display:flex;flex-direction:column;gap:.375rem;}
+        .mobile-menu-link{padding:.875rem 1rem;border-radius:var(--radius-md);color:var(--text-muted);text-decoration:none;font-weight:500;transition:var(--tf);min-height:52px;display:flex;align-items:center;gap:.5rem;}
+        .mobile-menu-link:hover,.mobile-menu-link.active{background:#4f46e5;color:white;}
+        .mobile-menu-link.firstaid-button{background:linear-gradient(135deg,#dc2626,#b91c1c);color:white;justify-content:center;margin-top:.75rem;}
+        .close-mobile-btn{background:none;border:none;font-size:1.75rem;color:var(--text-muted);cursor:pointer;min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;}
+        .menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:199;opacity:0;visibility:hidden;transition:var(--tn);}
+        .menu-overlay.active{opacity:1;visibility:visible;}
 
-        /* ============ NAV ============ */
-        .nav-desktop { display: none; }
-        @media(min-width:768px) { .nav-desktop { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; } }
-        @media(min-width:1024px) { .nav-desktop { gap: .625rem; } }
-        .nav-link {
-            color: var(--gray-600); text-decoration: none; font-weight: 500; font-size: .875rem;
-            padding: .5rem .875rem; border-radius: var(--radius-md);
-            transition: var(--transition-fast); min-height: 44px;
-            display: flex; align-items: center; gap: .3rem; white-space: nowrap;
-        }
-        .nav-link:hover { color: #4f46e5; background: var(--gray-100); }
-        .nav-link.active { background: linear-gradient(135deg,#4f46e5,#4338ca); color: white; }
-        .nav-link.firstaid-button { background: linear-gradient(135deg,#dc2626,#b91c1c); color: white; }
-        .nav-link.firstaid-button:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        /* HERO */
+        .page-hero{padding:clamp(3rem,10vw,5rem) 1rem;background:linear-gradient(135deg,rgba(67,56,202,.97) 0%,rgba(79,70,229,.92) 50%,rgba(165,180,252,.85) 100%);text-align:center;position:relative;overflow:hidden;}
+        .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 80%,rgba(255,255,255,.1),transparent 50%),radial-gradient(circle at 80% 20%,rgba(255,255,255,.05),transparent 50%);pointer-events:none;}
+        .page-hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto;}
+        .page-hero h1{color:white;margin-bottom:1rem;font-size:clamp(2.25rem,7vw,4rem);line-height:1.1;text-shadow:0 2px 12px rgba(0,0,0,.2);}
+        .page-hero p{color:rgba(255,255,255,.95);font-size:clamp(1rem,3vw,1.35rem);max-width:600px;margin:0 auto;line-height:1.6;}
 
-        /* ============ MOBILE MENU BTN ============ */
-        .mobile-menu-btn {
-            display: flex; flex-direction: column; gap: 5px; background: none; border: none;
-            cursor: pointer; padding: .625rem; border-radius: var(--radius-md);
-            min-height: 44px; min-width: 44px; align-items: center; justify-content: center;
-            -webkit-tap-highlight-color: transparent;
-        }
-        @media(min-width:768px) { .mobile-menu-btn { display: none; } }
-        .menu-line { width: 22px; height: 2px; background: var(--gray-600); transition: var(--transition-fast); border-radius: 1px; }
-        .mobile-menu-btn.active .menu-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .mobile-menu-btn.active .menu-line:nth-child(2) { opacity: 0; }
-        .mobile-menu-btn.active .menu-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        /* MAIN */
+        main{padding:clamp(3rem,8vw,5rem) 1rem;background-color:var(--bg-body);transition:background-color .3s;}
 
-        /* ============ MOBILE MENU ============ */
-        .mobile-menu {
-            position: fixed; top: 0; right: -100%; width: min(300px,85vw); height: 100vh;
-            background: white; z-index: 200; transition: right var(--transition-normal);
-            padding: 2rem; box-shadow: var(--shadow-xl);
-            display: flex; flex-direction: column; overflow-y: auto;
-        }
-        .mobile-menu.active { right: 0; }
-        .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-        .mobile-menu-links { display: flex; flex-direction: column; gap: .375rem; }
-        .mobile-menu-link {
-            padding: .875rem 1rem; border-radius: var(--radius-md); color: var(--gray-700);
-            text-decoration: none; font-weight: 500; transition: var(--transition-fast);
-            min-height: 52px; display: flex; align-items: center; gap: .5rem;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .mobile-menu-link:hover, .mobile-menu-link.active { background: #4f46e5; color: white; }
-        .mobile-menu-link.firstaid-button { background: linear-gradient(135deg,#dc2626,#b91c1c); color: white; justify-content: center; margin-top: .75rem; }
-        .menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 199; opacity: 0; visibility: hidden; transition: var(--transition-normal); }
-        .menu-overlay.active { opacity: 1; visibility: visible; }
+        /* SECTION TITLE */
+        .section-title{text-align:center;margin-bottom:clamp(2rem,5vw,3rem);}
+        .section-title h2{font-size:clamp(1.5rem,5vw,2.5rem);margin-bottom:.75rem;background:linear-gradient(135deg,var(--primary),var(--primary-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .section-title p{font-size:clamp(.9rem,2.5vw,1.1rem);color:var(--text-subtle);max-width:600px;margin:0 auto;}
 
-        /* ============ PAGE HERO ============ */
-        .page-hero {
-            padding: clamp(3rem,10vw,5rem) 1rem;
-            background: linear-gradient(135deg,rgba(67,56,202,.97) 0%,rgba(79,70,229,.92) 50%,rgba(165,180,252,.85) 100%);
-            text-align: center; position: relative; overflow: hidden;
-        }
-        .page-hero::before {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(circle at 20% 80%,rgba(255,255,255,.1) 0%,transparent 50%),
-                        radial-gradient(circle at 80% 20%,rgba(255,255,255,.05) 0%,transparent 50%);
-            pointer-events: none;
-        }
-        .page-hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
-        .page-hero h1 { color: white; margin-bottom: 1rem; font-size: clamp(2.25rem,7vw,4rem); line-height: 1.1; text-shadow: 0 2px 12px rgba(0,0,0,.2); }
-        .page-hero p { color: rgba(255,255,255,.95); font-size: clamp(1rem,3vw,1.35rem); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+        /* ABOUT */
+        .about-section{margin-bottom:clamp(3rem,6vw,5rem);}
+        .about-grid{display:grid;gap:2.5rem;}
+        @media(min-width:768px){.about-grid{grid-template-columns:1fr 1fr;align-items:center;}}
+        .about-content h3{font-size:clamp(1.3rem,4vw,1.75rem);margin-bottom:1.25rem;color:var(--text-heading);}
+        .about-content p{margin-bottom:1.25rem;line-height:1.7;}
+        .about-content p:last-child{margin-bottom:0;}
+        .about-image{text-align:center;}
+        .about-icon{font-size:5rem;color:var(--primary);margin-bottom:1rem;display:block;}
+        .about-image h3{font-size:clamp(1.2rem,3vw,1.6rem);margin-bottom:.5rem;color:var(--text-heading);}
+        .about-image p{color:var(--text-subtle);}
 
-        /* ============ MAIN ============ */
-        main { padding: clamp(3rem,8vw,5rem) 1rem; background-color: var(--gray-50); transition: background-color .3s ease; }
+        /* MISSION VISION */
+        .mission-vision-section{margin-bottom:clamp(3rem,6vw,5rem);}
+        .mission-vision-grid{display:grid;gap:1.5rem;}
+        @media(min-width:768px){.mission-vision-grid{grid-template-columns:1fr 1fr;gap:2rem;}}
+        .mission-card,.vision-card{background:var(--bg-card);border-radius:var(--radius-xl);padding:clamp(1.5rem,4vw,2.5rem);box-shadow:var(--shadow-lg);text-align:center;transition:var(--tn);border:1px solid var(--border-card);height:100%;display:flex;flex-direction:column;align-items:center;}
+        @media(hover:hover) and (pointer:fine){.mission-card:hover,.vision-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-xl);border-color:var(--primary-light);}}
+        .card-icon{font-size:2.5rem;margin-bottom:1.25rem;width:4.5rem;height:4.5rem;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--primary-soft),var(--bg-card));color:var(--primary);flex-shrink:0;}
+        .mission-card h3,.vision-card h3{font-size:clamp(1.1rem,3vw,1.4rem);margin-bottom:.875rem;color:var(--text-heading);}
+        .mission-card p,.vision-card p{font-size:clamp(.875rem,2.5vw,1rem);color:var(--text-muted);line-height:1.6;}
 
-        /* ============ SECTION TITLE ============ */
-        .section-title { text-align: center; margin-bottom: clamp(2rem,5vw,3rem); }
-        .section-title h2 {
-            font-size: clamp(1.5rem,5vw,2.5rem); margin-bottom: .75rem;
-            background: linear-gradient(135deg,#4f46e5,#818cf8);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .section-title p { font-size: clamp(.9rem,2.5vw,1.1rem); color: var(--gray-500); max-width: 600px; margin: 0 auto; }
+        /* FEATURES */
+        .features-section{margin-bottom:clamp(3rem,6vw,5rem);}
+        .features-grid{display:grid;gap:1.5rem;}
+        @media(min-width:560px){.features-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(min-width:900px){.features-grid{grid-template-columns:repeat(4,1fr);}}
+        .feature-card{background:var(--bg-card);border-radius:var(--radius-xl);padding:clamp(1.25rem,4vw,2rem);box-shadow:var(--shadow-lg);text-align:center;transition:var(--tn);border:1px solid var(--border-card);height:100%;display:flex;flex-direction:column;align-items:center;}
+        @media(hover:hover) and (pointer:fine){.feature-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-xl);border-color:var(--primary-light);}}
+        .feature-card .card-icon{background:linear-gradient(135deg,#fee2e2,var(--bg-card));color:var(--accent);}
+        .feature-card h4{font-size:clamp(1rem,2.5vw,1.2rem);margin-bottom:.75rem;color:var(--text-heading);}
+        .feature-card p{font-size:clamp(.875rem,2.5vw,.975rem);color:var(--text-muted);line-height:1.6;}
 
-        /* ============ ABOUT SECTION ============ */
-        .about-section { margin-bottom: clamp(3rem,6vw,5rem); }
-        .about-grid { display: grid; gap: 2.5rem; }
-        @media(min-width:768px) { .about-grid { grid-template-columns: 1fr 1fr; align-items: center; } }
-        .about-content h3 { font-size: clamp(1.3rem,4vw,1.75rem); margin-bottom: 1.25rem; color: var(--gray-900); }
-        .about-content p { margin-bottom: 1.25rem; line-height: 1.7; }
-        .about-content p:last-child { margin-bottom: 0; }
-        .about-image { text-align: center; }
-        .about-icon { font-size: 5rem; color: #4f46e5; margin-bottom: 1rem; display: block; }
-        .about-image h3 { font-size: clamp(1.2rem,3vw,1.6rem); margin-bottom: .5rem; color: var(--gray-900); }
-        .about-image p { color: var(--gray-500); }
+        /* CONTACT */
+        .contact-section{background:var(--bg-card);border-radius:var(--radius-xl);padding:clamp(2rem,5vw,3rem);box-shadow:var(--shadow-lg);text-align:center;border:1px solid var(--border-card);}
+        .contact-info{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:center;margin-top:2rem;}
+        .contact-item{display:flex;align-items:center;gap:.75rem;padding:1rem 1.5rem;border-radius:var(--radius-lg);background:var(--gray-100);transition:var(--tf);border:1px solid var(--border-card);font-size:1rem;min-height:52px;color:var(--text-body);}
+        @media(hover:hover) and (pointer:fine){.contact-item:hover{background:var(--gray-200);transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--primary-light);}}
+        @media(max-width:600px){.contact-item{width:100%;max-width:320px;justify-content:center;}}
+        .contact-icon{font-size:1.5rem;color:var(--primary);flex-shrink:0;}
 
-        /* ============ MISSION VISION ============ */
-        .mission-vision-section { margin-bottom: clamp(3rem,6vw,5rem); }
-        .mission-vision-grid { display: grid; gap: 1.5rem; }
-        @media(min-width:768px) { .mission-vision-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
-        .mission-card, .vision-card {
-            background: white; border-radius: var(--radius-xl);
-            padding: clamp(1.5rem,4vw,2.5rem); box-shadow: var(--shadow-lg);
-            text-align: center; transition: var(--transition-normal);
-            border: 1px solid var(--gray-200); height: 100%;
-            display: flex; flex-direction: column; align-items: center;
-        }
-        @media(hover:hover) and (pointer:fine) {
-            .mission-card:hover, .vision-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: #6366f1; }
-        }
-        .card-icon {
-            font-size: 2.5rem; margin-bottom: 1.25rem;
-            width: 4.5rem; height: 4.5rem; border-radius: var(--radius-lg);
-            display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(135deg,var(--primary-soft),white);
-            color: #4f46e5; flex-shrink: 0;
-        }
-        .mission-card h3, .vision-card h3 { font-size: clamp(1.1rem,3vw,1.4rem); margin-bottom: .875rem; color: var(--gray-900); }
-        .mission-card p, .vision-card p { font-size: clamp(.875rem,2.5vw,1rem); color: var(--gray-600); line-height: 1.6; }
+        /* FOOTER */
+        footer{background:var(--bg-footer);color:var(--text-footer-a);padding:clamp(3rem,6vw,4rem) 1rem 2rem;margin-top:clamp(2rem,5vw,4rem);}
+        .footer-grid{display:grid;gap:2.5rem;margin-bottom:2.5rem;}
+        @media(min-width:768px){.footer-grid{grid-template-columns:repeat(3,1fr);}}
+        .footer-column h4{color:var(--text-footer-h);font-size:1.05rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:.5rem;}
+        .footer-links{list-style:none;}
+        .footer-links li{margin-bottom:.5rem;}
+        .footer-links a{color:var(--text-footer-a);text-decoration:none;transition:var(--tf);display:flex;align-items:center;gap:.5rem;min-height:44px;font-size:.9rem;}
+        .footer-links a:hover{color:var(--text-footer-h);transform:translateX(4px);}
+        .footer-bottom{border-top:1px solid var(--border-footer);padding-top:1.5rem;text-align:center;color:var(--text-footer-bot);font-size:.875rem;}
+        #footerFirstAidButton{background:linear-gradient(135deg,#dc2626,#b91c1c);color:white;border:none;padding:.75rem 1.5rem;border-radius:var(--radius-md);cursor:pointer;display:flex;align-items:center;gap:.5rem;font-weight:600;transition:all .3s;margin-top:1rem;width:100%;justify-content:center;min-height:48px;font-size:.95rem;}
+        #footerFirstAidButton:hover{filter:brightness(1.1);transform:translateY(-2px);}
 
-        /* ============ FEATURES ============ */
-        .features-section { margin-bottom: clamp(3rem,6vw,5rem); }
-        .features-grid { display: grid; gap: 1.5rem; }
-        @media(min-width:560px) { .features-grid { grid-template-columns: repeat(2,1fr); } }
-        @media(min-width:900px) { .features-grid { grid-template-columns: repeat(4,1fr); } }
-        .feature-card {
-            background: white; border-radius: var(--radius-xl);
-            padding: clamp(1.25rem,4vw,2rem); box-shadow: var(--shadow-lg);
-            text-align: center; transition: var(--transition-normal);
-            border: 1px solid var(--gray-200); height: 100%;
-            display: flex; flex-direction: column; align-items: center;
+        /* MODAL — DRAWER */
+        .firstaid-modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;display:flex;align-items:stretch;justify-content:flex-end;opacity:0;visibility:hidden;transition:opacity var(--tn),visibility var(--tn);}
+        .firstaid-modal.active{opacity:1;visibility:visible;}
+        .firstaid-modal-content{background:var(--bg-card);width:100%;max-width:1100px;height:100%;display:flex;flex-direction:column;box-shadow:-10px 0 50px rgba(0,0,0,.4);transform:translateX(100%);transition:transform var(--tn);overflow:hidden;}
+        .firstaid-modal.active .firstaid-modal-content{transform:translateX(0);}
+        .firstaid-modal-header{padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,#dc2626,#b91c1c);color:white;flex-shrink:0;}
+        .firstaid-modal-header h3{color:white;margin:0;display:flex;align-items:center;gap:.625rem;font-size:clamp(.95rem,3vw,1.3rem);}
+        .close-modal-btn{background:rgba(255,255,255,.2);border:none;width:2.5rem;height:2.5rem;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:white;font-size:1.4rem;cursor:pointer;transition:var(--tf);min-height:44px;min-width:44px;flex-shrink:0;}
+        .close-modal-btn:hover{background:rgba(255,255,255,.35);transform:rotate(90deg);}
+        .firstaid-modal-body{display:flex;flex:1;min-height:0;overflow:hidden;}
+        .firstaid-drawer{width:250px;flex-shrink:0;background:var(--gray-50);border-right:1px solid var(--border-card);display:flex;flex-direction:column;overflow:hidden;}
+        .firstaid-drawer-header{padding:.875rem 1.25rem;border-bottom:1px solid var(--border-card);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+        .firstaid-drawer-header span{font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-subtle);}
+        .drawer-close-btn{display:none;background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:1.3rem;min-height:36px;min-width:36px;align-items:center;justify-content:center;border-radius:var(--radius-md);}
+        .firstaid-drawer-nav{flex:1;overflow-y:auto;padding:.5rem;}
+        .drawer-item{width:100%;display:flex;align-items:center;gap:.75rem;padding:.8rem 1rem;margin-bottom:.2rem;border:none;border-radius:var(--radius-lg);background:transparent;cursor:pointer;font-family:inherit;font-size:.925rem;font-weight:500;color:var(--text-muted);text-align:left;transition:var(--tf);position:relative;}
+        .drawer-item:hover{background:var(--gray-100);color:var(--text-heading);}
+        .drawer-item.active{background:var(--primary-soft);color:var(--primary-dark);font-weight:700;}
+        .drawer-item.active::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:3px;border-radius:0 3px 3px 0;background:var(--accent);}
+        .drawer-item-icon{font-size:1.2rem;flex-shrink:0;width:1.8rem;text-align:center;}
+        .drawer-item-text{flex:1;line-height:1.3;}
+        .drawer-toggle-btn{display:none;position:absolute;top:.75rem;left:.75rem;z-index:5;background:var(--gray-50);border:1px solid var(--border-card);border-radius:var(--radius-md);padding:.45rem .75rem;cursor:pointer;font-size:.8rem;font-weight:600;color:var(--text-muted);gap:.4rem;align-items:center;min-height:38px;}
+        .firstaid-content-area{flex:1;min-width:0;display:flex;flex-direction:column;overflow:hidden;position:relative;}
+        .firstaid-tab-content{display:none;flex:1;overflow-y:auto;padding:clamp(1.5rem,3vw,2.5rem);font-size:clamp(1rem,1.8vw,1.1rem);line-height:1.8;-webkit-overflow-scrolling:touch;}
+        .firstaid-tab-content.active{display:block;}
+        .tab-section-title{display:flex;align-items:center;gap:.75rem;margin-bottom:1.75rem;padding-bottom:1rem;border-bottom:2px solid var(--border-card);}
+        .tab-section-title h3{font-size:clamp(1.2rem,3vw,1.6rem);color:var(--accent);margin:0;}
+        .firstaid-step-card{background:var(--gray-50);border:1px solid var(--border-card);border-radius:var(--radius-lg);padding:clamp(1rem,3vw,1.5rem);margin-bottom:1.25rem;transition:var(--tf);}
+        @media(hover:hover) and (pointer:fine){.firstaid-step-card:hover{transform:translateX(4px);border-color:var(--primary-light);box-shadow:var(--shadow-md);}}
+        .firstaid-step-card h4{color:var(--text-heading);margin-bottom:.75rem;display:flex;align-items:center;gap:.625rem;font-size:clamp(1.05rem,2.5vw,1.25rem);}
+        .firstaid-step-card p{font-size:clamp(1rem,2vw,1.1rem);color:var(--text-muted);line-height:1.8;margin-bottom:0;}
+        .firstaid-warning{background:#fef3c7;border-left:4px solid var(--warning);padding:1.25rem;border-radius:var(--radius-md);margin:1.25rem 0;}
+        [data-theme="dark"] .firstaid-warning{background:#1a0e00;color:#fef3c7;}
+        @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .firstaid-warning{background:#1a0e00;color:#fef3c7;}}
+        .firstaid-warning h5{color:#92400e;margin-bottom:.375rem;display:flex;align-items:center;gap:.375rem;}
+        [data-theme="dark"] .firstaid-warning h5{color:#fbbf24;}
+        @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .firstaid-warning h5{color:#fbbf24;}}
+        .firstaid-tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:1.5rem;}
+        .firstaid-tip{background:var(--tip-bg);border-radius:var(--radius-lg);padding:1.25rem;border:1px solid var(--tip-border);}
+        .firstaid-tip h5{color:var(--tip-h);margin-bottom:.5rem;display:flex;align-items:center;gap:.375rem;}
+        .firstaid-tip p{font-size:clamp(1rem,2vw,1.05rem);color:var(--text-muted);line-height:1.7;}
+        .emergency-numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1.5rem;}
+        .emergency-number{background:var(--gray-100);border-radius:var(--radius-lg);padding:1.25rem;text-align:center;transition:var(--tf);cursor:pointer;border:1px solid var(--border-card);}
+        @media(hover:hover) and (pointer:fine){.emergency-number:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}}
+        .emergency-number .number{font-size:2rem;font-weight:700;color:var(--accent);margin-bottom:.375rem;}
+        .emergency-number .service{font-weight:600;color:var(--text-heading);font-size:.875rem;}
+        .emergency-number p{color:var(--text-subtle);font-size:.9rem;margin-top:.25rem;}
+        .number-list{list-style:none;}
+        .number-list li{margin-bottom:.625rem;padding:.875rem 1rem;background:var(--gray-50);border-radius:var(--radius-md);display:flex;align-items:center;gap:1rem;border:1px solid var(--border-card);}
+        .number-list .number{font-weight:700;font-size:1.2rem;color:var(--accent);min-width:90px;}
+        .number-list .service{flex:1;font-weight:600;color:var(--text-heading);}
+        @media(max-width:700px){
+            .firstaid-drawer{position:absolute;top:0;left:0;bottom:0;z-index:10;width:min(270px,85%);transform:translateX(-100%);box-shadow:4px 0 24px rgba(0,0,0,.3);}
+            .firstaid-drawer.open{transform:translateX(0);}
+            .drawer-close-btn{display:flex;}
+            .drawer-toggle-btn{display:flex;}
+            .firstaid-tab-content{padding:3.75rem 1.25rem 1.5rem;}
+            .firstaid-drawer-overlay{position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:9;display:none;pointer-events:none;}
+            .firstaid-drawer-overlay.active{display:block;pointer-events:auto;}
         }
-        @media(hover:hover) and (pointer:fine) {
-            .feature-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); border-color: #6366f1; }
-        }
-        .feature-card .card-icon { background: linear-gradient(135deg,#fee2e2,white); color: #dc2626; }
-        .feature-card h4 { font-size: clamp(1rem,2.5vw,1.2rem); margin-bottom: .75rem; color: var(--gray-900); }
-        .feature-card p { font-size: clamp(.875rem,2.5vw,.975rem); color: var(--gray-600); line-height: 1.6; }
 
-        /* ============ CONTACT ============ */
-        .contact-section {
-            background: white; border-radius: var(--radius-xl);
-            padding: clamp(2rem,5vw,3rem); box-shadow: var(--shadow-lg);
-            text-align: center; border: 1px solid var(--gray-200);
-        }
-        .contact-info { display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: center; margin-top: 2rem; }
-        .contact-item {
-            display: flex; align-items: center; gap: .75rem;
-            padding: 1rem 1.5rem; border-radius: var(--radius-lg);
-            background: var(--gray-100); transition: var(--transition-fast);
-            border: 1px solid var(--gray-200); font-size: 1rem; min-height: 52px;
-            -webkit-tap-highlight-color: transparent;
-        }
-        @media(hover:hover) and (pointer:fine) {
-            .contact-item:hover { background: var(--gray-200); transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: #6366f1; }
-        }
-        @media(max-width:600px) { .contact-item { width: 100%; max-width: 320px; justify-content: center; } }
-        .contact-icon { font-size: 1.5rem; color: #4f46e5; flex-shrink: 0; }
-
-        /* ============ FOOTER ============ */
-        footer { background: var(--gray-900); color: var(--gray-300); padding: clamp(3rem,6vw,4rem) 1rem 2rem; margin-top: clamp(2rem,5vw,4rem); }
-        .footer-content { max-width: 1200px; margin: 0 auto; }
-        .footer-grid { display: grid; gap: 2.5rem; margin-bottom: 2.5rem; }
-        @media(min-width:768px) { .footer-grid { grid-template-columns: repeat(3,1fr); } }
-        .footer-column h4 { color: white; font-size: 1.05rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: .5rem; }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: .5rem; }
-        .footer-links a { color: var(--gray-400); text-decoration: none; transition: var(--transition-fast); display: flex; align-items: center; gap: .5rem; min-height: 44px; font-size: .9rem; }
-        .footer-links a:hover { color: white; transform: translateX(4px); }
-        .footer-bottom { border-top: 1px solid var(--gray-800); padding-top: 1.5rem; text-align: center; color: var(--gray-500); font-size: .875rem; }
-
-        /* ============ FOOTER FIRST AID ============ */
-        #footerFirstAidButton {
-            background: linear-gradient(135deg,#dc2626,#b91c1c); color: white; border: none;
-            padding: .75rem 1.5rem; border-radius: var(--radius-md); cursor: pointer;
-            display: flex; align-items: center; gap: .5rem; font-weight: 600;
-            transition: all .3s ease; margin-top: 1rem; width: 100%;
-            justify-content: center; min-height: 48px; font-size: .95rem;
-            -webkit-tap-highlight-color: transparent;
-        }
-        #footerFirstAidButton:hover { filter: brightness(1.1); transform: translateY(-2px); }
-
-        /* ============ ANİMASYON ============ */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-in-up { animation: fadeInUp .6s ease-out forwards; opacity: 0; }
-        .animate-delay-100 { animation-delay: 100ms; }
-        .animate-delay-200 { animation-delay: 200ms; }
-        .animate-delay-300 { animation-delay: 300ms; }
-
-        /* ============ İLK YARDIM MODAL ============ */
-        .firstaid-modal {
-            position: fixed; inset: 0; background: rgba(10,10,26,.95);
-            z-index: 1000; display: flex; align-items: center; justify-content: center;
-            opacity: 0; visibility: hidden; transition: var(--transition-normal); padding: 1rem;
-        }
-        .firstaid-modal.active { opacity: 1; visibility: visible; }
-        .firstaid-modal-content {
-            background: white; border-radius: var(--radius-xl);
-            width: 100%; height: 90%; max-height: 90vh; max-width: 1000px;
-            overflow: hidden; display: flex; flex-direction: column;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,.5);
-        }
-        .firstaid-modal-header {
-            padding: 1.25rem 1.5rem; display: flex; justify-content: space-between;
-            align-items: center; background: linear-gradient(135deg,#dc2626,#b91c1c);
-            color: white; flex-shrink: 0;
-        }
-        .firstaid-modal-header h3 { color: white; margin: 0; display: flex; align-items: center; gap: .625rem; font-size: clamp(1rem,3.5vw,1.4rem); }
-        .close-modal-btn {
-            background: rgba(255,255,255,.2); border: none; width: 2.5rem; height: 2.5rem;
-            border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 1.5rem; cursor: pointer; transition: var(--transition-fast);
-            min-height: 44px; min-width: 44px; flex-shrink: 0;
-        }
-        .close-modal-btn:hover { background: rgba(255,255,255,.3); transform: rotate(90deg); }
-        .firstaid-modal-body { display: flex; flex-direction: column; height: 100%; overflow: hidden; }
-        .firstaid-tabs {
-            display: flex; border-bottom: 1px solid var(--gray-200); background: var(--gray-50);
-            flex-shrink: 0; overflow-x: auto; -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; -ms-overflow-style: none;
-        }
-        .firstaid-tabs::-webkit-scrollbar { display: none; }
-        .firstaid-tab {
-            flex: 1; min-width: 130px; padding: 1rem 1.25rem; border: none; background: none;
-            font-family: inherit; font-weight: 600; color: var(--gray-600); cursor: pointer;
-            transition: var(--transition-fast); display: flex; align-items: center;
-            justify-content: center; gap: .5rem; font-size: clamp(.8rem,2.5vw,.95rem);
-            white-space: nowrap; min-height: 52px; -webkit-tap-highlight-color: transparent;
-        }
-        .firstaid-tab:hover { background: var(--gray-100); }
-        .firstaid-tab.active { color: #dc2626; border-bottom: 3px solid #dc2626; background: white; }
-        .firstaid-tab-content { flex: 1; overflow-y: auto; padding: clamp(1rem,4vw,2rem); display: none; -webkit-overflow-scrolling: touch; }
-        .firstaid-tab-content.active { display: block; }
-        .firstaid-step-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: clamp(1rem,3vw,1.5rem); margin-bottom: 1.25rem; transition: var(--transition-fast); }
-        @media(hover:hover) and (pointer:fine) { .firstaid-step-card:hover { transform: translateX(4px); border-color: #6366f1; box-shadow: var(--shadow-md); } }
-        .firstaid-step-card h4 { color: var(--gray-900); margin-bottom: .625rem; display: flex; align-items: center; gap: .625rem; font-size: clamp(1rem,3vw,1.2rem); }
-        .firstaid-step-card p { font-size: clamp(.875rem,2.5vw,1rem); color: var(--gray-600); line-height: 1.6; margin-bottom: 0; }
-        .firstaid-warning { background: #fef3c7; border-left: 4px solid var(--warning); padding: 1.125rem; border-radius: var(--radius-md); margin: 1.25rem 0; }
-        .firstaid-warning h5 { color: #92400e; margin-bottom: .375rem; display: flex; align-items: center; gap: .375rem; }
-        .firstaid-tips { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 1.25rem; margin-top: 1.5rem; }
-        .firstaid-tip { background: linear-gradient(135deg,var(--primary-soft),white); border-radius: var(--radius-lg); padding: 1.25rem; border: 1px solid var(--primary-light); }
-        .firstaid-tip h5 { color: #4338ca; margin-bottom: .5rem; display: flex; align-items: center; gap: .375rem; }
-        .firstaid-tip p { font-size: clamp(.875rem,2.5vw,.975rem); color: var(--gray-600); }
-        .emergency-numbers { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 1rem; margin-top: 1.5rem; }
-        .emergency-number { background: var(--gray-100); border-radius: var(--radius-lg); padding: 1.125rem; text-align: center; transition: var(--transition-fast); cursor: pointer; }
-        @media(hover:hover) and (pointer:fine) { .emergency-number:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); } }
-        .emergency-number .number { font-size: 1.75rem; font-weight: 700; color: var(--accent); margin-bottom: .375rem; }
-        .emergency-number .service { font-weight: 600; color: var(--gray-800); font-size: .875rem; }
-        .number-list { list-style: none; padding-left: 0; }
-        .number-list li { margin-bottom: .625rem; padding: .75rem; background: var(--gray-50); border-radius: var(--radius-md); display: flex; align-items: center; gap: 1rem; border: 1px solid var(--gray-200); }
-        .number-list .number { font-weight: 700; font-size: 1.2rem; color: var(--accent); min-width: 90px; }
-        .number-list .service { flex: 1; font-weight: 600; color: var(--gray-800); }
-        .icon-red { color: var(--accent); }
-        .icon-blue { color: #4f46e5; }
-        .icon-green { color: var(--success); }
-        .icon-orange { color: var(--warning); }
-        .icon-purple { color: #7c3aed; }
-
-        /* ============ FOCUS & SCROLLBAR ============ */
-        :focus-visible { outline: 3px solid #4f46e5; outline-offset: 3px; border-radius: var(--radius-md); }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: var(--gray-100); }
-        ::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
-
-        /* ============ RESPONSİVE ============ */
-        @media(max-width:768px) {
-            .firstaid-tabs { flex-direction: column; }
-            .firstaid-tab { min-width: 100%; justify-content: flex-start; border-bottom: 1px solid var(--gray-200); }
-            .firstaid-tab.active { border-bottom: 3px solid #dc2626; }
-            .firstaid-modal-content { height: 95%; max-height: 95vh; }
-            .contact-info { flex-direction: column; align-items: center; }
-        }
-        @media(max-width:480px) {
-            .logo-subtitle { display: none; }
-        }
-        @media(max-width:375px) { .container { padding: 0 .75rem; } }
-        @media print {
-            .page-hero, footer, .mobile-menu-btn { display: none !important; }
-            body { background: white !important; color: black !important; }
-        }
+        /* ANİMASYON */
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        .animate-fade-in-up{animation:fadeInUp .6s ease-out forwards;opacity:0;}
+        .animate-delay-100{animation-delay:100ms;}
+        .animate-delay-200{animation-delay:200ms;}
+        .animate-delay-300{animation-delay:300ms;}
+        :focus-visible{outline:3px solid var(--primary);outline-offset:3px;border-radius:var(--radius-md);}
+        ::-webkit-scrollbar{width:6px;height:6px;}
+        ::-webkit-scrollbar-track{background:var(--sb-track);}
+        ::-webkit-scrollbar-thumb{background:var(--sb-thumb);border-radius:4px;}
+        ::-webkit-scrollbar-thumb:hover{background:var(--sb-hover);}
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo" aria-label="Afet Hazırlık Ana Sayfa">
-                    <div class="logo-icon compass" aria-hidden="true">🧭</div>
-                    <div class="logo-text">
-                        <div class="logo-title">Afet Hazırlık</div>
-                        <div class="logo-subtitle">Güvende Kal</div>
-                    </div>
-                </a>
-                <nav class="nav-desktop" aria-label="Ana Navigasyon">
-                    <a href="index.html"    class="nav-link">🏠 Ana Sayfa</a>
-                    <a href="yer.html"      class="nav-link">🏔️ Yer Afetleri</a>
-                    <a href="su.html"       class="nav-link">🌊 Su Afetleri</a>
-                    <a href="hava.html"     class="nav-link">🌪️ Hava Afetleri</a>
-                    <a href="İnsan.html"    class="nav-link">🔥 İnsan Kaynaklı</a>
-                    <a href="hakkinda.html" class="nav-link active" aria-current="page">ℹ️ Hakkında</a>
-                    <a href="#" class="nav-link firstaid-button" id="firstAidButton">
-                        <span>🆘</span> İlk Yardım Rehberi
-                    </a>
-                </nav>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü Aç" aria-expanded="false">
-                    <span class="menu-line"></span>
-                    <span class="menu-line"></span>
-                    <span class="menu-line"></span>
+<header>
+    <div class="container">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon compass">&#129517;</div>
+                <div class="logo-text">
+                    <div class="logo-title">Afet Haz&#305;rl&#305;k</div>
+                    <div class="logo-subtitle">G&#252;vende Kal</div>
+                </div>
+            </a>
+            <nav class="nav-desktop">
+                <a href="index.html"    class="nav-link">&#127968; Ana Sayfa</a>
+                <a href="yer.html"      class="nav-link">&#127956;&#65039; Yer Afetleri</a>
+                <a href="su.html"       class="nav-link">&#127754; Su Afetleri</a>
+                <a href="hava.html"     class="nav-link">&#127754; Hava Afetleri</a>
+                <a href="insan.html"    class="nav-link">&#128293; &#304;nsan Kaynakl&#305;</a>
+                <a href="hakkinda.html" class="nav-link active" aria-current="page">&#8505;&#65039; Hakk&#305;nda</a>
+                <a href="#" class="nav-link firstaid-button" id="firstAidButton">&#128682; &#304;lk Yard&#305;m Rehberi</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Karanl&#305;k moda ge&#231;">&#127769;</button>
+            </nav>
+            <div style="display:flex;align-items:center;gap:.5rem;">
+                <button class="theme-toggle" id="themeToggleMobile" aria-label="Karanl&#305;k moda ge&#231;">&#127769;</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-label="Men&#252;y&#252; a&#231;">
+                    <span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span>
                 </button>
             </div>
         </div>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-        <div class="mobile-menu-header">
-            <div class="logo">
-                <div class="logo-icon compass" aria-hidden="true">🧭</div>
-                <div class="logo-text"><div class="logo-title">Afet Hazırlık</div></div>
-            </div>
-            <button id="closeMenuBtn" style="background:none;border:none;font-size:1.75rem;color:var(--gray-600);cursor:pointer;min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;" aria-label="Menüyü Kapat">×</button>
-        </div>
-        <nav class="mobile-menu-links" aria-label="Mobil Navigasyon">
-            <a href="index.html"    class="mobile-menu-link">🏠 Ana Sayfa</a>
-            <a href="yer.html"      class="mobile-menu-link">🏔️ Yer Afetleri</a>
-            <a href="su.html"       class="mobile-menu-link">🌊 Su Afetleri</a>
-            <a href="hava.html"     class="mobile-menu-link">🌪️ Hava Afetleri</a>
-            <a href="İnsan.html"    class="mobile-menu-link">🔥 İnsan Kaynaklı</a>
-            <a href="hakkinda.html" class="mobile-menu-link active" aria-current="page">ℹ️ Hakkında</a>
-            <a href="#" class="mobile-menu-link firstaid-button" id="mobileFirstAidButton">
-                <span>🆘</span> İlk Yardım Rehberi
-            </a>
-        </nav>
     </div>
+</header>
 
-    <!-- İLK YARDIM MODAL -->
-    <div class="firstaid-modal" id="firstAidModal" role="dialog" aria-modal="true" aria-labelledby="firstAidModalTitle">
-        <div class="firstaid-modal-content">
-            <div class="firstaid-modal-header">
-                <h3 id="firstAidModalTitle"><span>🆘</span> Acil Durumda İlk Yardım Rehberi</h3>
-                <button class="close-modal-btn" id="closeFirstAidModal" aria-label="Kapat">×</button>
-            </div>
-            <div class="firstaid-modal-body">
-                <div class="firstaid-tabs" role="tablist">
-                    <button class="firstaid-tab active" data-tab="basic"       role="tab" aria-selected="true">🧠 Temel Kurallar</button>
-                    <button class="firstaid-tab"        data-tab="bleeding"    role="tab" aria-selected="false">🩸 Kanamalar</button>
-                    <button class="firstaid-tab"        data-tab="unconscious" role="tab" aria-selected="false">😴 Bayılma</button>
-                    <button class="firstaid-tab"        data-tab="burn"        role="tab" aria-selected="false">🔥 Yanıklar</button>
-                    <button class="firstaid-tab"        data-tab="fracture"    role="tab" aria-selected="false">🦴 Kırıklar</button>
-                    <button class="firstaid-tab"        data-tab="numbers"     role="tab" aria-selected="false">📞 Acil Numaralar</button>
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+        <div class="logo">
+            <div class="logo-icon compass">&#129517;</div>
+            <div class="logo-text"><div class="logo-title">Afet Haz&#305;rl&#305;k</div></div>
+        </div>
+        <button id="closeMenuBtn" class="close-mobile-btn">&#215;</button>
+    </div>
+    <nav class="mobile-menu-links">
+        <a href="index.html"    class="mobile-menu-link">&#127968; Ana Sayfa</a>
+        <a href="yer.html"      class="mobile-menu-link">&#127956;&#65039; Yer Afetleri</a>
+        <a href="su.html"       class="mobile-menu-link">&#127754; Su Afetleri</a>
+        <a href="hava.html"     class="mobile-menu-link">&#127754; Hava Afetleri</a>
+        <a href="insan.html"    class="mobile-menu-link">&#128293; &#304;nsan Kaynakl&#305;</a>
+        <a href="hakkinda.html" class="mobile-menu-link active" aria-current="page">&#8505;&#65039; Hakk&#305;nda</a>
+        <a href="#" class="mobile-menu-link firstaid-button" id="mobileFirstAidButton">&#128682; &#304;lk Yard&#305;m Rehberi</a>
+    </nav>
+</div>
+
+<!-- İLK YARDIM MODAL -->
+<div class="firstaid-modal" id="firstAidModal" role="dialog" aria-modal="true" aria-labelledby="firstAidModalTitle">
+    <div class="firstaid-modal-content">
+        <div class="firstaid-modal-header">
+            <h3 id="firstAidModalTitle">&#128682; Acil Durumda &#304;lk Yard&#305;m Rehberi</h3>
+            <button class="close-modal-btn" id="closeFirstAidModal" aria-label="Kapat">&#215;</button>
+        </div>
+        <div class="firstaid-modal-body">
+            <aside class="firstaid-drawer" id="firstaidDrawer">
+                <div class="firstaid-drawer-header">
+                    <span>&#128203; Konular</span>
+                    <button class="drawer-close-btn" id="drawerCloseBtn">&#215;</button>
+                </div>
+                <nav class="firstaid-drawer-nav">
+                    <button class="drawer-item active" data-tab="basic">
+                        <span class="drawer-item-icon">&#129504;</span><span class="drawer-item-text">Temel Kurallar</span>
+                    </button>
+                    <button class="drawer-item" data-tab="bleeding">
+                        <span class="drawer-item-icon">&#129656;</span><span class="drawer-item-text">Kanamalar</span>
+                    </button>
+                    <button class="drawer-item" data-tab="unconscious">
+                        <span class="drawer-item-icon">&#128564;</span><span class="drawer-item-text">Bilin&#231; Kayb&#305;</span>
+                    </button>
+                    <button class="drawer-item" data-tab="burn">
+                        <span class="drawer-item-icon">&#128293;</span><span class="drawer-item-text">Yan&#305;klar</span>
+                    </button>
+                    <button class="drawer-item" data-tab="fracture">
+                        <span class="drawer-item-icon">&#129456;</span><span class="drawer-item-text">K&#305;r&#305;k &amp; &#199;&#305;k&#305;k</span>
+                    </button>
+                    <button class="drawer-item" data-tab="numbers">
+                        <span class="drawer-item-icon">&#128222;</span><span class="drawer-item-text">Acil Numaralar</span>
+                    </button>
+                </nav>
+            </aside>
+            <div class="firstaid-content-area">
+                <button class="drawer-toggle-btn" id="drawerToggleBtn">&#9776; Konular</button>
+                <div class="firstaid-drawer-overlay" id="drawerOverlay"></div>
+
+                <div class="firstaid-tab-content active" id="basic-tab">
+                    <div class="tab-section-title"><span style="font-size:2rem">&#129504;</span><h3>&#304;lk Yard&#305;m&#305;n Temel Kurallar&#305;</h3></div>
+                    <div class="firstaid-step-card"><h4>&#128737;&#65039; 1. &#214;nce Kendinizi Koruyun</h4><p>Kendi g&#252;venli&#287;inizi kontrol edin, sonra &#231;evreyi de&#287;erlendirin. Elektrik, gaz, yang&#305;n gibi riskleri kontrol edin.</p></div>
+                    <div class="firstaid-step-card"><h4>&#128222; 2. Hemen 112'yi Aray&#305;n</h4><p>Sakin bir &#351;ekilde: olay&#305;n ne oldu&#287;unu, adresi, yaral&#305; say&#305;s&#305;n&#305; ve isim/telefonunuzu bildirin. Telefonu ilk siz kapatmay&#305;n.</p></div>
+                    <div class="firstaid-step-card"><h4>&#128269; 3. ABC De&#287;erlendirmesi</h4><p><strong>A &#8212; Hava Yolu:</strong> A&#231;&#305;k m&#305;?<br><strong>B &#8212; Solunum:</strong> Nefes al&#305;yor mu?<br><strong>C &#8212; Dola&#351;&#305;m:</strong> Nab&#305;z var m&#305;? Ciddi kanama?</p></div>
+                    <div class="firstaid-step-card"><h4>&#127959;&#65039; 4. Enkaz Alt&#305;nda Yaral&#305;</h4><p>&#8226; A&#287;&#305;r kal&#305;nt&#305;lar&#305; kald&#305;rmaya &#231;al&#305;&#351;may&#305;n &#8212; bask&#305; kald&#305;rma sendromu hayati tehlike<br>&#8226; Yaral&#305;yla sesli ileti&#351;im kurun, sakinle&#351;tirin<br>&#8226; Uzman kurtarma ekibini bekleyin</p></div>
+                    <div class="firstaid-warning"><h5>&#9888;&#65039; KR&#304;T&#304;K UYARILAR</h5><p>&#8226; Boyun/omurga yaralanmas&#305; &#351;&#252;phesinde kesinlikle hareket ettirmeyin<br>&#8226; Bilin&#231;siz yaral&#305;lara yiyecek/i&#231;ecek vermeyin<br>&#8226; Gaz kokusu varsa bina&#305; hemen terk edin</p></div>
                 </div>
 
-                <!-- Temel -->
-                <div class="firstaid-tab-content active" id="basic-tab" role="tabpanel">
-                    <h3 style="margin-bottom:1.5rem;color:#dc2626;">İlk Yardımın Temel Kuralları</h3>
-                    <div class="firstaid-step-card"><h4><span class="icon-red">1️⃣</span> Sakin Olun ve Güvenliği Sağlayın</h4><p>Önce kendi güvenliğinizi kontrol edin, sonra çevreyi değerlendirin. Elektrik, gaz, yangın gibi riskleri kontrol edin.</p></div>
-                    <div class="firstaid-step-card"><h4><span class="icon-blue">2️⃣</span> 112'yi Arayın</h4><p>Hemen 112 Acil'i arayın. Sakin bir şekilde: olayın ne olduğunu, adresi, yaralı sayısını ve isim/telefonunuzu bildirin.</p></div>
-                    <div class="firstaid-step-card"><h4><span class="icon-green">3️⃣</span> Yaralıyı Değerlendirin</h4><p>• Bilinç kontrolü yapın<br>• Solunumunu kontrol edin<br>• Nabzını kontrol edin<br>• Ciddi kanama olup olmadığını kontrol edin</p></div>
-                    <div class="firstaid-step-card"><h4><span class="icon-orange">4️⃣</span> Temel Yaşam Desteği (ABC)</h4><p><strong>A (Airway):</strong> Havayolunu açık tutun<br><strong>B (Breathing):</strong> Solunumu sağlayın<br><strong>C (Circulation):</strong> Dolaşımı destekleyin</p></div>
-                    <div class="firstaid-warning"><h5><span>⚠️</span> ÖNEMLİ UYARI</h5><p>• Bilinçsiz yaralıları hareket ettirmeyin<br>• Bilinçsiz yaralılara su veya yiyecek vermeyin<br>• Yaralıyı sıcak tutun ama terletmeyin</p></div>
+                <div class="firstaid-tab-content" id="bleeding-tab">
+                    <div class="tab-section-title"><span style="font-size:2rem">&#129656;</span><h3>Kanamalarda &#304;lk Yard&#305;m</h3></div>
+                    <div class="firstaid-step-card"><h4>&#129656; D&#305;&#351; Kanama Durdurma</h4><p><strong>1. Direkt bas&#305;n&#231;:</strong> Temiz bezle s&#305;k&#305;&#231;a bast&#305;r&#305;n<br><strong>2. Y&#252;kseltme:</strong> Kanayan b&#246;lgeyi kalp seviyesinin &#252;zerine kald&#305;r&#305;n<br><strong>3. Bezi de&#287;i&#351;tirmeyin</strong> &#8212; s&#305;zarsa &#252;st&#252;ne ekleyin</p></div>
+                    <div class="firstaid-step-card"><h4>&#9888;&#65039; Turnike (Yaln&#305;zca Hayati Risk!)</h4><p>&#8226; 5-7 cm geni&#351;li&#287;inde bez kullan&#305;n<br>&#8226; Uygulama saatini not edin<br>&#8226; 15-20 dakikada bir gev&#351;etin</p></div>
+                    <div class="firstaid-warning"><h5>&#10060; YAPILMAMASI GEREKENLER</h5><p>&#8226; Yaraya tent&#252;rdiyot/alkol d&#246;kmeyin<br>&#8226; Pamuk basmay&#305;n<br>&#8226; Bat&#305;k cisimleri &#231;&#305;karmay&#305;n</p></div>
                 </div>
 
-                <!-- Kanamalar -->
-                <div class="firstaid-tab-content" id="bleeding-tab" role="tabpanel">
-                    <h3 style="margin-bottom:1.5rem;color:#dc2626;">Kanamalarda İlk Yardım</h3>
-                    <div class="firstaid-step-card"><h4><span class="icon-red">🩸</span> İç Kanama Belirtileri</h4><p>• Soluk, soğuk, nemli cilt<br>• Hızlı ve zayıf nabız<br>• Baş dönmesi, baygınlık hissi<br>• Şok belirtileri</p></div>
-                    <div class="firstaid-step-card"><h4><span class="icon-blue">🎯</span> Kanamayı Durdurma</h4><p><strong>1. Basınç:</strong> Temiz bezle kanayan yere direkt basınç uygulayın<br><strong>2. Yükseltme:</strong> Kanayan bölgeyi kalp seviyesinin üzerine kaldırın</p></div>
-                    <div class="firstaid-step-card"><h4><span class="icon-green">⚠️</span> Turnike (Sadece Hayati Risk!)</h4><p>• 5-7 cm genişliğinde bez kullanın<br>• Uygulama saatini not edin<br>• 15-20 dakikada bir 5-10 saniye gevşetin</p></div>
-                    <div class="firstaid-warning"><h5><span>❌</span> YAPILMAMASI GEREKENLER</h5><p>• Yaraya tentürdiyot/alkol dökmeyin<br>• Yaraya pamuk basmayın<br>• Batmış cisimleri çıkarmayın</p></div>
-                </div>
-
-                <!-- Bayılma -->
-                <div class="firstaid-tab-content" id="unconscious-tab" role="tabpanel">
-                    <h3 style="margin-bottom:1.5rem;color:#dc2626;">Bilinç Kaybı ve Bayılmada İlk Yardım</h3>
-                    <div class="firstaid-step-card"><h4><span class="icon-red">😴</span> Bilinç Kontrolü</h4><p>1. Omuzlarından sarsarak "İyi misiniz?" diye sorun<br>2. Yanıt yoksa 112'yi arayın<br>3. Solunum ve nabzı kontrol edin</p></div>
-                    <div class="firstaid-step-card"><h4><span class="icon-blue">🔄</span> Koma Pozisyonu</h4><p>1. Sırt üstü yatırın → yakın kolu uzatın → diğer eli yanağa koy<br>2. Uzak bacağı bük → omuz ve kalçadan çevir → baş geriye yatır</p></div>
-                    <div class="firstaid-step-card"><h4><span class="icon-green">💓</span> Kalp Masajı</h4><p>• 30 bası + 2 solunum<br>• Dakikada 100-120 bası<br>• Göğüs 5-6 cm çökmeli</p></div>
+                <div class="firstaid-tab-content" id="unconscious-tab">
+                    <div class="tab-section-title"><span style="font-size:2rem">&#128564;</span><h3>Bilin&#231; Kayb&#305; ve Bay&#305;lmada &#304;lk Yard&#305;m</h3></div>
+                    <div class="firstaid-step-card"><h4>&#128564; Bilin&#231; Kontrol&#252;</h4><p>1. Omuzlar&#305;ndan sarsarak "&#304;yi misiniz?" diye sorun<br>2. Yan&#305;t yoksa 112'yi aray&#305;n<br>3. Solunum ve nab&#305;z&#305; kontrol edin</p></div>
+                    <div class="firstaid-step-card"><h4>&#128260; Koma Pozisyonu</h4><p>1. S&#305;rt &#252;st&#252; yat&#305;r&#305;n &#8594; yak&#305;n kolu ba&#351; hizas&#305;nda uzat&#305;n<br>2. Di&#287;er elini yana&#287;&#305;n alt&#305;na koy<br>3. Uzak baca&#287;&#305; b&#252;k&#252;p yan yat&#305;r, ba&#351;&#305; geriye yat&#305;r</p></div>
+                    <div class="firstaid-step-card"><h4>&#128147; CPR &#8212; Yeti&#351;kin</h4><p>30 bası + 2 solunum &#8226; 100-120 bas&#305;/dakika &#8226; 5-6 cm derinlik</p></div>
                     <div class="firstaid-tips">
-                        <div class="firstaid-tip"><h5>🌬️ Suni Solunum</h5><p>Başı geriye yatır, burunu kapat, 1 saniye üfle.</p></div>
-                        <div class="firstaid-tip"><h5>👶 Bebeklerde</h5><p>2 parmak, 4 cm derinlik, 30+2.</p></div>
-                        <div class="firstaid-tip"><h5>🧒 Çocuklarda</h5><p>1 el, 5 cm derinlik, 30+2.</p></div>
+                        <div class="firstaid-tip"><h5>&#127758;&#65039; Suni Solunum</h5><p>Ba&#351;&#305; geriye yat&#305;r, burunu kapat, 1 saniye &#252;fle.</p></div>
+                        <div class="firstaid-tip"><h5>&#9889; AED Cihaz&#305;</h5><p>Otomatik defibrilat&#246;r varsa hemen kullan. Sesli y&#246;nlendirir.</p></div>
                     </div>
                 </div>
 
-                <!-- Yanıklar -->
-                <div class="firstaid-tab-content" id="burn-tab" role="tabpanel">
-                    <h3 style="margin-bottom:1.5rem;color:#dc2626;">Yanıklarda İlk Yardım</h3>
-                    <div class="firstaid-step-card"><h4><span class="icon-red">🔥</span> 1. Derece</h4><p><strong>Belirtiler:</strong> Kızarıklık, hafif şişlik<br>15-20 dk soğuk su → yanık kremi → steril bez</p></div>
-                    <div class="firstaid-step-card"><h4><span class="icon-blue">🔥</span> 2. Derece</h4><p><strong>Belirtiler:</strong> Kabarcıklar, şiddetli ağrı<br>Soğuk su (buz değil!) → kabarcıkları patlatma → acil servis</p></div>
-                    <div class="firstaid-step-card"><h4><span class="icon-green">🔥</span> 3. Derece</h4><p><strong>Belirtiler:</strong> Deri kömürleşmiş, ağrı yok<br>112'yi ara → kuru steril bez → kesinlikle su uygulama</p></div>
-                    <div class="firstaid-warning"><h5><span>❌</span> YANIKLARDA ASLA</h5><p>• Diş macunu, yoğurt, buz uygulamayın<br>• Kabarcıkları patlatmayın</p></div>
+                <div class="firstaid-tab-content" id="burn-tab">
+                    <div class="tab-section-title"><span style="font-size:2rem">&#128293;</span><h3>Yan&#305;klarda &#304;lk Yard&#305;m</h3></div>
+                    <div class="firstaid-step-card"><h4>&#128293; 1. Derece</h4><p><strong>Belirtiler:</strong> K&#305;zar&#305;kl&#305;k, hafif &#351;i&#351;lik<br>15-20 dk so&#287;uk akan su &#8594; yan&#305;k kremi &#8594; steril bez</p></div>
+                    <div class="firstaid-step-card"><h4>&#128293;&#128293; 2. Derece</h4><p><strong>Belirtiler:</strong> Kabarc&#305;klar, &#351;iddetli a&#287;r&#305;<br>So&#287;uk su (buz de&#287;il!) &#8594; kabarc&#305;klar&#305; patlatma &#8594; acil servis</p></div>
+                    <div class="firstaid-step-card"><h4>&#128293;&#128293;&#128293; 3. Derece</h4><p><strong>Belirtiler:</strong> Deri k&#246;m&#252;rle&#351;mi&#351;, a&#287;r&#305; yok<br>Hemen 112 &#8594; kuru steril bez &#8594; kesinlikle su uygulamay&#305;n</p></div>
+                    <div class="firstaid-warning"><h5>&#10060; YANIKLARDA ASLA!</h5><p>&#8226; Di&#351; macunu, yo&#287;urt, tereyа&#287;&#305; s&#252;rmeyin<br>&#8226; Buz uygulamay&#305;n<br>&#8226; Kabarc&#305;klar&#305; patlatmay&#305;n<br>&#8226; Yap&#305;&#351;&#305;k kıyafetleri zorla &#231;&#305;karmay&#305;n</p></div>
                 </div>
 
-                <!-- Kırıklar -->
-                <div class="firstaid-tab-content" id="fracture-tab" role="tabpanel">
-                    <h3 style="margin-bottom:1.5rem;color:#dc2626;">Kırık ve Çıkıklarda İlk Yardım</h3>
-                    <div class="firstaid-step-card"><h4><span class="icon-red">🦴</span> Kırık Belirtileri</h4><p>• Şiddetli ağrı, şişlik, morarma<br>• Şekil bozukluğu, hareket edememe</p></div>
-                    <div class="firstaid-step-card"><h4><span class="icon-blue">🩹</span> Kapalı Kırık</h4><p>1. Hareketsiz tutun<br>2. Eklemleri sabitleyin<br>3. Soğuk uygulayın<br>4. Acil servis</p></div>
-                    <div class="firstaid-step-card"><h4><span class="icon-green">⚠️</span> Açık Kırık</h4><p>1. Kanamayı durdurun<br>2. Kemik uçlarını içeri itmeyin<br>3. Temiz bezle örtün<br>4. Hemen 112</p></div>
-                    <div class="firstaid-step-card"><h4><span class="icon-orange">🦵</span> Atel Uygulama</h4><p>• Kırık bölgeyi + üst/alt eklemleri sabitle<br>• Sargıyı çok sıkma<br>• Parmakları açıkta bırak</p></div>
+                <div class="firstaid-tab-content" id="fracture-tab">
+                    <div class="tab-section-title"><span style="font-size:2rem">&#129456;</span><h3>K&#305;r&#305;k, &#199;&#305;k&#305;k ve Burkulmalarda &#304;lk Yard&#305;m</h3></div>
+                    <div class="firstaid-step-card"><h4>&#129456; K&#305;r&#305;k Belirtileri</h4><p>&#8226; &#350;iddetli a&#287;r&#305;, &#351;i&#351;lik, morarma<br>&#8226; &#350;ekil bozuklu&#287;u, hareket edememe<br>&#8226; Kemik sesi veya g&#246;r&#252;n&#252;r kemik ucu</p></div>
+                    <div class="firstaid-step-card"><h4>&#129657; Kapal&#305; K&#305;r&#305;k</h4><p>1. Hareket ettirmeyin<br>2. &#220;st ve alt eklemleri sabitleyin<br>3. So&#287;uk uygulayın (bez &#252;zerinden)<br>4. Acil servise ba&#351;vurun</p></div>
+                    <div class="firstaid-step-card"><h4>&#9888;&#65039; A&#231;&#305;k K&#305;r&#305;k</h4><p>1. Kanamayı durdurun<br>2. Kemik u&#231;lar&#305;n&#305; i&#231;eri itmeyin<br>3. Temiz nemli bezle &#246;rt&#252;n<br>4. Hemen 112'yi aray&#305;n</p></div>
+                    <div class="firstaid-step-card"><h4>&#128308; Omurga K&#305;r&#305;&#287;&#305; &#8212; Deprem &#304;&#231;in Kritik!</h4><p>&#8226; Ki&#351;iyi kesinlikle hareket ettirmeyin<br>&#8226; Boynu destekleyin, d&#246;nd&#252;rmeyin<br>&#8226; 112 gelene kadar sabit tutun</p></div>
                 </div>
 
-                <!-- Numaralar -->
-                <div class="firstaid-tab-content" id="numbers-tab" role="tabpanel">
-                    <h3 style="margin-bottom:1.5rem;color:#dc2626;">Acil Durum Telefon Numaraları</h3>
+                <div class="firstaid-tab-content" id="numbers-tab">
+                    <div class="tab-section-title"><span style="font-size:2rem">&#128222;</span><h3>Acil Durum Telefon Numaralar&#305;</h3></div>
                     <div class="emergency-numbers">
-                        <div class="emergency-number" onclick="location.href='tel:112'" role="button"><div class="number">112</div><div class="service">ACİL YARDIM</div><p style="font-size:.875rem;margin-top:.375rem;">Tüm acil durumlar</p></div>
-                        <div class="emergency-number" onclick="location.href='tel:110'" role="button"><div class="number">110</div><div class="service">İTFAİYE</div><p style="font-size:.875rem;margin-top:.375rem;">Yangın, kurtarma</p></div>
-                        <div class="emergency-number" onclick="location.href='tel:155'" role="button"><div class="number">155</div><div class="service">POLİS İMDAT</div><p style="font-size:.875rem;margin-top:.375rem;">Güvenlik</p></div>
-                        <div class="emergency-number" onclick="location.href='tel:156'" role="button"><div class="number">156</div><div class="service">JANDARMA</div><p style="font-size:.875rem;margin-top:.375rem;">Kırsal bölgeler</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:112'" role="button"><div class="number">112</div><div class="service">AC&#304;L YARDIM</div><p>T&#252;m acil durumlar</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:110'" role="button"><div class="number">110</div><div class="service">&#304;TFAC&#304;YE</div><p>Yang&#305;n, kurtarma</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:155'" role="button"><div class="number">155</div><div class="service">POL&#304;S &#304;MDAT</div><p>G&#252;venlik</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:156'" role="button"><div class="number">156</div><div class="service">JANDARMA</div><p>K&#305;rsal b&#246;lgeler</p></div>
                     </div>
                     <div style="margin-top:2rem;">
-                        <h4 style="color:#4f46e5;margin-bottom:1rem;">📞 Diğer Önemli Numaralar</h4>
+                        <h4 style="color:var(--primary);margin-bottom:1rem;">&#128222; Di&#287;er &#214;nemli Numaralar</h4>
                         <ul class="number-list">
-                            <li><span class="number">184</span><span class="service">SABİM - Sağlık Bakanlığı</span></li>
-                            <li><span class="number">185</span><span class="service">SU ŞİKAYET</span></li>
-                            <li><span class="number">186</span><span class="service">ELEKTRİK ARIZA</span></li>
-                            <li><span class="number">187</span><span class="service">DOĞAL GAZ ARIZA</span></li>
-                            <li><span class="number">153</span><span class="service">BELEDİYE ZABITA</span></li>
-                            <li><span class="number">154</span><span class="service">TRAFİK POLİSİ</span></li>
+                            <li><span class="number">184</span><span class="service">SAB&#304;M &#8212; Sa&#287;l&#305;k Bakanl&#305;&#287;&#305;</span></li>
+                            <li><span class="number">186</span><span class="service">ELEKTR&#304;K ARIZA</span></li>
+                            <li><span class="number">187</span><span class="service">DO&#286;AL GAZ ARIZA</span></li>
+                            <li><span class="number">153</span><span class="service">BELED&#304;YE ZABITA</span></li>
+                            <li><span class="number">154</span><span class="service">TRAF&#304;K POL&#304;S&#304;</span></li>
                         </ul>
                     </div>
                     <div class="firstaid-warning" style="margin-top:1.5rem;">
-                        <h5><span>📱</span> ACİL ARAMA YAPARKEN</h5>
-                        <p>1. Sakin olun ve net konuşun<br>2. Tam adresinizi söyleyin<br>3. Yaralı sayısını bildirin<br>4. Telefonu ilk siz kapatmayın</p>
+                        <h5>&#128241; AC&#304;L ARAMADA</h5>
+                        <p>1. Sakin olun ve net konu&#351;un<br>2. Tam adresinizi ve konumunuzu s&#246;yleyin<br>3. Yaral&#305; say&#305;s&#305;n&#305; bildirin<br>4. Telefonu ilk siz kapatmay&#305;n</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Page Hero -->
-    <section class="page-hero" aria-label="Sayfa başlığı">
+<!-- HERO -->
+<section class="page-hero">
+    <div class="container">
+        <div class="page-hero-content">
+            <h1 class="animate-fade-in-up">Hakk&#305;m&#305;zda</h1>
+            <p class="animate-fade-in-up animate-delay-100">Afet Haz&#305;rl&#305;k platformu hakk&#305;nda bilgi edinin. Misyonumuz, vizyonumuz ve topluma nas&#305;l katk&#305;da bulundu&#287;umuzu &#246;&#287;renin.</p>
+        </div>
+    </div>
+</section>
+
+<main>
+    <!-- Hakkında -->
+    <section class="about-section">
         <div class="container">
-            <div class="page-hero-content">
-                <h1 class="animate-fade-in-up">Hakkımızda</h1>
-                <p class="animate-fade-in-up animate-delay-100">
-                    Afet Hazırlık platformu hakkında bilgi edinin. Misyonumuz, vizyonumuz ve
-                    topluma nasıl katkıda bulunduğumuzu öğrenin.
-                </p>
+            <div class="about-grid animate-fade-in-up">
+                <div class="about-content">
+                    <h3>Afet Haz&#305;rl&#305;k Nedir?</h3>
+                    <p>Afet Haz&#305;rl&#305;k platformu, do&#287;al ve insan kaynakl&#305; afetler hakk&#305;nda fark&#305;ndal&#305;k olu&#351;turmak, afet &#246;ncesi, s&#305;ras&#305; ve sonras&#305;nda do&#287;ru davran&#305;&#351;lar&#305; &#246;&#287;retmek amac&#305;yla geli&#351;tirilmi&#351; kapsaml&#305; bir rehber platformudur.</p>
+                    <p>Platformumuz, kullan&#305;c&#305;lar&#305;n afet durumlar&#305;nda nas&#305;l hareket etmeleri gerekti&#287;ini &#246;&#287;renmelerini sa&#287;lar. Amac&#305;m&#305;z, toplumun her kesiminin afetlere haz&#305;rl&#305;kl&#305; olmas&#305;na katk&#305;da bulunmakt&#305;r.</p>
+                    <p>Herkes i&#231;in &#252;cretsiz olarak sunulan bu platform, pratik bilgiler ve haz&#305;rl&#305;k rehberleri ile g&#252;venli bir ya&#351;am i&#231;in destek sa&#287;lar.</p>
+                </div>
+                <div class="about-image animate-fade-in-up animate-delay-100">
+                    <span class="about-icon">&#128737;&#65039;</span>
+                    <h3>G&#252;venlik &#304;lk &#214;nceli&#287;imiz</h3>
+                    <p>Do&#287;ru bilgi hayat kurtarır</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Ana İçerik -->
-    <main>
-
-        <!-- Hakkında -->
-        <section class="about-section">
-            <div class="container">
-                <div class="about-grid animate-fade-in-up">
-                    <div class="about-content">
-                        <h3>Afet Hazırlık Nedir?</h3>
-                        <p>Afet Hazırlık platformu, doğal ve insan kaynaklı afetler hakkında farkındalık oluşturmak, afet öncesi, sırası ve sonrasında doğru davranışları öğretmek amacıyla geliştirilmiş kapsamlı bir rehber platformudur.</p>
-                        <p>Platformumuz, kullanıcıların afet durumlarında nasıl hareket etmeleri gerektiğini öğrenmelerini sağlar. Amacımız, toplumun her kesiminin afetlere hazırlıklı olmasına katkıda bulunmaktır.</p>
-                        <p>Herkes için ücretsiz olarak sunulan bu platform, pratik bilgiler ve hazırlık rehberleri ile güvenli bir yaşam için destek sağlar.</p>
-                    </div>
-                    <div class="about-image animate-fade-in-up animate-delay-100">
-                        <span class="about-icon" aria-hidden="true">🛡️</span>
-                        <h3>Güvenlik İlk Önceliğimiz</h3>
-                        <p>Doğru bilgi hayat kurtarır</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Misyon & Vizyon -->
-        <section class="mission-vision-section">
-            <div class="container">
-                <div class="section-title animate-fade-in-up">
-                    <h2>Misyon ve Vizyon</h2>
-                    <p>Platformumuzun temel amaçları ve hedefleri</p>
-                </div>
-                <div class="mission-vision-grid">
-                    <div class="mission-card animate-fade-in-up">
-                        <div class="card-icon" aria-hidden="true">🎯</div>
-                        <h3>Misyonumuz</h3>
-                        <p>Toplumun afetler konusundaki farkındalığını artırmak, afet öncesi hazırlık, afet sırasında doğru davranış ve afet sonrası toparlanma süreçlerine ilişkin bilgi ve becerileri geliştirmek.</p>
-                    </div>
-                    <div class="vision-card animate-fade-in-up animate-delay-100">
-                        <div class="card-icon" aria-hidden="true">👁️</div>
-                        <h3>Vizyonumuz</h3>
-                        <p>Afetlere karşı dirençli bir toplum oluşturmak, her bireyin afet durumunda kendisini ve sevdiklerini koruyabilecek bilgi ve beceriye sahip olmasını sağlamak.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Özellikler -->
-        <section class="features-section">
-            <div class="container">
-                <div class="section-title animate-fade-in-up">
-                    <h2>Neler Sunuyoruz?</h2>
-                    <p>Platformumuzun temel özellikleri ve sunduğu hizmetler</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card animate-fade-in-up">
-                        <div class="card-icon" aria-hidden="true">📚</div>
-                        <h4>Kapsamlı Bilgi</h4>
-                        <p>4 ana afet kategorisinde detaylı bilgi ve rehberler</p>
-                    </div>
-                    <div class="feature-card animate-fade-in-up animate-delay-100">
-                        <div class="card-icon" aria-hidden="true">🎯</div>
-                        <h4>Pratik Öneriler</h4>
-                        <p>Uygulanabilir ve kolay anlaşılır hazırlık önerileri</p>
-                    </div>
-                    <div class="feature-card animate-fade-in-up animate-delay-200">
-                        <div class="card-icon" aria-hidden="true">📱</div>
-                        <h4>Mobil Uyumluluk</h4>
-                        <p>Her cihazdan erişilebilen responsive tasarım</p>
-                    </div>
-                    <div class="feature-card animate-fade-in-up animate-delay-300">
-                        <div class="card-icon" aria-hidden="true">🎓</div>
-                        <h4>Eğitim Odaklı</h4>
-                        <p>Öğrenmeyi kolaylaştıran görsel içerik</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- İletişim -->
-        <section class="contact-section animate-fade-in-up">
-            <div class="section-title">
-                <h2>İletişim</h2>
-                <p>Projemiz hakkında sorularınız veya önerileriniz varsa bizimle iletişime geçebilirsiniz.</p>
-            </div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon" aria-hidden="true">📧</div>
-                    <div>bilgi@afethazirlik.com</div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon" aria-hidden="true">📱</div>
-                    <div>(555) 123 4567</div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon" aria-hidden="true">📍</div>
-                    <div>Denizli, Türkiye</div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
+    <!-- Misyon & Vizyon -->
+    <section class="mission-vision-section">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-grid">
-                    <div class="footer-column">
-                        <h4><span>🚨</span> Afet Hazırlık</h4>
-                        <p style="color:var(--gray-400);margin-bottom:1.25rem;font-size:.9rem;line-height:1.6;">
-                            Doğal afetlere hazırlık için rehber ve bilgi kaynağı. Herkes için güvenlik.
-                        </p>
-                        <button id="footerFirstAidButton"><span>🆘</span> İlk Yardım Rehberi</button>
-                    </div>
-                    <div class="footer-column">
-                        <h4><span>🔗</span> Hızlı Bağlantılar</h4>
-                        <ul class="footer-links">
-                            <li><a href="index.html"><span>🏠</span> Ana Sayfa</a></li>
-                            <li><a href="yer.html"><span>🏔️</span> Yer Afetleri</a></li>
-                            <li><a href="su.html"><span>🌊</span> Su Afetleri</a></li>
-                            <li><a href="hava.html"><span>🌪️</span> Hava Afetleri</a></li>
-                            <li><a href="İnsan.html"><span>🔥</span> İnsan Kaynaklı</a></li>
-                            <li><a href="hakkinda.html"><span>ℹ️</span> Hakkında</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4><span>📞</span> Acil Kaynaklar</h4>
-                        <ul class="footer-links">
-                            <li><a href="https://www.afad.gov.tr"      target="_blank" rel="noopener noreferrer"><span>🏛️</span> AFAD</a></li>
-                            <li><a href="https://www.mgm.gov.tr"       target="_blank" rel="noopener noreferrer"><span>🌤️</span> Meteoroloji</a></li>
-                            <li><a href="https://www.112.gov.tr"       target="_blank" rel="noopener noreferrer"><span>🚨</span> 112 Acil</a></li>
-                            <li><a href="https://www.kizilay.org.tr"   target="_blank" rel="noopener noreferrer"><span>❤️</span> Kızılay</a></li>
-                        </ul>
-                    </div>
+            <div class="section-title animate-fade-in-up">
+                <h2>Misyon ve Vizyon</h2>
+                <p>Platformumuzun temel ama&#231;lar&#305; ve hedefleri</p>
+            </div>
+            <div class="mission-vision-grid">
+                <div class="mission-card animate-fade-in-up">
+                    <div class="card-icon">&#127919;</div>
+                    <h3>Misyonumuz</h3>
+                    <p>Toplumun afetler konusundaki fark&#305;ndal&#305;&#287;&#305;n&#305; art&#305;rmak, afet &#246;ncesi haz&#305;rl&#305;k, afet s&#305;ras&#305;nda do&#287;ru davran&#305;&#351; ve afet sonras&#305; toparlanma s&#252;re&#231;lerine ili&#351;kin bilgi ve becerileri geli&#351;tirmek.</p>
                 </div>
-                <div class="footer-bottom">
-                    <p>© 2026 Afet Hazırlık Rehberi<br>
-                    <small>Bilgilendirme amaçlıdır. Acil durumlarda 112'yi arayınız.</small></p>
+                <div class="vision-card animate-fade-in-up animate-delay-100">
+                    <div class="card-icon">&#128065;&#65039;</div>
+                    <h3>Vizyonumuz</h3>
+                    <p>Afetlere kar&#351;&#305; diren&#231;li bir toplum olu&#351;turmak, her bireyin afet durumunda kendisini ve sevdiklerini koruyabilecek bilgi ve beceriye sahip olmas&#305;n&#305; sa&#287;lamak.</p>
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <script>
-        // ===== MOBILE MENU =====
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const closeMenuBtn  = document.getElementById('closeMenuBtn');
-        const mobileMenu    = document.getElementById('mobileMenu');
-        const menuOverlay   = document.getElementById('menuOverlay');
+    <!-- Özellikler -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title animate-fade-in-up">
+                <h2>Neler Sunuyoruz?</h2>
+                <p>Platformumuzun temel &#246;zellikleri ve sundu&#287;u hizmetler</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-fade-in-up">
+                    <div class="card-icon">&#128218;</div>
+                    <h4>Kapsaml&#305; Bilgi</h4>
+                    <p>4 ana afet kategorisinde detayl&#305; bilgi ve rehberler</p>
+                </div>
+                <div class="feature-card animate-fade-in-up animate-delay-100">
+                    <div class="card-icon">&#127919;</div>
+                    <h4>Pratik &#214;neriler</h4>
+                    <p>Uygulanabilir ve kolay anla&#351;&#305;l&#305;r haz&#305;rl&#305;k &#246;nerileri</p>
+                </div>
+                <div class="feature-card animate-fade-in-up animate-delay-200">
+                    <div class="card-icon">&#128241;</div>
+                    <h4>Mobil Uyumluluk</h4>
+                    <p>Her cihazdan eri&#351;ilebilen responsive tasar&#305;m</p>
+                </div>
+                <div class="feature-card animate-fade-in-up animate-delay-300">
+                    <div class="card-icon">&#127891;</div>
+                    <h4>E&#287;itim Odakl&#305;</h4>
+                    <p>&#214;&#287;renmeyi kolayla&#351;t&#305;ran g&#246;rsel i&#231;erik ve testler</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function toggleMobileMenu() {
-            const open = mobileMenu.classList.toggle('active');
-            menuOverlay.classList.toggle('active', open);
-            mobileMenuBtn.classList.toggle('active', open);
-            mobileMenuBtn.setAttribute('aria-expanded', open);
-            mobileMenu.setAttribute('aria-hidden', !open);
-            menuOverlay.setAttribute('aria-hidden', !open);
-            document.body.style.overflow = open ? 'hidden' : '';
-        }
-        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-        closeMenuBtn.addEventListener('click', toggleMobileMenu);
-        menuOverlay.addEventListener('click', toggleMobileMenu);
+    <!-- İletişim -->
+    <section class="contact-section animate-fade-in-up">
+        <div class="section-title">
+            <h2>&#304;leti&#351;im</h2>
+            <p>Projemiz hakk&#305;nda sorular&#305;n&#305;z veya &#246;nerileriniz varsa bizimle ileti&#351;ime ge&#231;ebilirsiniz.</p>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">&#128231;</div>
+                <div>bilgi@afethazirlik.com</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">&#128241;</div>
+                <div>(555) 123 4567</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">&#128205;</div>
+                <div>Denizli, T&#252;rkiye</div>
+            </div>
+        </div>
+    </section>
+</main>
 
-        // ===== SMOOTH SCROLL =====
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', function(e) {
-                const id = this.getAttribute('href');
-                if (id === '#') return;
-                const el = document.querySelector(id);
-                if (el) { e.preventDefault(); window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' }); }
-            });
-        });
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>&#128680; Afet Haz&#305;rl&#305;k</h4>
+                <p style="color:var(--text-footer-a);margin-bottom:1.25rem;font-size:.9rem;line-height:1.6;">Do&#287;al afetlere haz&#305;rl&#305;k i&#231;in rehber ve bilgi kayna&#287;&#305;. Herkes i&#231;in g&#252;venlik.</p>
+                <button id="footerFirstAidButton">&#128682; &#304;lk Yard&#305;m Rehberi</button>
+            </div>
+            <div class="footer-column">
+                <h4>&#128279; H&#305;zl&#305; Ba&#287;lant&#305;lar</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">&#127968; Ana Sayfa</a></li>
+                    <li><a href="yer.html">&#127956;&#65039; Yer Afetleri</a></li>
+                    <li><a href="su.html">&#127754; Su Afetleri</a></li>
+                    <li><a href="hava.html">&#127754; Hava Afetleri</a></li>
+                    <li><a href="insan.html">&#128293; &#304;nsan Kaynakl&#305;</a></li>
+                    <li><a href="hakkinda.html">&#8505;&#65039; Hakk&#305;nda</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>&#128222; Acil Kaynaklar</h4>
+                <ul class="footer-links">
+                    <li><a href="https://www.afad.gov.tr"    target="_blank" rel="noopener">&#127963;&#65039; AFAD</a></li>
+                    <li><a href="https://www.mgm.gov.tr"     target="_blank" rel="noopener">&#127780;&#65039; Meteoroloji</a></li>
+                    <li><a href="https://www.112.gov.tr"     target="_blank" rel="noopener">&#128680; 112 Acil</a></li>
+                    <li><a href="https://www.kizilay.org.tr" target="_blank" rel="noopener">&#10084;&#65039; K&#305;z&#305;lay</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&#169; 2026 Afet Haz&#305;rl&#305;k Rehberi<br><small>Bilgilendirme amac&#305;yla haz&#305;rlanm&#305;&#351;t&#305;r. Acil durumlarda 112'yi aray&#305;n&#305;z.</small></p>
+        </div>
+    </div>
+</footer>
 
-        // ===== İLK YARDIM MODAL =====
-        const firstAidModal        = document.getElementById('firstAidModal');
-        const firstAidButton       = document.getElementById('firstAidButton');
-        const mobileFirstAidButton = document.getElementById('mobileFirstAidButton');
-        const footerFirstAidButton = document.getElementById('footerFirstAidButton');
-        const closeFirstAidModal   = document.getElementById('closeFirstAidModal');
-        const firstAidTabs         = document.querySelectorAll('.firstaid-tab');
-        const firstAidTabContents  = document.querySelectorAll('.firstaid-tab-content');
+<script>
+// ===== TEMA =====
+function applyTheme(t){
+    document.documentElement.setAttribute('data-theme',t);
+    const icon=t==='dark'?'\u2600\uFE0F':'\uD83C\uDF19';
+    const label=t==='dark'?'Ayd\u0131nl\u0131k moda ge\u00E7':'Karanl\u0131k moda ge\u00E7';
+    document.querySelectorAll('.theme-toggle').forEach(b=>{b.textContent=icon;b.setAttribute('aria-label',label);});
+}
+applyTheme(localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+function toggleTheme(){const n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';localStorage.setItem('theme',n);applyTheme(n);}
+document.getElementById('themeToggle').addEventListener('click',toggleTheme);
+document.getElementById('themeToggleMobile').addEventListener('click',toggleTheme);
+window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',e=>{if(!localStorage.getItem('theme'))applyTheme(e.matches?'dark':'light');});
 
-        function openFirstAidModal() {
-            firstAidModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            switchFirstAidTab('basic');
-            setTimeout(() => closeFirstAidModal.focus(), 300);
-        }
-        function closeFirstAidModalFunc() {
-            firstAidModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        function switchFirstAidTab(tabName) {
-            firstAidTabs.forEach(t => {
-                const active = t.dataset.tab === tabName;
-                t.classList.toggle('active', active);
-                t.setAttribute('aria-selected', active);
-            });
-            firstAidTabContents.forEach(c => {
-                const active = c.id === `${tabName}-tab`;
-                c.classList.toggle('active', active);
-                if (active) c.scrollTop = 0;
-            });
-            document.querySelector(`.firstaid-tab[data-tab="${tabName}"]`)
-                ?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }
+// ===== MOBİL MENÜ =====
+const mobileMenuBtn=document.getElementById('mobileMenuBtn');
+const mobileMenu=document.getElementById('mobileMenu');
+const menuOverlay=document.getElementById('menuOverlay');
+function toggleMobileMenu(){
+    const open=mobileMenu.classList.toggle('active');
+    menuOverlay.classList.toggle('active',open);
+    mobileMenuBtn.classList.toggle('active',open);
+    mobileMenuBtn.setAttribute('aria-expanded',open);
+    document.body.style.overflow=open?'hidden':'';
+}
+mobileMenuBtn.addEventListener('click',toggleMobileMenu);
+document.getElementById('closeMenuBtn').addEventListener('click',toggleMobileMenu);
+menuOverlay.addEventListener('click',toggleMobileMenu);
 
-        firstAidButton.addEventListener('click', e => { e.preventDefault(); openFirstAidModal(); });
-        mobileFirstAidButton.addEventListener('click', e => { e.preventDefault(); openFirstAidModal(); toggleMobileMenu(); });
-        footerFirstAidButton.addEventListener('click', openFirstAidModal);
-        closeFirstAidModal.addEventListener('click', closeFirstAidModalFunc);
-        firstAidModal.addEventListener('click', e => { if (e.target === firstAidModal) closeFirstAidModalFunc(); });
-        firstAidTabs.forEach(t => t.addEventListener('click', () => switchFirstAidTab(t.dataset.tab)));
+// ===== DRAWER MODAL =====
+const modal=document.getElementById('firstAidModal');
+const drawer=document.getElementById('firstaidDrawer');
+const drawerOverlay=document.getElementById('drawerOverlay');
+const closeModalBtn=document.getElementById('closeFirstAidModal');
+const drawerItems=document.querySelectorAll('.drawer-item');
+const tabContents=document.querySelectorAll('.firstaid-tab-content');
+function openModal(){modal.classList.add('active');document.body.style.overflow='hidden';switchTab('basic');setTimeout(()=>closeModalBtn.focus(),350);}
+function closeModal(){modal.classList.remove('active');document.body.style.overflow='';drawer.classList.remove('open');drawerOverlay.classList.remove('active');}
+function openDrawer(){drawer.classList.add('open');drawerOverlay.classList.add('active');}
+function closeDrawer(){drawer.classList.remove('open');drawerOverlay.classList.remove('active');}
+function switchTab(name){
+    drawerItems.forEach(i=>{i.classList.toggle('active',i.dataset.tab===name);});
+    tabContents.forEach(c=>{const on=c.id===`${name}-tab`;c.classList.toggle('active',on);if(on)c.scrollTop=0;});
+}
+document.getElementById('drawerToggleBtn').addEventListener('click',openDrawer);
+document.getElementById('drawerCloseBtn').addEventListener('click',closeDrawer);
+drawerOverlay.addEventListener('click',closeDrawer);
+drawerItems.forEach(i=>i.addEventListener('click',()=>{switchTab(i.dataset.tab);if(window.innerWidth<=700)closeDrawer();}));
+['firstAidButton','footerFirstAidButton'].forEach(id=>document.getElementById(id)?.addEventListener('click',e=>{e.preventDefault();openModal();}));
+document.getElementById('mobileFirstAidButton')?.addEventListener('click',e=>{e.preventDefault();toggleMobileMenu();openModal();});
+closeModalBtn.addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+        if(drawer.classList.contains('open'))closeDrawer();
+        else if(modal.classList.contains('active'))closeModal();
+        else if(mobileMenu.classList.contains('active'))toggleMobileMenu();
+    }
+});
 
-        // ===== ESCAPE =====
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') {
-                if (firstAidModal.classList.contains('active')) closeFirstAidModalFunc();
-                else if (mobileMenu.classList.contains('active')) toggleMobileMenu();
-            }
-            if (e.ctrlKey && e.key === 'f') { e.preventDefault(); openFirstAidModal(); }
-        });
-
-        // ===== FOCUS TRAP =====
-        firstAidModal.addEventListener('keydown', e => {
-            if (e.key !== 'Tab') return;
-            const f = [...firstAidModal.querySelectorAll('button,[href],[tabindex]:not([tabindex="-1"])')];
-            if (e.shiftKey) { if (document.activeElement === f[0]) { e.preventDefault(); f[f.length-1].focus(); } }
-            else { if (document.activeElement === f[f.length-1]) { e.preventDefault(); f[0].focus(); } }
-        });
-
-        // ===== ANİMASYON =====
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!prefersReducedMotion && 'IntersectionObserver' in window) {
-            const obs = new IntersectionObserver(entries => {
-                entries.forEach(en => {
-                    if (en.isIntersecting) {
-                        en.target.style.opacity = '1';
-                        en.target.style.transform = 'translateY(0)';
-                        obs.unobserve(en.target);
-                    }
-                });
-            }, { rootMargin: '30px', threshold: .1 });
-            document.querySelectorAll('.animate-fade-in-up').forEach(el => obs.observe(el));
-        } else {
-            document.querySelectorAll('.animate-fade-in-up').forEach(el => {
-                el.style.opacity = '1'; el.style.transform = 'translateY(0)';
-            });
-        }
-    </script>
+// ===== ANİMASYON =====
+if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches&&'IntersectionObserver' in window){
+    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}});},{rootMargin:'30px',threshold:.1});
+    document.querySelectorAll('.animate-fade-in-up').forEach(el=>obs.observe(el));
+}else{document.querySelectorAll('.animate-fade-in-up').forEach(el=>{el.style.opacity='1';el.style.transform='translateY(0)';});}
+</script>
 </body>
 </html>

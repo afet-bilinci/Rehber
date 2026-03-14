@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="mobile-web-app-capable" content="yes">
@@ -10,8 +11,8 @@
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0a0a1a" media="(prefers-color-scheme: dark)">
-    <title>Afet Hazırlık - Doğal Afetler İçin Hazırlık Rehberi</title>
-    <meta name="description" content="Deprem, sel, yangın gibi doğal afetler için hazırlık rehberi ve bilgi kaynakları.">
+    <title>Afet Haz&#305;rl&#305;k - Do&#287;al Afetler &#304;&#231;in Haz&#305;rl&#305;k Rehberi</title>
+    <meta name="description" content="Deprem, sel, yang&#305;n gibi do&#287;al afetler i&#231;in haz&#305;rl&#305;k rehberi ve bilgi kaynaklar&#305;.">
     <script>
         // Tema flash önleme — head'de çalışır, DOM beklenmez
         (function(){
@@ -384,8 +385,8 @@
             <a href="index.html" class="logo">
                 <div class="logo-icon compass">🧭</div>
                 <div class="logo-text">
-                    <div class="logo-title">Afet Hazırlık</div>
-                    <div class="logo-subtitle">Güvende Kal</div>
+                    <div class="logo-title">Afet Haz&#305;rl&#305;k</div>
+                    <div class="logo-subtitle">G&#252;vende Kal</div>
                 </div>
             </a>
             <nav class="nav-desktop">
@@ -393,9 +394,9 @@
                 <a href="yer.html"      class="nav-link">🏔️ Yer Afetleri</a>
                 <a href="su.html"       class="nav-link">🌊 Su Afetleri</a>
                 <a href="hava.html"     class="nav-link">🌪️ Hava Afetleri</a>
-                <a href="İnsan.html"    class="nav-link">🔥 İnsan Kaynaklı</a>
-                <a href="hakkinda.html" class="nav-link">ℹ️ Hakkında</a>
-                <a href="#" class="nav-link firstaid-button" id="firstAidButton">🆘 İlk Yardım Rehberi</a>
+                <a href="insan.html"    class="nav-link">🔥 &#304;nsan Kaynakl&#305;</a>
+                <a href="hakkinda.html" class="nav-link">ℹ️ Hakk&#305;nda</a>
+                <a href="#" class="nav-link firstaid-button" id="firstAidButton">🆘 &#304;lk Yard&#305;m Rehberi</a>
                 <button class="theme-toggle" id="themeToggle">🌙</button>
             </nav>
             <div style="display:flex;align-items:center;gap:.5rem;">
@@ -413,7 +414,7 @@
     <div class="mobile-menu-header">
         <div class="logo">
             <div class="logo-icon compass">🧭</div>
-            <div class="logo-text"><div class="logo-title">Afet Hazırlık</div></div>
+            <div class="logo-text"><div class="logo-title">Afet Haz&#305;rl&#305;k</div></div>
         </div>
         <button id="closeMenuBtn" class="close-mobile-btn">×</button>
     </div>
@@ -422,24 +423,24 @@
         <a href="yer.html"      class="mobile-menu-link">🏔️ Yer Afetleri</a>
         <a href="su.html"       class="mobile-menu-link">🌊 Su Afetleri</a>
         <a href="hava.html"     class="mobile-menu-link">🌪️ Hava Afetleri</a>
-        <a href="İnsan.html"    class="mobile-menu-link">🔥 İnsan Kaynaklı</a>
-        <a href="hakkinda.html" class="mobile-menu-link">ℹ️ Hakkında</a>
-        <a href="#" class="mobile-menu-link firstaid-button" id="mobileFirstAidButton">🆘 İlk Yardım Rehberi</a>
+        <a href="insan.html"    class="mobile-menu-link">🔥 &#304;nsan Kaynakl&#305;</a>
+        <a href="hakkinda.html" class="mobile-menu-link">ℹ️ Hakk&#305;nda</a>
+        <a href="#" class="mobile-menu-link firstaid-button" id="mobileFirstAidButton">🆘 &#304;lk Yard&#305;m Rehberi</a>
     </nav>
 </div>
 
-<!-- ===== İLK YARDIM MODAL ===== -->
+<!-- ===== &#304;LK YARDIM MODAL ===== -->
 <div class="firstaid-modal" id="firstAidModal" role="dialog" aria-modal="true" aria-labelledby="firstAidModalTitle">
     <div class="firstaid-modal-content">
 
         <div class="firstaid-modal-header">
-            <h3 id="firstAidModalTitle">🆘 Acil Durumda İlk Yardım Rehberi</h3>
+            <h3 id="firstAidModalTitle">🆘 Acil Durumda &#304;lk Yard&#305;m Rehberi</h3>
             <button class="close-modal-btn" id="closeFirstAidModal">×</button>
         </div>
 
         <div class="firstaid-modal-body">
 
-            <!-- DRAWER MENÜ -->
+            <!-- DRAWER MEN&#220; -->
             <aside class="firstaid-drawer" id="firstaidDrawer">
                 <div class="firstaid-drawer-header">
                     <span>📋 Konular</span>
@@ -453,19 +454,19 @@
                     <button class="drawer-item" data-tab="bleeding">
                         <span class="drawer-item-icon">🩸</span>
                         <span class="drawer-item-text">Kanamalar</span>
-                        <span class="drawer-item-badge">ACİL</span>
+                        <span class="drawer-item-badge">AC&#304;L</span>
                     </button>
                     <button class="drawer-item" data-tab="unconscious">
                         <span class="drawer-item-icon">😴</span>
-                        <span class="drawer-item-text">Bayılma / Bilinç Kaybı</span>
+                        <span class="drawer-item-text">Bay&#305;lma / Bilin&#231; Kayb&#305;</span>
                     </button>
                     <button class="drawer-item" data-tab="burn">
                         <span class="drawer-item-icon">🔥</span>
-                        <span class="drawer-item-text">Yanıklar</span>
+                        <span class="drawer-item-text">Yan&#305;klar</span>
                     </button>
                     <button class="drawer-item" data-tab="fracture">
                         <span class="drawer-item-icon">🦴</span>
-                        <span class="drawer-item-text">Kırık & Çıkık</span>
+                        <span class="drawer-item-text">K&#305;r&#305;k & &#199;&#305;k&#305;k</span>
                     </button>
                     <button class="drawer-item" data-tab="numbers">
                         <span class="drawer-item-icon">📞</span>
@@ -474,144 +475,144 @@
                 </nav>
             </aside>
 
-            <!-- İÇERİK -->
+            <!-- &#304;&#199;ER&#304;K -->
             <div class="firstaid-content-area">
                 <button class="drawer-toggle-btn" id="drawerToggleBtn">☰ Konular</button>
                 <div class="firstaid-drawer-overlay" id="drawerOverlay"></div>
 
                 <!-- Temel Kurallar -->
                 <div class="firstaid-tab-content active" id="basic-tab">
-                    <div class="tab-section-title"><span style="font-size:2rem;">🧠</span><h3>İlk Yardımın Temel Kuralları</h3></div>
+                    <div class="tab-section-title"><span style="font-size:2rem;">🧠</span><h3>&#304;lk Yard&#305;m&#305;n Temel Kurallar&#305;</h3></div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#dc2626;">1️⃣</span> Sakin Olun ve Güvenliği Sağlayın</h4>
-                        <p>Önce kendi güvenliğinizi kontrol edin, sonra çevreyi değerlendirin. Elektrik, gaz, yangın gibi riskleri kontrol edin. Yaralıyı güvenli bir yere alın.</p>
+                        <h4><span style="color:#dc2626;">1️⃣</span> Sakin Olun ve G&#252;venli&#287;i Sa&#287;lay&#305;n</h4>
+                        <p>&#214;nce kendi g&#252;venli&#287;inizi kontrol edin, sonra &#231;evreyi de&#287;erlendirin. Elektrik, gaz, yang&#305;n gibi riskleri kontrol edin. Yaral&#305;y&#305; g&#252;venli bir yere al&#305;n.</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#4f46e5;">2️⃣</span> 112'yi Arayın veya Aratın</h4>
-                        <p>Hemen 112 Acil'i arayın veya başkasına aratın. Sakin bir şekilde:<br>• Olayın ne olduğunu<br>• Adresi tam olarak<br>• Yaralı sayısını ve durumunu<br>• İsim ve telefon numaranızı bildirin.</p>
+                        <h4><span style="color:#4f46e5;">2️⃣</span> 112'yi Aray&#305;n veya Arat&#305;n</h4>
+                        <p>Hemen 112 Acil'i aray&#305;n veya ba&#351;kas&#305;na arat&#305;n. Sakin bir &#351;ekilde:<br>• Olay&#305;n ne oldu&#287;unu<br>• Adresi tam olarak<br>• Yaral&#305; say&#305;s&#305;n&#305; ve durumunu<br>• &#304;sim ve telefon numaran&#305;z&#305; bildirin.</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#059669;">3️⃣</span> Yaralıyı Değerlendirin</h4>
-                        <p>• Bilinç kontrolü yapın<br>• Solunumunu kontrol edin<br>• Nabzını kontrol edin<br>• Ciddi kanama olup olmadığını kontrol edin</p>
+                        <h4><span style="color:#059669;">3️⃣</span> Yaral&#305;y&#305; De&#287;erlendirin</h4>
+                        <p>• Bilin&#231; kontrol&#252; yap&#305;n<br>• Solunumunu kontrol edin<br>• Nabz&#305;n&#305; kontrol edin<br>• Ciddi kanama olup olmad&#305;&#287;&#305;n&#305; kontrol edin</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#d97706;">4️⃣</span> Temel Yaşam Desteği (ABC Kuralı)</h4>
-                        <p><strong>A (Airway):</strong> Havayolunu açık tutun<br><strong>B (Breathing):</strong> Solunumu sağlayın<br><strong>C (Circulation):</strong> Dolaşımı destekleyin</p>
+                        <h4><span style="color:#d97706;">4️⃣</span> Temel Ya&#351;am Deste&#287;i (ABC Kural&#305;)</h4>
+                        <p><strong>A (Airway):</strong> Havayolunu a&#231;&#305;k tutun<br><strong>B (Breathing):</strong> Solunumu sa&#287;lay&#305;n<br><strong>C (Circulation):</strong> Dola&#351;&#305;m&#305; destekleyin</p>
                     </div>
                     <div class="firstaid-warning">
-                        <h5>⚠️ ÖNEMLİ UYARI</h5>
-                        <p>• Bilinçsiz yaralıları hareket ettirmeyin (boyun yaralanması riski)<br>• Bilinçsiz yaralılara kesinlikle su veya yiyecek vermeyin<br>• Yaralının üzerindeki giysileri keserek çıkarın<br>• Yaralıyı sıcak tutun ama terletmeyin</p>
+                        <h5>⚠️ &#214;NEML&#304; UYARI</h5>
+                        <p>• Bilin&#231;siz yaral&#305;lar&#305; hareket ettirmeyin (boyun yaralanmas&#305; riski)<br>• Bilin&#231;siz yaral&#305;lara kesinlikle su veya yiyecek vermeyin<br>• Yaral&#305;n&#305;n &#252;zerindeki giysileri keserek &#231;&#305;kar&#305;n<br>• Yaral&#305;y&#305; s&#305;cak tutun ama terletmeyin</p>
                     </div>
                 </div>
 
                 <!-- Kanamalar -->
                 <div class="firstaid-tab-content" id="bleeding-tab">
-                    <div class="tab-section-title"><span style="font-size:2rem;">🩸</span><h3>Kanamalarda İlk Yardım</h3></div>
+                    <div class="tab-section-title"><span style="font-size:2rem;">🩸</span><h3>Kanamalarda &#304;lk Yard&#305;m</h3></div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#dc2626;">🩸</span> İç Kanama Belirtileri</h4>
-                        <p>• Soluk, soğuk, nemli cilt<br>• Hızlı ve zayıf nabız<br>• Hızlı ve yüzeysel solunum<br>• Baş dönmesi, baygınlık hissi<br>• Şok belirtileri</p>
+                        <h4><span style="color:#dc2626;">🩸</span> &#304;&#231; Kanama Belirtileri</h4>
+                        <p>• Soluk, so&#287;uk, nemli cilt<br>• H&#305;zl&#305; ve zay&#305;f nab&#305;z<br>• H&#305;zl&#305; ve y&#252;zeysel solunum<br>• Ba&#351; d&#246;nmesi, bayg&#305;nl&#305;k hissi<br>• &#350;ok belirtileri</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#4f46e5;">🎯</span> Kanamayı Durdurma Yöntemleri</h4>
-                        <p><strong>1. Basınç Uygulama:</strong> Temiz bir bezle kanayan yere direkt basınç uygulayın<br><strong>2. Yüksekte Tutma:</strong> Kanayan bölgeyi kalp seviyesinin üzerine kaldırın<br><strong>3. Basınç Noktaları:</strong> Atardamar kanamalarında basınç noktalarına basın</p>
+                        <h4><span style="color:#4f46e5;">🎯</span> Kanamay&#305; Durdurma Y&#246;ntemleri</h4>
+                        <p><strong>1. Bas&#305;n&#231; Uygulama:</strong> Temiz bir bezle kanayan yere direkt bas&#305;n&#231; uygulay&#305;n<br><strong>2. Y&#252;ksekte Tutma:</strong> Kanayan b&#246;lgeyi kalp seviyesinin &#252;zerine kald&#305;r&#305;n<br><strong>3. Bas&#305;n&#231; Noktalar&#305;:</strong> Atardamar kanamalar&#305;nda bas&#305;n&#231; noktalar&#305;na bas&#305;n</p>
                     </div>
                     <div class="firstaid-step-card">
                         <h4><span style="color:#059669;">⚠️</span> Turnike Uygulama (Sadece Hayati Risk Varsa!)</h4>
-                        <p>• Sadece atardamar kanamalarında ve diğer yöntemler işe yaramazsa<br>• 5-7 cm genişliğinde bir bez kullanın<br>• Kanayan yer ile vücut arasına uygulayın<br>• Uygulama saatini not edin<br>• 15-20 dakikada bir 5-10 saniye gevşetin</p>
+                        <p>• Sadece atardamar kanamalar&#305;nda ve di&#287;er y&#246;ntemler i&#351;e yaramazsa<br>• 5-7 cm geni&#351;li&#287;inde bir bez kullan&#305;n<br>• Kanayan yer ile v&#252;cut aras&#305;na uygulay&#305;n<br>• Uygulama saatini not edin<br>• 15-20 dakikada bir 5-10 saniye gev&#351;etin</p>
                     </div>
                     <div class="firstaid-warning">
                         <h5>❌ YAPILMAMASI GEREKENLER</h5>
-                        <p>• Kanayan yere tentürdiyot, alkol vs. dökmeyin<br>• Yaraya pamuk basmayın<br>• Batmış cisimleri çıkarmaya çalışmayın<br>• Turnikeyi gereksiz yere sıkmayın</p>
+                        <p>• Kanayan yere tent&#252;rdiyot, alkol vs. d&#246;kmeyin<br>• Yaraya pamuk basmay&#305;n<br>• Batm&#305;&#351; cisimleri &#231;&#305;karmaya &#231;al&#305;&#351;may&#305;n<br>• Turnikeyi gereksiz yere s&#305;kmay&#305;n</p>
                     </div>
                 </div>
 
-                <!-- Bayılma -->
+                <!-- Bay&#305;lma -->
                 <div class="firstaid-tab-content" id="unconscious-tab">
-                    <div class="tab-section-title"><span style="font-size:2rem;">😴</span><h3>Bilinç Kaybı ve Bayılmada İlk Yardım</h3></div>
+                    <div class="tab-section-title"><span style="font-size:2rem;">😴</span><h3>Bilin&#231; Kayb&#305; ve Bay&#305;lmada &#304;lk Yard&#305;m</h3></div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#dc2626;">😴</span> Bilinç Kontrolü Nasıl Yapılır?</h4>
-                        <p>1. Omuzlarından hafifçe sarsarak "İyi misiniz?" diye sorun<br>2. Yanıt yoksa acil servisi arayın<br>3. Solunumunu kontrol edin (göğüs hareketi, nefes sesi)<br>4. Nabzını kontrol edin (boyun veya bilekten)</p>
+                        <h4><span style="color:#dc2626;">😴</span> Bilin&#231; Kontrol&#252; Nas&#305;l Yap&#305;l&#305;r?</h4>
+                        <p>1. Omuzlar&#305;ndan hafif&#231;e sarsarak "&#304;yi misiniz?" diye sorun<br>2. Yan&#305;t yoksa acil servisi aray&#305;n<br>3. Solunumunu kontrol edin (g&#246;&#287;&#252;s hareketi, nefes sesi)<br>4. Nabz&#305;n&#305; kontrol edin (boyun veya bilekten)</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#4f46e5;">🔄</span> Koma Pozisyonu (Yan Yatış)</h4>
-                        <p>1. Yaralıyı sırt üstü yatırın<br>2. Yakın taraftaki kolu baş hizasında uzatın<br>3. Diğer elini yanağının altına koyun<br>4. Uzaktaki bacağını dizden bükün<br>5. Omuz ve kalçadan çevirerek yan yatırın<br>6. Başını geriye yatırıp çeneyi yukarı kaldırın</p>
+                        <h4><span style="color:#4f46e5;">🔄</span> Koma Pozisyonu (Yan Yat&#305;&#351;)</h4>
+                        <p>1. Yaral&#305;y&#305; s&#305;rt &#252;st&#252; yat&#305;r&#305;n<br>2. Yak&#305;n taraftaki kolu ba&#351; hizas&#305;nda uzat&#305;n<br>3. Di&#287;er elini yana&#287;&#305;n&#305;n alt&#305;na koyun<br>4. Uzaktaki baca&#287;&#305;n&#305; dizden b&#252;k&#252;n<br>5. Omuz ve kal&#231;adan &#231;evirerek yan yat&#305;r&#305;n<br>6. Ba&#351;&#305;n&#305; geriye yat&#305;r&#305;p &#231;eneyi yukar&#305; kald&#305;r&#305;n</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#059669;">💓</span> Kalp Masajı (Temel Yaşam Desteği)</h4>
-                        <p><strong>Yetişkinler için:</strong><br>• 30 kalp masajı - 2 suni solunum<br>• Dakikada 100-120 bası<br>• Göğüs 5-6 cm çökmeli<br>• Dirsekler dik, omuzlar bası noktasının üstünde</p>
+                        <h4><span style="color:#059669;">💓</span> Kalp Masaj&#305; (Temel Ya&#351;am Deste&#287;i)</h4>
+                        <p><strong>Yeti&#351;kinler i&#231;in:</strong><br>• 30 kalp masaj&#305; - 2 suni solunum<br>• Dakikada 100-120 bas&#305;<br>• G&#246;&#287;&#252;s 5-6 cm &#231;&#246;kmeli<br>• Dirsekler dik, omuzlar bas&#305; noktas&#305;n&#305;n &#252;st&#252;nde</p>
                     </div>
                     <div class="firstaid-tips">
-                        <div class="firstaid-tip"><h5>🌬️ Suni Solunum</h5><p>Başı geriye yatır, çeneyi kaldır. Burunu kapat, ağızdan ağza 1 saniye üfle, göğsün kalktığını gör.</p></div>
-                        <div class="firstaid-tip"><h5>👶 Bebeklerde</h5><p>2 parmakla göğüs ortasına bas. 30 masaj - 2 solunum. Göğüs 4 cm çökmeli.</p></div>
-                        <div class="firstaid-tip"><h5>🧒 Çocuklarda</h5><p>1 el veya 2 parmakla. 30 masaj - 2 solunum. Göğüs 5 cm çökmeli.</p></div>
+                        <div class="firstaid-tip"><h5>🌬️ Suni Solunum</h5><p>Ba&#351;&#305; geriye yat&#305;r, &#231;eneyi kald&#305;r. Burunu kapat, a&#287;&#305;zdan a&#287;za 1 saniye &#252;fle, g&#246;&#287;s&#252;n kalkt&#305;&#287;&#305;n&#305; g&#246;r.</p></div>
+                        <div class="firstaid-tip"><h5>👶 Bebeklerde</h5><p>2 parmakla g&#246;&#287;&#252;s ortas&#305;na bas. 30 masaj - 2 solunum. G&#246;&#287;&#252;s 4 cm &#231;&#246;kmeli.</p></div>
+                        <div class="firstaid-tip"><h5>🧒 &#199;ocuklarda</h5><p>1 el veya 2 parmakla. 30 masaj - 2 solunum. G&#246;&#287;&#252;s 5 cm &#231;&#246;kmeli.</p></div>
                     </div>
                 </div>
 
-                <!-- Yanıklar -->
+                <!-- Yan&#305;klar -->
                 <div class="firstaid-tab-content" id="burn-tab">
-                    <div class="tab-section-title"><span style="font-size:2rem;">🔥</span><h3>Yanıklarda İlk Yardım</h3></div>
+                    <div class="tab-section-title"><span style="font-size:2rem;">🔥</span><h3>Yan&#305;klarda &#304;lk Yard&#305;m</h3></div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#dc2626;">🔥</span> 1. Derece Yanık</h4>
-                        <p><strong>Belirtiler:</strong> Kızarıklık, hafif şişlik, ağrı<br><strong>Yapılacaklar:</strong><br>1. Yanık bölgeyi 15-20 dakika soğuk su altında tutun<br>2. Temiz bir bezle kurulayın<br>3. Yanık kremi sürün<br>4. Steril gazlı bezle kapatın</p>
+                        <h4><span style="color:#dc2626;">🔥</span> 1. Derece Yan&#305;k</h4>
+                        <p><strong>Belirtiler:</strong> K&#305;zar&#305;kl&#305;k, hafif &#351;i&#351;lik, a&#287;r&#305;<br><strong>Yap&#305;lacaklar:</strong><br>1. Yan&#305;k b&#246;lgeyi 15-20 dakika so&#287;uk su alt&#305;nda tutun<br>2. Temiz bir bezle kurulay&#305;n<br>3. Yan&#305;k kremi s&#252;r&#252;n<br>4. Steril gazl&#305; bezle kapat&#305;n</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#4f46e5;">🔥</span> 2. Derece Yanık</h4>
-                        <p><strong>Belirtiler:</strong> İçi su dolu kabarcıklar, şiddetli ağrı<br><strong>Yapılacaklar:</strong><br>1. Soğuk su uygulayın (buz değil!)<br>2. Kabarcıkları patlatmayın<br>3. Temiz bezle örtün<br>4. Acil servise başvurun</p>
+                        <h4><span style="color:#4f46e5;">🔥</span> 2. Derece Yan&#305;k</h4>
+                        <p><strong>Belirtiler:</strong> &#304;&#231;i su dolu kabarc&#305;klar, &#351;iddetli a&#287;r&#305;<br><strong>Yap&#305;lacaklar:</strong><br>1. So&#287;uk su uygulay&#305;n (buz de&#287;il!)<br>2. Kabarc&#305;klar&#305; patlatmay&#305;n<br>3. Temiz bezle &#246;rt&#252;n<br>4. Acil servise ba&#351;vurun</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#059669;">🔥</span> 3. Derece Yanık</h4>
-                        <p><strong>Belirtiler:</strong> Deri beyaz veya kömürleşmiş, ağrı yok (sinirler yandı)<br><strong>Yapılacaklar:</strong><br>1. Hemen 112'yi arayın<br>2. Yanık bölgeyi temiz bezle örtün<br>3. Yaralıyı sıcak tutun<br>4. Kesinlikle su uygulamayın</p>
+                        <h4><span style="color:#059669;">🔥</span> 3. Derece Yan&#305;k</h4>
+                        <p><strong>Belirtiler:</strong> Deri beyaz veya k&#246;m&#252;rle&#351;mi&#351;, a&#287;r&#305; yok (sinirler yand&#305;)<br><strong>Yap&#305;lacaklar:</strong><br>1. Hemen 112'yi aray&#305;n<br>2. Yan&#305;k b&#246;lgeyi temiz bezle &#246;rt&#252;n<br>3. Yaral&#305;y&#305; s&#305;cak tutun<br>4. Kesinlikle su uygulamay&#305;n</p>
                     </div>
                     <div class="firstaid-warning">
                         <h5>❌ YANIKLARDA ASLA YAPMAYIN!</h5>
-                        <p>• Diş macunu, yoğurt, salça sürmeyin<br>• Buz uygulamayın<br>• Kabarcıkları patlatmayın<br>• Yapışkan pansuman yapmayın<br>• Yanık üzerine direkt ilaç sürmeyin</p>
+                        <p>• Di&#351; macunu, yo&#287;urt, sal&#231;a s&#252;rmeyin<br>• Buz uygulamay&#305;n<br>• Kabarc&#305;klar&#305; patlatmay&#305;n<br>• Yap&#305;&#351;kan pansuman yapmay&#305;n<br>• Yan&#305;k &#252;zerine direkt ila&#231; s&#252;rmeyin</p>
                     </div>
                 </div>
 
-                <!-- Kırıklar -->
+                <!-- K&#305;r&#305;klar -->
                 <div class="firstaid-tab-content" id="fracture-tab">
-                    <div class="tab-section-title"><span style="font-size:2rem;">🦴</span><h3>Kırık, Çıkık ve Burkulmalarda İlk Yardım</h3></div>
+                    <div class="tab-section-title"><span style="font-size:2rem;">🦴</span><h3>K&#305;r&#305;k, &#199;&#305;k&#305;k ve Burkulmalarda &#304;lk Yard&#305;m</h3></div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#dc2626;">🦴</span> Kırık Belirtileri</h4>
-                        <p>• Şiddetli ağrı<br>• Şişlik ve morarma<br>• Şekil bozukluğu<br>• Hareket edememe<br>• Kırık sesi duyulması<br>• Kemik uçlarının görülmesi (açık kırık)</p>
+                        <h4><span style="color:#dc2626;">🦴</span> K&#305;r&#305;k Belirtileri</h4>
+                        <p>• &#350;iddetli a&#287;r&#305;<br>• &#350;i&#351;lik ve morarma<br>• &#350;ekil bozuklu&#287;u<br>• Hareket edememe<br>• K&#305;r&#305;k sesi duyulmas&#305;<br>• Kemik u&#231;lar&#305;n&#305;n g&#246;r&#252;lmesi (a&#231;&#305;k k&#305;r&#305;k)</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#4f46e5;">🩹</span> Kapalı Kırıkta İlk Yardım</h4>
-                        <p>1. Yaralı bölgeyi hareket ettirmeyin<br>2. Kırık bölgenin üstündeki ve altındaki eklemleri sabitleyin<br>3. Soğuk uygulayın (buz torbası)<br>4. Yaralı bölgeyi kalp seviyesinden yukarıda tutun<br>5. Acil servise başvurun</p>
+                        <h4><span style="color:#4f46e5;">🩹</span> Kapal&#305; K&#305;r&#305;kta &#304;lk Yard&#305;m</h4>
+                        <p>1. Yaral&#305; b&#246;lgeyi hareket ettirmeyin<br>2. K&#305;r&#305;k b&#246;lgenin &#252;st&#252;ndeki ve alt&#305;ndaki eklemleri sabitleyin<br>3. So&#287;uk uygulay&#305;n (buz torbas&#305;)<br>4. Yaral&#305; b&#246;lgeyi kalp seviyesinden yukar&#305;da tutun<br>5. Acil servise ba&#351;vurun</p>
                     </div>
                     <div class="firstaid-step-card">
-                        <h4><span style="color:#059669;">⚠️</span> Açık Kırıkta İlk Yardım</h4>
-                        <p>1. Kanamayı kontrol altına alın<br>2. Dışarı çıkan kemik uçlarını içeri itmeyin<br>3. Temiz bir bezle örtün<br>4. Atel uygulayın (tahta, karton, gazete)<br>5. Hemen 112'yi arayın</p>
+                        <h4><span style="color:#059669;">⚠️</span> A&#231;&#305;k K&#305;r&#305;kta &#304;lk Yard&#305;m</h4>
+                        <p>1. Kanamay&#305; kontrol alt&#305;na al&#305;n<br>2. D&#305;&#351;ar&#305; &#231;&#305;kan kemik u&#231;lar&#305;n&#305; i&#231;eri itmeyin<br>3. Temiz bir bezle &#246;rt&#252;n<br>4. Atel uygulay&#305;n (tahta, karton, gazete)<br>5. Hemen 112'yi aray&#305;n</p>
                     </div>
                     <div class="firstaid-step-card">
                         <h4><span style="color:#d97706;">🦵</span> Atel Uygulama</h4>
-                        <p>• Kırık bölgenin üstündeki ve altındaki eklemleri içine alacak şekilde<br>• Yumuşak malzeme ile destekleyin<br>• Sargıyı çok sıkı yapmayın<br>• Parmakları açıkta bırakın (dolaşım kontrolü için)<br>• 20 dakikada bir dolaşımı kontrol edin</p>
+                        <p>• K&#305;r&#305;k b&#246;lgenin &#252;st&#252;ndeki ve alt&#305;ndaki eklemleri i&#231;ine alacak &#351;ekilde<br>• Yumu&#351;ak malzeme ile destekleyin<br>• Sarg&#305;y&#305; &#231;ok s&#305;k&#305; yapmay&#305;n<br>• Parmaklar&#305; a&#231;&#305;kta b&#305;rak&#305;n (dola&#351;&#305;m kontrol&#252; i&#231;in)<br>• 20 dakikada bir dola&#351;&#305;m&#305; kontrol edin</p>
                     </div>
                 </div>
 
                 <!-- Acil Numaralar -->
                 <div class="firstaid-tab-content" id="numbers-tab">
-                    <div class="tab-section-title"><span style="font-size:2rem;">📞</span><h3>Acil Durum Telefon Numaraları</h3></div>
+                    <div class="tab-section-title"><span style="font-size:2rem;">📞</span><h3>Acil Durum Telefon Numaralar&#305;</h3></div>
                     <div class="emergency-numbers">
-                        <div class="emergency-number" onclick="location.href='tel:112'" role="button"><div class="number">112</div><div class="service">ACİL YARDIM</div><p>Tüm acil durumlar</p></div>
-                        <div class="emergency-number" onclick="location.href='tel:110'" role="button"><div class="number">110</div><div class="service">İTFAİYE</div><p>Yangın, kurtarma</p></div>
-                        <div class="emergency-number" onclick="location.href='tel:155'" role="button"><div class="number">155</div><div class="service">POLİS İMDAT</div><p>Güvenlik, asayiş</p></div>
-                        <div class="emergency-number" onclick="location.href='tel:156'" role="button"><div class="number">156</div><div class="service">JANDARMA</div><p>Kırsal bölgeler</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:112'" role="button"><div class="number">112</div><div class="service">AC&#304;L YARDIM</div><p>T&#252;m acil durumlar</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:110'" role="button"><div class="number">110</div><div class="service">&#304;TFA&#304;YE</div><p>Yang&#305;n, kurtarma</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:155'" role="button"><div class="number">155</div><div class="service">POL&#304;S &#304;MDAT</div><p>G&#252;venlik, asayi&#351;</p></div>
+                        <div class="emergency-number" onclick="location.href='tel:156'" role="button"><div class="number">156</div><div class="service">JANDARMA</div><p>K&#305;rsal b&#246;lgeler</p></div>
                     </div>
                     <div style="margin-top:2rem;">
-                        <h4 style="color:var(--primary);margin-bottom:1rem;font-size:1.1rem;">📞 Diğer Önemli Numaralar</h4>
+                        <h4 style="color:var(--primary);margin-bottom:1rem;font-size:1.1rem;">📞 Di&#287;er &#214;nemli Numaralar</h4>
                         <ul class="number-list">
-                            <li><span class="number">184</span><span class="service">SABİM - Sağlık Bakanlığı Bilgi</span></li>
-                            <li><span class="number">185</span><span class="service">SU ŞİKAYET</span></li>
-                            <li><span class="number">186</span><span class="service">ELEKTRİK ARIZA</span></li>
-                            <li><span class="number">187</span><span class="service">DOĞAL GAZ ARIZA</span></li>
-                            <li><span class="number">153</span><span class="service">BELEDİYE ZABITA</span></li>
-                            <li><span class="number">154</span><span class="service">TRAFİK POLİSİ</span></li>
+                            <li><span class="number">184</span><span class="service">SAB&#304;M - Sa&#287;l&#305;k Bakanl&#305;&#287;&#305; Bilgi</span></li>
+                            <li><span class="number">185</span><span class="service">SU &#350;&#304;KAYET</span></li>
+                            <li><span class="number">186</span><span class="service">ELEKTR&#304;K ARIZA</span></li>
+                            <li><span class="number">187</span><span class="service">DO&#286;AL GAZ ARIZA</span></li>
+                            <li><span class="number">153</span><span class="service">BELED&#304;YE ZABITA</span></li>
+                            <li><span class="number">154</span><span class="service">TRAF&#304;K POL&#304;S&#304;</span></li>
                         </ul>
                     </div>
                     <div class="firstaid-warning" style="margin-top:1.5rem;">
-                        <h5>📱 ACİL ARAMA YAPARKEN</h5>
-                        <p>1. <strong>Sakin olun</strong> ve net konuşun<br>2. <strong>Tam adresinizi</strong> söyleyin<br>3. <strong>Olayın ne olduğunu</strong> açıklayın<br>4. <strong>Yaralı sayısı ve durumunu</strong> bildirin<br>5. <strong>İsminizi ve telefonunuzu</strong> söyleyin<br>6. <strong>Telefonu ilk siz kapatmayın</strong></p>
+                        <h5>📱 AC&#304;L ARAMA YAPARKEN</h5>
+                        <p>1. <strong>Sakin olun</strong> ve net konu&#351;un<br>2. <strong>Tam adresinizi</strong> s&#246;yleyin<br>3. <strong>Olay&#305;n ne oldu&#287;unu</strong> a&#231;&#305;klay&#305;n<br>4. <strong>Yaral&#305; say&#305;s&#305; ve durumunu</strong> bildirin<br>5. <strong>&#304;sminizi ve telefonunuzu</strong> s&#246;yleyin<br>6. <strong>Telefonu ilk siz kapatmay&#305;n</strong></p>
                     </div>
                 </div>
 
@@ -624,9 +625,9 @@
 <section class="hero">
     <div class="container">
         <div class="hero-content">
-            <h1 class="animate-fade-in-up">Doğal Afetlere<br>Hazır Mısınız?</h1>
-            <p class="animate-fade-in-up animate-delay-100">Deprem, sel, yangın gibi doğal afetler için hazırlık rehberi. Doğru bilgi ve planlama ile güvende kalın.</p>
-            <a href="#categories" class="cta-button animate-fade-in-up animate-delay-300"><span>Hazırlığa Başla</span><span>→</span></a>
+            <h1 class="animate-fade-in-up">Do&#287;al Afetlere<br>Haz&#305;r M&#305;s&#305;n&#305;z?</h1>
+            <p class="animate-fade-in-up animate-delay-100">Deprem, sel, yang&#305;n gibi do&#287;al afetler i&#231;in haz&#305;rl&#305;k rehberi. Do&#287;ru bilgi ve planlama ile g&#252;vende kal&#305;n.</p>
+            <a href="#categories" class="cta-button animate-fade-in-up animate-delay-300"><span>Haz&#305;rl&#305;&#287;a Ba&#351;la</span><span>→</span></a>
         </div>
     </div>
 </section>
@@ -636,11 +637,11 @@
         <div class="emergency-banner-left">
             <span style="font-size:1.5rem;">🚨</span>
             <div>
-                <strong style="font-size:clamp(1rem,3vw,1.2rem);display:block;">ACİL DURUM: 112</strong>
-                <span style="font-size:.875rem;opacity:.9;">Tüm acil durumlar için tek numara</span>
+                <strong style="font-size:clamp(1rem,3vw,1.2rem);display:block;">AC&#304;L DURUM: 112</strong>
+                <span style="font-size:.875rem;opacity:.9;">T&#252;m acil durumlar i&#231;in tek numara</span>
             </div>
         </div>
-        <button id="emergencyFirstAidButton">🆘 İlk Yardım Rehberi</button>
+        <button id="emergencyFirstAidButton">🆘 &#304;lk Yard&#305;m Rehberi</button>
     </div>
 </div>
 
@@ -648,29 +649,29 @@
     <section class="section" id="categories">
         <div class="container">
             <div class="section-title">
-                <h2 class="animate-fade-in-up">Afet Türleri</h2>
-                <p class="animate-fade-in-up animate-delay-100">Her afet türü için hazırlık rehberleri</p>
+                <h2 class="animate-fade-in-up">Afet T&#252;rleri</h2>
+                <p class="animate-fade-in-up animate-delay-100">Her afet t&#252;r&#252; i&#231;in haz&#305;rl&#305;k rehberleri</p>
             </div>
             <div class="grid grid-cols-4">
                 <div class="card animate-fade-in-up" data-category="yer" tabindex="0" role="button">
                     <div class="card-icon">🏔️</div><h3>Yer Afetleri</h3>
-                    <p>Deprem, heyelan ve volkan patlamaları için hazırlık ve güvenlik önlemleri.</p>
-                    <a href="yer.html" class="card-link">İncele →</a>
+                    <p>Deprem, heyelan ve volkan patlamalar&#305; i&#231;in haz&#305;rl&#305;k ve g&#252;venlik &#246;nlemleri.</p>
+                    <a href="yer.html" class="card-link">&#304;ncele →</a>
                 </div>
                 <div class="card animate-fade-in-up animate-delay-100" data-category="su" tabindex="0" role="button">
                     <div class="card-icon">🌊</div><h3>Su Afetleri</h3>
-                    <p>Sel, tsunami ve su baskınlarına karşı alınacak önlemler ve korunma yolları.</p>
-                    <a href="su.html" class="card-link">İncele →</a>
+                    <p>Sel, tsunami ve su bask&#305;nlar&#305;na kar&#351;&#305; al&#305;nacak &#246;nlemler ve korunma yollar&#305;.</p>
+                    <a href="su.html" class="card-link">&#304;ncele →</a>
                 </div>
                 <div class="card animate-fade-in-up animate-delay-200" data-category="hava" tabindex="0" role="button">
                     <div class="card-icon">🌪️</div><h3>Hava Afetleri</h3>
-                    <p>Fırtına, kasırga, dolu ve şiddetli yağışlarda güvenlik önlemleri.</p>
-                    <a href="hava.html" class="card-link">İncele →</a>
+                    <p>F&#305;rt&#305;na, kas&#305;rga, dolu ve &#351;iddetli ya&#287;&#305;&#351;larda g&#252;venlik &#246;nlemleri.</p>
+                    <a href="hava.html" class="card-link">&#304;ncele →</a>
                 </div>
                 <div class="card animate-fade-in-up animate-delay-300" data-category="insan" tabindex="0" role="button">
-                    <div class="card-icon">🔥</div><h3>İnsan Kaynaklı</h3>
-                    <p>Yangın, kimyasal sızıntı ve endüstriyel kazalarda yapılması gerekenler.</p>
-                    <a href="İnsan.html" class="card-link">İncele →</a>
+                    <div class="card-icon">🔥</div><h3>&#304;nsan Kaynakl&#305;</h3>
+                    <p>Yang&#305;n, kimyasal s&#305;z&#305;nt&#305; ve end&#252;striyel kazalarda yap&#305;lmas&#305; gerekenler.</p>
+                    <a href="insan.html" class="card-link">&#304;ncele →</a>
                 </div>
             </div>
         </div>
@@ -679,13 +680,13 @@
     <section class="features">
         <div class="container">
             <div class="section-title">
-                <h2 class="animate-fade-in-up">Nasıl Hazırlanmalı?</h2>
-                <p class="animate-fade-in-up animate-delay-100">Temel hazırlık adımları</p>
+                <h2 class="animate-fade-in-up">Nas&#305;l Haz&#305;rlanmal&#305;?</h2>
+                <p class="animate-fade-in-up animate-delay-100">Temel haz&#305;rl&#305;k ad&#305;mlar&#305;</p>
             </div>
             <div class="feature-grid">
-                <div class="feature-item animate-fade-in-up"><div class="feature-icon">📚</div><h3>Bilgi Edinin</h3><p>Yaşadığınız bölgedeki afet risklerini öğrenin ve güvenli alanları belirleyin.</p></div>
-                <div class="feature-item animate-fade-in-up animate-delay-100"><div class="feature-icon">📋</div><h3>Plan Yapın</h3><p>Aile afet planı oluşturun, buluşma noktaları belirleyin ve iletişim kurun.</p></div>
-                <div class="feature-item animate-fade-in-up animate-delay-200"><div class="feature-icon">🎒</div><h3>Çanta Hazırlayın</h3><p>72 saat yetecek acil durum çantası hazırlayın ve düzenli olarak güncelleyin.</p></div>
+                <div class="feature-item animate-fade-in-up"><div class="feature-icon">📚</div><h3>Bilgi Edinin</h3><p>Ya&#351;ad&#305;&#287;&#305;n&#305;z b&#246;lgedeki afet risklerini &#246;&#287;renin ve g&#252;venli alanlar&#305; belirleyin.</p></div>
+                <div class="feature-item animate-fade-in-up animate-delay-100"><div class="feature-icon">📋</div><h3>Plan Yap&#305;n</h3><p>Aile afet plan&#305; olu&#351;turun, bulu&#351;ma noktalar&#305; belirleyin ve ileti&#351;im kurun.</p></div>
+                <div class="feature-item animate-fade-in-up animate-delay-200"><div class="feature-icon">🎒</div><h3>&#199;anta Haz&#305;rlay&#305;n</h3><p>72 saat yetecek acil durum &#231;antas&#305; haz&#305;rlay&#305;n ve d&#252;zenli olarak g&#252;ncelleyin.</p></div>
             </div>
         </div>
     </section>
@@ -693,13 +694,13 @@
     <section class="section">
         <div class="container">
             <div class="section-title">
-                <h2 class="animate-fade-in-up">Önemli İpuçları</h2>
-                <p class="animate-fade-in-up animate-delay-100">Afet anında dikkat edilmesi gerekenler</p>
+                <h2 class="animate-fade-in-up">&#214;nemli &#304;pu&#231;lar&#305;</h2>
+                <p class="animate-fade-in-up animate-delay-100">Afet an&#305;nda dikkat edilmesi gerekenler</p>
             </div>
             <div class="grid grid-cols-3">
-                <div class="card animate-fade-in-up"><div class="card-icon" style="background:linear-gradient(135deg,#4f46e5,#4338ca);">🧘</div><h3>Sakin Olun</h3><p>Panik yapmayın, derin nefes alın ve durumu değerlendirin.</p></div>
-                <div class="card animate-fade-in-up animate-delay-100"><div class="card-icon" style="background:linear-gradient(135deg,#dc2626,#b91c1c);">📱</div><h3>112'yi Arayın</h3><p>Acil durumlarda sakin bir şekilde 112'yi arayın ve konumunuzu bildirin.</p></div>
-                <div class="card animate-fade-in-up animate-delay-200"><div class="card-icon" style="background:linear-gradient(135deg,#d97706,#b45309);">👥</div><h3>Yardım Edin</h3><p>Güvende olduğunuzdan emin olduktan sonra çevrenizdekileri kontrol edin.</p></div>
+                <div class="card animate-fade-in-up"><div class="card-icon" style="background:linear-gradient(135deg,#4f46e5,#4338ca);">🧘</div><h3>Sakin Olun</h3><p>Panik yapmay&#305;n, derin nefes al&#305;n ve durumu de&#287;erlendirin.</p></div>
+                <div class="card animate-fade-in-up animate-delay-100"><div class="card-icon" style="background:linear-gradient(135deg,#dc2626,#b91c1c);">📱</div><h3>112'yi Aray&#305;n</h3><p>Acil durumlarda sakin bir &#351;ekilde 112'yi aray&#305;n ve konumunuzu bildirin.</p></div>
+                <div class="card animate-fade-in-up animate-delay-200"><div class="card-icon" style="background:linear-gradient(135deg,#d97706,#b45309);">👥</div><h3>Yard&#305;m Edin</h3><p>G&#252;vende oldu&#287;unuzdan emin olduktan sonra &#231;evrenizdekileri kontrol edin.</p></div>
             </div>
         </div>
     </section>
@@ -710,19 +711,19 @@
         <div class="footer-content">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <h4>🚨 Afet Hazırlık</h4>
-                    <p style="color:var(--text-footer-p);margin-bottom:1.25rem;font-size:.9rem;line-height:1.6;">Doğal afetlere hazırlık için rehber ve bilgi kaynağı. Herkes için güvenlik.</p>
-                    <button id="footerFirstAidButton">🆘 İlk Yardım Rehberi</button>
+                    <h4>🚨 Afet Haz&#305;rl&#305;k</h4>
+                    <p style="color:var(--text-footer-p);margin-bottom:1.25rem;font-size:.9rem;line-height:1.6;">Do&#287;al afetlere haz&#305;rl&#305;k i&#231;in rehber ve bilgi kayna&#287;&#305;. Herkes i&#231;in g&#252;venlik.</p>
+                    <button id="footerFirstAidButton">🆘 &#304;lk Yard&#305;m Rehberi</button>
                 </div>
                 <div class="footer-column">
-                    <h4>🔗 Hızlı Bağlantılar</h4>
+                    <h4>🔗 H&#305;zl&#305; Ba&#287;lant&#305;lar</h4>
                     <ul class="footer-links">
                         <li><a href="index.html">🏠 Ana Sayfa</a></li>
                         <li><a href="yer.html">🏔️ Yer Afetleri</a></li>
                         <li><a href="su.html">🌊 Su Afetleri</a></li>
                         <li><a href="hava.html">🌪️ Hava Afetleri</a></li>
-                        <li><a href="İnsan.html">🔥 İnsan Kaynaklı</a></li>
-                        <li><a href="hakkinda.html">ℹ️ Hakkında</a></li>
+                        <li><a href="insan.html">🔥 &#304;nsan Kaynakl&#305;</a></li>
+                        <li><a href="hakkinda.html">ℹ️ Hakk&#305;nda</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -731,12 +732,12 @@
                         <li><a href="https://www.afad.gov.tr"    target="_blank" rel="noopener">🏛️ AFAD</a></li>
                         <li><a href="https://www.mgm.gov.tr"     target="_blank" rel="noopener">🌤️ Meteoroloji</a></li>
                         <li><a href="https://www.112.gov.tr"     target="_blank" rel="noopener">🚨 112 Acil</a></li>
-                        <li><a href="https://www.kizilay.org.tr" target="_blank" rel="noopener">❤️ Kızılay</a></li>
+                        <li><a href="https://www.kizilay.org.tr" target="_blank" rel="noopener">❤️ K&#305;z&#305;lay</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 Afet Hazırlık Rehberi<br><small>Bilgilendirme amaçlıdır. Acil durumlarda 112'yi arayınız.</small></p>
+                <p>© 2026 Afet Haz&#305;rl&#305;k Rehberi<br><small>Bilgilendirme ama&#231;l&#305;d&#305;r. Acil durumlarda 112'yi aray&#305;n&#305;z.</small></p>
             </div>
         </div>
     </div>

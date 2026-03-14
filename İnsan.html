@@ -51,7 +51,7 @@
             --radius-sm:.375rem; --radius-md:.5rem; --radius-lg:.75rem; --radius-xl:1rem;
             --tf:150ms cubic-bezier(.4,0,.2,1); --tn:300ms cubic-bezier(.4,0,.2,1);
         }
-        /* ============ DARK â€” sistem ============ */
+        /* ============ DARK — sistem ============ */
         @media(prefers-color-scheme:dark){
             :root:not([data-theme="light"]){
                 --primary:#818cf8; --primary-dark:#6366f1; --primary-light:#a5b4fc; --primary-soft:#1e1b4b;
@@ -80,7 +80,7 @@
                 color-scheme:dark;
             }
         }
-        /* ============ DARK â€” manuel ============ */
+        /* ============ DARK — manuel ============ */
         [data-theme="dark"]{
             --primary:#818cf8; --primary-dark:#6366f1; --primary-light:#a5b4fc; --primary-soft:#1e1b4b;
             --accent:#ef4444; --warning:#f59e0b; --success:#10b981;
@@ -324,7 +324,7 @@
         .result-actions{display:flex;gap:.75rem;margin-top:1.5rem;flex-wrap:wrap;}
         .result-actions .card-btn{min-width:120px;}
 
-        /* Ä°LK YARDIM MODAL â€” DRAWER */
+        /* İLK YARDIM MODAL — DRAWER */
         .firstaid-modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;display:flex;align-items:stretch;justify-content:flex-end;opacity:0;visibility:hidden;transition:opacity var(--tn),visibility var(--tn);}
         .firstaid-modal.active{opacity:1;visibility:visible;}
         .firstaid-modal-content{background:var(--bg-modal);width:100%;max-width:1100px;height:100%;display:flex;flex-direction:column;box-shadow:-10px 0 50px rgba(0,0,0,.4);transform:translateX(100%);transition:transform var(--tn);overflow:hidden;}
@@ -398,7 +398,7 @@
         .footer-links a:hover{color:var(--text-footer-h);transform:translateX(4px);}
         .footer-bottom{border-top:1px solid var(--border-footer);padding-top:1.5rem;text-align:center;color:var(--text-footer-bot);font-size:.875rem;}
 
-        /* ANÄ°MASYON */
+        /* ANİMASYON */
         @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
         .animate-fade-in-up{animation:fadeInUp .5s ease-out forwards;opacity:0;}
         .animate-delay-100{animation-delay:100ms;}
@@ -416,24 +416,24 @@
     <div class="container">
         <div class="header-content">
             <a href="index.html" class="logo">
-                <div class="logo-icon compass">ğŸ§</div>
+                <div class="logo-icon compass">🧭</div>
                 <div class="logo-text">
                     <div class="logo-title">Afet Haz&#305;rl&#305;k</div>
                     <div class="logo-subtitle">G&#252;vende Kal</div>
                 </div>
             </a>
             <nav class="nav-desktop">
-                <a href="index.html"    class="nav-link">ğŸ  Ana Sayfa</a>
-                <a href="yer.html"      class="nav-link">ğŸ”ï¸ Yer Afetleri</a>
-                <a href="su.html"       class="nav-link">ğŸŒŠ Su Afetleri</a>
-                <a href="hava.html"     class="nav-link">ğŸŒªï¸ Hava Afetleri</a>
-                <a href="&#304;nsan.html"    class="nav-link active" aria-current="page">ğŸ”¥ &#304;nsan Kaynakl&#305;</a>
-                <a href="hakkinda.html" class="nav-link">â„¹ï¸ Hakk&#305;nda</a>
-                <a href="#" class="nav-link firstaid-button" id="firstAidButton">ğŸ†˜ &#304;lk Yard&#305;m Rehberi</a>
-                <button class="theme-toggle" id="themeToggle" aria-label="Karanl&#305;k moda ge&#231;">ğŸŒ™</button>
+                <a href="index.html"    class="nav-link">🏠 Ana Sayfa</a>
+                <a href="yer.html"      class="nav-link">🏔️ Yer Afetleri</a>
+                <a href="su.html"       class="nav-link">🌊 Su Afetleri</a>
+                <a href="hava.html"     class="nav-link">🌪️ Hava Afetleri</a>
+                <a href="&#304;nsan.html"    class="nav-link active" aria-current="page">🔥 &#304;nsan Kaynakl&#305;</a>
+                <a href="hakkinda.html" class="nav-link">ℹ️ Hakk&#305;nda</a>
+                <a href="#" class="nav-link firstaid-button" id="firstAidButton">🆘 &#304;lk Yard&#305;m Rehberi</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Karanl&#305;k moda ge&#231;">🌙</button>
             </nav>
             <div style="display:flex;align-items:center;gap:.5rem;">
-                <button class="theme-toggle" id="themeToggleMobile" aria-label="Karanl&#305;k moda ge&#231;">ğŸŒ™</button>
+                <button class="theme-toggle" id="themeToggleMobile" aria-label="Karanl&#305;k moda ge&#231;">🌙</button>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-label="Men&#252;y&#252; a&#231;">
                     <span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span>
                 </button>
@@ -446,19 +446,19 @@
 <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-header">
         <div class="logo">
-            <div class="logo-icon compass">ğŸ§</div>
+            <div class="logo-icon compass">🧭</div>
             <div class="logo-text"><div class="logo-title">Afet Haz&#305;rl&#305;k</div></div>
         </div>
-        <button id="closeMenuBtn" class="close-mobile-btn">Ã—</button>
+        <button id="closeMenuBtn" class="close-mobile-btn">×</button>
     </div>
     <nav class="mobile-menu-links">
-        <a href="index.html"    class="mobile-menu-link">ğŸ  Ana Sayfa</a>
-        <a href="yer.html"      class="mobile-menu-link">ğŸ”ï¸ Yer Afetleri</a>
-        <a href="su.html"       class="mobile-menu-link">ğŸŒŠ Su Afetleri</a>
-        <a href="hava.html"     class="mobile-menu-link">ğŸŒªï¸ Hava Afetleri</a>
-        <a href="&#304;nsan.html"    class="mobile-menu-link active" aria-current="page">ğŸ”¥ &#304;nsan Kaynakl&#305;</a>
-        <a href="hakkinda.html" class="mobile-menu-link">â„¹ï¸ Hakk&#305;nda</a>
-        <a href="#" class="mobile-menu-link firstaid-button" id="mobileFirstAidButton">ğŸ†˜ &#304;lk Yard&#305;m Rehberi</a>
+        <a href="index.html"    class="mobile-menu-link">🏠 Ana Sayfa</a>
+        <a href="yer.html"      class="mobile-menu-link">🏔️ Yer Afetleri</a>
+        <a href="su.html"       class="mobile-menu-link">🌊 Su Afetleri</a>
+        <a href="hava.html"     class="mobile-menu-link">🌪️ Hava Afetleri</a>
+        <a href="&#304;nsan.html"    class="mobile-menu-link active" aria-current="page">🔥 &#304;nsan Kaynakl&#305;</a>
+        <a href="hakkinda.html" class="mobile-menu-link">ℹ️ Hakk&#305;nda</a>
+        <a href="#" class="mobile-menu-link firstaid-button" id="mobileFirstAidButton">🆘 &#304;lk Yard&#305;m Rehberi</a>
     </nav>
 </div>
 
@@ -466,96 +466,96 @@
 <div class="firstaid-modal" id="firstAidModal" role="dialog" aria-modal="true" aria-labelledby="firstAidModalTitle">
     <div class="firstaid-modal-content">
         <div class="firstaid-modal-header">
-            <h3 id="firstAidModalTitle">ğŸ†˜ Acil Durumda &#304;lk Yard&#305;m Rehberi</h3>
-            <button class="close-modal-btn" id="closeFirstAidModal" aria-label="Kapat">Ã—</button>
+            <h3 id="firstAidModalTitle">🆘 Acil Durumda &#304;lk Yard&#305;m Rehberi</h3>
+            <button class="close-modal-btn" id="closeFirstAidModal" aria-label="Kapat">×</button>
         </div>
         <div class="firstaid-modal-body">
             <aside class="firstaid-drawer" id="firstaidDrawer">
                 <div class="firstaid-drawer-header">
-                    <span>ğŸ“‹ Konular</span>
-                    <button class="drawer-close-btn" id="drawerCloseBtn">Ã—</button>
+                    <span>📋 Konular</span>
+                    <button class="drawer-close-btn" id="drawerCloseBtn">×</button>
                 </div>
                 <nav class="firstaid-drawer-nav">
                     <button class="drawer-item active" data-tab="basic">
-                        <span class="drawer-item-icon">ğŸ§ </span><span class="drawer-item-text">Temel Kurallar</span>
+                        <span class="drawer-item-icon">🧠</span><span class="drawer-item-text">Temel Kurallar</span>
                     </button>
                     <button class="drawer-item" data-tab="smoke">
-                        <span class="drawer-item-icon">ğŸ’¨</span><span class="drawer-item-text">Duman Zehirlenmesi</span>
+                        <span class="drawer-item-icon">💨</span><span class="drawer-item-text">Duman Zehirlenmesi</span>
                         <span class="drawer-item-badge">AC&#304;L</span>
                     </button>
                     <button class="drawer-item" data-tab="burn">
-                        <span class="drawer-item-icon">ğŸ”¥</span><span class="drawer-item-text">Yan&#305;klar</span>
+                        <span class="drawer-item-icon">🔥</span><span class="drawer-item-text">Yan&#305;klar</span>
                     </button>
                     <button class="drawer-item" data-tab="chemical">
-                        <span class="drawer-item-icon">â˜£ï¸</span><span class="drawer-item-text">Kimyasal Temas</span>
+                        <span class="drawer-item-icon">☣️</span><span class="drawer-item-text">Kimyasal Temas</span>
                     </button>
                     <button class="drawer-item" data-tab="cpr">
-                        <span class="drawer-item-icon">ğŸ’“</span><span class="drawer-item-text">CPR / Kalp Masaj&#305;</span>
+                        <span class="drawer-item-icon">💓</span><span class="drawer-item-text">CPR / Kalp Masaj&#305;</span>
                     </button>
                     <button class="drawer-item" data-tab="numbers">
-                        <span class="drawer-item-icon">ğŸ“</span><span class="drawer-item-text">Acil Numaralar</span>
+                        <span class="drawer-item-icon">📞</span><span class="drawer-item-text">Acil Numaralar</span>
                     </button>
                 </nav>
             </aside>
             <div class="firstaid-content-area">
-                <button class="drawer-toggle-btn" id="drawerToggleBtn">â˜° Konular</button>
+                <button class="drawer-toggle-btn" id="drawerToggleBtn">☰ Konular</button>
                 <div class="firstaid-drawer-overlay" id="drawerOverlay"></div>
 
                 <!-- Temel -->
                 <div class="firstaid-tab-content active" id="basic-tab">
-                    <div class="tab-section-title"><span style="font-size:2rem">ğŸ§ </span><h3>&#304;lk Yard&#305;m&#305;n Temel Kurallar&#305;</h3></div>
-                    <div class="firstaid-step-card"><h4>ğŸ›¡ï¸ 1. &#214;nce Kendinizi Koruyun</h4><p>Yang&#305;n, kimyasal veya n&#252;kleer olay b&#246;lgesinde kendi g&#252;venli&#287;inizi tehlikeye atmadan m&#252;dahale edin. Uygun koruyucu donan&#305;m olmadan kimyasal veya radyasyon b&#246;lgesine girmeyin.</p></div>
-                    <div class="firstaid-step-card"><h4>ğŸ“ 2. Hemen 112'yi Aray&#305;n</h4><p>Olay t&#252;r&#252;n&#252; (yang&#305;n / kimyasal / n&#252;kleer), yerini ve yaral&#305; say&#305;s&#305;n&#305; net bildirin. Kimyasal olaylarda maddenin ad&#305;n&#305; veya MSDS numaras&#305;n&#305; payla&#351;&#305;n. Telefonu ilk siz kapatmay&#305;n.</p></div>
-                    <div class="firstaid-step-card"><h4>ğŸ” 3. ABC De&#287;erlendirmesi</h4><p><strong>A â€” Hava Yolu:</strong> A&#231;&#305;k m&#305;? Duman veya kimyasal maruziyeti var m&#305;?<br><strong>B â€” Solunum:</strong> Nefes al&#305;yor mu? Wheezing, &#246;ks&#252;r&#252;k?<br><strong>C â€” Dola&#351;&#305;m:</strong> Nab&#305;z var m&#305;? Ciddi yan&#305;k veya kanama?</p></div>
-                    <div class="firstaid-step-card"><h4>ğŸšª 4. Tahliye &#214;nceli&#287;i</h4><p>â€¢ Yang&#305;nda b&#246;lgeyi derhal terk edin â€” b&#252;y&#252;k &#305;s&#305; ve duman dakikalar i&#231;inde &#246;ld&#252;r&#252;r<br>â€¢ Kimyasalda r&#252;zgar y&#246;n&#252;n&#252;n tersine ve dik a&#231;&#305;da ka&#231;&#305;n<br>â€¢ N&#252;kleer/radyasyonda i&#231; mekÃ¢na s&#305;&#287;&#305;n&#305;n, kap&#305; ve pencereleri bantla kapat&#305;n</p></div>
-                    <div class="firstaid-warning"><h5>âš ï¸ KR&#304;T&#304;K UYARILAR</h5><p>â€¢ Kimyasal veya radyasyon maruziyeti &#351;&#252;phesinde k&#305;yafetleri d&#305;&#351;ar&#305;da &#231;&#305;kar&#305;n, bol suyla y&#305;kay&#305;n<br>â€¢ Boyun/omurga yaralanmas&#305; &#351;&#252;phesinde hareket ettirmeyin<br>â€¢ Bilin&#231;siz yaral&#305;lara yiyecek/i&#231;ecek vermeyin</p></div>
+                    <div class="tab-section-title"><span style="font-size:2rem">🧠</span><h3>&#304;lk Yard&#305;m&#305;n Temel Kurallar&#305;</h3></div>
+                    <div class="firstaid-step-card"><h4>🛡️ 1. &#214;nce Kendinizi Koruyun</h4><p>Yang&#305;n, kimyasal veya n&#252;kleer olay b&#246;lgesinde kendi g&#252;venli&#287;inizi tehlikeye atmadan m&#252;dahale edin. Uygun koruyucu donan&#305;m olmadan kimyasal veya radyasyon b&#246;lgesine girmeyin.</p></div>
+                    <div class="firstaid-step-card"><h4>📞 2. Hemen 112'yi Aray&#305;n</h4><p>Olay t&#252;r&#252;n&#252; (yang&#305;n / kimyasal / n&#252;kleer), yerini ve yaral&#305; say&#305;s&#305;n&#305; net bildirin. Kimyasal olaylarda maddenin ad&#305;n&#305; veya MSDS numaras&#305;n&#305; payla&#351;&#305;n. Telefonu ilk siz kapatmay&#305;n.</p></div>
+                    <div class="firstaid-step-card"><h4>🔍 3. ABC De&#287;erlendirmesi</h4><p><strong>A — Hava Yolu:</strong> A&#231;&#305;k m&#305;? Duman veya kimyasal maruziyeti var m&#305;?<br><strong>B — Solunum:</strong> Nefes al&#305;yor mu? Wheezing, &#246;ks&#252;r&#252;k?<br><strong>C — Dola&#351;&#305;m:</strong> Nab&#305;z var m&#305;? Ciddi yan&#305;k veya kanama?</p></div>
+                    <div class="firstaid-step-card"><h4>🚪 4. Tahliye &#214;nceli&#287;i</h4><p>• Yang&#305;nda b&#246;lgeyi derhal terk edin — b&#252;y&#252;k &#305;s&#305; ve duman dakikalar i&#231;inde &#246;ld&#252;r&#252;r<br>• Kimyasalda r&#252;zgar y&#246;n&#252;n&#252;n tersine ve dik a&#231;&#305;da ka&#231;&#305;n<br>• N&#252;kleer/radyasyonda i&#231; mekâna s&#305;&#287;&#305;n&#305;n, kap&#305; ve pencereleri bantla kapat&#305;n</p></div>
+                    <div class="firstaid-warning"><h5>⚠️ KR&#304;T&#304;K UYARILAR</h5><p>• Kimyasal veya radyasyon maruziyeti &#351;&#252;phesinde k&#305;yafetleri d&#305;&#351;ar&#305;da &#231;&#305;kar&#305;n, bol suyla y&#305;kay&#305;n<br>• Boyun/omurga yaralanmas&#305; &#351;&#252;phesinde hareket ettirmeyin<br>• Bilin&#231;siz yaral&#305;lara yiyecek/i&#231;ecek vermeyin</p></div>
                 </div>
 
                 <!-- Duman -->
                 <div class="firstaid-tab-content" id="smoke-tab">
-                    <div class="tab-section-title"><span style="font-size:2rem">ğŸ’¨</span><h3>Duman Zehirlenmesi ve CO Zehirlenmesi</h3></div>
-                    <div class="firstaid-step-card"><h4>ğŸ’¨ Belirtiler</h4><p><strong>Hafif:</strong> Ba&#351; a&#287;r&#305;s&#305;, bulant&#305;, hafif nefes darl&#305;&#287;&#305;<br><strong>Orta:</strong> Konf&#252;zyon, koordinasyon bozuklu&#287;u, &#351;iddetli ba&#351; a&#287;r&#305;s&#305;<br><strong>A&#287;&#305;r:</strong> Bilin&#231; kayb&#305;, n&#246;bet, kalp durmas&#305; â€” KR&#304;T&#304;K</p></div>
-                    <div class="firstaid-step-card"><h4>ğŸƒ &#304;lk Yap&#305;lacaklar</h4><p>1. Ki&#351;iyi derhal temiz havaya &#231;&#305;kar&#305;n<br>2. Hemen 112'yi aray&#305;n<br>3. Solunum yoksa CPR ba&#351;lay&#305;n<br>4. Y&#252;ksek konsantrasyonlu oksijen uygulanana kadar hastanede izlenmeli<br>5. CO zehirlenmesinde ki&#351;i iyi g&#246;r&#252;nse bile hastaneye gidin</p></div>
-                    <div class="firstaid-warning"><h5>âš ï¸ CO (KARBON MONOKS&#304;T) UYARISI</h5><p>CO renksiz, kokusuz ve tats&#305;zd&#305;r. Duman olmadan da zehirleyebilir. Kapal&#305; ortamda jenerat&#246;r, barbek&#252; veya sobadan yay&#305;l&#305;r. Duman dedekt&#246;r&#252;n&#252;n yan&#305; s&#305;ra CO dedekt&#246;r&#252; de zorunludur.</p></div>
+                    <div class="tab-section-title"><span style="font-size:2rem">💨</span><h3>Duman Zehirlenmesi ve CO Zehirlenmesi</h3></div>
+                    <div class="firstaid-step-card"><h4>💨 Belirtiler</h4><p><strong>Hafif:</strong> Ba&#351; a&#287;r&#305;s&#305;, bulant&#305;, hafif nefes darl&#305;&#287;&#305;<br><strong>Orta:</strong> Konf&#252;zyon, koordinasyon bozuklu&#287;u, &#351;iddetli ba&#351; a&#287;r&#305;s&#305;<br><strong>A&#287;&#305;r:</strong> Bilin&#231; kayb&#305;, n&#246;bet, kalp durmas&#305; — KR&#304;T&#304;K</p></div>
+                    <div class="firstaid-step-card"><h4>🏃 &#304;lk Yap&#305;lacaklar</h4><p>1. Ki&#351;iyi derhal temiz havaya &#231;&#305;kar&#305;n<br>2. Hemen 112'yi aray&#305;n<br>3. Solunum yoksa CPR ba&#351;lay&#305;n<br>4. Y&#252;ksek konsantrasyonlu oksijen uygulanana kadar hastanede izlenmeli<br>5. CO zehirlenmesinde ki&#351;i iyi g&#246;r&#252;nse bile hastaneye gidin</p></div>
+                    <div class="firstaid-warning"><h5>⚠️ CO (KARBON MONOKS&#304;T) UYARISI</h5><p>CO renksiz, kokusuz ve tats&#305;zd&#305;r. Duman olmadan da zehirleyebilir. Kapal&#305; ortamda jenerat&#246;r, barbek&#252; veya sobadan yay&#305;l&#305;r. Duman dedekt&#246;r&#252;n&#252;n yan&#305; s&#305;ra CO dedekt&#246;r&#252; de zorunludur.</p></div>
                     <div class="firstaid-tips">
-                        <div class="firstaid-tip"><h5>ğŸ”´ CO Dedekt&#246;r&#252;</h5><p>Her katta, yatak odalar&#305; yak&#305;n&#305;na CO dedekt&#246;r&#252; kurun. Pili her y&#305;l de&#287;i&#351;tirin.</p></div>
-                        <div class="firstaid-tip"><h5>ğŸ¥ Hiperbarik Oksijen</h5><p>Ciddi CO zehirlenmesinde hiperbarik oksijen tedavisi uygulan&#305;r. En yak&#305;n merkezi &#246;nceden &#246;&#287;renin.</p></div>
+                        <div class="firstaid-tip"><h5>🔴 CO Dedekt&#246;r&#252;</h5><p>Her katta, yatak odalar&#305; yak&#305;n&#305;na CO dedekt&#246;r&#252; kurun. Pili her y&#305;l de&#287;i&#351;tirin.</p></div>
+                        <div class="firstaid-tip"><h5>🏥 Hiperbarik Oksijen</h5><p>Ciddi CO zehirlenmesinde hiperbarik oksijen tedavisi uygulan&#305;r. En yak&#305;n merkezi &#246;nceden &#246;&#287;renin.</p></div>
                     </div>
                 </div>
 
                 <!-- Yan&#305;klar -->
                 <div class="firstaid-tab-content" id="burn-tab">
-                    <div class="tab-section-title"><span style="font-size:2rem">ğŸ”¥</span><h3>Yan&#305;klarda &#304;lk Yard&#305;m</h3></div>
-                    <div class="firstaid-step-card"><h4>ğŸ”¥ 1. Derece Yan&#305;k</h4><p><strong>Belirtiler:</strong> K&#305;zar&#305;kl&#305;k, hafif &#351;i&#351;lik, a&#287;r&#305;<br><strong>Yap&#305;lacaklar:</strong> 15-20 dk so&#287;uk (buzlu de&#287;il!) akan su, steril &#246;rt&#252;, yan&#305;k jeli.</p></div>
-                    <div class="firstaid-step-card"><h4>ğŸ”¥ğŸ”¥ 2. Derece Yan&#305;k</h4><p><strong>Belirtiler:</strong> Kabarc&#305;klar, &#351;iddetli a&#287;r&#305;, &#305;slak g&#246;r&#252;n&#252;m<br><strong>Yap&#305;lacaklar:</strong> So&#287;uk su, kabarc&#305;klar&#305; patlatmay&#305;n, steril &#246;rt&#252;, acil servis.</p></div>
-                    <div class="firstaid-step-card"><h4>ğŸ”¥ğŸ”¥ğŸ”¥ 3. Derece Yan&#305;k</h4><p><strong>Belirtiler:</strong> Deri beyaz/siyah/k&#246;m&#252;rle&#351;mi&#351;, a&#287;r&#305; yok (sinir hasar&#305;)<br><strong>Yap&#305;lacaklar:</strong> Hemen 112, temiz kuru bez, kesinlikle su uygulamay&#305;n.</p></div>
-                    <div class="firstaid-warning"><h5>âŒ YANIKLARDA ASLA YAPILMAMASI GEREKENLER</h5><p>â€¢ Di&#351; macunu, yo&#287;urt, tereya&#287;&#305;, zeytinya&#287;&#305; s&#252;rmeyin<br>â€¢ Buz veya &#231;ok so&#287;uk su uygulamay&#305;n â€” doku hasar&#305; artar<br>â€¢ Kabarc&#305;klar&#305; patlatmay&#305;n<br>â€¢ Yap&#305;&#351;&#305;k k&#305;yafetleri zorla &#231;&#305;karmay&#305;n</p></div>
+                    <div class="tab-section-title"><span style="font-size:2rem">🔥</span><h3>Yan&#305;klarda &#304;lk Yard&#305;m</h3></div>
+                    <div class="firstaid-step-card"><h4>🔥 1. Derece Yan&#305;k</h4><p><strong>Belirtiler:</strong> K&#305;zar&#305;kl&#305;k, hafif &#351;i&#351;lik, a&#287;r&#305;<br><strong>Yap&#305;lacaklar:</strong> 15-20 dk so&#287;uk (buzlu de&#287;il!) akan su, steril &#246;rt&#252;, yan&#305;k jeli.</p></div>
+                    <div class="firstaid-step-card"><h4>🔥🔥 2. Derece Yan&#305;k</h4><p><strong>Belirtiler:</strong> Kabarc&#305;klar, &#351;iddetli a&#287;r&#305;, &#305;slak g&#246;r&#252;n&#252;m<br><strong>Yap&#305;lacaklar:</strong> So&#287;uk su, kabarc&#305;klar&#305; patlatmay&#305;n, steril &#246;rt&#252;, acil servis.</p></div>
+                    <div class="firstaid-step-card"><h4>🔥🔥🔥 3. Derece Yan&#305;k</h4><p><strong>Belirtiler:</strong> Deri beyaz/siyah/k&#246;m&#252;rle&#351;mi&#351;, a&#287;r&#305; yok (sinir hasar&#305;)<br><strong>Yap&#305;lacaklar:</strong> Hemen 112, temiz kuru bez, kesinlikle su uygulamay&#305;n.</p></div>
+                    <div class="firstaid-warning"><h5>❌ YANIKLARDA ASLA YAPILMAMASI GEREKENLER</h5><p>• Di&#351; macunu, yo&#287;urt, tereya&#287;&#305;, zeytinya&#287;&#305; s&#252;rmeyin<br>• Buz veya &#231;ok so&#287;uk su uygulamay&#305;n — doku hasar&#305; artar<br>• Kabarc&#305;klar&#305; patlatmay&#305;n<br>• Yap&#305;&#351;&#305;k k&#305;yafetleri zorla &#231;&#305;karmay&#305;n</p></div>
                 </div>
 
                 <!-- Kimyasal -->
                 <div class="firstaid-tab-content" id="chemical-tab">
-                    <div class="tab-section-title"><span style="font-size:2rem">â˜£ï¸</span><h3>Kimyasal Temas ve Zehirlenmede &#304;lk Yard&#305;m</h3></div>
-                    <div class="firstaid-step-card"><h4>ğŸš¿ Deri Temas&#305;nda</h4><p>1. Koruyucu eldiven tak&#305;n â€” kontamine olmaktan ka&#231;&#305;n&#305;n<br>2. K&#305;yafetleri ve tak&#305;lar&#305; d&#305;&#351;ar&#305;da hemen &#231;&#305;kar&#305;n (po&#351;ete koyun)<br>3. Etkilenen b&#246;lgeyi en az 15-20 dk bol akan suyla y&#305;kay&#305;n<br>4. Asit veya bazlar&#305; n&#246;tralize etmeye &#231;al&#305;&#351;may&#305;n<br>5. 112'yi aray&#305;n ve maddenin ad&#305;n&#305; bildirin</p></div>
-                    <div class="firstaid-step-card"><h4>ğŸ‘ï¸ G&#246;z Temas&#305;nda</h4><p>1. Derhal bol akan suyla en az 15-20 dk g&#246;zleri y&#305;kay&#305;n<br>2. Lensleri ilk f&#305;rsatta &#231;&#305;kar&#305;n (suyla y&#305;kad&#305;ktan sonra)<br>3. G&#246;z&#252; ovmay&#305;n<br>4. Acil servise gidin</p></div>
-                    <div class="firstaid-step-card"><h4>ğŸ’¨ Solunumda</h4><p>1. Ki&#351;iyi derhal temiz havaya &#231;&#305;kar&#305;n<br>2. Solunum yoksa CPR ba&#351;lay&#305;n (a&#287;&#305;zdan a&#287;za yapmay&#305;n â€” kendi g&#252;venli&#287;iniz)<br>3. 112'yi aray&#305;n ve maruziyet maddesini bildirin</p></div>
-                    <div class="firstaid-warning"><h5>â˜ ï¸ YUTMADA / ZEH&#304;RLENMEDE</h5><p>â€¢ Kusturmaya &#231;al&#305;&#351;may&#305;n â€” baz&#305; kimyasallar bo&#287;aza ikinci kez hasar verir<br>â€¢ Zehir Dan&#305;&#351;ma Hatt&#305;: <strong>114</strong><br>â€¢ Maddenin ambalaj&#305;n&#305; 112 ekibine g&#246;sterin</p></div>
+                    <div class="tab-section-title"><span style="font-size:2rem">☣️</span><h3>Kimyasal Temas ve Zehirlenmede &#304;lk Yard&#305;m</h3></div>
+                    <div class="firstaid-step-card"><h4>🚿 Deri Temas&#305;nda</h4><p>1. Koruyucu eldiven tak&#305;n — kontamine olmaktan ka&#231;&#305;n&#305;n<br>2. K&#305;yafetleri ve tak&#305;lar&#305; d&#305;&#351;ar&#305;da hemen &#231;&#305;kar&#305;n (po&#351;ete koyun)<br>3. Etkilenen b&#246;lgeyi en az 15-20 dk bol akan suyla y&#305;kay&#305;n<br>4. Asit veya bazlar&#305; n&#246;tralize etmeye &#231;al&#305;&#351;may&#305;n<br>5. 112'yi aray&#305;n ve maddenin ad&#305;n&#305; bildirin</p></div>
+                    <div class="firstaid-step-card"><h4>👁️ G&#246;z Temas&#305;nda</h4><p>1. Derhal bol akan suyla en az 15-20 dk g&#246;zleri y&#305;kay&#305;n<br>2. Lensleri ilk f&#305;rsatta &#231;&#305;kar&#305;n (suyla y&#305;kad&#305;ktan sonra)<br>3. G&#246;z&#252; ovmay&#305;n<br>4. Acil servise gidin</p></div>
+                    <div class="firstaid-step-card"><h4>💨 Solunumda</h4><p>1. Ki&#351;iyi derhal temiz havaya &#231;&#305;kar&#305;n<br>2. Solunum yoksa CPR ba&#351;lay&#305;n (a&#287;&#305;zdan a&#287;za yapmay&#305;n — kendi g&#252;venli&#287;iniz)<br>3. 112'yi aray&#305;n ve maruziyet maddesini bildirin</p></div>
+                    <div class="firstaid-warning"><h5>☠️ YUTMADA / ZEH&#304;RLENMEDE</h5><p>• Kusturmaya &#231;al&#305;&#351;may&#305;n — baz&#305; kimyasallar bo&#287;aza ikinci kez hasar verir<br>• Zehir Dan&#305;&#351;ma Hatt&#305;: <strong>114</strong><br>• Maddenin ambalaj&#305;n&#305; 112 ekibine g&#246;sterin</p></div>
                 </div>
 
                 <!-- CPR -->
                 <div class="firstaid-tab-content" id="cpr-tab">
-                    <div class="tab-section-title"><span style="font-size:2rem">ğŸ’“</span><h3>CPR â€” Temel Ya&#351;am Deste&#287;i</h3></div>
-                    <div class="firstaid-step-card"><h4>ğŸ’“ Yeti&#351;kin CPR</h4><p><strong>D&#246;ng&#252;:</strong> 30 g&#246;&#287;&#252;s bas&#305; + 2 solunum<br><strong>H&#305;z:</strong> 100-120 bas&#305;/dakika<br><strong>Derinlik:</strong> 5-6 cm<br><strong>Not:</strong> Kimyasal maruziyette a&#287;&#305;zdan a&#287;za solunum yapmay&#305;n â€” tek ba&#351;&#305;na g&#246;&#287;&#252;s bas&#305; uygulay&#305;n</p></div>
-                    <div class="firstaid-step-card"><h4>ğŸ‘¶ &#199;ocuk ve Bebek CPR</h4><p><strong>&#199;ocuk:</strong> 1 el, 5 cm derinlik, 30:2<br><strong>Bebek:</strong> 2 parmak, 4 cm derinlik, 30:2</p></div>
-                    <div class="firstaid-step-card"><h4>ğŸŒ¬ï¸ Suni Solunum</h4><p>1. Ba&#351;&#305; hafif&#231;e geriye yat&#305;r, &#231;eneyi kald&#305;r<br>2. Burnu kapat<br>3. A&#287;z&#305;n&#305; kapay, yakla&#351;&#305;k 1 saniye &#252;fle<br>4. G&#246;&#287;s&#252;n y&#252;kselip al&#231;ald&#305;&#287;&#305;n&#305; kontrol et</p></div>
+                    <div class="tab-section-title"><span style="font-size:2rem">💓</span><h3>CPR — Temel Ya&#351;am Deste&#287;i</h3></div>
+                    <div class="firstaid-step-card"><h4>💓 Yeti&#351;kin CPR</h4><p><strong>D&#246;ng&#252;:</strong> 30 g&#246;&#287;&#252;s bas&#305; + 2 solunum<br><strong>H&#305;z:</strong> 100-120 bas&#305;/dakika<br><strong>Derinlik:</strong> 5-6 cm<br><strong>Not:</strong> Kimyasal maruziyette a&#287;&#305;zdan a&#287;za solunum yapmay&#305;n — tek ba&#351;&#305;na g&#246;&#287;&#252;s bas&#305; uygulay&#305;n</p></div>
+                    <div class="firstaid-step-card"><h4>👶 &#199;ocuk ve Bebek CPR</h4><p><strong>&#199;ocuk:</strong> 1 el, 5 cm derinlik, 30:2<br><strong>Bebek:</strong> 2 parmak, 4 cm derinlik, 30:2</p></div>
+                    <div class="firstaid-step-card"><h4>🌬️ Suni Solunum</h4><p>1. Ba&#351;&#305; hafif&#231;e geriye yat&#305;r, &#231;eneyi kald&#305;r<br>2. Burnu kapat<br>3. A&#287;z&#305;n&#305; kapay, yakla&#351;&#305;k 1 saniye &#252;fle<br>4. G&#246;&#287;s&#252;n y&#252;kselip al&#231;ald&#305;&#287;&#305;n&#305; kontrol et</p></div>
                     <div class="firstaid-tips">
-                        <div class="firstaid-tip"><h5>âš¡ AED Cihaz&#305;</h5><p>Otomatik defibrilat&#246;r varsa hemen kullan. Sesli y&#246;nlendirir, CPR'a devam et.</p></div>
-                        <div class="firstaid-tip"><h5>â±ï¸ Zaman Kritik</h5><p>Her ge&#231;en dakika hayatta kalma &#351;ans&#305;n&#305; %7-10 d&#252;&#351;&#252;r&#252;r. Ambulans gelene kadar b&#305;rakmay&#305;n.</p></div>
+                        <div class="firstaid-tip"><h5>⚡ AED Cihaz&#305;</h5><p>Otomatik defibrilat&#246;r varsa hemen kullan. Sesli y&#246;nlendirir, CPR'a devam et.</p></div>
+                        <div class="firstaid-tip"><h5>⏱️ Zaman Kritik</h5><p>Her ge&#231;en dakika hayatta kalma &#351;ans&#305;n&#305; %7-10 d&#252;&#351;&#252;r&#252;r. Ambulans gelene kadar b&#305;rakmay&#305;n.</p></div>
                     </div>
                 </div>
 
                 <!-- Numaralar -->
                 <div class="firstaid-tab-content" id="numbers-tab">
-                    <div class="tab-section-title"><span style="font-size:2rem">ğŸ“</span><h3>Acil Durum Telefon Numaralar&#305;</h3></div>
+                    <div class="tab-section-title"><span style="font-size:2rem">📞</span><h3>Acil Durum Telefon Numaralar&#305;</h3></div>
                     <div class="emergency-numbers">
                         <div class="emergency-number" onclick="location.href='tel:112'" role="button"><div class="number">112</div><div class="service">AC&#304;L YARDIM</div><p>T&#252;m acil durumlar</p></div>
                         <div class="emergency-number" onclick="location.href='tel:110'" role="button"><div class="number">110</div><div class="service">&#304;TFA&#304;YE</div><p>Yang&#305;n, kurtarma</p></div>
@@ -563,9 +563,9 @@
                         <div class="emergency-number" onclick="location.href='tel:122'" role="button"><div class="number">122</div><div class="service">AFAD</div><p>Afet koordinasyon</p></div>
                     </div>
                     <div style="margin-top:2rem;">
-                        <h4 style="color:var(--primary);margin-bottom:1rem;">ğŸ“ Di&#287;er &#214;nemli Numaralar</h4>
+                        <h4 style="color:var(--primary);margin-bottom:1rem;">📞 Di&#287;er &#214;nemli Numaralar</h4>
                         <ul class="number-list">
-                            <li><span class="number">184</span><span class="service">SAB&#304;M â€” Sa&#287;l&#305;k Bakanl&#305;&#287;&#305;</span></li>
+                            <li><span class="number">184</span><span class="service">SAB&#304;M — Sa&#287;l&#305;k Bakanl&#305;&#287;&#305;</span></li>
                             <li><span class="number">155</span><span class="service">POL&#304;S &#304;MDAT</span></li>
                             <li><span class="number">156</span><span class="service">JANDARMA</span></li>
                             <li><span class="number">186</span><span class="service">ELEKTR&#304;K ARIZA</span></li>
@@ -573,7 +573,7 @@
                         </ul>
                     </div>
                     <div class="firstaid-warning" style="margin-top:1.5rem;">
-                        <h5>ğŸ“± AC&#304;L ARAMADA</h5>
+                        <h5>📱 AC&#304;L ARAMADA</h5>
                         <p>1. Sakin olun ve net konu&#351;un<br>2. Olay t&#252;r&#252;n&#252; (yang&#305;n/kimyasal/radyasyon) a&#231;&#305;k&#231;a belirtin<br>3. Tam adresinizi ve konumunuzu s&#246;yleyin<br>4. Telefonu ilk siz kapatmay&#305;n</p>
                     </div>
                 </div>
@@ -586,7 +586,7 @@
 <section class="hero">
     <div class="container">
         <div class="hero-content">
-            <h1 class="animate-fade-in-up">ğŸ”¥ &#304;nsan Kaynakl&#305; Afetler</h1>
+            <h1 class="animate-fade-in-up">🔥 &#304;nsan Kaynakl&#305; Afetler</h1>
             <p class="animate-fade-in-up animate-delay-100">Yang&#305;n, kimyasal kaza ve n&#252;kleer/radyasyon olaylar&#305; i&#231;in kapsaml&#305; haz&#305;rl&#305;k rehberi ve ileri d&#252;zey testler</p>
         </div>
     </div>
@@ -595,13 +595,13 @@
 <div class="container">
     <div class="emergency-banner">
         <div class="emergency-banner-left">
-            <span style="font-size:1.5rem">ğŸš¨</span>
+            <span style="font-size:1.5rem">🚨</span>
             <div>
                 <strong style="font-size:clamp(1rem,3vw,1.25rem);display:block;">AC&#304;L DURUM: 112</strong>
                 <span style="font-size:.875rem;opacity:.9;">Yang&#305;n, kimyasal ve radyasyon olaylar&#305; i&#231;in</span>
             </div>
         </div>
-        <button id="emergencyFirstAidButton">ğŸ†˜ &#304;lk Yard&#305;m</button>
+        <button id="emergencyFirstAidButton">🆘 &#304;lk Yard&#305;m</button>
     </div>
 </div>
 
@@ -614,30 +614,30 @@
             </div>
             <div class="grid grid-cols-3">
                 <div class="card animate-fade-in-up" data-type="yangin" tabindex="0" role="button" aria-label="Yang&#305;n kart&#305;">
-                    <div class="card-icon">ğŸ”¥</div>
+                    <div class="card-icon">🔥</div>
                     <h3>Yang&#305;n</h3>
                     <p>Bina yang&#305;nlar&#305;, orman yang&#305;nlar&#305; ve ara&#231; yang&#305;nlar&#305;. Tahliye plan&#305;, yang&#305;n merdiveni, duman dedekt&#246;r&#252; ve yang&#305;n s&#246;nd&#252;r&#252;c&#252; kullan&#305;m&#305;.</p>
                     <div class="card-actions">
-                        <button class="card-btn primary" onclick="startTest('yangin');event.stopPropagation()">â–¶ï¸ Test Ba&#351;lat</button>
-                        <button class="card-btn secondary" onclick="showInfo('yangin');event.stopPropagation()">ğŸ“š Bilgi Al</button>
+                        <button class="card-btn primary" onclick="startTest('yangin');event.stopPropagation()">▶️ Test Ba&#351;lat</button>
+                        <button class="card-btn secondary" onclick="showInfo('yangin');event.stopPropagation()">📚 Bilgi Al</button>
                     </div>
                 </div>
                 <div class="card animate-fade-in-up animate-delay-100" data-type="kimyasal" tabindex="0" role="button" aria-label="Kimyasal Kaza kart&#305;">
-                    <div class="card-icon">â˜£ï¸</div>
+                    <div class="card-icon">☣️</div>
                     <h3>Kimyasal Kaza</h3>
                     <p>End&#252;striyel kimyasal s&#305;z&#305;nt&#305;lar, tren/ara&#231; kazalar&#305;nda tehlikeli madde yay&#305;l&#305;m&#305;. HAZMAT prosed&#252;rleri, s&#305;&#287;&#305;nak ve tahliye stratejileri.</p>
                     <div class="card-actions">
-                        <button class="card-btn primary" onclick="startTest('kimyasal');event.stopPropagation()">â–¶ï¸ Test Ba&#351;lat</button>
-                        <button class="card-btn secondary" onclick="showInfo('kimyasal');event.stopPropagation()">ğŸ“š Bilgi Al</button>
+                        <button class="card-btn primary" onclick="startTest('kimyasal');event.stopPropagation()">▶️ Test Ba&#351;lat</button>
+                        <button class="card-btn secondary" onclick="showInfo('kimyasal');event.stopPropagation()">📚 Bilgi Al</button>
                     </div>
                 </div>
                 <div class="card animate-fade-in-up animate-delay-200" data-type="nukleer" tabindex="0" role="button" aria-label="N&#252;kleer/Radyasyon kart&#305;">
-                    <div class="card-icon">â˜¢ï¸</div>
+                    <div class="card-icon">☢️</div>
                     <h3>N&#252;kleer / Radyasyon</h3>
                     <p>N&#252;kleer santral kazalar&#305; ve radyoaktif madde yay&#305;l&#305;m&#305;. &#304;&#231; s&#305;&#287;&#305;nak, iyot tableti, kontaminasyon giderme ve uzun vadeli &#246;nlemler.</p>
                     <div class="card-actions">
-                        <button class="card-btn primary" onclick="startTest('nukleer');event.stopPropagation()">â–¶ï¸ Test Ba&#351;lat</button>
-                        <button class="card-btn secondary" onclick="showInfo('nukleer');event.stopPropagation()">ğŸ“š Bilgi Al</button>
+                        <button class="card-btn primary" onclick="startTest('nukleer');event.stopPropagation()">▶️ Test Ba&#351;lat</button>
+                        <button class="card-btn secondary" onclick="showInfo('nukleer');event.stopPropagation()">📚 Bilgi Al</button>
                     </div>
                 </div>
             </div>
@@ -645,7 +645,7 @@
             <div class="detail-section animate-fade-in-up" id="detailSection" style="display:none;">
                 <h2 id="detailTitle"></h2>
                 <div id="detailContent"></div>
-                <button class="card-btn secondary" style="margin-top:1.5rem;max-width:200px;" onclick="hideInfo()">â† Geri D&#246;n</button>
+                <button class="card-btn secondary" style="margin-top:1.5rem;max-width:200px;" onclick="hideInfo()">← Geri D&#246;n</button>
             </div>
         </div>
     </section>
@@ -654,7 +654,7 @@
 <div class="test-overlay" id="testOverlay" role="dialog" aria-modal="true" aria-labelledby="testTitle">
     <div class="test-header">
         <h2 id="testTitle">Test</h2>
-        <button class="small-close-btn" onclick="closeTest()" aria-label="Testi Kapat">âœ•</button>
+        <button class="small-close-btn" onclick="closeTest()" aria-label="Testi Kapat">✕</button>
     </div>
     <div class="test-content" id="testContent"></div>
 </div>
@@ -663,33 +663,33 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-column">
-                <h4>ğŸš¨ Afet Haz&#305;rl&#305;k</h4>
+                <h4>🚨 Afet Haz&#305;rl&#305;k</h4>
                 <p style="color:var(--text-footer-p);margin-bottom:1rem;font-size:.9rem;">Do&#287;al afetlere haz&#305;rl&#305;k i&#231;in rehber ve bilgi kayna&#287;&#305;.</p>
-                <button id="footerFirstAidButton">ğŸ†˜ &#304;lk Yard&#305;m Rehberi</button>
+                <button id="footerFirstAidButton">🆘 &#304;lk Yard&#305;m Rehberi</button>
             </div>
             <div class="footer-column">
-                <h4>ğŸ”— H&#305;zl&#305; Ba&#287;lant&#305;lar</h4>
+                <h4>🔗 H&#305;zl&#305; Ba&#287;lant&#305;lar</h4>
                 <ul class="footer-links">
-                    <li><a href="index.html">ğŸ  Ana Sayfa</a></li>
-                    <li><a href="yer.html">ğŸ”ï¸ Yer Afetleri</a></li>
-                    <li><a href="su.html">ğŸŒŠ Su Afetleri</a></li>
-                    <li><a href="hava.html">ğŸŒªï¸ Hava Afetleri</a></li>
-                    <li><a href="&#304;nsan.html">ğŸ”¥ &#304;nsan Kaynakl&#305;</a></li>
-                    <li><a href="hakkinda.html">â„¹ï¸ Hakk&#305;nda</a></li>
+                    <li><a href="index.html">🏠 Ana Sayfa</a></li>
+                    <li><a href="yer.html">🏔️ Yer Afetleri</a></li>
+                    <li><a href="su.html">🌊 Su Afetleri</a></li>
+                    <li><a href="hava.html">🌪️ Hava Afetleri</a></li>
+                    <li><a href="&#304;nsan.html">🔥 &#304;nsan Kaynakl&#305;</a></li>
+                    <li><a href="hakkinda.html">ℹ️ Hakk&#305;nda</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h4>ğŸ“ Acil Kaynaklar</h4>
+                <h4>📞 Acil Kaynaklar</h4>
                 <ul class="footer-links">
-                    <li><a href="https://www.afad.gov.tr"    target="_blank" rel="noopener">ğŸ›ï¸ AFAD</a></li>
-                    <li><a href="https://www.tdk.gov.tr"     target="_blank" rel="noopener">â˜¢ï¸ TAEK â€” N&#252;kleer</a></li>
-                    <li><a href="https://www.112.gov.tr"     target="_blank" rel="noopener">ğŸš¨ 112 Acil</a></li>
-                    <li><a href="https://www.kizilay.org.tr" target="_blank" rel="noopener">â¤ï¸ K&#305;z&#305;lay</a></li>
+                    <li><a href="https://www.afad.gov.tr"    target="_blank" rel="noopener">🏛️ AFAD</a></li>
+                    <li><a href="https://www.tdk.gov.tr"     target="_blank" rel="noopener">☢️ TAEK — N&#252;kleer</a></li>
+                    <li><a href="https://www.112.gov.tr"     target="_blank" rel="noopener">🚨 112 Acil</a></li>
+                    <li><a href="https://www.kizilay.org.tr" target="_blank" rel="noopener">❤️ K&#305;z&#305;lay</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Â© 2026 Afet Haz&#305;rl&#305;k Rehberi<br><small>Bilgilendirme ama&#231;l&#305;d&#305;r. Acil durumlarda 112'yi aray&#305;n&#305;z.</small></p>
+            <p>© 2026 Afet Haz&#305;rl&#305;k Rehberi<br><small>Bilgilendirme ama&#231;l&#305;d&#305;r. Acil durumlarda 112'yi aray&#305;n&#305;z.</small></p>
         </div>
     </div>
 </footer>
@@ -698,8 +698,8 @@
 // ===== TEMA =====
 function applyTheme(t){
     document.documentElement.setAttribute('data-theme',t);
-    const icon=t==='dark'?'â˜€ï¸':'ğŸŒ™';
-    const label=t==='dark'?'AydÄ±nlÄ±k moda geÃ§':'KaranlÄ±k moda geÃ§';
+    const icon=t==='dark'?'☀️':'🌙';
+    const label=t==='dark'?'Aydınlık moda geç':'Karanlık moda geç';
     document.querySelectorAll('.theme-toggle').forEach(b=>{b.textContent=icon;b.setAttribute('aria-label',label);});
 }
 applyTheme(localStorage.getItem('theme')||( window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
@@ -708,7 +708,7 @@ document.getElementById('themeToggle').addEventListener('click',toggleTheme);
 document.getElementById('themeToggleMobile').addEventListener('click',toggleTheme);
 window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',e=>{if(!localStorage.getItem('theme'))applyTheme(e.matches?'dark':'light');});
 
-// ===== MOBÄ°L MENÃœ =====
+// ===== MOBİL MENÜ =====
 const mobileMenuBtn=document.getElementById('mobileMenuBtn');
 const mobileMenu=document.getElementById('mobileMenu');
 const menuOverlay=document.getElementById('menuOverlay');
@@ -757,89 +757,89 @@ document.addEventListener('keydown',e=>{
     }
 });
 
-// ===== KART KLÄ°K =====
+// ===== KART KLİK =====
 document.querySelectorAll('.card').forEach(c=>{
     c.addEventListener('click',function(e){if(!e.target.closest('button'))showInfo(this.dataset.type);});
     c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();showInfo(this.dataset.type);}});
 });
 
-// ===== ANÄ°MASYON =====
+// ===== ANİMASYON =====
 if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches&&'IntersectionObserver' in window){
     const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';obs.unobserve(e.target);}});},{rootMargin:'30px',threshold:.1});
     document.querySelectorAll('.animate-fade-in-up').forEach(el=>obs.observe(el));
 }else{document.querySelectorAll('.animate-fade-in-up').forEach(el=>{el.style.opacity='1';el.style.transform='translateY(0)';});}
 
-// ===== BÄ°LGÄ° VERÄ°LERÄ° =====
+// ===== BİLGİ VERİLERİ =====
 const infoData={
-yangin:{title:"ğŸ”¥ YangÄ±n â€” DetaylÄ± Bilgi",content:`
-<div class="info-box info-box-red"><h3>ğŸ”¥ YangÄ±n NasÄ±l GeliÅŸir?</h3><p><strong>YangÄ±n</strong>, oksijen, yakÄ±t ve Ä±sÄ±nÄ±n bir araya gelmesiyle oluÅŸur (yangÄ±n Ã¼Ã§geni). Bina yangÄ±nlarÄ±nda hayatÄ± asÄ±l tehdit eden Ã§oÄŸunlukla alevler deÄŸil, <strong>duman ve zehirli gazlardÄ±r</strong>: CO (karbon monoksit), HCN (hidrojen siyanÃ¼r) ve diÄŸer toksik bileÅŸikler dakikalar iÃ§inde bilinÃ§ kaybÄ±na yol aÃ§ar.</p></div>
-<h3 class="info-h3">ğŸš¨ YangÄ±nda YapÄ±lacaklar</h3>
-<div class="step-card"><h4>ğŸƒ Bina YangÄ±nÄ±nda Tahliye</h4><p>â€¢ AlarmÄ± Ã§alÄ±ÅŸtÄ±rÄ±n ve baÄŸÄ±rarak diÄŸerlerini uyarÄ±n<br>â€¢ KapÄ±yÄ± aÃ§madan Ã¶nce sÄ±rtÄ±yla veya el tersiyle sÄ±caklÄ±ÄŸÄ±nÄ± kontrol edin â€” sÄ±caksa aÃ§mayÄ±n<br>â€¢ DumanlÄ± ortamda yere yakÄ±n emekleyin â€” duman yukarÄ±da birikir<br>â€¢ AsansÃ¶r kesinlikle kullanmayÄ±n, yangÄ±n merdivenini kullanÄ±n<br>â€¢ DÄ±ÅŸarÄ± Ã§Ä±kÄ±nca geri dÃ¶nmeyin</p></div>
-<div class="step-card"><h4>ğŸšª KaÃ§Ä±ÅŸ Yolu KapalÄ±ysa</h4><p>â€¢ KapÄ± kenarlarÄ±nÄ± giysilerle veya Ä±slak bezle tÄ±kayÄ±n<br>â€¢ Pencereden kurtarma ekibine iÅŸaret verin<br>â€¢ Pencereyi kÄ±rÄ±yorsanÄ±z alt Ã§erÃ§eveyi aÃ§Ä±n, Ã¼stÃ¼ zehirli gaz tutar<br>â€¢ 112'yi arayÄ±n ve konumunuzu bildirin</p></div>
-<div class="step-card"><h4>ğŸ‘— KÄ±yafet TutuÅŸursa</h4><p><strong>DUR â€” YAT â€” YUVARLan (Stop-Drop-Roll)</strong><br>â€¢ KoÅŸmayÄ±n â€” hava alevi bÃ¼yÃ¼tÃ¼r<br>â€¢ Yere yatÄ±n ve eller yÃ¼zde<br>â€¢ Alevler sÃ¶nene kadar yuvarlayÄ±n</p></div>
-<div class="warning-box"><h5>ğŸš« YANGIN SIRASINDA YAPILMAMASI GEREKENLER</h5><p>â€¢ AsansÃ¶re binmeyin<br>â€¢ EÅŸya almak iÃ§in geri dÃ¶nmeyin<br>â€¢ DumanlÄ± ortamda ayakta yÃ¼rÃ¼meyin<br>â€¢ KapÄ± sÄ±caksa aÃ§mayÄ±n â€” karÅŸÄ± tarafta yangÄ±n var</p></div>
-<h3 class="info-h3">ğŸ§¯ YangÄ±n SÃ¶ndÃ¼rÃ¼cÃ¼ KullanÄ±mÄ± (PASS)</h3>
-<div class="step-card"><h4>ğŸ§¯ PASS TekniÄŸi</h4><p><strong>P â€” Pull (Ã‡ek):</strong> Pimi Ã§ekin<br><strong>A â€” Aim (NiÅŸan al):</strong> LÃ¼leyi alevin tabanÄ±na yÃ¶neltin<br><strong>S â€” Squeeze (SÄ±kÄ±ÅŸtÄ±r):</strong> Kolu sÄ±kÄ±ÅŸtÄ±rÄ±n<br><strong>S â€” Sweep (SÃ¼pÃ¼r):</strong> Yandan yana sÃ¼pÃ¼r<br><br>SÃ¶ndÃ¼rÃ¼cÃ¼ yalnÄ±zca Ã§Ä±kÄ±ÅŸ yolunuz aÃ§Ä±ksa ve alev Ã§Ã¶p sepeti bÃ¼yÃ¼klÃ¼ÄŸÃ¼ndeyse kullanÄ±n.</p></div>
-<h3 class="info-h3">ğŸ  YangÄ±n HazÄ±rlÄ±ÄŸÄ±</h3>
-<div class="info-grid-4"><div class="stat-box"><strong>ğŸ”Š Duman DedektÃ¶rÃ¼</strong><p>Her katta, yatak odalarÄ± yakÄ±nÄ±na</p></div><div class="stat-box"><strong>ğŸ’¨ CO DedektÃ¶rÃ¼</strong><p>KapalÄ± Ä±sÄ±tma cihazlarÄ± yakÄ±nÄ±na</p></div><div class="stat-box"><strong>ğŸ§¯ SÃ¶ndÃ¼rÃ¼cÃ¼</strong><p>Mutfak ve garaj gibi risk alanlarÄ±</p></div><div class="stat-box"><strong>ğŸ—ºï¸ Tahliye PlanÄ±</strong><p>Aile ile pratik, 2 Ã§Ä±kÄ±ÅŸ gÃ¼zergahÄ±</p></div></div>
-<div class="info-grid-3"><div class="stat-box-red"><div style="font-size:1.75rem">â±ï¸</div><strong>2 Dakika</strong><p>YangÄ±n Ã§Ä±ktÄ±ktan sonra kaÃ§mak iÃ§in ortalama sÃ¼re bu kadardÄ±r.</p></div><div class="stat-box-green"><div style="font-size:1.75rem">ğŸ“Š</div><strong>%70 Duman</strong><p>YangÄ±n Ã¶lÃ¼mlerinin bÃ¼yÃ¼k Ã§oÄŸunluÄŸu dumandan kaynaklanÄ±r, alevden deÄŸil.</p></div><div class="stat-box-purple"><div style="font-size:1.75rem">ğŸŒ²</div><strong>Orman YangÄ±nÄ±</strong><p>RÃ¼zgar yÃ¶nÃ¼nÃ¼ ve tahliye gÃ¼zergahÄ±nÄ± Ã¶nceden Ã¶ÄŸrenin.</p></div></div>
-<div class="emergency-info"><h5>ğŸ“ Acil Numaralar</h5><p><strong>112</strong> Acil &nbsp;|&nbsp; <strong>110</strong> Ä°tfaiye &nbsp;|&nbsp; <strong>122</strong> AFAD</p></div>`},
-kimyasal:{title:"â˜£ï¸ Kimyasal Kaza â€” DetaylÄ± Bilgi",content:`
-<div class="info-box info-box-green"><h3>â˜£ï¸ Kimyasal Kaza Nedir?</h3><p><strong>Kimyasal kaza</strong>, endÃ¼striyel tesislerde, taÅŸÄ±macÄ±lÄ±k sÄ±rasÄ±nda veya depolama alanlarÄ±nda tehlikeli maddelerin kontrolsÃ¼z biÃ§imde serbest kalmasÄ±dÄ±r. TÃ¼rkiye'de sanayi kentleri (Ä°zmit, AliaÄŸa, DilovasÄ±) ve ana taÅŸÄ±macÄ±lÄ±k gÃ¼zergahlarÄ± yÃ¼ksek risk altÄ±ndadÄ±r. Zehirli gaz bulutu, sÄ±vÄ± sÄ±zÄ±ntÄ±sÄ± veya patlama biÃ§iminde gerÃ§ekleÅŸebilir.</p></div>
-<h3 class="info-h3">âš ï¸ Ä°lk Tepki: SÄ±ÄŸÄ±n mÄ± â€” Tahliye mi?</h3>
-<div class="step-card"><h4>ğŸ  Ä°Ã§ SÄ±ÄŸÄ±nak (Shelter-in-Place)</h4><p>BulunduÄŸunuz yere yakÄ±n kimyasal kaza varsa ve tahliye imkÃ¢nÄ± kÄ±sÄ±tlÄ±ysa:<br>â€¢ Binaya girin, tÃ¼m kapÄ±-pencereyi kapatÄ±n<br>â€¢ HavalandÄ±rma ve klimayÄ± kapatÄ±n<br>â€¢ KapÄ±-pencere kenarlarÄ±nÄ± Ä±slak havlu veya bantla kapatÄ±n<br>â€¢ Radyo/TV ile resmi yÃ¶nlendirmeyi bekleyin</p></div>
-<div class="step-card"><h4>ğŸƒ Tahliye</h4><p>Yetkililer tahliye emri verdiyse:<br>â€¢ RÃ¼zgar yÃ¶nÃ¼nÃ¼ Ã¶ÄŸrenin ve rÃ¼zgara dik aÃ§Ä±da uzaklaÅŸÄ±n â€” asla rÃ¼zgarla birlikte deÄŸil<br>â€¢ MÃ¼mkÃ¼nse aracÄ±n klima/havalandÄ±rmasÄ±nÄ± kapatÄ±n<br>â€¢ YaralÄ±lar varsa dokunmadan Ã¶nce koruyucu ekipman giyin<br>â€¢ 112'yi arayarak madde adÄ±nÄ± bildirin</p></div>
-<div class="step-card"><h4>ğŸ”¶ HAZMAT Renk KodlarÄ±</h4><p><strong>KÄ±rmÄ±zÄ±:</strong> YanÄ±cÄ± &nbsp;|&nbsp; <strong>SarÄ±:</strong> Reaktif &nbsp;|&nbsp; <strong>Mavi:</strong> SaÄŸlÄ±k tehlikesi &nbsp;|&nbsp; <strong>Beyaz:</strong> Ã–zel tehlike<br>UN numaralarÄ± ve turuncu plakalarÄ± fotoÄŸraflayÄ±p 112'ye bildirin.</p></div>
-<div class="danger-box"><h5>â˜ ï¸ KÄ°MYASAL DUMAN BULUTUNA GÄ°RMEYÄ°N</h5><p>GÃ¶rÃ¼nÃ¼r duman, toz veya sis bulutundan uzak durun. GÃ¶zleri yakan veya aÄŸÄ±rlaÅŸtÄ±ran, cilde dokunan yabancÄ± his, keskin koku; bunlar tehlikeli maruziyetin habercisidir. Derhal bÃ¶lgeyi terk edin.</p></div>
-<h3 class="info-h3">ğŸ§´ Dekontaminasyon (ArÄ±ndÄ±rma)</h3>
-<div class="step-card"><h4>ğŸš¿ Temel Dekontaminasyon AdÄ±mlarÄ±</h4><p>1. KÄ±yafet ve takÄ±larÄ± dÄ±ÅŸarÄ±da Ã§Ä±karÄ±n â€” poÅŸete koyun<br>2. Etkilenen bÃ¶lgeyi en az 15-20 dk bol akan suyla yÄ±kayÄ±n<br>3. Sabun kullanabilirsiniz ama ovmayÄ±n<br>4. Temiz kÄ±yafet giyin<br>5. 114 Zehir DanÄ±ÅŸma veya acil servise baÅŸvurun</p></div>
-<div class="info-grid-3"><div class="stat-box-red"><div style="font-size:1.75rem">ğŸ’¨</div><strong>Gaz Bulutu</strong><p>Gaz bulutu rÃ¼zgar yÃ¶nÃ¼yle km'lerce yayÄ±labilir.</p></div><div class="stat-box-green"><div style="font-size:1.75rem">ğŸš¿</div><strong>YÄ±kama</strong><p>15-20 dk akan su, Ã§oÄŸu kimyasal iÃ§in en etkili ilk mÃ¼dahaledir.</p></div><div class="stat-box-purple"><div style="font-size:1.75rem">ğŸ“</div><strong>Zehir DanÄ±ÅŸma</strong><p>114 numaralÄ± hat 7/24 hizmet vermektedir.</p></div></div>
-<div class="emergency-info"><h5>ğŸ“ Acil Numaralar</h5><p><strong>112</strong> Acil &nbsp;|&nbsp; <strong>114</strong> Zehir DanÄ±ÅŸma &nbsp;|&nbsp; <strong>122</strong> AFAD &nbsp;|&nbsp; <strong>110</strong> Ä°tfaiye</p></div>`},
-nukleer:{title:"â˜¢ï¸ NÃ¼kleer / Radyasyon â€” DetaylÄ± Bilgi",content:`
-<div class="info-box info-box-purple"><h3>â˜¢ï¸ NÃ¼kleer ve Radyolojik Olay Nedir?</h3><p><strong>NÃ¼kleer/radyolojik olay</strong>; nÃ¼kleer santral kazasÄ±, kirli bomba (radyolojik daÄŸÄ±tÄ±m cihazÄ±) veya tÄ±bbi/endÃ¼striyel radyoaktif madde sÄ±zÄ±ntÄ±sÄ± gibi senaryolarÄ± kapsar. TÃ¼rkiye'de Akkuyu NÃ¼kleer Santrali (Mersin) inÅŸaat/iÅŸletim aÅŸamasÄ±ndadÄ±r. KomÅŸu Ã¼lkelerdeki tesisler de takip edilmektedir (Metsamor, Kozloduy).</p></div>
-<h3 class="info-h3">ğŸ  En Kritik Kural: Ä°Ã‡ERÄ°DE KAL</h3>
-<div class="step-card"><h4>ğŸ  Ä°Ã§ SÄ±ÄŸÄ±nak (Shelter-in-Place)</h4><p>Bir nÃ¼kleer veya radyolojik olayda dÄ±ÅŸarÄ±da olmak radyasyon dozunuzu Ã¶nemli Ã¶lÃ§Ã¼de artÄ±rÄ±r. Derhal:<br>â€¢ En yakÄ±n saÄŸlam binaya girin<br>â€¢ Bodrum veya bina ortasÄ± â€” dÄ±ÅŸa bakan duvarlardan uzak<br>â€¢ TÃ¼m kapÄ±, pencere ve havalandÄ±rmayÄ± kapatÄ±n<br>â€¢ Klima ve fanlarÄ± kapatÄ±n<br>â€¢ KapÄ±-pencere kenarlarÄ±nÄ± Ä±slak havlu veya bantla kapatÄ±n<br>â€¢ Resmi kanal aÃ§Ä±klamasÄ±nÄ± bekleyin</p></div>
-<div class="step-card"><h4>ğŸ˜· KiÅŸisel Koruma</h4><p>â€¢ DÄ±ÅŸarÄ±daysanÄ±z aÄŸÄ±z ve burnu N95 maske veya Ä±slak bezle kapatÄ±n<br>â€¢ SaÃ§larÄ±nÄ±zÄ± Ã¶rtÃ¼n, deri temasÄ±nÄ± azaltÄ±n<br>â€¢ Binaya girdikten sonra kÄ±yafetleri Ã§Ä±karÄ±n (dÄ±ÅŸarÄ±da bÄ±rakÄ±n), duÅŸ alÄ±n<br>â€¢ DÄ±ÅŸarÄ±da kalan besinleri tÃ¼ketmeyin</p></div>
-<div class="step-card"><h4>ğŸ’Š Ä°yot Tableti (KI)</h4><p>â€¢ YalnÄ±zca nÃ¼kleer santral kazasÄ±nda yetkililerin yÃ¶nlendirmesiyle alÄ±n<br>â€¢ Tiroid bezini radyoaktif iyota (I-131) karÅŸÄ± korur<br>â€¢ DiÄŸer radyasyon tÃ¼rlerine karÅŸÄ± etkisizdir<br>â€¢ DoÄŸru dozda ve zamanÄ±nda alÄ±nmazsa faydasÄ± yoktur<br>â€¢ Kendi kendinize karar vermeyin</p></div>
-<div class="danger-box"><h5>â˜¢ï¸ RADYASYONDA YAPILMAMASI GEREKENLER</h5><p>â€¢ Yetkililerin onayÄ± olmadan dÄ±ÅŸarÄ± Ã§Ä±kmayÄ±n<br>â€¢ Radyasyon bÃ¶lgesinden gelen kiÅŸilerle temas kurmadan Ã¶nce dekontaminasyon yapÄ±n<br>â€¢ Evcil hayvanlarÄ± iÃ§eriye almadan Ã¶nce yÄ±kayÄ±n<br>â€¢ AÄŸ sular ve aÃ§Ä±k besinleri tÃ¼ketmeyin</p></div>
-<h3 class="info-h3">ğŸ“Š Radyasyon Ã–lÃ§Ã¼m Birimleri</h3>
-<div class="info-grid-4"><div class="stat-box"><strong>Sievert (Sv)</strong><p>Biyolojik etki birimi</p></div><div class="stat-box"><strong>mSv</strong><p>GÃ¼nlÃ¼k doÄŸal arka plan: ~0,01 mSv</p></div><div class="stat-box"><strong style="color:var(--warning)">100 mSv</strong><p>KÄ±sa vadeli yÄ±llÄ±k limite yakÄ±n</p></div><div class="stat-box"><strong style="color:var(--accent)">1.000 mSv+</strong><p>Akut radyasyon sendromu riski</p></div></div>
-<div class="info-grid-3"><div class="stat-box-purple"><div style="font-size:1.75rem">ğŸ </div><strong>Ä°Ã§ SÄ±ÄŸÄ±nak</strong><p>Bina iÃ§inde kalmak aÃ§Ä±k havaya gÃ¶re maruziyeti %70-90 azaltÄ±r.</p></div><div class="stat-box-red"><div style="font-size:1.75rem">â±ï¸</div><strong>Zaman</strong><p>Radyasyon dozu = ÅŸiddet Ã— sÃ¼re. Maruziyeti kÄ±saltmak hayat kurtarÄ±r.</p></div><div class="stat-box-green"><div style="font-size:1.75rem">ğŸ“¡</div><strong>Bilgi</strong><p>TAEK (TÃ¼rkiye Atom Enerjisi Kurumu) ve AFAD resmi kaynak olarak takip edin.</p></div></div>
-<div class="emergency-info"><h5>ğŸ“ Acil Numaralar</h5><p><strong>112</strong> Acil &nbsp;|&nbsp; <strong>122</strong> AFAD &nbsp;|&nbsp; TAEK: taek.gov.tr &nbsp;|&nbsp; <strong>184</strong> SaÄŸlÄ±k BakanlÄ±ÄŸÄ±</p></div>`}
+yangin:{title:"🔥 Yangın — Detaylı Bilgi",content:`
+<div class="info-box info-box-red"><h3>🔥 Yangın Nasıl Gelişir?</h3><p><strong>Yangın</strong>, oksijen, yakıt ve ısının bir araya gelmesiyle oluşur (yangın üçgeni). Bina yangınlarında hayatı asıl tehdit eden çoğunlukla alevler değil, <strong>duman ve zehirli gazlardır</strong>: CO (karbon monoksit), HCN (hidrojen siyanür) ve diğer toksik bileşikler dakikalar içinde bilinç kaybına yol açar.</p></div>
+<h3 class="info-h3">🚨 Yangında Yapılacaklar</h3>
+<div class="step-card"><h4>🏃 Bina Yangınında Tahliye</h4><p>• Alarmı çalıştırın ve bağırarak diğerlerini uyarın<br>• Kapıyı açmadan önce sırtıyla veya el tersiyle sıcaklığını kontrol edin — sıcaksa açmayın<br>• Dumanlı ortamda yere yakın emekleyin — duman yukarıda birikir<br>• Asansör kesinlikle kullanmayın, yangın merdivenini kullanın<br>• Dışarı çıkınca geri dönmeyin</p></div>
+<div class="step-card"><h4>🚪 Kaçış Yolu Kapalıysa</h4><p>• Kapı kenarlarını giysilerle veya ıslak bezle tıkayın<br>• Pencereden kurtarma ekibine işaret verin<br>• Pencereyi kırıyorsanız alt çerçeveyi açın, üstü zehirli gaz tutar<br>• 112'yi arayın ve konumunuzu bildirin</p></div>
+<div class="step-card"><h4>👗 Kıyafet Tutuşursa</h4><p><strong>DUR — YAT — YUVARLan (Stop-Drop-Roll)</strong><br>• Koşmayın — hava alevi büyütür<br>• Yere yatın ve eller yüzde<br>• Alevler sönene kadar yuvarlayın</p></div>
+<div class="warning-box"><h5>🚫 YANGIN SIRASINDA YAPILMAMASI GEREKENLER</h5><p>• Asansöre binmeyin<br>• Eşya almak için geri dönmeyin<br>• Dumanlı ortamda ayakta yürümeyin<br>• Kapı sıcaksa açmayın — karşı tarafta yangın var</p></div>
+<h3 class="info-h3">🧯 Yangın Söndürücü Kullanımı (PASS)</h3>
+<div class="step-card"><h4>🧯 PASS Tekniği</h4><p><strong>P — Pull (Çek):</strong> Pimi çekin<br><strong>A — Aim (Nişan al):</strong> Lüleyi alevin tabanına yöneltin<br><strong>S — Squeeze (Sıkıştır):</strong> Kolu sıkıştırın<br><strong>S — Sweep (Süpür):</strong> Yandan yana süpür<br><br>Söndürücü yalnızca çıkış yolunuz açıksa ve alev çöp sepeti büyüklüğündeyse kullanın.</p></div>
+<h3 class="info-h3">🏠 Yangın Hazırlığı</h3>
+<div class="info-grid-4"><div class="stat-box"><strong>🔊 Duman Dedektörü</strong><p>Her katta, yatak odaları yakınına</p></div><div class="stat-box"><strong>💨 CO Dedektörü</strong><p>Kapalı ısıtma cihazları yakınına</p></div><div class="stat-box"><strong>🧯 Söndürücü</strong><p>Mutfak ve garaj gibi risk alanları</p></div><div class="stat-box"><strong>🗺️ Tahliye Planı</strong><p>Aile ile pratik, 2 çıkış güzergahı</p></div></div>
+<div class="info-grid-3"><div class="stat-box-red"><div style="font-size:1.75rem">⏱️</div><strong>2 Dakika</strong><p>Yangın çıktıktan sonra kaçmak için ortalama süre bu kadardır.</p></div><div class="stat-box-green"><div style="font-size:1.75rem">📊</div><strong>%70 Duman</strong><p>Yangın ölümlerinin büyük çoğunluğu dumandan kaynaklanır, alevden değil.</p></div><div class="stat-box-purple"><div style="font-size:1.75rem">🌲</div><strong>Orman Yangını</strong><p>Rüzgar yönünü ve tahliye güzergahını önceden öğrenin.</p></div></div>
+<div class="emergency-info"><h5>📞 Acil Numaralar</h5><p><strong>112</strong> Acil &nbsp;|&nbsp; <strong>110</strong> İtfaiye &nbsp;|&nbsp; <strong>122</strong> AFAD</p></div>`},
+kimyasal:{title:"☣️ Kimyasal Kaza — Detaylı Bilgi",content:`
+<div class="info-box info-box-green"><h3>☣️ Kimyasal Kaza Nedir?</h3><p><strong>Kimyasal kaza</strong>, endüstriyel tesislerde, taşımacılık sırasında veya depolama alanlarında tehlikeli maddelerin kontrolsüz biçimde serbest kalmasıdır. Türkiye'de sanayi kentleri (İzmit, Aliağa, Dilovası) ve ana taşımacılık güzergahları yüksek risk altındadır. Zehirli gaz bulutu, sıvı sızıntısı veya patlama biçiminde gerçekleşebilir.</p></div>
+<h3 class="info-h3">⚠️ İlk Tepki: Sığın mı — Tahliye mi?</h3>
+<div class="step-card"><h4>🏠 İç Sığınak (Shelter-in-Place)</h4><p>Bulunduğunuz yere yakın kimyasal kaza varsa ve tahliye imkânı kısıtlıysa:<br>• Binaya girin, tüm kapı-pencereyi kapatın<br>• Havalandırma ve klimayı kapatın<br>• Kapı-pencere kenarlarını ıslak havlu veya bantla kapatın<br>• Radyo/TV ile resmi yönlendirmeyi bekleyin</p></div>
+<div class="step-card"><h4>🏃 Tahliye</h4><p>Yetkililer tahliye emri verdiyse:<br>• Rüzgar yönünü öğrenin ve rüzgara dik açıda uzaklaşın — asla rüzgarla birlikte değil<br>• Mümkünse aracın klima/havalandırmasını kapatın<br>• Yaralılar varsa dokunmadan önce koruyucu ekipman giyin<br>• 112'yi arayarak madde adını bildirin</p></div>
+<div class="step-card"><h4>🔶 HAZMAT Renk Kodları</h4><p><strong>Kırmızı:</strong> Yanıcı &nbsp;|&nbsp; <strong>Sarı:</strong> Reaktif &nbsp;|&nbsp; <strong>Mavi:</strong> Sağlık tehlikesi &nbsp;|&nbsp; <strong>Beyaz:</strong> Özel tehlike<br>UN numaraları ve turuncu plakaları fotoğraflayıp 112'ye bildirin.</p></div>
+<div class="danger-box"><h5>☠️ KİMYASAL DUMAN BULUTUNA GİRMEYİN</h5><p>Görünür duman, toz veya sis bulutundan uzak durun. Gözleri yakan veya ağırlaştıran, cilde dokunan yabancı his, keskin koku; bunlar tehlikeli maruziyetin habercisidir. Derhal bölgeyi terk edin.</p></div>
+<h3 class="info-h3">🧴 Dekontaminasyon (Arındırma)</h3>
+<div class="step-card"><h4>🚿 Temel Dekontaminasyon Adımları</h4><p>1. Kıyafet ve takıları dışarıda çıkarın — poşete koyun<br>2. Etkilenen bölgeyi en az 15-20 dk bol akan suyla yıkayın<br>3. Sabun kullanabilirsiniz ama ovmayın<br>4. Temiz kıyafet giyin<br>5. 114 Zehir Danışma veya acil servise başvurun</p></div>
+<div class="info-grid-3"><div class="stat-box-red"><div style="font-size:1.75rem">💨</div><strong>Gaz Bulutu</strong><p>Gaz bulutu rüzgar yönüyle km'lerce yayılabilir.</p></div><div class="stat-box-green"><div style="font-size:1.75rem">🚿</div><strong>Yıkama</strong><p>15-20 dk akan su, çoğu kimyasal için en etkili ilk müdahaledir.</p></div><div class="stat-box-purple"><div style="font-size:1.75rem">📞</div><strong>Zehir Danışma</strong><p>114 numaralı hat 7/24 hizmet vermektedir.</p></div></div>
+<div class="emergency-info"><h5>📞 Acil Numaralar</h5><p><strong>112</strong> Acil &nbsp;|&nbsp; <strong>114</strong> Zehir Danışma &nbsp;|&nbsp; <strong>122</strong> AFAD &nbsp;|&nbsp; <strong>110</strong> İtfaiye</p></div>`},
+nukleer:{title:"☢️ Nükleer / Radyasyon — Detaylı Bilgi",content:`
+<div class="info-box info-box-purple"><h3>☢️ Nükleer ve Radyolojik Olay Nedir?</h3><p><strong>Nükleer/radyolojik olay</strong>; nükleer santral kazası, kirli bomba (radyolojik dağıtım cihazı) veya tıbbi/endüstriyel radyoaktif madde sızıntısı gibi senaryoları kapsar. Türkiye'de Akkuyu Nükleer Santrali (Mersin) inşaat/işletim aşamasındadır. Komşu ülkelerdeki tesisler de takip edilmektedir (Metsamor, Kozloduy).</p></div>
+<h3 class="info-h3">🏠 En Kritik Kural: İÇERİDE KAL</h3>
+<div class="step-card"><h4>🏠 İç Sığınak (Shelter-in-Place)</h4><p>Bir nükleer veya radyolojik olayda dışarıda olmak radyasyon dozunuzu önemli ölçüde artırır. Derhal:<br>• En yakın sağlam binaya girin<br>• Bodrum veya bina ortası — dışa bakan duvarlardan uzak<br>• Tüm kapı, pencere ve havalandırmayı kapatın<br>• Klima ve fanları kapatın<br>• Kapı-pencere kenarlarını ıslak havlu veya bantla kapatın<br>• Resmi kanal açıklamasını bekleyin</p></div>
+<div class="step-card"><h4>😷 Kişisel Koruma</h4><p>• Dışarıdaysanız ağız ve burnu N95 maske veya ıslak bezle kapatın<br>• Saçlarınızı örtün, deri temasını azaltın<br>• Binaya girdikten sonra kıyafetleri çıkarın (dışarıda bırakın), duş alın<br>• Dışarıda kalan besinleri tüketmeyin</p></div>
+<div class="step-card"><h4>💊 İyot Tableti (KI)</h4><p>• Yalnızca nükleer santral kazasında yetkililerin yönlendirmesiyle alın<br>• Tiroid bezini radyoaktif iyota (I-131) karşı korur<br>• Diğer radyasyon türlerine karşı etkisizdir<br>• Doğru dozda ve zamanında alınmazsa faydası yoktur<br>• Kendi kendinize karar vermeyin</p></div>
+<div class="danger-box"><h5>☢️ RADYASYONDA YAPILMAMASI GEREKENLER</h5><p>• Yetkililerin onayı olmadan dışarı çıkmayın<br>• Radyasyon bölgesinden gelen kişilerle temas kurmadan önce dekontaminasyon yapın<br>• Evcil hayvanları içeriye almadan önce yıkayın<br>• Ağ sular ve açık besinleri tüketmeyin</p></div>
+<h3 class="info-h3">📊 Radyasyon Ölçüm Birimleri</h3>
+<div class="info-grid-4"><div class="stat-box"><strong>Sievert (Sv)</strong><p>Biyolojik etki birimi</p></div><div class="stat-box"><strong>mSv</strong><p>Günlük doğal arka plan: ~0,01 mSv</p></div><div class="stat-box"><strong style="color:var(--warning)">100 mSv</strong><p>Kısa vadeli yıllık limite yakın</p></div><div class="stat-box"><strong style="color:var(--accent)">1.000 mSv+</strong><p>Akut radyasyon sendromu riski</p></div></div>
+<div class="info-grid-3"><div class="stat-box-purple"><div style="font-size:1.75rem">🏠</div><strong>İç Sığınak</strong><p>Bina içinde kalmak açık havaya göre maruziyeti %70-90 azaltır.</p></div><div class="stat-box-red"><div style="font-size:1.75rem">⏱️</div><strong>Zaman</strong><p>Radyasyon dozu = şiddet × süre. Maruziyeti kısaltmak hayat kurtarır.</p></div><div class="stat-box-green"><div style="font-size:1.75rem">📡</div><strong>Bilgi</strong><p>TAEK (Türkiye Atom Enerjisi Kurumu) ve AFAD resmi kaynak olarak takip edin.</p></div></div>
+<div class="emergency-info"><h5>📞 Acil Numaralar</h5><p><strong>112</strong> Acil &nbsp;|&nbsp; <strong>122</strong> AFAD &nbsp;|&nbsp; TAEK: taek.gov.tr &nbsp;|&nbsp; <strong>184</strong> Sağlık Bakanlığı</p></div>`}
 };
 
-// ===== TEST VERÄ°LERÄ° =====
+// ===== TEST VERİLERİ =====
 const testData={
 yangin:[
-{question:"Bir bina yangÄ±nÄ±nda tahliye sÄ±rasÄ±nda asansÃ¶r neden kesinlikle kullanÄ±lmamalÄ±dÄ±r?",choices:["AsansÃ¶r Ã§ok yavaÅŸ Ã§alÄ±ÅŸÄ±r","YangÄ±n sÄ±rasÄ±nda elektrik kesilebilir, kapÄ±lar aÃ§Ä±lmaz ve asansÃ¶r boÅŸluÄŸu duman bacasÄ± gibi davranÄ±r","AsansÃ¶r kapasitesi yetersizdir","AsansÃ¶r yalnÄ±zca merdivensiz binalarda tehlikelidir"],correctAnswer:1,explanation:"YangÄ±n sÄ±rasÄ±nda elektrik kesilirse asansÃ¶r mahsur kalÄ±r. AsansÃ¶r boÅŸluÄŸu, zehirli gazlarÄ± hÄ±zla Ã¼st katlara ileten bir baca iÅŸlevi gÃ¶rÃ¼r. YangÄ±n merdivenlerini kullanmak her zaman zorunludur."},
-{question:"DumanlÄ± bir koridorda ilerlemeniz gerekiyor. DoÄŸru pozisyon nedir?",choices:["Dik durarak aÄŸzÄ± kapatarak yÃ¼rÃ¼yÃ¼n","Yere yakÄ±n emekleyin â€” duman ve zehirli gazlar yukarÄ±da birikir","KoÅŸarak hÄ±zla geÃ§in","Duvara yaslanarak yavaÅŸ yÃ¼rÃ¼yÃ¼n"],correctAnswer:1,explanation:"Duman ve zehirli gazlar Ä±sÄ± nedeniyle yukarÄ±ya Ã§Ä±kar. Yere yakÄ±n (10-30 cm) emeklemek, temiz havanÄ±n bulunduÄŸu bÃ¶lgede ilerlemenizi saÄŸlar."},
-{question:"YangÄ±n sÃ¶ndÃ¼rÃ¼cÃ¼ kullanÄ±mÄ±nda PASS tekniÄŸinin 'A' harfi neyi ifade eder?",choices:["Alarm â€” alarmÄ± Ã§alÄ±ÅŸtÄ±r","Aim â€” lÃ¼leyi alevin tabanÄ±na niÅŸanla","Away â€” uzaklaÅŸ","Alert â€” Ã§evreyi uyar"],correctAnswer:1,explanation:"PASS: Pull (pimi Ã§ek), Aim (alevin tabanÄ±na niÅŸanla), Squeeze (kolu sÄ±kÄ±ÅŸtÄ±r), Sweep (yandan yana sÃ¼pÃ¼r). Alevin Ã¼stÃ¼ne deÄŸil tabanÄ±na niÅŸan almak sÃ¶ndÃ¼rme etkinliÄŸini belirler."},
-{question:"KaÃ§Ä±ÅŸ yolu yangÄ±nla kesildi ve odada mahsur kaldÄ±nÄ±z. Ä°lk yapmanÄ±z gereken nedir?",choices:["Pencereden atlayÄ±n","KapÄ± kenarlarÄ±nÄ± Ä±slak bez veya giysilerle tÄ±kayÄ±n, 112'yi arayÄ±n ve kurtarma ekibine iÅŸaret verin","KapÄ±yÄ± aÃ§arak koÅŸun","Klima veya havalandÄ±rmayÄ± aÃ§Ä±n"],correctAnswer:1,explanation:"KapÄ± kenarlarÄ±nÄ± kapatmak duman ve alev giriÅŸini geciktirir. 112'yi arayÄ±p konumunuzu bildirin ve pencereden kurtarma ekibine gÃ¶rÃ¼nÃ¼r sinyal verin. Kontrol altÄ±nda olmayan bir atlama son Ã§aredir."},
-{question:"KÄ±yafetiniz tutuÅŸtu. DoÄŸru davranÄ±ÅŸ nedir?",choices:["KoÅŸarak duman ve alevden kaÃ§Ä±n","Elbisenizi Ã§Ä±karmaya Ã§alÄ±ÅŸÄ±n","DUR â€” YAT â€” YUVARLA (Stop-Drop-Roll): KoÅŸmayÄ±n, yere yatÄ±n ve eller yÃ¼zde yuvarlanÄ±n","Ãœzerinize su dÃ¶kmeye Ã§alÄ±ÅŸÄ±n"],correctAnswer:2,explanation:"KoÅŸmak havayÄ± kÃ¶rÃ¼kleyerek alevi bÃ¼yÃ¼tÃ¼r. Yere yatÄ±p yuvarlanmak alevi oksijensiz bÄ±rakÄ±r ve sÃ¶ndÃ¼rÃ¼r. Eller yÃ¼zÃ¼ korur. Bu teknik dÃ¼nya genelinde standart yangÄ±n gÃ¼venliÄŸi eÄŸitiminin parÃ§asÄ±dÄ±r."},
-{question:"KapalÄ± bir odada karbonmonoksit (CO) zehirlenmesi ÅŸÃ¼phesi var. Belirtileri nelerdir?",choices:["AteÅŸ, kÄ±zarÄ±klÄ±k ve Ã¶ksÃ¼rÃ¼k","BaÅŸ aÄŸrÄ±sÄ±, bulantÄ±, konfÃ¼zyon ve uyku hali â€” CO renksiz ve kokusuzdur","YalnÄ±zca duman kokusu","GÃ¶z yanmasÄ± ve cilt dÃ¶kÃ¼ntÃ¼sÃ¼"],correctAnswer:1,explanation:"CO renksiz, kokusuz ve tatsÄ±z olduÄŸu iÃ§in fark edilmesi zordur. BaÅŸ aÄŸrÄ±sÄ±, bulantÄ±, baÅŸ dÃ¶nmesi, konfÃ¼zyon baÅŸlÄ±ca belirtilerdir. Birden fazla kiÅŸi aynÄ± anda etkileniyorsa derhal dÄ±ÅŸarÄ± Ã§Ä±kÄ±p 112'yi arayÄ±n."},
-{question:"YangÄ±n dedektÃ¶rÃ¼nde pil ne sÄ±klÄ±kla deÄŸiÅŸtirilmelidir?",choices:["5 yÄ±lda bir","Her 10 yÄ±lda bir","YÄ±lda en az bir kez veya alarm testinde zayÄ±f ses duyulduÄŸunda","YalnÄ±zca alarm Ã§aldÄ±ÄŸÄ±nda"],correctAnswer:2,explanation:"Duman dedektÃ¶rÃ¼ pilinin yÄ±lda bir kez deÄŸiÅŸtirilmesi, gÃ¼venilir Ã§alÄ±ÅŸma iÃ§in standarttÄ±r. CihazÄ±n kendisi ise genellikle 10 yÄ±lda bir yenilenmesi gerekir. DÃ¼zenli test hayat kurtarÄ±r."}
+{question:"Bir bina yangınında tahliye sırasında asansör neden kesinlikle kullanılmamalıdır?",choices:["Asansör çok yavaş çalışır","Yangın sırasında elektrik kesilebilir, kapılar açılmaz ve asansör boşluğu duman bacası gibi davranır","Asansör kapasitesi yetersizdir","Asansör yalnızca merdivensiz binalarda tehlikelidir"],correctAnswer:1,explanation:"Yangın sırasında elektrik kesilirse asansör mahsur kalır. Asansör boşluğu, zehirli gazları hızla üst katlara ileten bir baca işlevi görür. Yangın merdivenlerini kullanmak her zaman zorunludur."},
+{question:"Dumanlı bir koridorda ilerlemeniz gerekiyor. Doğru pozisyon nedir?",choices:["Dik durarak ağzı kapatarak yürüyün","Yere yakın emekleyin — duman ve zehirli gazlar yukarıda birikir","Koşarak hızla geçin","Duvara yaslanarak yavaş yürüyün"],correctAnswer:1,explanation:"Duman ve zehirli gazlar ısı nedeniyle yukarıya çıkar. Yere yakın (10-30 cm) emeklemek, temiz havanın bulunduğu bölgede ilerlemenizi sağlar."},
+{question:"Yangın söndürücü kullanımında PASS tekniğinin 'A' harfi neyi ifade eder?",choices:["Alarm — alarmı çalıştır","Aim — lüleyi alevin tabanına nişanla","Away — uzaklaş","Alert — çevreyi uyar"],correctAnswer:1,explanation:"PASS: Pull (pimi çek), Aim (alevin tabanına nişanla), Squeeze (kolu sıkıştır), Sweep (yandan yana süpür). Alevin üstüne değil tabanına nişan almak söndürme etkinliğini belirler."},
+{question:"Kaçış yolu yangınla kesildi ve odada mahsur kaldınız. İlk yapmanız gereken nedir?",choices:["Pencereden atlayın","Kapı kenarlarını ıslak bez veya giysilerle tıkayın, 112'yi arayın ve kurtarma ekibine işaret verin","Kapıyı açarak koşun","Klima veya havalandırmayı açın"],correctAnswer:1,explanation:"Kapı kenarlarını kapatmak duman ve alev girişini geciktirir. 112'yi arayıp konumunuzu bildirin ve pencereden kurtarma ekibine görünür sinyal verin. Kontrol altında olmayan bir atlama son çaredir."},
+{question:"Kıyafetiniz tutuştu. Doğru davranış nedir?",choices:["Koşarak duman ve alevden kaçın","Elbisenizi çıkarmaya çalışın","DUR — YAT — YUVARLA (Stop-Drop-Roll): Koşmayın, yere yatın ve eller yüzde yuvarlanın","Üzerinize su dökmeye çalışın"],correctAnswer:2,explanation:"Koşmak havayı körükleyerek alevi büyütür. Yere yatıp yuvarlanmak alevi oksijensiz bırakır ve söndürür. Eller yüzü korur. Bu teknik dünya genelinde standart yangın güvenliği eğitiminin parçasıdır."},
+{question:"Kapalı bir odada karbonmonoksit (CO) zehirlenmesi şüphesi var. Belirtileri nelerdir?",choices:["Ateş, kızarıklık ve öksürük","Baş ağrısı, bulantı, konfüzyon ve uyku hali — CO renksiz ve kokusuzdur","Yalnızca duman kokusu","Göz yanması ve cilt döküntüsü"],correctAnswer:1,explanation:"CO renksiz, kokusuz ve tatsız olduğu için fark edilmesi zordur. Baş ağrısı, bulantı, baş dönmesi, konfüzyon başlıca belirtilerdir. Birden fazla kişi aynı anda etkileniyorsa derhal dışarı çıkıp 112'yi arayın."},
+{question:"Yangın dedektöründe pil ne sıklıkla değiştirilmelidir?",choices:["5 yılda bir","Her 10 yılda bir","Yılda en az bir kez veya alarm testinde zayıf ses duyulduğunda","Yalnızca alarm çaldığında"],correctAnswer:2,explanation:"Duman dedektörü pilinin yılda bir kez değiştirilmesi, güvenilir çalışma için standarttır. Cihazın kendisi ise genellikle 10 yılda bir yenilenmesi gerekir. Düzenli test hayat kurtarır."}
 ],
 kimyasal:[
-{question:"YakÄ±n Ã§evrenizde kimyasal kaza oldu ve zehirli gaz yayÄ±lÄ±yor. RÃ¼zgar gÃ¼neyden esiyor. Hangi yÃ¶ne kaÃ§malÄ±sÄ±nÄ±z?",choices:["GÃ¼neye â€” rÃ¼zgarÄ±n yÃ¶nÃ¼nde hÄ±zla uzaklaÅŸÄ±n","Kuzeye â€” rÃ¼zgar size doÄŸru esiyor, zaten maruz kalÄ±yorsunuz","DoÄŸu veya batÄ±ya â€” rÃ¼zgara dik aÃ§Ä±da uzaklaÅŸÄ±n","OlduÄŸunuz yerde kalÄ±n"],correctAnswer:2,explanation:"Kimyasal gaz bulutu rÃ¼zgar yÃ¶nÃ¼yle yayÄ±lÄ±r. RÃ¼zgara dik aÃ§Ä±da (doÄŸu veya batÄ±ya) uzaklaÅŸmak, buluttan en hÄ±zlÄ± Ã§Ä±kÄ±ÅŸ yolunu saÄŸlar. RÃ¼zgar yÃ¶nÃ¼nde kaÃ§mak bulutu kovalamak, rÃ¼zgara karÅŸÄ± kaÃ§mak bulutun iÃ§ine dalmak anlamÄ±na gelir."},
-{question:"Cildize tehlikeli kimyasal bir madde dÃ¶kÃ¼ldÃ¼. Ä°lk yapmanÄ±z gereken nedir?",choices:["KimyasalÄ± nÃ¶tralize etmek iÃ§in Ã¼zerine sirke veya karbonat dÃ¶kÃ¼n","Kimyasal maddenin adÄ±nÄ± araÅŸtÄ±rÄ±p Ã¶zel panzehir hazÄ±rlayÄ±n","Etkilenen bÃ¶lgeyi en az 15-20 dk bol akan suyla yÄ±kayÄ±n ve 112'yi arayÄ±n","AlkollÃ¼ bez veya Ä±slak mendille silin"],correctAnswer:2,explanation:"Ã‡oÄŸu kimyasal iÃ§in bol akan su ile uzun sÃ¼re yÄ±kamak en etkili ilk mÃ¼dahaledir. NÃ¶tralizasyon giriÅŸimleri kimyasal reaksiyon yaratabilir ve durumu kÃ¶tÃ¼leÅŸtirebilir. Maddenin adÄ±nÄ± sonra 112 ekibine bildirin."},
-{question:"Kimyasal kaza sonrasÄ± 'iÃ§ sÄ±ÄŸÄ±nak' uygulanÄ±rken hangi adÄ±m kritiktir?",choices:["Klima ve fanlarÄ± aÃ§Ä±k tutun â€” hava sirkÃ¼lasyonu Ã¶nemli","TÃ¼m kapÄ±-pencereyi kapatÄ±n ve havalandÄ±rmayÄ± durdurun","Bodrum katta kalÄ±n â€” kimyasallar aÅŸaÄŸÄ±ya Ã§Ã¶ker","Pencereleri hafif aÃ§Ä±k bÄ±rakÄ±n â€” taze hava iÃ§in"],correctAnswer:1,explanation:"Kimyasal buhar bina iÃ§ine sÄ±zmasÄ±nÄ± Ã¶nlemek iÃ§in tÃ¼m havalandÄ±rma sistemleri kapatÄ±lmalÄ±, kapÄ± ve pencereler bantla/Ä±slak havluyla sÄ±zdÄ±rmaz hale getirilmelidir. Klima ve vantilatÃ¶r aÃ§Ä±k bÄ±rakmak kirli havayÄ± iÃ§eri Ã§eker."},
-{question:"AraÃ§ plakasÄ±ndaki turuncu HAZMAT pano numarasÄ± ne iÅŸe yarar?",choices:["AracÄ±n sahip olduÄŸu tehlikeli madde miktarÄ±nÄ± gÃ¶sterir","UN numarasÄ± ve tehlike kodu olarak kimyasal maddenin tÃ¼rÃ¼nÃ¼ ve tehlikesini tanÄ±mlar","YalnÄ±zca gÃ¼mrÃ¼k kontrolÃ¼ iÃ§indir","AraÃ§ aÄŸÄ±rlÄ±ÄŸÄ±nÄ± gÃ¶sterir"],correctAnswer:1,explanation:"Turuncu HAZMAT panolar Ã¼st kÄ±sÄ±mda tehlike numarasÄ± (Kemler kodu), alt kÄ±sÄ±mda ise UN numarasÄ± (madde kimlik kodu) taÅŸÄ±r. Kurtarma ekipleri ve zehir danÄ±ÅŸma hatlarÄ± bu numara ile hÄ±zlÄ± mÃ¼dahale bilgisine ulaÅŸÄ±r."},
-{question:"Kimyasal sÄ±zÄ±ntÄ± bÃ¶lgesinden kurtarÄ±lan ve kimyasala maruz kalmÄ±ÅŸ birini arabaya almadan Ã¶nce ne yapmalÄ±sÄ±nÄ±z?",choices:["Hemen arabaya alÄ±n, hastane yolunda soyunur","Korunmadan kiÅŸiye yaklaÅŸmayÄ±n; kÄ±yafetlerini dÄ±ÅŸarÄ±da Ã§Ä±karmasÄ±nÄ± isteyin ve bol suyla yÄ±kayÄ±n, sonra araca alÄ±n","KiÅŸiyi battaniyeyle sarÄ±n ve havalandÄ±rmayÄ± aÃ§Ä±n","YalnÄ±zca yÃ¼zÃ¼ne su dÃ¶kÃ¼n, yeterlidir"],correctAnswer:1,explanation:"Kontamine kiÅŸi araÃ§ta ikincil maruziyet yaratÄ±r. KÄ±yafetlerin dÄ±ÅŸarÄ±da Ã§Ä±karÄ±lmasÄ± maruziyetin %80'ini azaltÄ±r. MÃ¼mkÃ¼nse bol suyla yÄ±kama yapÄ±ldÄ±ktan sonra araca alÄ±n. Kendi gÃ¼venliÄŸinizi koruyun."},
-{question:"Zehir DanÄ±ÅŸma HattÄ±'nÄ±n TÃ¼rkiye numarasÄ± nedir?",choices:["112","184","114","155"],correctAnswer:2,explanation:"TÃ¼rkiye Zehir DanÄ±ÅŸma HattÄ± 7/24 hizmet veren 114 numarasÄ±dÄ±r. Kimyasal temas, ilaÃ§ zehirlenmesi veya madde yutulmasÄ± gibi durumlarda uzman yÃ¶nlendirme saÄŸlar. Maddenin adÄ±nÄ± ve miktarÄ±nÄ± hazÄ±r edin."},
-{question:"Kimyasal kazada rÃ¼zgar yÃ¶nÃ¼nÃ¼ neden bilmek kritiktir?",choices:["RÃ¼zgar yÃ¶nÃ¼ yangÄ±n riskini artÄ±rÄ±r","Kimyasal gaz bulutu rÃ¼zgar yÃ¶nÃ¼nde taÅŸÄ±nÄ±r; tahliye yÃ¶nÃ¼nÃ¼ ve sÄ±ÄŸÄ±nak kararÄ±nÄ± belirler","RÃ¼zgar yÃ¶nÃ¼ yalnÄ±zca deniz kenarÄ±nda Ã¶nemlidir","RÃ¼zgar yÃ¶nÃ¼ Ã§arpma yÃ¶nÃ¼nÃ¼ deÄŸiÅŸtirir"],correctAnswer:1,explanation:"Kimyasal gazlar rÃ¼zgarla taÅŸÄ±ndÄ±ÄŸÄ±ndan, rÃ¼zgar yÃ¶nÃ¼ hangi mahallelerin etkileneceÄŸini ve tahliye yÃ¶nÃ¼nÃ¼ belirler. Dik aÃ§Ä±da kaÃ§mak, bulutu en hÄ±zlÄ± terk etmenin yoludur."}
+{question:"Yakın çevrenizde kimyasal kaza oldu ve zehirli gaz yayılıyor. Rüzgar güneyden esiyor. Hangi yöne kaçmalısınız?",choices:["Güneye — rüzgarın yönünde hızla uzaklaşın","Kuzeye — rüzgar size doğru esiyor, zaten maruz kalıyorsunuz","Doğu veya batıya — rüzgara dik açıda uzaklaşın","Olduğunuz yerde kalın"],correctAnswer:2,explanation:"Kimyasal gaz bulutu rüzgar yönüyle yayılır. Rüzgara dik açıda (doğu veya batıya) uzaklaşmak, buluttan en hızlı çıkış yolunu sağlar. Rüzgar yönünde kaçmak bulutu kovalamak, rüzgara karşı kaçmak bulutun içine dalmak anlamına gelir."},
+{question:"Cildize tehlikeli kimyasal bir madde döküldü. İlk yapmanız gereken nedir?",choices:["Kimyasalı nötralize etmek için üzerine sirke veya karbonat dökün","Kimyasal maddenin adını araştırıp özel panzehir hazırlayın","Etkilenen bölgeyi en az 15-20 dk bol akan suyla yıkayın ve 112'yi arayın","Alkollü bez veya ıslak mendille silin"],correctAnswer:2,explanation:"Çoğu kimyasal için bol akan su ile uzun süre yıkamak en etkili ilk müdahaledir. Nötralizasyon girişimleri kimyasal reaksiyon yaratabilir ve durumu kötüleştirebilir. Maddenin adını sonra 112 ekibine bildirin."},
+{question:"Kimyasal kaza sonrası 'iç sığınak' uygulanırken hangi adım kritiktir?",choices:["Klima ve fanları açık tutun — hava sirkülasyonu önemli","Tüm kapı-pencereyi kapatın ve havalandırmayı durdurun","Bodrum katta kalın — kimyasallar aşağıya çöker","Pencereleri hafif açık bırakın — taze hava için"],correctAnswer:1,explanation:"Kimyasal buhar bina içine sızmasını önlemek için tüm havalandırma sistemleri kapatılmalı, kapı ve pencereler bantla/ıslak havluyla sızdırmaz hale getirilmelidir. Klima ve vantilatör açık bırakmak kirli havayı içeri çeker."},
+{question:"Araç plakasındaki turuncu HAZMAT pano numarası ne işe yarar?",choices:["Aracın sahip olduğu tehlikeli madde miktarını gösterir","UN numarası ve tehlike kodu olarak kimyasal maddenin türünü ve tehlikesini tanımlar","Yalnızca gümrük kontrolü içindir","Araç ağırlığını gösterir"],correctAnswer:1,explanation:"Turuncu HAZMAT panolar üst kısımda tehlike numarası (Kemler kodu), alt kısımda ise UN numarası (madde kimlik kodu) taşır. Kurtarma ekipleri ve zehir danışma hatları bu numara ile hızlı müdahale bilgisine ulaşır."},
+{question:"Kimyasal sızıntı bölgesinden kurtarılan ve kimyasala maruz kalmış birini arabaya almadan önce ne yapmalısınız?",choices:["Hemen arabaya alın, hastane yolunda soyunur","Korunmadan kişiye yaklaşmayın; kıyafetlerini dışarıda çıkarmasını isteyin ve bol suyla yıkayın, sonra araca alın","Kişiyi battaniyeyle sarın ve havalandırmayı açın","Yalnızca yüzüne su dökün, yeterlidir"],correctAnswer:1,explanation:"Kontamine kişi araçta ikincil maruziyet yaratır. Kıyafetlerin dışarıda çıkarılması maruziyetin %80'ini azaltır. Mümkünse bol suyla yıkama yapıldıktan sonra araca alın. Kendi güvenliğinizi koruyun."},
+{question:"Zehir Danışma Hattı'nın Türkiye numarası nedir?",choices:["112","184","114","155"],correctAnswer:2,explanation:"Türkiye Zehir Danışma Hattı 7/24 hizmet veren 114 numarasıdır. Kimyasal temas, ilaç zehirlenmesi veya madde yutulması gibi durumlarda uzman yönlendirme sağlar. Maddenin adını ve miktarını hazır edin."},
+{question:"Kimyasal kazada rüzgar yönünü neden bilmek kritiktir?",choices:["Rüzgar yönü yangın riskini artırır","Kimyasal gaz bulutu rüzgar yönünde taşınır; tahliye yönünü ve sığınak kararını belirler","Rüzgar yönü yalnızca deniz kenarında önemlidir","Rüzgar yönü çarpma yönünü değiştirir"],correctAnswer:1,explanation:"Kimyasal gazlar rüzgarla taşındığından, rüzgar yönü hangi mahallelerin etkileneceğini ve tahliye yönünü belirler. Dik açıda kaçmak, bulutu en hızlı terk etmenin yoludur."}
 ],
 nukleer:[
-{question:"NÃ¼kleer veya radyolojik kaza haberini duydunuz ve dÄ±ÅŸarÄ±dasÄ±nÄ±z. Ä°lk yapmanÄ±z gereken nedir?",choices:["OlayÄ± gÃ¶rmek iÃ§in olay yerine yaklaÅŸÄ±n","AraÃ§la hÄ±zla ÅŸehir dÄ±ÅŸÄ±na kaÃ§Ä±n","En yakÄ±n saÄŸlam binaya girin, iÃ§ sÄ±ÄŸÄ±nak uygulayÄ±n ve resmi yÃ¶nlendirmeyi bekleyin","AÃ§Ä±k alanda yere yatÄ±n"],correctAnswer:2,explanation:"Bina iÃ§inde kalmak (iÃ§ sÄ±ÄŸÄ±nak) radyasyon maruziyetini %70-90 oranÄ±nda azaltÄ±r. Yetkililerden tahliye emri gelmeden araÃ§la kaÃ§mak trafik kargaÅŸasÄ± yaratabilir ve sizi aÃ§Ä±k havada tutabilir."},
-{question:"Ä°yot tableti (potasyum iyodÃ¼r/KI) nÃ¼kleer kazada nasÄ±l koruma saÄŸlar?",choices:["TÃ¼m radyasyon tÃ¼rlerine karÅŸÄ± genel kalkan gÃ¶revi gÃ¶rÃ¼r","YalnÄ±zca tiroid bezini radyoaktif iyot (I-131) uptake'inden korur; diÄŸer radyasyon tÃ¼rlerine etkisi yoktur","Radyasyon dozunu Ã¶lÃ§er","VÃ¼cuttaki radyoaktif maddeleri temizler"],correctAnswer:1,explanation:"KI tabletleri yalnÄ±zca tiroid bezinin radyoaktif iyot (I-131) emiÅŸini engeller. Gama, beta veya diÄŸer radyoaktif izotoplara karÅŸÄ± koruma saÄŸlamaz. Yetkililer daÄŸÄ±tmadÄ±kÃ§a ve yÃ¶nlendirmedikÃ§e alÄ±nmamalÄ±dÄ±r."},
-{question:"Radyasyon maruziyetini azaltmanÄ±n 3 temel ilkesi nedir?",choices:["Yemek, su ve uyku","Zaman, mesafe ve kalkan (bina/duvar gibi engel)","Maske, eldiven ve gÃ¶zlÃ¼k","YÄ±kama, temiz hava ve ilaÃ§"],correctAnswer:1,explanation:"Radyasyon korumasÄ±nÄ±n 3 temel ilkesi: 1) SÃ¼reyi azaltmak (kaynakla temas sÃ¼resini kÄ±saltmak), 2) Mesafeyi artÄ±rmak, 3) Kalkan (beton, kurÅŸun, toprak gibi yoÄŸun malzeme) kullanmak. Her Ã¼Ã§Ã¼ de maruziyeti Ã¶nemli Ã¶lÃ§Ã¼de azaltÄ±r."},
-{question:"NÃ¼kleer olayda iÃ§ sÄ±ÄŸÄ±nak uygularken hangisi yanlÄ±ÅŸtÄ±r?",choices:["KapÄ± ve pencereleri kapatmak","Klima ve fanlarÄ± kapatmak","KapÄ± kenarlarÄ±nÄ± bantla sÄ±zdÄ±rmaz yapmak","HavalandÄ±rma sistemini aÃ§Ä±k tutmak â€” taze hava alÄ±mÄ± iÃ§in"],correctAnswer:3,explanation:"Ä°Ã§ sÄ±ÄŸÄ±nakta tÃ¼m havalandÄ±rma kapatÄ±lmalÄ±dÄ±r. Radyoaktif toz veya gaz iÃ§eren dÄ±ÅŸ havayÄ± iÃ§eri Ã§ekmek maruziyeti ciddi Ã¶lÃ§Ã¼de artÄ±rÄ±r. Bina iÃ§indeki hava, dÄ±ÅŸ maruziyete kÄ±yasla Ã§ok daha temizdir."},
-{question:"DÄ±ÅŸarÄ±dan gelen ve potansiyel radyasyon iÃ§eren kÄ±yafetlere ne yapÄ±lmalÄ±dÄ±r?",choices:["Ã‡amaÅŸÄ±r makinesinde yÄ±kayÄ±n ve tekrar giyin","KÄ±yafetleri bina iÃ§inde Ã§Ä±karÄ±n ve saklayÄ±n","KÄ±yafetleri bina dÄ±ÅŸÄ±nda Ã§Ä±karÄ±n, poÅŸete koyun ve uzaklaÅŸtÄ±rÄ±n; sonra duÅŸ alÄ±n","KÄ±yafetleri Ã¼zerinizde tutun, radyasyonu bloke eder"],correctAnswer:2,explanation:"KÄ±yafetleri dÄ±ÅŸarÄ±da Ã§Ä±karmak radyoaktif tozu binaya taÅŸÄ±maktan Ã¶nler. PoÅŸete koyup uzaklaÅŸtÄ±rmak Ã§evresel kontaminasyonu sÄ±nÄ±rlar. DuÅŸ almak cilt Ã¼zerindeki partikÃ¼lleri temizler."},
-{question:"TÃ¼rkiye'de nÃ¼kleer konularda yetkili resmi kurum hangisidir?",choices:["TÃ¼rkiye Meteoroloji Genel MÃ¼dÃ¼rlÃ¼ÄŸÃ¼","AFAD","TAEK â€” TÃ¼rkiye Atom Enerjisi Kurumu","SaÄŸlÄ±k BakanlÄ±ÄŸÄ± Halk SaÄŸlÄ±ÄŸÄ± Genel MÃ¼dÃ¼rlÃ¼ÄŸÃ¼"],correctAnswer:2,explanation:"TAEK (TÃ¼rkiye Atom Enerjisi Kurumu), TÃ¼rkiye'de nÃ¼kleer ve radyolojik gÃ¼venliÄŸin dÃ¼zenleyici ve denetleyici kurumudur. Radyasyon acillerinde TAEK ve AFAD koordineli hareket eder."},
-{question:"'Kirli bomba' (radyolojik daÄŸÄ±tÄ±m cihazÄ±) hakkÄ±nda hangisi doÄŸrudur?",choices:["NÃ¼kleer bombaya eÅŸdeÄŸer yÄ±kÄ±m gÃ¼cÃ¼ne sahiptir","Radyoaktif materyal iÃ§ermez, yalnÄ±zca kimyasal gaz kullanÄ±r","Geleneksel patlayÄ±cÄ±yla radyoaktif madde yayar; patlama hasarÄ± radyasyon hasarÄ±ndan bÃ¼yÃ¼k olabilir","YalnÄ±zca denizaltÄ±da kullanÄ±lÄ±r"],correctAnswer:2,explanation:"Kirli bomba, geleneksel patlayÄ±cÄ±yla radyoaktif malzemeyi daÄŸÄ±tan bir cihazdÄ±r. NÃ¼kleer fisyon gerÃ§ekleÅŸmez, bu yÃ¼zden nÃ¼kleer bombaya kÄ±yasla radyasyon etkisi Ã§ok sÄ±nÄ±rlÄ±dÄ±r. AsÄ±l tehlike panik, tahliye gÃ¼Ã§lÃ¼ÄŸÃ¼ ve bÃ¶lgenin kontaminasyonudur."}
+{question:"Nükleer veya radyolojik kaza haberini duydunuz ve dışarıdasınız. İlk yapmanız gereken nedir?",choices:["Olayı görmek için olay yerine yaklaşın","Araçla hızla şehir dışına kaçın","En yakın sağlam binaya girin, iç sığınak uygulayın ve resmi yönlendirmeyi bekleyin","Açık alanda yere yatın"],correctAnswer:2,explanation:"Bina içinde kalmak (iç sığınak) radyasyon maruziyetini %70-90 oranında azaltır. Yetkililerden tahliye emri gelmeden araçla kaçmak trafik kargaşası yaratabilir ve sizi açık havada tutabilir."},
+{question:"İyot tableti (potasyum iyodür/KI) nükleer kazada nasıl koruma sağlar?",choices:["Tüm radyasyon türlerine karşı genel kalkan görevi görür","Yalnızca tiroid bezini radyoaktif iyot (I-131) uptake'inden korur; diğer radyasyon türlerine etkisi yoktur","Radyasyon dozunu ölçer","Vücuttaki radyoaktif maddeleri temizler"],correctAnswer:1,explanation:"KI tabletleri yalnızca tiroid bezinin radyoaktif iyot (I-131) emişini engeller. Gama, beta veya diğer radyoaktif izotoplara karşı koruma sağlamaz. Yetkililer dağıtmadıkça ve yönlendirmedikçe alınmamalıdır."},
+{question:"Radyasyon maruziyetini azaltmanın 3 temel ilkesi nedir?",choices:["Yemek, su ve uyku","Zaman, mesafe ve kalkan (bina/duvar gibi engel)","Maske, eldiven ve gözlük","Yıkama, temiz hava ve ilaç"],correctAnswer:1,explanation:"Radyasyon korumasının 3 temel ilkesi: 1) Süreyi azaltmak (kaynakla temas süresini kısaltmak), 2) Mesafeyi artırmak, 3) Kalkan (beton, kurşun, toprak gibi yoğun malzeme) kullanmak. Her üçü de maruziyeti önemli ölçüde azaltır."},
+{question:"Nükleer olayda iç sığınak uygularken hangisi yanlıştır?",choices:["Kapı ve pencereleri kapatmak","Klima ve fanları kapatmak","Kapı kenarlarını bantla sızdırmaz yapmak","Havalandırma sistemini açık tutmak — taze hava alımı için"],correctAnswer:3,explanation:"İç sığınakta tüm havalandırma kapatılmalıdır. Radyoaktif toz veya gaz içeren dış havayı içeri çekmek maruziyeti ciddi ölçüde artırır. Bina içindeki hava, dış maruziyete kıyasla çok daha temizdir."},
+{question:"Dışarıdan gelen ve potansiyel radyasyon içeren kıyafetlere ne yapılmalıdır?",choices:["Çamaşır makinesinde yıkayın ve tekrar giyin","Kıyafetleri bina içinde çıkarın ve saklayın","Kıyafetleri bina dışında çıkarın, poşete koyun ve uzaklaştırın; sonra duş alın","Kıyafetleri üzerinizde tutun, radyasyonu bloke eder"],correctAnswer:2,explanation:"Kıyafetleri dışarıda çıkarmak radyoaktif tozu binaya taşımaktan önler. Poşete koyup uzaklaştırmak çevresel kontaminasyonu sınırlar. Duş almak cilt üzerindeki partikülleri temizler."},
+{question:"Türkiye'de nükleer konularda yetkili resmi kurum hangisidir?",choices:["Türkiye Meteoroloji Genel Müdürlüğü","AFAD","TAEK — Türkiye Atom Enerjisi Kurumu","Sağlık Bakanlığı Halk Sağlığı Genel Müdürlüğü"],correctAnswer:2,explanation:"TAEK (Türkiye Atom Enerjisi Kurumu), Türkiye'de nükleer ve radyolojik güvenliğin düzenleyici ve denetleyici kurumudur. Radyasyon acillerinde TAEK ve AFAD koordineli hareket eder."},
+{question:"'Kirli bomba' (radyolojik dağıtım cihazı) hakkında hangisi doğrudur?",choices:["Nükleer bombaya eşdeğer yıkım gücüne sahiptir","Radyoaktif materyal içermez, yalnızca kimyasal gaz kullanır","Geleneksel patlayıcıyla radyoaktif madde yayar; patlama hasarı radyasyon hasarından büyük olabilir","Yalnızca denizaltıda kullanılır"],correctAnswer:2,explanation:"Kirli bomba, geleneksel patlayıcıyla radyoaktif malzemeyi dağıtan bir cihazdır. Nükleer fisyon gerçekleşmez, bu yüzden nükleer bombaya kıyasla radyasyon etkisi çok sınırlıdır. Asıl tehlike panik, tahliye güçlüğü ve bölgenin kontaminasyonudur."}
 ]
 };
 
-const testTitles={yangin:"ğŸ”¥ YangÄ±n Ä°leri DÃ¼zey Testi",kimyasal:"â˜£ï¸ Kimyasal Kaza Testi",nukleer:"â˜¢ï¸ NÃ¼kleer / Radyasyon Testi"};
+const testTitles={yangin:"🔥 Yangın İleri Düzey Testi",kimyasal:"☣️ Kimyasal Kaza Testi",nukleer:"☢️ Nükleer / Radyasyon Testi"};
 let currentTest=null,currentQuestion=0,score=0,allAnswers=[],isAnswerSelected=false,autoContinueTimer=null;
 
 function startTest(type){
@@ -877,9 +877,9 @@ function selectAnswer(idx){
     allAnswers.push({question:q.question,userAnswer:q.choices[idx],correctAnswer:q.choices[q.correctAnswer],isCorrect:ok,explanation:q.explanation});
     if(ok)score++;
     const fb=document.getElementById('feedbackContainer');
-    fb.innerHTML=`<div class="feedback ${ok?'correct':'wrong'}"><strong>${ok?'âœ… DoÄŸru!':'âŒ YanlÄ±ÅŸ!'}</strong><br>${q.explanation}</div>
-    <button class="auto-continue-btn" onclick="nextQuestion()">${currentQuestion<testData[currentTest].length-1?'âï¸ Sonraki Soru':'ğŸ SonuÃ§larÄ± GÃ¶ster'}</button>
-    <div class="countdown-text">Otomatik geÃ§iÅŸ: <span id="countdownNumber">4</span> sn</div>`;
+    fb.innerHTML=`<div class="feedback ${ok?'correct':'wrong'}"><strong>${ok?'✅ Doğru!':'❌ Yanlış!'}</strong><br>${q.explanation}</div>
+    <button class="auto-continue-btn" onclick="nextQuestion()">${currentQuestion<testData[currentTest].length-1?'⏭️ Sonraki Soru':'🏁 Sonuçları Göster'}</button>
+    <div class="countdown-text">Otomatik geçiş: <span id="countdownNumber">4</span> sn</div>`;
     fb.scrollIntoView({behavior:'smooth',block:'nearest'});
     let cd=4;
     autoContinueTimer=setInterval(()=>{cd--;const el=document.getElementById('countdownNumber');if(el)el.textContent=cd;if(cd<=0){clearInterval(autoContinueTimer);autoContinueTimer=null;nextQuestion();}},1000);
@@ -889,24 +889,24 @@ function showResults(){
     const tc=document.getElementById('testContent');const total=testData[currentTest].length;
     const pct=Math.round((score/total)*100);
     let icon,msg;
-    if(pct>=80){icon='ğŸ†';msg='MÃ¼kemmel! Bu alanda gerÃ§ek bir uzmansÄ±n!';}
-    else if(pct>=57){icon='ğŸ‘';msg='Ä°yi iÅŸ! Ä°nce detaylarÄ± da Ã¶ÄŸrenmeye devam et.';}
-    else{icon='ğŸ’¡';msg='Zorlu sorular! Bilgi kartlarÄ±nÄ± okuyarak tekrar dene.';}
+    if(pct>=80){icon='🏆';msg='Mükemmel! Bu alanda gerçek bir uzmansın!';}
+    else if(pct>=57){icon='👍';msg='İyi iş! İnce detayları da öğrenmeye devam et.';}
+    else{icon='💡';msg='Zorlu sorular! Bilgi kartlarını okuyarak tekrar dene.';}
     tc.innerHTML=`<div class="result-screen">
       <div class="result-icon">${icon}</div>
       <div class="result-score">${score}/${total}</div>
-      <div class="result-message">${msg}<br>BaÅŸarÄ± oranÄ±n: <strong>%${pct}</strong></div>
-      <div class="detailed-results"><h3 style="margin-bottom:1.25rem;color:var(--primary);">ğŸ“Š DetaylÄ± SonuÃ§lar</h3>
+      <div class="result-message">${msg}<br>Başarı oranın: <strong>%${pct}</strong></div>
+      <div class="detailed-results"><h3 style="margin-bottom:1.25rem;color:var(--primary);">📊 Detaylı Sonuçlar</h3>
         ${allAnswers.map((a,i)=>`<div class="result-item ${a.isCorrect?'correct':'wrong'}">
           <div class="result-question">Soru ${i+1}: ${a.question}</div>
-          <div class="result-answer ${a.isCorrect?'correct':'wrong'}">${a.isCorrect?'âœ…':'âŒ'} <strong>Senin cevabÄ±n:</strong> ${a.userAnswer}</div>
-          ${!a.isCorrect?`<div class="result-answer correct">âœ… <strong>DoÄŸru cevap:</strong> ${a.correctAnswer}</div>`:''}
-          <div class="result-explanation">ğŸ’¡ ${a.explanation}</div>
+          <div class="result-answer ${a.isCorrect?'correct':'wrong'}">${a.isCorrect?'✅':'❌'} <strong>Senin cevabın:</strong> ${a.userAnswer}</div>
+          ${!a.isCorrect?`<div class="result-answer correct">✅ <strong>Doğru cevap:</strong> ${a.correctAnswer}</div>`:''}
+          <div class="result-explanation">💡 ${a.explanation}</div>
         </div>`).join('')}
       </div>
       <div class="result-actions">
-        <button class="card-btn primary" onclick="startTest('${currentTest}')">ğŸ”„ Tekrar Dene</button>
-        <button class="card-btn secondary" onclick="closeTest()">ğŸ  Geri DÃ¶n</button>
+        <button class="card-btn primary" onclick="startTest('${currentTest}')">🔄 Tekrar Dene</button>
+        <button class="card-btn secondary" onclick="closeTest()">🏠 Geri Dön</button>
       </div></div>`;
     document.getElementById('testOverlay').scrollTop=0;
 }
